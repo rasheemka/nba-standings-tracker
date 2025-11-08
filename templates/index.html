@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Friends Draft Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .last-updated {
+            margin-top: 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .standings-table {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 18px 20px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: #f5f5f5;
+        }
+
+        .rank {
+            font-weight: bold;
+            font-size: 1.3em;
+            width: 60px;
+            text-align: center;
+        }
+
+        .rank-1 { color: #ffd700; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); }
+        .rank-2 { color: #c0c0c0; }
+        .rank-3 { color: #cd7f32; }
+
+        .friend-name {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #2a5298;
+        }
+
+        .stat {
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .win-pct {
+            font-weight: 600;
+            color: #27ae60;
+        }
+
+        .team-breakdown {
+            margin-top: 50px;
+        }
+
+        .friend-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .friend-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .friend-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2a5298;
+        }
+
+        .friend-wins {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #27ae60;
+        }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .team-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-name {
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #2a5298;
+            margin-bottom: 8px;
+        }
+
+        .team-record {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .team-ppg {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .refresh-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .refresh-btn:active {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .teams-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 12px 10px;
+            }
+        }
+
+        .medal {
+            font-size: 1.5em;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏀 NBA Friends Draft Challenge 🏀</h1>
+            <div class="subtitle">2025-26 Season Standings</div>
+            <div class="last-updated">
+                Last Updated: {{ last_updated[:10] }} at {{ last_updated[11:16] }}
+                <br>
+                <small>Auto-updates daily at 6:00 AM EDT</small>
+            </div>
+        </header>
+
+        <div class="standings-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th style="text-align: center;">Wins</th>
+                        <th style="text-align: center;">Losses</th>
+                        <th style="text-align: center;">Win %</th>
+                        <th style="text-align: center;">Total Pts</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friend, stats in sorted_friends %}
+                    <tr>
+                        <td class="rank rank-{{ loop.index }}">
+                            {% if loop.index == 1 %}
+                                <span class="medal">🥇</span>
+                            {% elif loop.index == 2 %}
+                                <span class="medal">🥈</span>
+                            {% elif loop.index == 3 %}
+                                <span class="medal">🥉</span>
+                            {% else %}
+                                {{ loop.index }}
+                            {% endif %}
+                        </td>
+                        <td class="friend-name">{{ friend }}</td>
+                        <td class="stat">{{ stats.total_wins }}</td>
+                        <td class="stat">{{ stats.total_losses }}</td>
+                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+                        <td class="stat">{{ "%.1f"|format(stats.total_pts_scored) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="team-breakdown">
+            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em;">Team Breakdown</h2>
+            
+            {% for friend, stats in sorted_friends %}
+            <div class="friend-section">
+                <div class="friend-header">
+                    <div class="friend-title">
+                        {% if loop.index == 1 %}🥇{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% endif %}
+                        {{ friend }}
+                    </div>
+                    <div class="friend-wins">{{ stats.total_wins }} Wins</div>
+                </div>
+                
+                <div class="teams-grid">
+                    {% for team in team_breakdown[friend] %}
+                    <div class="team-card">
+                        <div class="team-name">{{ team.name }}</div>
+                        <div class="team-record">
+                            Record: {{ team.wins }}-{{ team.losses }} ({{ "%.1f"|format(team.win_pct * 100) }}%)
+                        </div>
+                        <div class="team-ppg">{{ "%.1f"|format(team.pts) }} PPG</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <button class="refresh-btn" onclick="refreshData()">🔄 Refresh Data</button>
+
+    <script>
+        function refreshData() {
+            const btn = document.querySelector('.refresh-btn');
+            btn.textContent = '⏳ Updating...';
+            btn.disabled = true;
+            
+            fetch('/api/update')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        location.reload();
+                    } else {
+                        alert('Failed to update data. Please try again.');
+                        btn.textContent = '🔄 Refresh Data';
+                        btn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    alert('Error updating data: ' + error);
+                    btn.textContent = '🔄 Refresh Data';
+                    btn.disabled = false;
+                });
+        }
+    </script>
+</body>
+</html>
