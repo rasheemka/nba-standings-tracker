@@ -9,6 +9,7 @@ import pandas as pd
 from typing import Dict, List
 from nba_api.stats.endpoints import leaguedashteamstats
 from nba_api.stats.static import teams
+from nba_api.stats.endpoints import leaguegamelog
 import time
 
 # Mapping of our team names to NBA API team names
@@ -48,6 +49,7 @@ TEAM_ASSIGNMENTS = {
     "Adam": ["Nuggets", "Celtics", "Heat", "Kings"],
     "Duke": ["Knicks", "Clippers", "Raptors", "Bulls"],
     "Nick": ["Rockets", "Timberwolves", "76ers", "Trail Blazers"],
+    "Undrafted": ["Nets", "Jazz"],
 }
 
 
@@ -142,6 +144,108 @@ def fetch_team_stats():
         return None
 
 
+def fetch_historical_standings():
+    """
+    Fetch game-by-game results to build historical standings over time
+    """
+    try:
+        time.sleep(0.6)
+        
+        # Get all games for the season
+        gamelog = leaguegamelog.LeagueGameLog(
+            season='2025-26',
+            season_type_all_star='Regular Season',
+            timeout=30
+        )
+        
+        df = gamelog.get_data_frames()[0]
+        
+        # Sort by game date
+        df = df.sort_values('GAME_DATE')
+        
+        # Build cumulative records for each team by date
+        team_records = {}
+        dates = []
+        
+        for _, game in df.iterrows():
+            game_date = game['GAME_DATE']
+            team_name = game['TEAM_NAME']
+            wl = game['WL']  # 'W' or 'L'
+            
+            if team_name not in team_records:
+                team_records[team_name] = {'wins': 0, 'losses': 0, 'history': []}
+            
+            # Update record
+            if wl == 'W':
+                team_records[team_name]['wins'] += 1
+            else:
+                team_records[team_name]['losses'] += 1
+            
+            total_games = team_records[team_name]['wins'] + team_records[team_name]['losses']
+            win_pct = team_records[team_name]['wins'] / total_games if total_games > 0 else 0
+            
+            team_records[team_name]['history'].append({
+                'date': game_date,
+                'wins': team_records[team_name]['wins'],
+                'losses': team_records[team_name]['losses'],
+                'win_pct': win_pct
+            })
+            
+            if game_date not in dates:
+                dates.append(game_date)
+        
+        return team_records, sorted(set(dates))
+        
+    except Exception as e:
+        print(f"Error fetching historical standings: {e}")
+        return None, None
+
+
+def calculate_friend_historical_standings(team_records, dates):
+    """
+    Calculate win% over time for each friend based on their teams' game-by-game records
+    """
+    if not team_records or not dates:
+        return None
+    
+    friend_history = {}
+    
+    for friend, teams in TEAM_ASSIGNMENTS.items():
+        friend_history[friend] = []
+        
+        for date in dates:
+            total_wins = 0
+            total_losses = 0
+            
+            for team in teams:
+                # Find matching team
+                matched_team = None
+                for api_team_name in team_records.keys():
+                    if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
+                        matched_team = api_team_name
+                        break
+                
+                if matched_team and team_records[matched_team]['history']:
+                    # Find the most recent game on or before this date
+                    for record in team_records[matched_team]['history']:
+                        if record['date'] <= date:
+                            latest_wins = record['wins']
+                            latest_losses = record['losses']
+                    
+                    total_wins += latest_wins
+                    total_losses += latest_losses
+            
+            total_games = total_wins + total_losses
+            win_pct = (total_wins / total_games * 100) if total_games > 0 else 0
+            
+            friend_history[friend].append({
+                'date': date,
+                'win_pct': win_pct
+            })
+    
+    return friend_history
+
+
 def calculate_friend_totals(team_data: Dict) -> Dict:
     """
     Calculate total wins and stats for each friend based on their drafted teams
@@ -182,6 +286,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             'total_pts_scored': total_pts_scored,
             'total_pts_allowed': total_pts_allowed,
             'point_differential': total_pts_scored - total_pts_allowed,
+            'point_diff_per_game': (total_pts_scored - total_pts_allowed) / games_played if games_played > 0 else 0,
             'teams': teams
         }
     

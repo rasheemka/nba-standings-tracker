@@ -10,7 +10,7 @@ from datetime import datetime
 import pytz
 import json
 import os
-from nba_tracker import fetch_team_stats, calculate_friend_totals, TEAM_ASSIGNMENTS
+from nba_tracker import fetch_team_stats, calculate_friend_totals, TEAM_ASSIGNMENTS, fetch_historical_standings, calculate_friend_historical_standings
 
 app = Flask(__name__)
 
@@ -35,11 +35,16 @@ def update_nba_data():
         if team_stats:
             friend_totals = calculate_friend_totals(team_stats)
             
+            # Also fetch historical data for the graph
+            team_records, dates = fetch_historical_standings()
+            friend_history = calculate_friend_historical_standings(team_records, dates) if team_records else None
+            
             # Prepare data for caching
             cache_data = {
                 'last_updated': datetime.now().isoformat(),
                 'team_stats': team_stats,
-                'friend_totals': friend_totals
+                'friend_totals': friend_totals,
+                'friend_history': friend_history
             }
             
             # Save to cache file
@@ -125,7 +130,8 @@ def index():
         'index.html',
         sorted_friends=sorted_friends,
         team_breakdown=team_breakdown,
-        last_updated=data['last_updated']
+        last_updated=data['last_updated'],
+        friend_history=data.get('friend_history')
     )
 
 

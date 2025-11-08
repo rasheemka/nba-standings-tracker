@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA Friends Draft Challenge</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -256,7 +257,7 @@
                         <th style="text-align: center;">Wins</th>
                         <th style="text-align: center;">Losses</th>
                         <th style="text-align: center;">Win %</th>
-                        <th style="text-align: center;">Total Pts</th>
+                        <th style="text-align: center;">Pt Diff/Game</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -277,12 +278,19 @@
                         <td class="stat">{{ stats.total_wins }}</td>
                         <td class="stat">{{ stats.total_losses }}</td>
                         <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
-                        <td class="stat">{{ "%.1f"|format(stats.total_pts_scored) }}</td>
+                        <td class="stat">{{ "%.1f"|format(stats.point_diff_per_game) }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
+
+        {% if friend_history %}
+        <div class="standings-table" style="padding: 30px; margin-bottom: 40px;">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📈 Season Win % Horse Race</h2>
+            <canvas id="horseRaceChart" style="max-height: 500px;"></canvas>
+        </div>
+        {% endif %}
 
         <div class="team-breakdown">
             <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em;">Team Breakdown</h2>
@@ -338,6 +346,117 @@
                     btn.disabled = false;
                 });
         }
+
+        {% if friend_history %}
+        // Horse Race Chart
+        const ctx = document.getElementById('horseRaceChart').getContext('2d');
+        
+        const friendHistory = {{ friend_history | tojson }};
+        
+        // Define colors for each friend
+        const colors = {
+            'JJ': '#FF6384',
+            'Nate': '#36A2EB',
+            'Chris': '#FFCE56',
+            'Adam': '#4BC0C0',
+            'Duke': '#9966FF',
+            'Nick': '#FF9F40',
+            'Undrafted': '#C9CBCF'
+        };
+        
+        // Get all unique dates
+        const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+        
+        // Format dates for display
+        const formattedDates = dates.map(date => {
+            const d = new Date(date);
+            return (d.getMonth() + 1) + '/' + d.getDate();
+        });
+        
+        // Create datasets for each friend
+        const datasets = Object.keys(friendHistory).map(friend => ({
+            label: friend,
+            data: friendHistory[friend].map(d => d.win_pct),
+            borderColor: colors[friend] || '#000000',
+            backgroundColor: colors[friend] || '#000000',
+            borderWidth: 3,
+            fill: false,
+            tension: 0.1,
+            pointRadius: 2,
+            pointHoverRadius: 6
+        }));
+        
+        const horseRaceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: formattedDates,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            usePointStyle: true,
+                            padding: 15
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: {
+                            display: true,
+                            text: 'Win Percentage (%)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Date',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            maxTicksLimit: 20,
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    }
+                }
+            }
+        });
+        {% endif %}
     </script>
 </body>
 </html>
