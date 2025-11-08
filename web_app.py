@@ -20,8 +20,15 @@ CACHE_FILE = 'nba_data_cache.json'
 def update_nba_data():
     """
     Fetch latest NBA data and cache it
+    Only runs locally - on Render, uses pre-cached data
     """
-    print(f"[{datetime.now()}] Updating NBA data...")
+    print(f"[{datetime.now()}] Checking for NBA data updates...")
+    
+    # On Render or in production, skip fetching and use cached data
+    import os
+    if os.environ.get('RENDER') or os.path.exists('/opt/render'):
+        print(f"[{datetime.now()}] Running on Render - using pre-cached data")
+        return True
     
     try:
         team_stats = fetch_team_stats()

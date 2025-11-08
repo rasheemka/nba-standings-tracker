@@ -6,5 +6,4 @@ __pycache__/
 env/
 venv/
 *.log
-nba_data_cache.json
 .DS_Store
