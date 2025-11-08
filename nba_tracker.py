@@ -7,6 +7,9 @@ import requests
 from datetime import datetime
 import pandas as pd
 from typing import Dict, List
+from nba_api.stats.endpoints import leaguedashteamstats
+from nba_api.stats.static import teams
+import time
 
 # Mapping of our team names to NBA API team names
 TEAM_NAME_MAP = {
@@ -104,89 +107,33 @@ def fetch_nba_standings():
 
 def fetch_team_stats():
     """
-    Fetch additional team statistics (points scored, points allowed, etc.)
+    Fetch additional team statistics using nba_api library
     """
     try:
-        url = "https://stats.nba.com/stats/leaguedashteamstats"
-        params = {
-            "Conference": "",
-            "DateFrom": "",
-            "DateTo": "",
-            "Division": "",
-            "GameScope": "",
-            "GameSegment": "",
-            "LastNGames": "0",
-            "LeagueID": "00",
-            "Location": "",
-            "MeasureType": "Base",
-            "Month": "0",
-            "OpponentTeamID": "0",
-            "Outcome": "",
-            "PORound": "0",
-            "PaceAdjust": "N",
-            "PerMode": "PerGame",
-            "Period": "0",
-            "PlayerExperience": "",
-            "PlayerPosition": "",
-            "PlusMinus": "N",
-            "Rank": "N",
-            "Season": "2025-26",
-            "SeasonSegment": "",
-            "SeasonType": "Regular Season",
-            "ShotClockRange": "",
-            "StarterBench": "",
-            "TeamID": "0",
-            "TwoWay": "0",
-            "VsConference": "",
-            "VsDivision": ""
-        }
+        # Use nba_api library which is more reliable
+        time.sleep(0.6)  # Rate limiting
         
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept': 'application/json, text/plain, */*',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Referer': 'https://www.nba.com/',
-            'Origin': 'https://www.nba.com',
-            'Connection': 'keep-alive',
-            'x-nba-stats-origin': 'stats',
-            'x-nba-stats-token': 'true'
-        }
+        stats = leaguedashteamstats.LeagueDashTeamStats(
+            season='2025-26',
+            season_type_all_star='Regular Season',
+            per_mode_detailed='PerGame',
+            timeout=30
+        )
         
-        # Try up to 3 times with increasing timeout
-        for attempt in range(3):
-            try:
-                timeout = 15 + (attempt * 5)  # 15, 20, 25 seconds
-                response = requests.get(url, headers=headers, params=params, timeout=timeout)
-                response.raise_for_status()
-                data = response.json()
-                break
-            except requests.exceptions.Timeout:
-                if attempt == 2:
-                    raise
-                print(f"Timeout on attempt {attempt + 1}, retrying...")
-                continue
+        df = stats.get_data_frames()[0]
         
         team_stats = {}
-        result_sets = data.get('resultSets', [])
-        
-        if result_sets:
-            headers_list = result_sets[0].get('headers', [])
-            rows = result_sets[0].get('rowSet', [])
-            
-            for row in rows:
-                team_data = dict(zip(headers_list, row))
-                team_name = team_data.get('TEAM_NAME', '')
-                
-                team_stats[team_name] = {
-                    'games_played': team_data.get('GP', 0),
-                    'wins': team_data.get('W', 0),
-                    'losses': team_data.get('L', 0),
-                    'win_pct': team_data.get('W_PCT', 0.0),
-                    'pts_scored': team_data.get('PTS', 0.0),
-                    'pts_allowed': team_data.get('OPP_PTS', 0.0) if 'OPP_PTS' in headers_list else None,
-                    'plus_minus': team_data.get('PLUS_MINUS', 0.0)
-                }
+        for _, row in df.iterrows():
+            team_name = row['TEAM_NAME']
+            team_stats[team_name] = {
+                'games_played': int(row['GP']),
+                'wins': int(row['W']),
+                'losses': int(row['L']),
+                'win_pct': float(row['W_PCT']),
+                'pts_scored': float(row['PTS']),
+                'pts_allowed': None,
+                'plus_minus': float(row.get('PLUS_MINUS', 0.0))
+            }
         
         return team_stats
         
