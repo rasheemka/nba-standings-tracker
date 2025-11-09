@@ -323,6 +323,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
         total_wins = 0
         total_losses = 0
         total_plus_minus = 0
+        total_games_played = 0
         team_count = 0
         
         for team in teams:
@@ -337,7 +338,12 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
                 total_wins += team_data[matched_team].get('wins', 0)
                 total_losses += team_data[matched_team].get('losses', 0)
                 total_plus_minus += team_data[matched_team].get('plus_minus', 0)
+                total_games_played += team_data[matched_team].get('games_played', 0)
                 team_count += 1
+        
+        # Calculate games remaining (82 games per team)
+        total_possible_games = len(teams) * 82
+        games_remaining = total_possible_games - total_games_played
         
         friend_totals[friend] = {
             'total_wins': total_wins,
@@ -345,6 +351,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             'total_games': total_wins + total_losses,
             'win_pct': total_wins / (total_wins + total_losses) if (total_wins + total_losses) > 0 else 0,
             'point_diff_per_game': total_plus_minus / team_count if team_count > 0 else 0,
+            'games_remaining': games_remaining,
             'teams': teams
         }
     

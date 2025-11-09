@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-08T19:20:31.140299",
+  "last_updated": "2025-11-08T19:24:40.243263",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 9,
@@ -279,6 +279,7 @@
       "total_games": 35,
       "win_pct": 0.6857142857142857,
       "point_diff_per_game": 3.775,
+      "games_remaining": 293,
       "teams": [
         "Thunder",
         "Spurs",
@@ -292,6 +293,7 @@
       "total_games": 37,
       "win_pct": 0.43243243243243246,
       "point_diff_per_game": -1.85,
+      "games_remaining": 291,
       "teams": [
         "Magic",
         "Hawks",
@@ -305,6 +307,7 @@
       "total_games": 36,
       "win_pct": 0.3055555555555556,
       "point_diff_per_game": -4.675,
+      "games_remaining": 292,
       "teams": [
         "Warriors",
         "Pacers",
@@ -318,6 +321,7 @@
       "total_games": 36,
       "win_pct": 0.5,
       "point_diff_per_game": 3.6750000000000003,
+      "games_remaining": 292,
       "teams": [
         "Nuggets",
         "Celtics",
@@ -331,6 +335,7 @@
       "total_games": 33,
       "win_pct": 0.5757575757575758,
       "point_diff_per_game": 1.6500000000000001,
+      "games_remaining": 295,
       "teams": [
         "Knicks",
         "Clippers",
@@ -344,6 +349,7 @@
       "total_games": 33,
       "win_pct": 0.6060606060606061,
       "point_diff_per_game": 4.875,
+      "games_remaining": 295,
       "teams": [
         "Rockets",
         "Timberwolves",
@@ -357,6 +363,7 @@
       "total_games": 18,
       "win_pct": 0.2222222222222222,
       "point_diff_per_game": -10.6,
+      "games_remaining": 146,
       "teams": [
         "Nets",
         "Jazz"

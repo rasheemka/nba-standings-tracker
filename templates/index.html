@@ -257,6 +257,7 @@
                         <th style="text-align: center;">Wins</th>
                         <th style="text-align: center;">Losses</th>
                         <th style="text-align: center;">Win %</th>
+                        <th style="text-align: center;">Games Remaining</th>
                         <th style="text-align: center;">Pt Diff/Game</th>
                     </tr>
                 </thead>
@@ -278,6 +279,7 @@
                         <td class="stat">{{ stats.total_wins }}</td>
                         <td class="stat">{{ stats.total_losses }}</td>
                         <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+                        <td class="stat">{{ stats.games_remaining }}</td>
                         <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
                     </tr>
                     {% endfor %}

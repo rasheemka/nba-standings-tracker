@@ -93,10 +93,10 @@ def index():
     if not data:
         return "Error loading NBA data. Please try again later.", 500
     
-    # Sort friends by total wins
+    # Sort friends by win percentage (descending)
     sorted_friends = sorted(
         data['friend_totals'].items(), 
-        key=lambda x: x[1]['total_wins'], 
+        key=lambda x: x[1]['win_pct'], 
         reverse=True
     )
     
