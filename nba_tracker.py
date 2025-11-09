@@ -387,8 +387,8 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             other_current_pct = friend_totals[other_friend]['win_pct']
             best_other_pct = max(best_other_pct, other_current_pct)
         
-        # Eliminated if max possible win% can't beat the current best
-        if max_win_pct <= best_other_pct:
+        # Eliminated if max possible win% can't reach the current best (tie is acceptable)
+        if max_win_pct < best_other_pct:
             friend_totals[friend]['is_eliminated'] = True
     
     return friend_totals
