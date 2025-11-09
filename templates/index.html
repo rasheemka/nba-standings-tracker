@@ -275,11 +275,7 @@
                     <tr {% if stats.is_eliminated %}class="eliminated"{% endif %}>
                         <td class="rank rank-{{ loop.index }}">
                             {% if loop.index == 1 %}
-                                <span class="medal">🥇</span>
-                            {% elif loop.index == 2 %}
-                                <span class="medal">🥈</span>
-                            {% elif loop.index == 3 %}
-                                <span class="medal">🥉</span>
+                                <span class="medal">🍆</span>
                             {% else %}
                                 {{ loop.index }}
                             {% endif %}
@@ -310,7 +306,7 @@
             <div class="friend-section">
                 <div class="friend-header">
                     <div class="friend-title">
-                        {% if loop.index == 1 %}🥇{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% endif %}
+                        {% if loop.index == 1 %}🍆{% endif %}
                         {{ friend }}
                     </div>
                     <div class="friend-wins">{{ stats.total_wins }} Wins</div>
