@@ -1,20 +1,32 @@
 #!/bin/bash
-# NBA Standings Auto-Update Script
-# This script fetches new NBA data and pushes it to GitHub
 
-# Change to the project directory
+# Auto-update script for NBA standings tracker
+# Runs daily to fetch latest data and push to GitHub
+
+# Regular season end date: April 12, 2026
+SEASON_END_DATE="2026-04-13"  # Day after season ends
+CURRENT_DATE=$(date +%Y-%m-%d)
+
+# Check if regular season has ended
+if [[ "$CURRENT_DATE" > "$SEASON_END_DATE" ]]; then
+    echo "Regular season has ended. Skipping update."
+    exit 0
+fi
+
 cd /Users/nick/Documents/NBAStandings
 
-# Fetch the latest NBA data
-/usr/local/bin/python3 update_data.py
+# Run the update script
+python3 update_data.py
 
-# If the data fetch was successful, commit and push
+# Check if the update was successful
 if [ $? -eq 0 ]; then
-    /usr/bin/git add nba_data_cache.json
-    /usr/bin/git commit -m "Auto-update NBA standings - $(date '+%Y-%m-%d %H:%M')"
-    /usr/bin/git push origin main
-    echo "NBA data updated and pushed successfully at $(date)"
+    # Add and commit the updated data
+    git add nba_data_cache.json
+    git commit -m "Automated data update - $(date '+%Y-%m-%d %H:%M')"
+    git push
+    
+    echo "Successfully updated and pushed NBA data"
 else
-    echo "Failed to fetch NBA data at $(date)"
+    echo "Failed to update NBA data"
     exit 1
 fi

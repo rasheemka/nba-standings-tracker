@@ -117,12 +117,13 @@ def fetch_team_stats():
         # Use nba_api library which is more reliable
         time.sleep(0.6)  # Rate limiting
         
-        # Filter to regular season only (starts October 21, 2025)
+        # Filter to regular season only (Oct 21, 2025 - Apr 12, 2026)
         stats = leaguedashteamstats.LeagueDashTeamStats(
             season='2025-26',
             season_type_all_star='Regular Season',
             per_mode_detailed='PerGame',
             date_from_nullable='10/21/2025',
+            date_to_nullable='04/12/2026',
             timeout=30
         )
         
@@ -155,11 +156,12 @@ def fetch_historical_standings():
     try:
         time.sleep(0.6)
         
-        # Get all games for the season (regular season only, starts October 21, 2025)
+        # Get all games for the season (regular season: Oct 21, 2025 - Apr 12, 2026)
         gamelog = leaguegamelog.LeagueGameLog(
             season='2025-26',
             season_type_all_star='Regular Season',
             date_from_nullable='10/21/2025',
+            date_to_nullable='04/12/2026',
             timeout=30
         )
         
