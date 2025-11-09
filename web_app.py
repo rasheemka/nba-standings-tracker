@@ -131,7 +131,9 @@ def index():
         sorted_friends=sorted_friends,
         team_breakdown=team_breakdown,
         last_updated=data['last_updated'],
-        friend_history=data.get('friend_history')
+        friend_history=data.get('friend_history'),
+        todays_games=data.get('todays_games', []),
+        yesterdays_games=data.get('yesterdays_games', [])
     )
 
 

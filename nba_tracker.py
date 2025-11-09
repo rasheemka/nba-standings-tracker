@@ -10,6 +10,7 @@ from typing import Dict, List
 from nba_api.stats.endpoints import leaguedashteamstats
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import leaguegamelog
+from nba_api.stats.endpoints import scoreboardv2
 import time
 import csv
 from io import StringIO
@@ -319,6 +320,130 @@ def calculate_projected_standings(current_stats, projections):
     
     print(f"  Calculated projections for {len(projected_totals)} participants")
     return projected_totals
+
+
+def fetch_todays_games():
+    """
+    Fetch today's NBA games and map teams to friends
+    """
+    try:
+        from datetime import datetime
+        time.sleep(0.6)
+        
+        today = datetime.now().strftime('%m/%d/%Y')
+        scoreboard = scoreboardv2.ScoreboardV2(game_date=today)
+        games_df = scoreboard.get_data_frames()[0]
+        
+        if len(games_df) == 0:
+            return []
+        
+        # Get team ID to name mapping
+        all_teams = teams.get_teams()
+        team_map = {team['id']: team['full_name'] for team in all_teams}
+        
+        # Create reverse mapping from team to friend
+        team_to_friend = {}
+        for friend, teams_list in TEAM_ASSIGNMENTS.items():
+            for team in teams_list:
+                # Find matching full team name
+                for full_name in team_map.values():
+                    team_words = set(team.lower().split())
+                    full_words = set(full_name.lower().split())
+                    if team_words & full_words:
+                        team_to_friend[full_name] = friend
+                        break
+        
+        # Build games list
+        todays_games = []
+        for idx, game in games_df.iterrows():
+            home_id = game['HOME_TEAM_ID']
+            visitor_id = game['VISITOR_TEAM_ID']
+            home_name = team_map.get(home_id, 'Unknown')
+            visitor_name = team_map.get(visitor_id, 'Unknown')
+            game_time = game['GAME_STATUS_TEXT']
+            
+            todays_games.append({
+                'visitor': visitor_name,
+                'home': home_name,
+                'time': game_time,
+                'visitor_friend': team_to_friend.get(visitor_name, None),
+                'home_friend': team_to_friend.get(home_name, None)
+            })
+        
+        return todays_games
+        
+    except Exception as e:
+        print(f"Error fetching today's games: {e}")
+        return []
+
+
+def fetch_yesterdays_games():
+    """
+    Fetch yesterday's NBA games with results and map teams to friends
+    """
+    try:
+        from datetime import datetime, timedelta
+        time.sleep(0.6)
+        
+        yesterday = (datetime.now() - timedelta(days=1)).strftime('%m/%d/%Y')
+        scoreboard = scoreboardv2.ScoreboardV2(game_date=yesterday)
+        games_df = scoreboard.get_data_frames()[0]
+        line_score_df = scoreboard.get_data_frames()[1]  # Has scores
+        
+        if len(games_df) == 0:
+            return []
+        
+        # Get team ID to name mapping
+        all_teams = teams.get_teams()
+        team_map = {team['id']: team['full_name'] for team in all_teams}
+        
+        # Create reverse mapping from team to friend
+        team_to_friend = {}
+        for friend, teams_list in TEAM_ASSIGNMENTS.items():
+            for team in teams_list:
+                # Find matching full team name
+                for full_name in team_map.values():
+                    team_words = set(team.lower().split())
+                    full_words = set(full_name.lower().split())
+                    if team_words & full_words:
+                        team_to_friend[full_name] = friend
+                        break
+        
+        # Build games list with scores
+        yesterdays_games = []
+        for idx, game in games_df.iterrows():
+            game_id = game['GAME_ID']
+            home_id = game['HOME_TEAM_ID']
+            visitor_id = game['VISITOR_TEAM_ID']
+            home_name = team_map.get(home_id, 'Unknown')
+            visitor_name = team_map.get(visitor_id, 'Unknown')
+            
+            # Get scores from line_score_df
+            game_scores = line_score_df[line_score_df['GAME_ID'] == game_id]
+            visitor_score = None
+            home_score = None
+            
+            if len(game_scores) > 0:
+                for _, score_row in game_scores.iterrows():
+                    if score_row['TEAM_ID'] == visitor_id:
+                        visitor_score = score_row['PTS']
+                    elif score_row['TEAM_ID'] == home_id:
+                        home_score = score_row['PTS']
+            
+            yesterdays_games.append({
+                'visitor': visitor_name,
+                'home': home_name,
+                'visitor_score': visitor_score,
+                'home_score': home_score,
+                'visitor_friend': team_to_friend.get(visitor_name, None),
+                'home_friend': team_to_friend.get(home_name, None)
+            })
+        
+        return yesterdays_games
+        
+    except Exception as e:
+        print(f"Error fetching yesterday's games: {e}")
+        return []
 
 
 def calculate_friend_totals(team_data: Dict) -> Dict:

@@ -291,6 +291,69 @@
             </table>
         </div>
 
+        {% if yesterdays_games and yesterdays_games|length > 0 %}
+        <div class="standings-table" style="margin-bottom: 40px;">
+            <div style="padding: 30px;">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📊 Yesterday's Results</h2>
+                <div style="display: grid; gap: 15px;">
+                    {% for game in yesterdays_games %}
+                    <div style="background: #f8f9fa; padding: 15px 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1; text-align: right; color: #2a5298; font-weight: 600;">
+                            {{ game.visitor }}
+                            {% if game.visitor_friend %}
+                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.visitor_friend }})</span>
+                            {% endif %}
+                        </div>
+                        <div style="padding: 0 15px; font-size: 1.3em; font-weight: bold; color: {% if game.visitor_score > game.home_score %}#27ae60{% else %}#999{% endif %};">
+                            {{ game.visitor_score if game.visitor_score else '-' }}
+                        </div>
+                        <div style="padding: 0 10px; color: #999; font-weight: bold;">@</div>
+                        <div style="padding: 0 15px; font-size: 1.3em; font-weight: bold; color: {% if game.home_score > game.visitor_score %}#27ae60{% else %}#999{% endif %};">
+                            {{ game.home_score if game.home_score else '-' }}
+                        </div>
+                        <div style="flex: 1; text-align: left; color: #2a5298; font-weight: 600;">
+                            {{ game.home }}
+                            {% if game.home_friend %}
+                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.home_friend }})</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if todays_games and todays_games|length > 0 %}
+        <div class="standings-table" style="margin-bottom: 40px;">
+            <div style="padding: 30px;">
+                <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">🏀 Today's Games</h2>
+                <div style="display: grid; gap: 15px;">
+                    {% for game in todays_games %}
+                    <div style="background: #f8f9fa; padding: 15px 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1; text-align: right; color: #2a5298; font-weight: 600;">
+                            {{ game.visitor }}
+                            {% if game.visitor_friend %}
+                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.visitor_friend }})</span>
+                            {% endif %}
+                        </div>
+                        <div style="padding: 0 20px; color: #999; font-weight: bold;">@</div>
+                        <div style="flex: 1; text-align: left; color: #2a5298; font-weight: 600;">
+                            {{ game.home }}
+                            {% if game.home_friend %}
+                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.home_friend }})</span>
+                            {% endif %}
+                        </div>
+                        <div style="min-width: 100px; text-align: right; color: #667eea; font-weight: 600;">
+                            {{ game.time }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
         {% if friend_history %}
         <div class="standings-table" style="padding: 30px; margin-bottom: 40px;">
             <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📈 Season Win % Horse Race</h2>
