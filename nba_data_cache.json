@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-08T18:55:04.329724",
+  "last_updated": "2025-11-08T18:58:39.512713",
   "team_stats": {
     "Atlanta Dream": {
       "games_played": 44,
@@ -395,10 +395,7 @@
       "total_losses": 24,
       "total_games": 61,
       "win_pct": 0.6065573770491803,
-      "total_pts_scored": 6417.7,
-      "total_pts_allowed": 0,
-      "point_differential": 6417.7,
-      "point_diff_per_game": 105.20819672131147,
+      "point_diff_per_game": 2.175,
       "teams": [
         "Thunder",
         "Spurs",
@@ -411,10 +408,7 @@
       "total_losses": 35,
       "total_games": 60,
       "win_pct": 0.4166666666666667,
-      "total_pts_scored": 6371.2,
-      "total_pts_allowed": 0,
-      "point_differential": 6371.2,
-      "point_diff_per_game": 106.18666666666667,
+      "point_diff_per_game": -1.55,
       "teams": [
         "Magic",
         "Hawks",
@@ -427,10 +421,7 @@
       "total_losses": 34,
       "total_games": 60,
       "win_pct": 0.43333333333333335,
-      "total_pts_scored": 6256.4,
-      "total_pts_allowed": 0,
-      "point_differential": 6256.4,
-      "point_diff_per_game": 104.27333333333333,
+      "point_diff_per_game": -2.25,
       "teams": [
         "Warriors",
         "Pacers",
@@ -443,10 +434,7 @@
       "total_losses": 27,
       "total_games": 60,
       "win_pct": 0.55,
-      "total_pts_scored": 6464.700000000001,
-      "total_pts_allowed": 0,
-      "point_differential": 6464.700000000001,
-      "point_diff_per_game": 107.74500000000002,
+      "point_diff_per_game": 3.6249999999999996,
       "teams": [
         "Nuggets",
         "Celtics",
@@ -459,10 +447,7 @@
       "total_losses": 23,
       "total_games": 53,
       "win_pct": 0.5660377358490566,
-      "total_pts_scored": 5685.0,
-      "total_pts_allowed": 0,
-      "point_differential": 5685.0,
-      "point_diff_per_game": 107.26415094339623,
+      "point_diff_per_game": 0.55,
       "teams": [
         "Knicks",
         "Clippers",
@@ -475,10 +460,7 @@
       "total_losses": 24,
       "total_games": 56,
       "win_pct": 0.5714285714285714,
-      "total_pts_scored": 6089.099999999999,
-      "total_pts_allowed": 0,
-      "point_differential": 6089.099999999999,
-      "point_diff_per_game": 108.73392857142856,
+      "point_diff_per_game": 2.85,
       "teams": [
         "Rockets",
         "Timberwolves",
@@ -491,10 +473,7 @@
       "total_losses": 22,
       "total_games": 31,
       "win_pct": 0.2903225806451613,
-      "total_pts_scored": 3215.3,
-      "total_pts_allowed": 0,
-      "point_differential": 3215.3,
-      "point_diff_per_game": 103.71935483870968,
+      "point_diff_per_game": -7.4,
       "teams": [
         "Nets",
         "Jazz"

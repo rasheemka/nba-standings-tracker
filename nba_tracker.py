@@ -255,9 +255,8 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
     for friend, teams in TEAM_ASSIGNMENTS.items():
         total_wins = 0
         total_losses = 0
-        total_pts_scored = 0
-        total_pts_allowed = 0
-        games_played = 0
+        total_plus_minus = 0
+        team_count = 0
         
         for team in teams:
             # Try to find the team in team_data (case-insensitive partial match)
@@ -270,23 +269,15 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             if matched_team:
                 total_wins += team_data[matched_team].get('wins', 0)
                 total_losses += team_data[matched_team].get('losses', 0)
-                total_pts_scored += team_data[matched_team].get('pts_scored', 0) * team_data[matched_team].get('games_played', 0)
-                
-                pts_allowed = team_data[matched_team].get('pts_allowed', 0)
-                if pts_allowed:
-                    total_pts_allowed += pts_allowed * team_data[matched_team].get('games_played', 0)
-                
-                games_played += team_data[matched_team].get('games_played', 0)
+                total_plus_minus += team_data[matched_team].get('plus_minus', 0)
+                team_count += 1
         
         friend_totals[friend] = {
             'total_wins': total_wins,
             'total_losses': total_losses,
             'total_games': total_wins + total_losses,
             'win_pct': total_wins / (total_wins + total_losses) if (total_wins + total_losses) > 0 else 0,
-            'total_pts_scored': total_pts_scored,
-            'total_pts_allowed': total_pts_allowed,
-            'point_differential': total_pts_scored - total_pts_allowed,
-            'point_diff_per_game': (total_pts_scored - total_pts_allowed) / games_played if games_played > 0 else 0,
+            'point_diff_per_game': total_plus_minus / team_count if team_count > 0 else 0,
             'teams': teams
         }
     
