@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-08T20:10:07.115839",
+  "last_updated": "2025-11-08T20:19:14.185007",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 9,
@@ -1054,91 +1054,91 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Boston Celtics",
-      "home": "Orlando Magic",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "Adam",
-      "home_friend": "Nate"
-    },
-    {
       "visitor": "Cleveland Cavaliers",
       "home": "Washington Wizards",
-      "visitor_score": null,
-      "home_score": null,
+      "visitor_score": 148,
+      "home_score": 115,
       "visitor_friend": "Andy",
       "home_friend": "Andy"
     },
     {
+      "visitor": "Oklahoma City Thunder",
+      "home": "Sacramento Kings",
+      "visitor_score": 132,
+      "home_score": 101,
+      "visitor_friend": "JJ",
+      "home_friend": "Adam"
+    },
+    {
+      "visitor": "Golden State Warriors",
+      "home": "Denver Nuggets",
+      "visitor_score": 104,
+      "home_score": 129,
+      "visitor_friend": "Chris",
+      "home_friend": "Adam"
+    },
+    {
       "visitor": "Toronto Raptors",
       "home": "Atlanta Hawks",
-      "visitor_score": null,
-      "home_score": null,
+      "visitor_score": 109,
+      "home_score": 97,
       "visitor_friend": "Duke",
       "home_friend": "Nate"
     },
     {
+      "visitor": "Boston Celtics",
+      "home": "Orlando Magic",
+      "visitor_score": 110,
+      "home_score": 123,
+      "visitor_friend": "Adam",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Chicago Bulls",
+      "home": "Milwaukee Bucks",
+      "visitor_score": 110,
+      "home_score": 126,
+      "visitor_friend": "Duke",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Dallas Mavericks",
+      "home": "Memphis Grizzlies",
+      "visitor_score": 104,
+      "home_score": 118,
+      "visitor_friend": "Chris",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Utah Jazz",
+      "home": "Minnesota Timberwolves",
+      "visitor_score": 97,
+      "home_score": 137,
+      "visitor_friend": "Undrafted",
+      "home_friend": "Nick"
+    },
+    {
       "visitor": "Detroit Pistons",
       "home": "Brooklyn Nets",
-      "visitor_score": null,
-      "home_score": null,
+      "visitor_score": 125,
+      "home_score": 107,
       "visitor_friend": "JJ",
       "home_friend": "Undrafted"
     },
     {
       "visitor": "Houston Rockets",
       "home": "San Antonio Spurs",
-      "visitor_score": null,
-      "home_score": null,
+      "visitor_score": 110,
+      "home_score": 121,
       "visitor_friend": "Nick",
       "home_friend": "JJ"
     },
     {
       "visitor": "Charlotte Hornets",
       "home": "Miami Heat",
-      "visitor_score": null,
-      "home_score": null,
+      "visitor_score": 108,
+      "home_score": 126,
       "visitor_friend": "Chris",
-      "home_friend": "Adam"
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "Memphis Grizzlies",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "Chris",
-      "home_friend": "Nate"
-    },
-    {
-      "visitor": "Chicago Bulls",
-      "home": "Milwaukee Bucks",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "Duke",
-      "home_friend": "Andy"
-    },
-    {
-      "visitor": "Utah Jazz",
-      "home": "Minnesota Timberwolves",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "Undrafted",
-      "home_friend": "Nick"
-    },
-    {
-      "visitor": "Golden State Warriors",
-      "home": "Denver Nuggets",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "Chris",
-      "home_friend": "Adam"
-    },
-    {
-      "visitor": "Oklahoma City Thunder",
-      "home": "Sacramento Kings",
-      "visitor_score": null,
-      "home_score": null,
-      "visitor_friend": "JJ",
       "home_friend": "Adam"
     }
   ]

@@ -380,17 +380,26 @@ def fetch_todays_games():
 def fetch_yesterdays_games():
     """
     Fetch yesterday's NBA games with results and map teams to friends
+    Uses game log to get final scores
     """
     try:
         from datetime import datetime, timedelta
         time.sleep(0.6)
         
-        yesterday = (datetime.now() - timedelta(days=1)).strftime('%m/%d/%Y')
-        scoreboard = scoreboardv2.ScoreboardV2(game_date=yesterday)
-        games_df = scoreboard.get_data_frames()[0]
-        line_score_df = scoreboard.get_data_frames()[1]  # Has scores
+        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
         
-        if len(games_df) == 0:
+        # Get game log for yesterday
+        gamelog = leaguegamelog.LeagueGameLog(
+            season='2025-26',
+            season_type_all_star='Regular Season',
+            date_from_nullable=yesterday,
+            date_to_nullable=yesterday,
+            timeout=30
+        )
+        
+        df = gamelog.get_data_frames()[0]
+        
+        if len(df) == 0:
             return []
         
         # Get team ID to name mapping
@@ -409,40 +418,57 @@ def fetch_yesterdays_games():
                         team_to_friend[full_name] = friend
                         break
         
+        # Group by game (each game appears twice - once for each team)
+        games_dict = {}
+        for _, row in df.iterrows():
+            game_id = row['GAME_ID']
+            matchup = row['MATCHUP']
+            team_name = row['TEAM_NAME']
+            points = int(row['PTS'])
+            wl = row['WL']
+            
+            if game_id not in games_dict:
+                games_dict[game_id] = {
+                    'matchup': matchup,
+                    'teams': []
+                }
+            
+            games_dict[game_id]['teams'].append({
+                'name': team_name,
+                'points': points,
+                'is_home': '@' not in matchup,  # If no @ in matchup, this team is home
+                'wl': wl
+            })
+        
         # Build games list with scores
         yesterdays_games = []
-        for idx, game in games_df.iterrows():
-            game_id = game['GAME_ID']
-            home_id = game['HOME_TEAM_ID']
-            visitor_id = game['VISITOR_TEAM_ID']
-            home_name = team_map.get(home_id, 'Unknown')
-            visitor_name = team_map.get(visitor_id, 'Unknown')
-            
-            # Get scores from line_score_df
-            game_scores = line_score_df[line_score_df['GAME_ID'] == game_id]
-            visitor_score = None
-            home_score = None
-            
-            if len(game_scores) > 0:
-                for _, score_row in game_scores.iterrows():
-                    if score_row['TEAM_ID'] == visitor_id:
-                        visitor_score = score_row['PTS']
-                    elif score_row['TEAM_ID'] == home_id:
-                        home_score = score_row['PTS']
-            
-            yesterdays_games.append({
-                'visitor': visitor_name,
-                'home': home_name,
-                'visitor_score': visitor_score,
-                'home_score': home_score,
-                'visitor_friend': team_to_friend.get(visitor_name, None),
-                'home_friend': team_to_friend.get(home_name, None)
-            })
+        for game_id, game_info in games_dict.items():
+            if len(game_info['teams']) == 2:
+                # Determine which is home and which is visitor
+                team1, team2 = game_info['teams']
+                
+                if team1['is_home']:
+                    home = team1
+                    visitor = team2
+                else:
+                    home = team2
+                    visitor = team1
+                
+                yesterdays_games.append({
+                    'visitor': visitor['name'],
+                    'home': home['name'],
+                    'visitor_score': visitor['points'],
+                    'home_score': home['points'],
+                    'visitor_friend': team_to_friend.get(visitor['name'], None),
+                    'home_friend': team_to_friend.get(home['name'], None)
+                })
         
         return yesterdays_games
         
     except Exception as e:
         print(f"Error fetching yesterday's games: {e}")
+        import traceback
+        traceback.print_exc()
         return []
 
 
