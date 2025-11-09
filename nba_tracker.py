@@ -46,6 +46,7 @@ TEAM_NAME_MAP = {
 # Undrafted: Nets, Jazz
 TEAM_ASSIGNMENTS = {
     "JJ": ["Thunder", "Spurs", "Pistons", "Pelicans"],
+    "Andy": ["Cavaliers", "Lakers", "Bucks", "Wizards"],
     "Nate": ["Magic", "Hawks", "Grizzlies", "Suns"],
     "Chris": ["Warriors", "Pacers", "Mavericks", "Hornets"],
     "Adam": ["Nuggets", "Celtics", "Heat", "Kings"],
