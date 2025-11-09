@@ -274,7 +274,9 @@
                     {% for friend, stats in sorted_friends %}
                     <tr {% if stats.is_eliminated %}class="eliminated"{% endif %}>
                         <td class="rank rank-{{ loop.index }}">
-                            {% if loop.index == 1 %}
+                            {% if stats.is_eliminated %}
+                                <span class="medal">💀</span>
+                            {% elif loop.index == 1 %}
                                 <span class="medal">🍆</span>
                             {% else %}
                                 {{ loop.index }}
