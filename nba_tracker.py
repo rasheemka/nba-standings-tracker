@@ -345,6 +345,11 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
         total_possible_games = len(teams) * 82
         games_remaining = total_possible_games - total_games_played
         
+        # Calculate maximum possible wins (current wins + all remaining games)
+        max_possible_wins = total_wins + games_remaining
+        max_possible_games = total_possible_games
+        max_possible_win_pct = max_possible_wins / max_possible_games if max_possible_games > 0 else 0
+        
         friend_totals[friend] = {
             'total_wins': total_wins,
             'total_losses': total_losses,
@@ -352,8 +357,42 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             'win_pct': total_wins / (total_wins + total_losses) if (total_wins + total_losses) > 0 else 0,
             'point_diff_per_game': total_plus_minus / team_count if team_count > 0 else 0,
             'games_remaining': games_remaining,
+            'max_possible_win_pct': max_possible_win_pct,
             'teams': teams
         }
+    
+    # Determine elimination status
+    # Undrafted is always eliminated
+    for friend in friend_totals:
+        if friend == "Undrafted":
+            friend_totals[friend]['is_eliminated'] = True
+        else:
+            friend_totals[friend]['is_eliminated'] = False
+    
+    # Check if anyone else is mathematically eliminated
+    # A friend is eliminated if their max possible win% < current best win% of others
+    # (assuming others maintain their current pace)
+    for friend in friend_totals:
+        if friend == "Undrafted":
+            continue
+        
+        max_win_pct = friend_totals[friend]['max_possible_win_pct']
+        
+        # Check against all other friends' current win%
+        can_win = False
+        for other_friend in friend_totals:
+            if other_friend == friend or other_friend == "Undrafted":
+                continue
+            
+            other_current_pct = friend_totals[other_friend]['win_pct']
+            
+            # If this friend can still beat at least one other friend, they're not eliminated
+            if max_win_pct > other_current_pct:
+                can_win = True
+                break
+        
+        if not can_win:
+            friend_totals[friend]['is_eliminated'] = True
     
     return friend_totals
 

@@ -90,6 +90,15 @@
             background: #f5f5f5;
         }
 
+        .eliminated {
+            background: #ffe0e0 !important;
+            opacity: 0.7;
+        }
+
+        .eliminated:hover {
+            background: #ffd0d0 !important;
+        }
+
         .rank {
             font-weight: bold;
             font-size: 1.3em;
@@ -263,7 +272,7 @@
                 </thead>
                 <tbody>
                     {% for friend, stats in sorted_friends %}
-                    <tr>
+                    <tr {% if stats.is_eliminated %}class="eliminated"{% endif %}>
                         <td class="rank rank-{{ loop.index }}">
                             {% if loop.index == 1 %}
                                 <span class="medal">🥇</span>

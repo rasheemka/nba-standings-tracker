@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-08T19:24:40.243263",
+  "last_updated": "2025-11-08T19:26:29.766721",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 9,
@@ -280,12 +280,14 @@
       "win_pct": 0.6857142857142857,
       "point_diff_per_game": 3.775,
       "games_remaining": 293,
+      "max_possible_win_pct": 0.9664634146341463,
       "teams": [
         "Thunder",
         "Spurs",
         "Pistons",
         "Pelicans"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Nate": {
       "total_wins": 16,
@@ -294,12 +296,14 @@
       "win_pct": 0.43243243243243246,
       "point_diff_per_game": -1.85,
       "games_remaining": 291,
+      "max_possible_win_pct": 0.9359756097560976,
       "teams": [
         "Magic",
         "Hawks",
         "Grizzlies",
         "Suns"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Chris": {
       "total_wins": 11,
@@ -308,12 +312,14 @@
       "win_pct": 0.3055555555555556,
       "point_diff_per_game": -4.675,
       "games_remaining": 292,
+      "max_possible_win_pct": 0.9237804878048781,
       "teams": [
         "Warriors",
         "Pacers",
         "Mavericks",
         "Hornets"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Adam": {
       "total_wins": 18,
@@ -322,12 +328,14 @@
       "win_pct": 0.5,
       "point_diff_per_game": 3.6750000000000003,
       "games_remaining": 292,
+      "max_possible_win_pct": 0.9451219512195121,
       "teams": [
         "Nuggets",
         "Celtics",
         "Heat",
         "Kings"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Duke": {
       "total_wins": 19,
@@ -336,12 +344,14 @@
       "win_pct": 0.5757575757575758,
       "point_diff_per_game": 1.6500000000000001,
       "games_remaining": 295,
+      "max_possible_win_pct": 0.9573170731707317,
       "teams": [
         "Knicks",
         "Clippers",
         "Raptors",
         "Bulls"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Nick": {
       "total_wins": 20,
@@ -350,12 +360,14 @@
       "win_pct": 0.6060606060606061,
       "point_diff_per_game": 4.875,
       "games_remaining": 295,
+      "max_possible_win_pct": 0.9603658536585366,
       "teams": [
         "Rockets",
         "Timberwolves",
         "76ers",
         "Trail Blazers"
-      ]
+      ],
+      "is_eliminated": false
     },
     "Undrafted": {
       "total_wins": 4,
@@ -364,10 +376,12 @@
       "win_pct": 0.2222222222222222,
       "point_diff_per_game": -10.6,
       "games_remaining": 146,
+      "max_possible_win_pct": 0.9146341463414634,
       "teams": [
         "Nets",
         "Jazz"
-      ]
+      ],
+      "is_eliminated": true
     }
   },
   "friend_history": {
