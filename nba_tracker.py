@@ -370,28 +370,25 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             friend_totals[friend]['is_eliminated'] = False
     
     # Check if anyone else is mathematically eliminated
-    # A friend is eliminated if their max possible win% < current best win% of others
-    # (assuming others maintain their current pace)
+    # A friend is eliminated if their max possible win% < the best current win% of others
+    # (they need to be able to finish first, not just beat someone)
     for friend in friend_totals:
         if friend == "Undrafted":
             continue
         
         max_win_pct = friend_totals[friend]['max_possible_win_pct']
         
-        # Check against all other friends' current win%
-        can_win = False
+        # Find the best current win% among all other friends (excluding self and Undrafted)
+        best_other_pct = 0
         for other_friend in friend_totals:
             if other_friend == friend or other_friend == "Undrafted":
                 continue
             
             other_current_pct = friend_totals[other_friend]['win_pct']
-            
-            # If this friend can still beat at least one other friend, they're not eliminated
-            if max_win_pct > other_current_pct:
-                can_win = True
-                break
+            best_other_pct = max(best_other_pct, other_current_pct)
         
-        if not can_win:
+        # Eliminated if max possible win% can't beat the current best
+        if max_win_pct <= best_other_pct:
             friend_totals[friend]['is_eliminated'] = True
     
     return friend_totals
