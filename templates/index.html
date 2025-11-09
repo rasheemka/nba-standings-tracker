@@ -292,14 +292,14 @@
         </div>
 
         {% if yesterdays_games and yesterdays_games|length > 0 %}
-        <div class="standings-table" style="margin-bottom: 40px;">
-            <div style="padding: 30px;">
-                <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📊 Yesterday's Results</h2>
-                <div style="display: grid; gap: 15px;">
+        <div class="standings-table" style="margin-bottom: 30px;">
+            <div style="padding: 20px;">
+                <h2 style="text-align: center; margin-bottom: 15px; color: #2a5298; font-size: 1.6em;">📊 Yesterday's Results</h2>
+                <div style="display: grid; gap: 8px;">
                     {% for game in yesterdays_games %}
                     {% set visitor_won = game.visitor_score and game.home_score and game.visitor_score > game.home_score %}
                     {% set home_won = game.visitor_score and game.home_score and game.home_score > game.visitor_score %}
-                    <div style="background: #f8f9fa; padding: 15px 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #f8f9fa; padding: 10px 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 1; text-align: right; color: {% if visitor_won %}#1a3d6e{% else %}#8899aa{% endif %}; font-weight: {% if visitor_won %}700{% else %}500{% endif %};">
                             {{ game.visitor }}
                             {% if game.visitor_friend %}
@@ -327,12 +327,12 @@
         {% endif %}
 
         {% if todays_games and todays_games|length > 0 %}
-        <div class="standings-table" style="margin-bottom: 40px;">
-            <div style="padding: 30px;">
-                <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">🏀 Today's Games</h2>
-                <div style="display: grid; gap: 15px;">
+        <div class="standings-table" style="margin-bottom: 30px;">
+            <div style="padding: 20px;">
+                <h2 style="text-align: center; margin-bottom: 15px; color: #2a5298; font-size: 1.6em;">🏀 Today's Games</h2>
+                <div style="display: grid; gap: 8px;">
                     {% for game in todays_games %}
-                    <div style="background: #f8f9fa; padding: 15px 20px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="background: #f8f9fa; padding: 10px 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 1; text-align: right; color: #2a5298; font-weight: 600;">
                             {{ game.visitor }}
                             {% if game.visitor_friend %}
