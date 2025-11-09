@@ -362,22 +362,25 @@
         // Define colors for each friend
         const colors = {
             'JJ': '#FF6384',
-            'Andy': '#FF9F40',
-            'Nate': '#36A2EB',
-            'Chris': '#FFCE56',
-            'Adam': '#4BC0C0',
-            'Duke': '#9966FF',
-            'Nick': '#FF6B9D',
-            'Undrafted': '#C9CBCF'
+            'Andy': '#36A2EB',
+            'Nate': '#FFCE56',
+            'Chris': '#4BC0C0',
+            'Adam': '#9966FF',
+            'Duke': '#FF9F40',
+            'Nick': '#C9CBCF',
+            'Undrafted': '#8B4513'
         };
         
         // Get all unique dates
         const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
         
-        // Format dates for display
+        // Format dates for display (force UTC to avoid timezone issues)
         const formattedDates = dates.map(date => {
-            const d = new Date(date);
-            return (d.getMonth() + 1) + '/' + d.getDate();
+            const parts = date.split('-');
+            const year = parseInt(parts[0]);
+            const month = parseInt(parts[1]);
+            const day = parseInt(parts[2]);
+            return month + '/' + day;
         });
         
         // Create datasets for each friend
