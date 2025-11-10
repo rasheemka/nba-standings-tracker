@@ -127,7 +127,7 @@ def fetch_team_stats():
             stats = leaguedashteamstats.LeagueDashTeamStats(
                 season='2025-26',
                 season_type_all_star='Regular Season',
-                per_mode_detailed='PerGame',
+                per_mode_detailed='Totals',  # Use Totals to get cumulative stats
                 date_from_nullable='10/21/2025',
                 date_to_nullable='04/12/2026',
                 timeout=60  # Increased timeout to 60 seconds
@@ -138,14 +138,16 @@ def fetch_team_stats():
             team_stats = {}
             for _, row in df.iterrows():
                 team_name = row['TEAM_NAME']
+                total_pts = float(row['PTS'])
+                total_plus_minus = float(row.get('PLUS_MINUS', 0.0))
                 team_stats[team_name] = {
                     'games_played': int(row['GP']),
                     'wins': int(row['W']),
                     'losses': int(row['L']),
                     'win_pct': float(row['W_PCT']),
-                    'pts_scored': float(row['PTS']),
-                    'pts_allowed': None,
-                    'plus_minus': float(row.get('PLUS_MINUS', 0.0))
+                    'total_pts_scored': total_pts,
+                    'total_plus_minus': total_plus_minus,
+                    'total_pts_allowed': total_pts - total_plus_minus
                 }
             
             return team_stats
@@ -528,7 +530,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             if matched_team:
                 total_wins += team_data[matched_team].get('wins', 0)
                 total_losses += team_data[matched_team].get('losses', 0)
-                total_plus_minus += team_data[matched_team].get('plus_minus', 0)
+                total_plus_minus += team_data[matched_team].get('total_plus_minus', 0)
                 total_games_played += team_data[matched_team].get('games_played', 0)
                 team_count += 1
         
@@ -546,7 +548,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             'total_losses': total_losses,
             'total_games': total_wins + total_losses,
             'win_pct': total_wins / (total_wins + total_losses) if (total_wins + total_losses) > 0 else 0,
-            'point_diff_per_game': total_plus_minus / team_count if team_count > 0 else 0,
+            'point_diff_per_game': total_plus_minus / total_games_played if total_games_played > 0 else 0,
             'games_remaining': games_remaining,
             'max_possible_win_pct': max_possible_win_pct,
             'teams': teams
