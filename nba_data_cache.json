@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-10T06:23:34.353172",
+  "last_updated": "2025-11-10T15:50:23.741747",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 10,
@@ -1125,6 +1125,22 @@
   ],
   "yesterdays_games": [
     {
+      "visitor": "Oklahoma City Thunder",
+      "home": "Memphis Grizzlies",
+      "visitor_score": 114,
+      "home_score": 100,
+      "visitor_friend": "JJ",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Indiana Pacers",
+      "home": "Golden State Warriors",
+      "visitor_score": 83,
+      "home_score": 114,
+      "visitor_friend": "Chris",
+      "home_friend": "Chris"
+    },
+    {
       "visitor": "Minnesota Timberwolves",
       "home": "Sacramento Kings",
       "visitor_score": 144,
@@ -1141,14 +1157,6 @@
       "home_friend": "Nick"
     },
     {
-      "visitor": "Houston Rockets",
-      "home": "Milwaukee Bucks",
-      "visitor_score": 122,
-      "home_score": 115,
-      "visitor_friend": "Nick",
-      "home_friend": "Andy"
-    },
-    {
       "visitor": "Brooklyn Nets",
       "home": "New York Knicks",
       "visitor_score": 98,
@@ -1157,12 +1165,12 @@
       "home_friend": "Duke"
     },
     {
-      "visitor": "Oklahoma City Thunder",
-      "home": "Memphis Grizzlies",
-      "visitor_score": 114,
-      "home_score": 100,
-      "visitor_friend": "JJ",
-      "home_friend": "Nate"
+      "visitor": "Houston Rockets",
+      "home": "Milwaukee Bucks",
+      "visitor_score": 122,
+      "home_score": 115,
+      "visitor_friend": "Nick",
+      "home_friend": "Andy"
     },
     {
       "visitor": "Boston Celtics",
@@ -1171,14 +1179,6 @@
       "home_score": 107,
       "visitor_friend": "Adam",
       "home_friend": "Nate"
-    },
-    {
-      "visitor": "Indiana Pacers",
-      "home": "Golden State Warriors",
-      "visitor_score": 83,
-      "home_score": 114,
-      "visitor_friend": "Chris",
-      "home_friend": "Chris"
     }
   ]
 }
