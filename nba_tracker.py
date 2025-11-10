@@ -115,99 +115,115 @@ def fetch_team_stats():
     """
     Fetch additional team statistics using nba_api library
     """
-    try:
-        # Use nba_api library which is more reliable
-        time.sleep(0.6)  # Rate limiting
-        
-        # Filter to regular season only (Oct 21, 2025 - Apr 12, 2026)
-        stats = leaguedashteamstats.LeagueDashTeamStats(
-            season='2025-26',
-            season_type_all_star='Regular Season',
-            per_mode_detailed='PerGame',
-            date_from_nullable='10/21/2025',
-            date_to_nullable='04/12/2026',
-            timeout=30
-        )
-        
-        df = stats.get_data_frames()[0]
-        
-        team_stats = {}
-        for _, row in df.iterrows():
-            team_name = row['TEAM_NAME']
-            team_stats[team_name] = {
-                'games_played': int(row['GP']),
-                'wins': int(row['W']),
-                'losses': int(row['L']),
-                'win_pct': float(row['W_PCT']),
-                'pts_scored': float(row['PTS']),
-                'pts_allowed': None,
-                'plus_minus': float(row.get('PLUS_MINUS', 0.0))
-            }
-        
-        return team_stats
-        
-    except Exception as e:
-        print(f"Error fetching team stats: {e}")
-        return None
+    max_retries = 3
+    retry_delay = 5
+    
+    for attempt in range(max_retries):
+        try:
+            # Use nba_api library which is more reliable
+            time.sleep(0.6)  # Rate limiting
+            
+            # Filter to regular season only (Oct 21, 2025 - Apr 12, 2026)
+            stats = leaguedashteamstats.LeagueDashTeamStats(
+                season='2025-26',
+                season_type_all_star='Regular Season',
+                per_mode_detailed='PerGame',
+                date_from_nullable='10/21/2025',
+                date_to_nullable='04/12/2026',
+                timeout=60  # Increased timeout to 60 seconds
+            )
+            
+            df = stats.get_data_frames()[0]
+            
+            team_stats = {}
+            for _, row in df.iterrows():
+                team_name = row['TEAM_NAME']
+                team_stats[team_name] = {
+                    'games_played': int(row['GP']),
+                    'wins': int(row['W']),
+                    'losses': int(row['L']),
+                    'win_pct': float(row['W_PCT']),
+                    'pts_scored': float(row['PTS']),
+                    'pts_allowed': None,
+                    'plus_minus': float(row.get('PLUS_MINUS', 0.0))
+                }
+            
+            return team_stats
+            
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} failed: {e}. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+            else:
+                print(f"Error fetching team stats after {max_retries} attempts: {e}")
+                return None
 
 
 def fetch_historical_standings():
     """
     Fetch game-by-game results to build historical standings over time
     """
-    try:
-        time.sleep(0.6)
-        
-        # Get all games for the season (regular season: Oct 21, 2025 - Apr 12, 2026)
-        gamelog = leaguegamelog.LeagueGameLog(
-            season='2025-26',
-            season_type_all_star='Regular Season',
-            date_from_nullable='10/21/2025',
-            date_to_nullable='04/12/2026',
-            timeout=30
-        )
-        
-        df = gamelog.get_data_frames()[0]
-        
-        # Sort by game date
-        df = df.sort_values('GAME_DATE')
-        
-        # Build cumulative records for each team by date
-        team_records = {}
-        dates = []
-        
-        for _, game in df.iterrows():
-            game_date = game['GAME_DATE']
-            team_name = game['TEAM_NAME']
-            wl = game['WL']  # 'W' or 'L'
+    max_retries = 3
+    retry_delay = 5
+    
+    for attempt in range(max_retries):
+        try:
+            time.sleep(0.6)
             
-            if team_name not in team_records:
-                team_records[team_name] = {'wins': 0, 'losses': 0, 'history': []}
+            # Get all games for the season (regular season: Oct 21, 2025 - Apr 12, 2026)
+            gamelog = leaguegamelog.LeagueGameLog(
+                season='2025-26',
+                season_type_all_star='Regular Season',
+                date_from_nullable='10/21/2025',
+                date_to_nullable='04/12/2026',
+                timeout=60
+            )
             
-            # Update record
-            if wl == 'W':
-                team_records[team_name]['wins'] += 1
+            df = gamelog.get_data_frames()[0]
+            
+            # Sort by game date
+            df = df.sort_values('GAME_DATE')
+            
+            # Build cumulative records for each team by date
+            team_records = {}
+            dates = []
+            
+            for _, game in df.iterrows():
+                game_date = game['GAME_DATE']
+                team_name = game['TEAM_NAME']
+                wl = game['WL']  # 'W' or 'L'
+                
+                if team_name not in team_records:
+                    team_records[team_name] = {'wins': 0, 'losses': 0, 'history': []}
+                
+                # Update record
+                if wl == 'W':
+                    team_records[team_name]['wins'] += 1
+                else:
+                    team_records[team_name]['losses'] += 1
+                
+                total_games = team_records[team_name]['wins'] + team_records[team_name]['losses']
+                win_pct = team_records[team_name]['wins'] / total_games if total_games > 0 else 0
+                
+                team_records[team_name]['history'].append({
+                    'date': game_date,
+                    'wins': team_records[team_name]['wins'],
+                    'losses': team_records[team_name]['losses'],
+                    'win_pct': win_pct
+                })
+                
+                if game_date not in dates:
+                    dates.append(game_date)
+            
+            return team_records, sorted(set(dates))
+            
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} failed: {e}. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
             else:
-                team_records[team_name]['losses'] += 1
-            
-            total_games = team_records[team_name]['wins'] + team_records[team_name]['losses']
-            win_pct = team_records[team_name]['wins'] / total_games if total_games > 0 else 0
-            
-            team_records[team_name]['history'].append({
-                'date': game_date,
-                'wins': team_records[team_name]['wins'],
-                'losses': team_records[team_name]['losses'],
-                'win_pct': win_pct
-            })
-            
-            if game_date not in dates:
-                dates.append(game_date)
-        
-        return team_records, sorted(set(dates))
-        
-    except Exception as e:
-        print(f"Error fetching historical standings: {e}")
-        return None, None
+                print(f"Error fetching historical standings after {max_retries} attempts: {e}")
+                return None, None
 
 
 def calculate_friend_historical_standings(team_records, dates):
@@ -326,55 +342,63 @@ def fetch_todays_games():
     """
     Fetch today's NBA games and map teams to friends
     """
-    try:
-        from datetime import datetime
-        time.sleep(0.6)
-        
-        today = datetime.now().strftime('%m/%d/%Y')
-        scoreboard = scoreboardv2.ScoreboardV2(game_date=today)
-        games_df = scoreboard.get_data_frames()[0]
-        
-        if len(games_df) == 0:
-            return []
-        
-        # Get team ID to name mapping
-        all_teams = teams.get_teams()
-        team_map = {team['id']: team['full_name'] for team in all_teams}
-        
-        # Create reverse mapping from team to friend
-        team_to_friend = {}
-        for friend, teams_list in TEAM_ASSIGNMENTS.items():
-            for team in teams_list:
-                # Find matching full team name
-                for full_name in team_map.values():
-                    team_words = set(team.lower().split())
-                    full_words = set(full_name.lower().split())
-                    if team_words & full_words:
-                        team_to_friend[full_name] = friend
-                        break
-        
-        # Build games list
-        todays_games = []
-        for idx, game in games_df.iterrows():
-            home_id = game['HOME_TEAM_ID']
-            visitor_id = game['VISITOR_TEAM_ID']
-            home_name = team_map.get(home_id, 'Unknown')
-            visitor_name = team_map.get(visitor_id, 'Unknown')
-            game_time = game['GAME_STATUS_TEXT']
+    max_retries = 3
+    retry_delay = 5
+    
+    for attempt in range(max_retries):
+        try:
+            from datetime import datetime
+            time.sleep(0.6)
             
-            todays_games.append({
-                'visitor': visitor_name,
-                'home': home_name,
-                'time': game_time,
-                'visitor_friend': team_to_friend.get(visitor_name, None),
-                'home_friend': team_to_friend.get(home_name, None)
-            })
-        
-        return todays_games
-        
-    except Exception as e:
-        print(f"Error fetching today's games: {e}")
-        return []
+            today = datetime.now().strftime('%m/%d/%Y')
+            scoreboard = scoreboardv2.ScoreboardV2(game_date=today, timeout=60)
+            games_df = scoreboard.get_data_frames()[0]
+            
+            if len(games_df) == 0:
+                return []
+            
+            # Get team ID to name mapping
+            all_teams = teams.get_teams()
+            team_map = {team['id']: team['full_name'] for team in all_teams}
+            
+            # Create reverse mapping from team to friend
+            team_to_friend = {}
+            for friend, teams_list in TEAM_ASSIGNMENTS.items():
+                for team in teams_list:
+                    # Find matching full team name
+                    for full_name in team_map.values():
+                        team_words = set(team.lower().split())
+                        full_words = set(full_name.lower().split())
+                        if team_words & full_words:
+                            team_to_friend[full_name] = friend
+                            break
+            
+            # Build games list
+            todays_games = []
+            for idx, game in games_df.iterrows():
+                home_id = game['HOME_TEAM_ID']
+                visitor_id = game['VISITOR_TEAM_ID']
+                home_name = team_map.get(home_id, 'Unknown')
+                visitor_name = team_map.get(visitor_id, 'Unknown')
+                game_time = game['GAME_STATUS_TEXT']
+                
+                todays_games.append({
+                    'visitor': visitor_name,
+                    'home': home_name,
+                    'time': game_time,
+                    'visitor_friend': team_to_friend.get(visitor_name, None),
+                    'home_friend': team_to_friend.get(home_name, None)
+                })
+            
+            return todays_games
+            
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} fetching today's games failed: {e}. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+            else:
+                print(f"Error fetching today's games after {max_retries} attempts: {e}")
+                return []
 
 
 def fetch_yesterdays_games():
@@ -382,20 +406,24 @@ def fetch_yesterdays_games():
     Fetch yesterday's NBA games with results and map teams to friends
     Uses game log to get final scores
     """
-    try:
-        from datetime import datetime, timedelta
-        time.sleep(0.6)
-        
-        yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-        
-        # Get game log for yesterday
-        gamelog = leaguegamelog.LeagueGameLog(
-            season='2025-26',
-            season_type_all_star='Regular Season',
-            date_from_nullable=yesterday,
-            date_to_nullable=yesterday,
-            timeout=30
-        )
+    max_retries = 3
+    retry_delay = 5
+    
+    for attempt in range(max_retries):
+        try:
+            from datetime import datetime, timedelta
+            time.sleep(0.6)
+            
+            yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+            
+            # Get game log for yesterday
+            gamelog = leaguegamelog.LeagueGameLog(
+                season='2025-26',
+                season_type_all_star='Regular Season',
+                date_from_nullable=yesterday,
+                date_to_nullable=yesterday,
+                timeout=60
+            )
         
         df = gamelog.get_data_frames()[0]
         
@@ -462,14 +490,18 @@ def fetch_yesterdays_games():
                     'visitor_friend': team_to_friend.get(visitor['name'], None),
                     'home_friend': team_to_friend.get(home['name'], None)
                 })
-        
-        return yesterdays_games
-        
-    except Exception as e:
-        print(f"Error fetching yesterday's games: {e}")
-        import traceback
-        traceback.print_exc()
-        return []
+            
+            return yesterdays_games
+            
+        except Exception as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} fetching yesterday's games failed: {e}. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+            else:
+                print(f"Error fetching yesterday's games after {max_retries} attempts: {e}")
+                import traceback
+                traceback.print_exc()
+                return []
 
 
 def calculate_friend_totals(team_data: Dict) -> Dict:
