@@ -424,72 +424,72 @@ def fetch_yesterdays_games():
                 date_to_nullable=yesterday,
                 timeout=60
             )
-        
-        df = gamelog.get_data_frames()[0]
-        
-        if len(df) == 0:
-            return []
-        
-        # Get team ID to name mapping
-        all_teams = teams.get_teams()
-        team_map = {team['id']: team['full_name'] for team in all_teams}
-        
-        # Create reverse mapping from team to friend
-        team_to_friend = {}
-        for friend, teams_list in TEAM_ASSIGNMENTS.items():
-            for team in teams_list:
-                # Find matching full team name
-                for full_name in team_map.values():
-                    team_words = set(team.lower().split())
-                    full_words = set(full_name.lower().split())
-                    if team_words & full_words:
-                        team_to_friend[full_name] = friend
-                        break
-        
-        # Group by game (each game appears twice - once for each team)
-        games_dict = {}
-        for _, row in df.iterrows():
-            game_id = row['GAME_ID']
-            matchup = row['MATCHUP']
-            team_name = row['TEAM_NAME']
-            points = int(row['PTS'])
-            wl = row['WL']
             
-            if game_id not in games_dict:
-                games_dict[game_id] = {
-                    'matchup': matchup,
-                    'teams': []
-                }
+            df = gamelog.get_data_frames()[0]
             
-            games_dict[game_id]['teams'].append({
-                'name': team_name,
-                'points': points,
-                'is_home': '@' not in matchup,  # If no @ in matchup, this team is home
-                'wl': wl
-            })
-        
-        # Build games list with scores
-        yesterdays_games = []
-        for game_id, game_info in games_dict.items():
-            if len(game_info['teams']) == 2:
-                # Determine which is home and which is visitor
-                team1, team2 = game_info['teams']
+            if len(df) == 0:
+                return []
+            
+            # Get team ID to name mapping
+            all_teams = teams.get_teams()
+            team_map = {team['id']: team['full_name'] for team in all_teams}
+            
+            # Create reverse mapping from team to friend
+            team_to_friend = {}
+            for friend, teams_list in TEAM_ASSIGNMENTS.items():
+                for team in teams_list:
+                    # Find matching full team name
+                    for full_name in team_map.values():
+                        team_words = set(team.lower().split())
+                        full_words = set(full_name.lower().split())
+                        if team_words & full_words:
+                            team_to_friend[full_name] = friend
+                            break
+            
+            # Group by game (each game appears twice - once for each team)
+            games_dict = {}
+            for _, row in df.iterrows():
+                game_id = row['GAME_ID']
+                matchup = row['MATCHUP']
+                team_name = row['TEAM_NAME']
+                points = int(row['PTS'])
+                wl = row['WL']
                 
-                if team1['is_home']:
-                    home = team1
-                    visitor = team2
-                else:
-                    home = team2
-                    visitor = team1
+                if game_id not in games_dict:
+                    games_dict[game_id] = {
+                        'matchup': matchup,
+                        'teams': []
+                    }
                 
-                yesterdays_games.append({
-                    'visitor': visitor['name'],
-                    'home': home['name'],
-                    'visitor_score': visitor['points'],
-                    'home_score': home['points'],
-                    'visitor_friend': team_to_friend.get(visitor['name'], None),
-                    'home_friend': team_to_friend.get(home['name'], None)
+                games_dict[game_id]['teams'].append({
+                    'name': team_name,
+                    'points': points,
+                    'is_home': '@' not in matchup,  # If no @ in matchup, this team is home
+                    'wl': wl
                 })
+            
+            # Build games list with scores
+            yesterdays_games = []
+            for game_id, game_info in games_dict.items():
+                if len(game_info['teams']) == 2:
+                    # Determine which is home and which is visitor
+                    team1, team2 = game_info['teams']
+                    
+                    if team1['is_home']:
+                        home = team1
+                        visitor = team2
+                    else:
+                        home = team2
+                        visitor = team1
+                    
+                    yesterdays_games.append({
+                        'visitor': visitor['name'],
+                        'home': home['name'],
+                        'visitor_score': visitor['points'],
+                        'home_score': home['points'],
+                        'visitor_friend': team_to_friend.get(visitor['name'], None),
+                        'home_friend': team_to_friend.get(home['name'], None)
+                    })
             
             return yesterdays_games
             
