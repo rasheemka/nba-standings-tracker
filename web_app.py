@@ -179,7 +179,7 @@ def api_recalculate():
             return jsonify({'status': 'error', 'message': 'Failed to load cached data'}), 500
         
         # Recalculate with custom assignments
-        from nba_tracker import calculate_friend_totals
+        from nba_tracker import calculate_friend_totals, calculate_friend_historical_standings
         
         # Temporarily override team assignments
         original_assignments = TEAM_ASSIGNMENTS.copy()
@@ -188,6 +188,15 @@ def api_recalculate():
         
         # Recalculate friend totals with custom assignments
         custom_friend_totals = calculate_friend_totals(data['team_stats'])
+        
+        # Recalculate historical standings if historical data exists
+        custom_friend_history = None
+        if data.get('friend_history'):
+            # Need to rebuild from team records
+            # Get the team records from cache or recalculate
+            team_records, dates = fetch_historical_standings()
+            if team_records and dates:
+                custom_friend_history = calculate_friend_historical_standings(team_records, dates)
         
         # Restore original assignments
         TEAM_ASSIGNMENTS.clear()
@@ -229,7 +238,8 @@ def api_recalculate():
         return jsonify({
             'status': 'success',
             'sorted_friends': sorted_friends,
-            'team_breakdown': team_breakdown
+            'team_breakdown': team_breakdown,
+            'friend_history': custom_friend_history
         })
         
     except Exception as e:

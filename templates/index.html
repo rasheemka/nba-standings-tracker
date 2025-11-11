@@ -497,6 +497,7 @@
         let allTeams = [];
         let currentAssignments = {};
         let originalData = null;
+        let horseRaceChart = null; // Store chart instance globally
 
         // Initialize the page
         async function initializePage() {
@@ -645,6 +646,11 @@
                     
                     // Update team breakdown
                     updateTeamBreakdown(data.sorted_friends, data.team_breakdown);
+                    
+                    // Update horse race chart if historical data is included
+                    if (data.friend_history) {
+                        updateChart(data.friend_history);
+                    }
                 } else {
                     alert('Error recalculating standings: ' + data.message);
                 }
@@ -735,13 +741,17 @@
         }
 
         {% if friend_history %}
-        // Horse Race Chart
+        // Horse Race Chart - Initialize on page load
         const ctx = document.getElementById('horseRaceChart').getContext('2d');
         
         const friendHistory = {{ friend_history | tojson }};
         
-        // Define colors for each friend
-        const colors = {
+        // Initialize the chart
+        initializeChart(friendHistory);
+        {% endif %}
+
+        // Define colors for each friend (global for reuse)
+        const friendColors = {
             'JJ': '#FF6384',
             'Andy': '#36A2EB',
             'Nate': '#FFCE56',
@@ -751,103 +761,141 @@
             'Nick': '#C9CBCF',
             'Undrafted': '#8B4513'
         };
-        
-        // Get all unique dates
-        const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
-        
-        // Format dates for display (force UTC to avoid timezone issues)
-        const formattedDates = dates.map(date => {
-            const parts = date.split('-');
-            const year = parseInt(parts[0]);
-            const month = parseInt(parts[1]);
-            const day = parseInt(parts[2]);
-            return month + '/' + day;
-        });
-        
-        // Create datasets for each friend
-        const datasets = Object.keys(friendHistory).map(friend => ({
-            label: friend,
-            data: friendHistory[friend].map(d => d.win_pct),
-            borderColor: colors[friend] || '#000000',
-            backgroundColor: colors[friend] || '#000000',
-            borderWidth: 3,
-            fill: false,
-            tension: 0.1,
-            pointRadius: 2,
-            pointHoverRadius: 6
-        }));
-        
-        const horseRaceChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: formattedDates,
-                datasets: datasets
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                interaction: {
-                    mode: 'index',
-                    intersect: false,
+
+        function initializeChart(friendHistory) {
+            const ctx = document.getElementById('horseRaceChart').getContext('2d');
+            
+            // Get all unique dates
+            const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+            
+            // Format dates for display (force UTC to avoid timezone issues)
+            const formattedDates = dates.map(date => {
+                const parts = date.split('-');
+                const year = parseInt(parts[0]);
+                const month = parseInt(parts[1]);
+                const day = parseInt(parts[2]);
+                return month + '/' + day;
+            });
+            
+            // Create datasets for each friend
+            const datasets = Object.keys(friendHistory).map(friend => ({
+                label: friend,
+                data: friendHistory[friend].map(d => d.win_pct),
+                borderColor: friendColors[friend] || '#000000',
+                backgroundColor: friendColors[friend] || '#000000',
+                borderWidth: 3,
+                fill: false,
+                tension: 0.1,
+                pointRadius: 2,
+                pointHoverRadius: 6
+            }));
+            
+            horseRaceChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: formattedDates,
+                    datasets: datasets
                 },
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                        labels: {
-                            font: {
-                                size: 14,
-                                weight: 'bold'
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                usePointStyle: true,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'Win Percentage (%)',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
                             },
-                            usePointStyle: true,
-                            padding: 15
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: {
-                            display: true,
-                            text: 'Win Percentage (%)',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
                             }
                         },
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Date',
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxTicksLimit: 20,
+                                maxRotation: 45,
+                                minRotation: 45
                             }
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Date',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        ticks: {
-                            maxTicksLimit: 20,
-                            maxRotation: 45,
-                            minRotation: 45
                         }
                     }
                 }
+            });
+        }
+
+        function updateChart(friendHistory) {
+            if (!horseRaceChart || !friendHistory) {
+                return;
             }
-        });
-        {% endif %}
+
+            // Get all unique dates
+            const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+            
+            // Format dates for display
+            const formattedDates = dates.map(date => {
+                const parts = date.split('-');
+                const month = parseInt(parts[1]);
+                const day = parseInt(parts[2]);
+                return month + '/' + day;
+            });
+            
+            // Create new datasets
+            const datasets = Object.keys(friendHistory).map(friend => ({
+                label: friend,
+                data: friendHistory[friend].map(d => d.win_pct),
+                borderColor: friendColors[friend] || '#000000',
+                backgroundColor: friendColors[friend] || '#000000',
+                borderWidth: 3,
+                fill: false,
+                tension: 0.1,
+                pointRadius: 2,
+                pointHoverRadius: 6
+            }));
+
+            // Update chart data
+            horseRaceChart.data.labels = formattedDates;
+            horseRaceChart.data.datasets = datasets;
+            horseRaceChart.update();
+        }
     </script>
 </body>
 </html>
