@@ -3,7 +3,7 @@ NBA Standings Web Application
 Auto-updates every day at 6 AM EDT
 """
 
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from datetime import datetime
@@ -159,6 +159,102 @@ def api_update():
         return jsonify({'status': 'success', 'message': 'Data updated successfully'})
     else:
         return jsonify({'status': 'error', 'message': 'Failed to update data'}), 500
+
+
+@app.route('/api/recalculate', methods=['POST'])
+def api_recalculate():
+    """
+    Recalculate standings with custom team assignments (sandbox mode)
+    Accepts JSON with team assignments and returns recalculated data
+    """
+    try:
+        custom_assignments = request.json.get('team_assignments', {})
+        
+        if not custom_assignments:
+            return jsonify({'status': 'error', 'message': 'No team assignments provided'}), 400
+        
+        # Load cached data
+        data = load_cached_data()
+        if not data:
+            return jsonify({'status': 'error', 'message': 'Failed to load cached data'}), 500
+        
+        # Recalculate with custom assignments
+        from nba_tracker import calculate_friend_totals
+        
+        # Temporarily override team assignments
+        original_assignments = TEAM_ASSIGNMENTS.copy()
+        TEAM_ASSIGNMENTS.clear()
+        TEAM_ASSIGNMENTS.update(custom_assignments)
+        
+        # Recalculate friend totals with custom assignments
+        custom_friend_totals = calculate_friend_totals(data['team_stats'])
+        
+        # Restore original assignments
+        TEAM_ASSIGNMENTS.clear()
+        TEAM_ASSIGNMENTS.update(original_assignments)
+        
+        # Sort friends by win percentage (descending)
+        sorted_friends = sorted(
+            custom_friend_totals.items(), 
+            key=lambda x: x[1]['win_pct'], 
+            reverse=True
+        )
+        
+        # Prepare team breakdown data
+        team_breakdown = {}
+        for friend, stats in sorted_friends:
+            team_records = []
+            for team in stats['teams']:
+                # Find matching team in data
+                matched_team = None
+                for api_team_name in data['team_stats'].keys():
+                    if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
+                        matched_team = api_team_name
+                        break
+                
+                if matched_team:
+                    team_info = data['team_stats'][matched_team]
+                    team_records.append({
+                        'name': team,
+                        'wins': team_info.get('wins', 0),
+                        'losses': team_info.get('losses', 0),
+                        'win_pct': team_info.get('win_pct', 0),
+                        'pts': team_info.get('pts_scored', 0)
+                    })
+            
+            # Sort by wins
+            team_records.sort(key=lambda x: x['wins'], reverse=True)
+            team_breakdown[friend] = team_records
+        
+        return jsonify({
+            'status': 'success',
+            'sorted_friends': sorted_friends,
+            'team_breakdown': team_breakdown
+        })
+        
+    except Exception as e:
+        print(f"Error in recalculate: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+
+
+@app.route('/api/teams')
+def api_teams():
+    """
+    Get list of all NBA teams and current assignments
+    """
+    data = load_cached_data()
+    if not data:
+        return jsonify({'status': 'error', 'message': 'Failed to load data'}), 500
+    
+    all_teams = sorted(list(data['team_stats'].keys()))
+    
+    return jsonify({
+        'status': 'success',
+        'teams': all_teams,
+        'current_assignments': TEAM_ASSIGNMENTS
+    })
 
 
 def start_scheduler():
