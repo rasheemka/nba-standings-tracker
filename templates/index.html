@@ -467,7 +467,7 @@
                     <div class="friend-title">
                         {% if loop.index == 1 %}🍆{% endif %}
                         {{ friend }}
-                        <button class="edit-teams-btn" onclick="editTeams('{{ friend }}')">✏️ Edit Teams</button>
+                        <button class="edit-teams-btn sandbox-only" onclick="editTeams('{{ friend }}')" style="display: none;">✏️ Edit Teams</button>
                     </div>
                     <div class="friend-wins">{{ stats.total_wins }} Wins</div>
                 </div>
@@ -525,17 +525,28 @@
             const btn = document.getElementById('sandbox-toggle-btn');
             const badge = document.getElementById('sandbox-badge');
             const container = document.getElementById('standings-container');
+            const editButtons = document.querySelectorAll('.edit-teams-btn');
             
             if (sandboxMode) {
                 btn.textContent = '🏠 Exit Sandbox Mode';
                 btn.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
                 badge.style.display = 'block';
                 container.classList.add('sandbox-mode-active');
+                
+                // Show all edit buttons
+                editButtons.forEach(button => {
+                    button.style.display = 'inline-block';
+                });
             } else {
                 btn.textContent = '🎮 Enter Sandbox Mode';
                 btn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
                 badge.style.display = 'none';
                 container.classList.remove('sandbox-mode-active');
+                
+                // Hide all edit buttons
+                editButtons.forEach(button => {
+                    button.style.display = 'none';
+                });
                 
                 // Reload page to reset to original state
                 location.reload();
@@ -559,19 +570,23 @@
             // Get current teams for this friend
             const currentTeams = currentAssignments[friendName] || [];
             
+            // Determine number of teams (2 for Undrafted, 4 for everyone else)
+            const numTeams = friendName === 'Undrafted' ? 2 : 4;
+            
             // Create team selector
             const selector = document.createElement('div');
             selector.className = 'team-selector';
             
-            let html = '<div style="margin-bottom: 10px; font-weight: bold; color: #2a5298;">Select 4 teams for ' + friendName + ':</div>';
+            let html = '<div style="margin-bottom: 10px; font-weight: bold; color: #2a5298;">Select ' + numTeams + ' teams for ' + friendName + ':</div>';
             
-            // Create 4 dropdowns
-            for (let i = 0; i < 4; i++) {
+            // Create dropdowns with current teams pre-selected
+            for (let i = 0; i < numTeams; i++) {
                 html += '<select id="team-select-' + friendName.replace(' ', '-') + '-' + i + '">';
                 html += '<option value="">-- Select Team --</option>';
                 
                 allTeams.forEach(team => {
-                    const selected = currentTeams[i] && currentTeams[i] === team ? 'selected' : '';
+                    // Pre-select the current team for this slot
+                    const selected = (i < currentTeams.length && currentTeams[i] === team) ? 'selected' : '';
                     html += '<option value="' + team + '" ' + selected + '>' + team + '</option>';
                 });
                 
@@ -598,13 +613,16 @@
         async function saveTeams(friendName) {
             const teams = [];
             
+            // Determine expected number of teams (2 for Undrafted, 4 for everyone else)
+            const numTeams = friendName === 'Undrafted' ? 2 : 4;
+            
             // Collect selected teams
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < numTeams; i++) {
                 const select = document.getElementById('team-select-' + friendName.replace(' ', '-') + '-' + i);
                 const value = select.value;
                 
                 if (!value) {
-                    alert('Please select all 4 teams!');
+                    alert('Please select all ' + numTeams + ' teams!');
                     return;
                 }
                 
