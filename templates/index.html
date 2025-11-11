@@ -422,13 +422,9 @@
                 max-height: none !important;
             }
 
-            .standings-table h2 {
-                font-size: 1.3em !important;
-            }
-
             /* Adjust chart container height for mobile */
             .standings-table > div[style*="height: 400px"] {
-                height: 300px !important;
+                height: 450px !important;
             }
 
             /* Make chart scrollable horizontally on mobile */
@@ -1002,15 +998,7 @@
                         legend: {
                             display: true,
                             position: 'top',
-                            labels: window.innerWidth <= 768 ? {
-                                font: {
-                                    size: 10,
-                                    weight: 'bold'
-                                },
-                                usePointStyle: true,
-                                padding: 6,
-                                boxWidth: 12
-                            } : {
+                            labels: {
                                 font: {
                                     size: 14,
                                     weight: 'bold'
