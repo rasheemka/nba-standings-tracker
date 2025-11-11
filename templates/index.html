@@ -998,15 +998,7 @@
                         legend: {
                             display: true,
                             position: 'top',
-                            labels: window.innerWidth <= 768 ? {
-                                font: {
-                                    size: 11,
-                                    weight: 'normal'
-                                },
-                                usePointStyle: true,
-                                padding: 8,
-                                boxWidth: 15
-                            } : {
+                            labels: {
                                 font: {
                                     size: 14,
                                     weight: 'bold'
@@ -1031,18 +1023,12 @@
                             title: {
                                 display: true,
                                 text: 'Win Percentage (%)',
-                                font: window.innerWidth <= 768 ? {
-                                    size: 11,
-                                    weight: 'normal'
-                                } : {
+                                font: {
                                     size: 14,
                                     weight: 'bold'
                                 }
                             },
                             ticks: {
-                                font: window.innerWidth <= 768 ? {
-                                    size: 10
-                                } : {},
                                 callback: function(value) {
                                     return value + '%';
                                 }
@@ -1052,18 +1038,12 @@
                             title: {
                                 display: true,
                                 text: 'Date',
-                                font: window.innerWidth <= 768 ? {
-                                    size: 11,
-                                    weight: 'normal'
-                                } : {
+                                font: {
                                     size: 14,
                                     weight: 'bold'
                                 }
                             },
                             ticks: {
-                                font: window.innerWidth <= 768 ? {
-                                    size: 10
-                                } : {},
                                 maxTicksLimit: 20,
                                 maxRotation: 45,
                                 minRotation: 45
