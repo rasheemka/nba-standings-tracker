@@ -759,13 +759,13 @@
         }
 
         {% if friend_history %}
-        // Horse Race Chart - Initialize on page load
-        const ctx = document.getElementById('horseRaceChart').getContext('2d');
-        
-        const friendHistory = {{ friend_history | tojson }};
-        
-        // Initialize the chart
-        initializeChart(friendHistory);
+        // Horse Race Chart - Initialize on page load after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const friendHistory = {{ friend_history | tojson }};
+            
+            // Initialize the chart
+            initializeChart(friendHistory);
+        });
         {% endif %}
 
         // Define colors for each friend (global for reuse)
