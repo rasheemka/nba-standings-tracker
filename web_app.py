@@ -39,12 +39,14 @@ def update_nba_data():
             team_records, dates = fetch_historical_standings()
             friend_history = calculate_friend_historical_standings(team_records, dates) if team_records else None
             
-            # Prepare data for caching
+            # Prepare data for caching (include team_records for sandbox mode)
             cache_data = {
                 'last_updated': datetime.now().isoformat(),
                 'team_stats': team_stats,
                 'friend_totals': friend_totals,
-                'friend_history': friend_history
+                'friend_history': friend_history,
+                'team_records': team_records,
+                'dates': dates
             }
             
             # Save to cache file
@@ -191,12 +193,16 @@ def api_recalculate():
         
         # Recalculate historical standings if historical data exists
         custom_friend_history = None
-        if data.get('friend_history'):
-            # Need to rebuild from team records
-            # Get the team records from cache or recalculate
-            team_records, dates = fetch_historical_standings()
-            if team_records and dates:
-                custom_friend_history = calculate_friend_historical_standings(team_records, dates)
+        if data.get('friend_history') and data.get('team_records') and data.get('dates'):
+            # Use cached team records - no need to fetch from API
+            try:
+                custom_friend_history = calculate_friend_historical_standings(
+                    data['team_records'], 
+                    data['dates']
+                )
+            except Exception as e:
+                print(f"Error calculating historical data: {e}")
+                custom_friend_history = None
         
         # Restore original assignments
         TEAM_ASSIGNMENTS.clear()
