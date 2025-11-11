@@ -44,16 +44,16 @@ TEAM_NAME_MAP = {
 }
 
 # Team draft assignments - 2024-25 NBA Season
-# Undrafted: Nets, Jazz
+# Using full team names to match NBA API
 TEAM_ASSIGNMENTS = {
-    "JJ": ["Thunder", "Spurs", "Pistons", "Pelicans"],
-    "Andy": ["Cavaliers", "Lakers", "Bucks", "Wizards"],
-    "Nate": ["Magic", "Hawks", "Grizzlies", "Suns"],
-    "Chris": ["Warriors", "Pacers", "Mavericks", "Hornets"],
-    "Adam": ["Nuggets", "Celtics", "Heat", "Kings"],
-    "Duke": ["Knicks", "Clippers", "Raptors", "Bulls"],
-    "Nick": ["Rockets", "Timberwolves", "76ers", "Trail Blazers"],
-    "Undrafted": ["Nets", "Jazz"],
+    "JJ": ["Oklahoma City Thunder", "San Antonio Spurs", "Detroit Pistons", "New Orleans Pelicans"],
+    "Andy": ["Cleveland Cavaliers", "Los Angeles Lakers", "Milwaukee Bucks", "Washington Wizards"],
+    "Nate": ["Orlando Magic", "Atlanta Hawks", "Memphis Grizzlies", "Phoenix Suns"],
+    "Chris": ["Golden State Warriors", "Indiana Pacers", "Dallas Mavericks", "Charlotte Hornets"],
+    "Adam": ["Denver Nuggets", "Boston Celtics", "Miami Heat", "Sacramento Kings"],
+    "Duke": ["New York Knicks", "LA Clippers", "Toronto Raptors", "Chicago Bulls"],
+    "Nick": ["Houston Rockets", "Minnesota Timberwolves", "Philadelphia 76ers", "Portland Trail Blazers"],
+    "Undrafted": ["Brooklyn Nets", "Utah Jazz"],
 }
 
 
