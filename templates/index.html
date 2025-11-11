@@ -424,7 +424,7 @@
 
             /* Adjust chart container height for mobile */
             .standings-table > div[style*="height: 400px"] {
-                height: 450px !important;
+                height: 500px !important;
             }
 
             /* Make chart scrollable horizontally on mobile */
@@ -1008,6 +1008,7 @@
                             }
                         },
                         tooltip: {
+                            enabled: window.innerWidth > 768, // Disable tooltips on mobile
                             callbacks: {
                                 label: function(context) {
                                     return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
