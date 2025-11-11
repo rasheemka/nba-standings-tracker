@@ -419,7 +419,16 @@
 
             /* Horse race chart */
             #horseRaceChart {
-                max-height: 300px !important;
+                max-height: none !important;
+            }
+
+            .standings-table h2 {
+                font-size: 1.3em !important;
+            }
+
+            /* Adjust chart container height for mobile */
+            .standings-table > div[style*="height: 400px"] {
+                height: 300px !important;
             }
 
             /* Today's/Yesterday's games - make more compact */
@@ -597,7 +606,9 @@
         {% if friend_history %}
         <div class="standings-table" style="padding: 30px; margin-bottom: 40px;">
             <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📈 Season Win % Horse Race</h2>
-            <canvas id="horseRaceChart" style="max-height: 500px;"></canvas>
+            <div style="position: relative; height: 400px; width: 100%;">
+                <canvas id="horseRaceChart"></canvas>
+            </div>
         </div>
         {% endif %}
 
@@ -959,7 +970,7 @@
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
+                    maintainAspectRatio: false, // Allow chart to fill container height
                     interaction: {
                         mode: 'index',
                         intersect: false,
