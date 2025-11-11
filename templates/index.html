@@ -998,7 +998,15 @@
                         legend: {
                             display: true,
                             position: 'top',
-                            labels: {
+                            labels: window.innerWidth <= 768 ? {
+                                font: {
+                                    size: 11,
+                                    weight: 'bold'
+                                },
+                                usePointStyle: true,
+                                padding: 10,
+                                boxWidth: 15
+                            } : {
                                 font: {
                                     size: 14,
                                     weight: 'bold'
