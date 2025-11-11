@@ -586,7 +586,14 @@
                 
                 allTeams.forEach(team => {
                     // Pre-select the current team for this slot
-                    const selected = (i < currentTeams.length && currentTeams[i] === team) ? 'selected' : '';
+                    // Match by checking if the short name is contained in the full team name
+                    let isSelected = false;
+                    if (i < currentTeams.length) {
+                        const shortName = currentTeams[i];
+                        // Check if team contains the short name (case insensitive)
+                        isSelected = team.toLowerCase().includes(shortName.toLowerCase());
+                    }
+                    const selected = isSelected ? 'selected' : '';
                     html += '<option value="' + team + '" ' + selected + '>' + team + '</option>';
                 });
                 
