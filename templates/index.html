@@ -433,10 +433,6 @@
                 -webkit-overflow-scrolling: touch;
             }
 
-            #horseRaceChart {
-                min-width: 450px; /* Force wider chart for better readability */
-            }
-
             /* Today's/Yesterday's games - make more compact */
             .standings-table > div {
                 padding: 15px !important;
@@ -959,6 +955,19 @@
             // Get all unique dates
             const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
             
+            // Dynamically set chart width based on number of dates
+            const isMobile = window.innerWidth <= 768;
+            const chartCanvas = document.getElementById('horseRaceChart');
+            if (isMobile) {
+                // Mobile: grow from 450px up to 600px max
+                const dynamicWidth = Math.max(450, Math.min(dates.length * 15, 600));
+                chartCanvas.style.minWidth = dynamicWidth + 'px';
+            } else {
+                // Desktop: grow freely for better spacing
+                const dynamicWidth = Math.max(600, dates.length * 20);
+                chartCanvas.style.minWidth = dynamicWidth + 'px';
+            }
+            
             // Format dates for display (force UTC to avoid timezone issues)
             const formattedDates = dates.map(date => {
                 const parts = date.split('-');
@@ -1069,6 +1078,17 @@
 
             // Get all unique dates
             const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+            
+            // Dynamically set chart width based on number of dates (same logic as init)
+            const isMobile = window.innerWidth <= 768;
+            const chartCanvas = document.getElementById('horseRaceChart');
+            if (isMobile) {
+                const dynamicWidth = Math.max(450, Math.min(dates.length * 15, 600));
+                chartCanvas.style.minWidth = dynamicWidth + 'px';
+            } else {
+                const dynamicWidth = Math.max(600, dates.length * 20);
+                chartCanvas.style.minWidth = dynamicWidth + 'px';
+            }
             
             // Format dates for display
             const formattedDates = dates.map(date => {
