@@ -313,20 +313,163 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
             h1 {
-                font-size: 1.8em;
+                font-size: 1.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            header {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .last-updated {
+                font-size: 0.8em;
+            }
+
+            /* Make table scrollable horizontally on mobile */
+            .standings-table {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                font-size: 0.75em;
+                min-width: 600px; /* Force horizontal scroll for readability */
+            }
+
+            th, td {
+                padding: 8px 5px;
+                white-space: nowrap;
+            }
+
+            .friend-name {
+                min-width: 80px;
             }
 
             .teams-grid {
                 grid-template-columns: 1fr;
+                gap: 10px;
             }
 
-            table {
+            .friend-section {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .friend-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .friend-title {
+                font-size: 1.3em;
+            }
+
+            .edit-teams-btn {
+                margin-left: 0;
+                margin-top: 5px;
+                display: block;
+                width: 100%;
+            }
+
+            .team-card {
+                padding: 12px;
+            }
+
+            /* Adjust floating buttons for mobile */
+            .sandbox-btn, .refresh-btn {
+                right: 15px;
+                padding: 12px 20px;
                 font-size: 0.9em;
             }
 
+            .sandbox-btn {
+                bottom: 75px;
+            }
+
+            .refresh-btn {
+                bottom: 20px;
+            }
+
+            /* Make team selector more mobile friendly */
+            .team-selector {
+                padding: 8px;
+            }
+
+            .team-selector select {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 10px;
+            }
+
+            .team-selector button {
+                padding: 10px 12px;
+                font-size: 0.9em;
+                width: 48%;
+                display: inline-block;
+            }
+
+            /* Horse race chart */
+            #horseRaceChart {
+                max-height: 300px !important;
+            }
+
+            /* Today's/Yesterday's games - make more compact */
+            .standings-table > div {
+                padding: 15px !important;
+            }
+
+            .standings-table h2 {
+                font-size: 1.3em !important;
+            }
+
+            /* Sandbox badge */
+            .sandbox-badge {
+                font-size: 0.8em;
+                padding: 3px 10px;
+                top: -12px;
+                right: 10px;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            .subtitle {
+                font-size: 0.9em;
+            }
+
+            table {
+                font-size: 0.7em;
+            }
+
             th, td {
-                padding: 12px 10px;
+                padding: 6px 3px;
+            }
+
+            .friend-title {
+                font-size: 1.1em;
+            }
+
+            .sandbox-btn, .refresh-btn {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+
+            .team-selector button {
+                width: 100%;
+                margin-bottom: 5px;
             }
         }
 
