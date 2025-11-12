@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-12T06:37:55.221881",
+  "last_updated": "2025-11-12T06:48:42.344309",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 11,
@@ -1142,7 +1142,7 @@
       "home": "New York Knicks",
       "time": "7:00 pm ET",
       "visitor_friend": "Nate",
-      "home_friend": null
+      "home_friend": "Duke"
     },
     {
       "visitor": "Memphis Grizzlies",
@@ -1170,7 +1170,7 @@
       "home": "New Orleans Pelicans",
       "time": "8:00 pm ET",
       "visitor_friend": "Nick",
-      "home_friend": "Duke"
+      "home_friend": "JJ"
     },
     {
       "visitor": "Golden State Warriors",
@@ -1190,7 +1190,7 @@
       "visitor": "Los Angeles Lakers",
       "home": "Oklahoma City Thunder",
       "time": "9:30 pm ET",
-      "visitor_friend": null,
+      "visitor_friend": "Andy",
       "home_friend": "JJ"
     },
     {
@@ -1205,7 +1205,7 @@
       "home": "Los Angeles Clippers",
       "time": "10:30 pm ET",
       "visitor_friend": "Adam",
-      "home_friend": "Duke"
+      "home_friend": null
     }
   ],
   "yesterdays_games": [
@@ -1239,7 +1239,7 @@
       "visitor_score": 120,
       "home_score": 133,
       "visitor_friend": "Nate",
-      "home_friend": null
+      "home_friend": "Duke"
     },
     {
       "visitor": "Golden State Warriors",

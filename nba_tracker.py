@@ -363,17 +363,11 @@ def fetch_todays_games():
             all_teams = teams.get_teams()
             team_map = {team['id']: team['full_name'] for team in all_teams}
             
-            # Create reverse mapping from team to friend
+            # Create reverse mapping from team to friend - use exact team names from TEAM_ASSIGNMENTS
             team_to_friend = {}
             for friend, teams_list in TEAM_ASSIGNMENTS.items():
                 for team in teams_list:
-                    # Find matching full team name
-                    for full_name in team_map.values():
-                        team_words = set(team.lower().split())
-                        full_words = set(full_name.lower().split())
-                        if team_words & full_words:
-                            team_to_friend[full_name] = friend
-                            break
+                    team_to_friend[team] = friend
             
             # Build games list
             todays_games = []
@@ -436,17 +430,11 @@ def fetch_yesterdays_games():
             all_teams = teams.get_teams()
             team_map = {team['id']: team['full_name'] for team in all_teams}
             
-            # Create reverse mapping from team to friend
+            # Create reverse mapping from team to friend - use exact team names from TEAM_ASSIGNMENTS
             team_to_friend = {}
             for friend, teams_list in TEAM_ASSIGNMENTS.items():
                 for team in teams_list:
-                    # Find matching full team name
-                    for full_name in team_map.values():
-                        team_words = set(team.lower().split())
-                        full_words = set(full_name.lower().split())
-                        if team_words & full_words:
-                            team_to_friend[full_name] = friend
-                            break
+                    team_to_friend[team] = friend
             
             # Group by game (each game appears twice - once for each team)
             games_dict = {}
