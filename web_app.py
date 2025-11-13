@@ -116,12 +116,17 @@ def index():
             
             if matched_team:
                 team_info = data['team_stats'][matched_team]
+                games_played = team_info.get('games_played', 1)
+                pts_scored = team_info.get('total_pts_scored', 0)
+                pts_allowed = team_info.get('total_pts_allowed', 0)
+                pt_diff_per_game = (pts_scored - pts_allowed) / games_played if games_played > 0 else 0
+                
                 team_records.append({
                     'name': team,
                     'wins': team_info.get('wins', 0),
                     'losses': team_info.get('losses', 0),
                     'win_pct': team_info.get('win_pct', 0),
-                    'pts': team_info.get('pts_scored', 0)
+                    'pt_diff': pt_diff_per_game
                 })
         
         # Sort by wins
@@ -229,12 +234,17 @@ def api_recalculate():
                 
                 if matched_team:
                     team_info = data['team_stats'][matched_team]
+                    games_played = team_info.get('games_played', 1)
+                    pts_scored = team_info.get('total_pts_scored', 0)
+                    pts_allowed = team_info.get('total_pts_allowed', 0)
+                    pt_diff_per_game = (pts_scored - pts_allowed) / games_played if games_played > 0 else 0
+                    
                     team_records.append({
                         'name': team,
                         'wins': team_info.get('wins', 0),
                         'losses': team_info.get('losses', 0),
                         'win_pct': team_info.get('win_pct', 0),
-                        'pts': team_info.get('pts_scored', 0)
+                        'pt_diff': pt_diff_per_game
                     })
             
             # Sort by wins

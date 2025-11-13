@@ -648,7 +648,7 @@
                         <div class="team-record">
                             Record: {{ team.wins }}-{{ team.losses }} ({{ "%.1f"|format(team.win_pct * 100) }}%)
                         </div>
-                        <div class="team-ppg">{{ "%.1f"|format(team.pts) }} PPG</div>
+                        <div class="team-ppg">{{ "%+.1f"|format(team.pt_diff) }} Pt Diff/G</div>
                     </div>
                     {% endfor %}
                 </div>
@@ -895,7 +895,7 @@
                         html += '<div class="team-card">';
                         html += '<div class="team-name">' + team.name + '</div>';
                         html += '<div class="team-record">Record: ' + team.wins + '-' + team.losses + ' (' + (team.win_pct * 100).toFixed(1) + '%)</div>';
-                        html += '<div class="team-ppg">' + team.pts.toFixed(1) + ' PPG</div>';
+                        html += '<div class="team-ppg">' + (team.pt_diff >= 0 ? '+' : '') + team.pt_diff.toFixed(1) + ' Pt Diff/G</div>';
                         html += '</div>';
                     });
                     
