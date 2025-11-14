@@ -15,6 +15,19 @@ import time
 import csv
 from io import StringIO
 
+# NBA API uses different team names in different endpoints
+# Scoreboard/GameLog APIs use "Los Angeles Clippers"
+# Stats API uses "LA Clippers"
+# This mapping normalizes to the stats API format (used in TEAM_ASSIGNMENTS)
+API_TEAM_NAME_NORMALIZATION = {
+    "Los Angeles Clippers": "LA Clippers",
+    "LA Clippers": "LA Clippers",
+}
+
+def normalize_team_name(team_name):
+    """Normalize team names to match TEAM_ASSIGNMENTS format"""
+    return API_TEAM_NAME_NORMALIZATION.get(team_name, team_name)
+
 # Mapping of our team names to NBA API team names
 TEAM_NAME_MAP = {
     "Thunder": "Thunder",
@@ -51,7 +64,7 @@ TEAM_ASSIGNMENTS = {
     "Nate": ["Orlando Magic", "Atlanta Hawks", "Memphis Grizzlies", "Phoenix Suns"],
     "Chris": ["Golden State Warriors", "Indiana Pacers", "Dallas Mavericks", "Charlotte Hornets"],
     "Adam": ["Denver Nuggets", "Boston Celtics", "Miami Heat", "Sacramento Kings"],
-    "Duke": ["New York Knicks", "Los Angeles Clippers", "Toronto Raptors", "Chicago Bulls"],
+    "Duke": ["New York Knicks", "LA Clippers", "Toronto Raptors", "Chicago Bulls"],
     "Nick": ["Houston Rockets", "Minnesota Timberwolves", "Philadelphia 76ers", "Portland Trail Blazers"],
     "Undrafted": ["Brooklyn Nets", "Utah Jazz"],
 }
@@ -378,12 +391,16 @@ def fetch_todays_games():
                 visitor_name = team_map.get(visitor_id, 'Unknown')
                 game_time = game['GAME_STATUS_TEXT']
                 
+                # Normalize team names to match TEAM_ASSIGNMENTS
+                home_name_normalized = normalize_team_name(home_name)
+                visitor_name_normalized = normalize_team_name(visitor_name)
+                
                 todays_games.append({
                     'visitor': visitor_name,
                     'home': home_name,
                     'time': game_time,
-                    'visitor_friend': team_to_friend.get(visitor_name, None),
-                    'home_friend': team_to_friend.get(home_name, None)
+                    'visitor_friend': team_to_friend.get(visitor_name_normalized, None),
+                    'home_friend': team_to_friend.get(home_name_normalized, None)
                 })
             
             return todays_games
@@ -472,13 +489,17 @@ def fetch_yesterdays_games():
                         home = team2
                         visitor = team1
                     
+                    # Normalize team names to match TEAM_ASSIGNMENTS
+                    visitor_name_normalized = normalize_team_name(visitor['name'])
+                    home_name_normalized = normalize_team_name(home['name'])
+                    
                     yesterdays_games.append({
                         'visitor': visitor['name'],
                         'home': home['name'],
                         'visitor_score': visitor['points'],
                         'home_score': home['points'],
-                        'visitor_friend': team_to_friend.get(visitor['name'], None),
-                        'home_friend': team_to_friend.get(home['name'], None)
+                        'visitor_friend': team_to_friend.get(visitor_name_normalized, None),
+                        'home_friend': team_to_friend.get(home_name_normalized, None)
                     })
             
             return yesterdays_games
