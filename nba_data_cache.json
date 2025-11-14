@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-14T06:05:16.374694",
+  "last_updated": "2025-11-14T06:35:46.122896",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 13,
@@ -354,16 +354,16 @@
       "is_eliminated": false
     },
     "Duke": {
-      "total_wins": 23,
-      "total_losses": 22,
-      "total_games": 45,
-      "win_pct": 0.5111111111111111,
-      "point_diff_per_game": 1.1333333333333333,
-      "games_remaining": 283,
-      "max_possible_win_pct": 0.9329268292682927,
+      "total_wins": 20,
+      "total_losses": 14,
+      "total_games": 34,
+      "win_pct": 0.5882352941176471,
+      "point_diff_per_game": 3.411764705882353,
+      "games_remaining": 294,
+      "max_possible_win_pct": 0.9573170731707317,
       "teams": [
         "New York Knicks",
-        "LA Clippers",
+        "Los Angeles Clippers",
         "Toronto Raptors",
         "Chicago Bulls"
       ],
@@ -894,7 +894,7 @@
     "Duke": [
       {
         "date": "2025-10-21",
-        "win_pct": 0
+        "win_pct": 0.0
       },
       {
         "date": "2025-10-22",
@@ -918,7 +918,7 @@
       },
       {
         "date": "2025-10-27",
-        "win_pct": 46.15384615384615
+        "win_pct": 42.857142857142854
       },
       {
         "date": "2025-10-28",
@@ -926,67 +926,67 @@
       },
       {
         "date": "2025-10-29",
-        "win_pct": 41.17647058823529
+        "win_pct": 44.44444444444444
       },
       {
         "date": "2025-10-30",
-        "win_pct": 41.17647058823529
+        "win_pct": 44.44444444444444
       },
       {
         "date": "2025-10-31",
-        "win_pct": 47.61904761904761
-      },
-      {
-        "date": "2025-11-01",
-        "win_pct": 47.61904761904761
-      },
-      {
-        "date": "2025-11-02",
-        "win_pct": 45.83333333333333
-      },
-      {
-        "date": "2025-11-03",
-        "win_pct": 44.0
-      },
-      {
-        "date": "2025-11-04",
-        "win_pct": 48.275862068965516
-      },
-      {
-        "date": "2025-11-05",
         "win_pct": 50.0
       },
       {
+        "date": "2025-11-01",
+        "win_pct": 50.0
+      },
+      {
+        "date": "2025-11-02",
+        "win_pct": 50.0
+      },
+      {
+        "date": "2025-11-03",
+        "win_pct": 51.85185185185185
+      },
+      {
+        "date": "2025-11-04",
+        "win_pct": 56.666666666666664
+      },
+      {
+        "date": "2025-11-05",
+        "win_pct": 59.375
+      },
+      {
         "date": "2025-11-06",
-        "win_pct": 48.38709677419355
+        "win_pct": 59.375
       },
       {
         "date": "2025-11-07",
-        "win_pct": 48.484848484848484
+        "win_pct": 58.82352941176471
       },
       {
         "date": "2025-11-08",
-        "win_pct": 43.24324324324324
+        "win_pct": 52.63157894736842
       },
       {
         "date": "2025-11-09",
-        "win_pct": 43.24324324324324
+        "win_pct": 52.63157894736842
       },
       {
         "date": "2025-11-10",
-        "win_pct": 40.0
+        "win_pct": 51.21951219512195
       },
       {
         "date": "2025-11-11",
-        "win_pct": 41.46341463414634
+        "win_pct": 52.38095238095239
       },
       {
         "date": "2025-11-12",
-        "win_pct": 38.63636363636363
+        "win_pct": 48.888888888888886
       },
       {
         "date": "2025-11-13",
-        "win_pct": 40.0
+        "win_pct": 50.0
       }
     ],
     "Nick": [
@@ -1240,7 +1240,7 @@
       "visitor": "Los Angeles Clippers",
       "home": "Dallas Mavericks",
       "time": "8:30 pm ET",
-      "visitor_friend": null,
+      "visitor_friend": "Duke",
       "home_friend": "Chris"
     },
     {

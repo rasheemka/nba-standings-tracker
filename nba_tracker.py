@@ -51,7 +51,7 @@ TEAM_ASSIGNMENTS = {
     "Nate": ["Orlando Magic", "Atlanta Hawks", "Memphis Grizzlies", "Phoenix Suns"],
     "Chris": ["Golden State Warriors", "Indiana Pacers", "Dallas Mavericks", "Charlotte Hornets"],
     "Adam": ["Denver Nuggets", "Boston Celtics", "Miami Heat", "Sacramento Kings"],
-    "Duke": ["New York Knicks", "LA Clippers", "Toronto Raptors", "Chicago Bulls"],
+    "Duke": ["New York Knicks", "Los Angeles Clippers", "Toronto Raptors", "Chicago Bulls"],
     "Nick": ["Houston Rockets", "Minnesota Timberwolves", "Philadelphia 76ers", "Portland Trail Blazers"],
     "Undrafted": ["Brooklyn Nets", "Utah Jazz"],
 }
