@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-29T08:25:34.835941",
+  "last_updated": "2025-11-30T06:59:37.953797",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 20,
@@ -11,40 +11,40 @@
       "total_pts_allowed": 2314.0
     },
     "Boston Celtics": {
-      "games_played": 18,
+      "games_played": 19,
       "wins": 10,
-      "losses": 8,
-      "win_pct": 0.556,
-      "total_pts_scored": 2066.0,
-      "total_plus_minus": 82.0,
-      "total_pts_allowed": 1984.0
+      "losses": 9,
+      "win_pct": 0.526,
+      "total_pts_scored": 2181.0,
+      "total_plus_minus": 78.0,
+      "total_pts_allowed": 2103.0
     },
     "Brooklyn Nets": {
-      "games_played": 18,
+      "games_played": 19,
       "wins": 3,
-      "losses": 15,
-      "win_pct": 0.167,
-      "total_pts_scored": 1960.0,
-      "total_plus_minus": -190.0,
-      "total_pts_allowed": 2150.0
+      "losses": 16,
+      "win_pct": 0.158,
+      "total_pts_scored": 2059.0,
+      "total_plus_minus": -207.0,
+      "total_pts_allowed": 2266.0
     },
     "Charlotte Hornets": {
-      "games_played": 19,
-      "wins": 5,
+      "games_played": 20,
+      "wins": 6,
       "losses": 14,
-      "win_pct": 0.263,
-      "total_pts_scored": 2199.0,
-      "total_plus_minus": -93.0,
-      "total_pts_allowed": 2292.0
+      "win_pct": 0.3,
+      "total_pts_scored": 2317.0,
+      "total_plus_minus": -86.0,
+      "total_pts_allowed": 2403.0
     },
     "Chicago Bulls": {
-      "games_played": 18,
+      "games_played": 19,
       "wins": 9,
-      "losses": 9,
-      "win_pct": 0.5,
-      "total_pts_scored": 2178.0,
-      "total_plus_minus": -57.0,
-      "total_pts_allowed": 2235.0
+      "losses": 10,
+      "win_pct": 0.474,
+      "total_pts_scored": 2279.0,
+      "total_plus_minus": -59.0,
+      "total_pts_allowed": 2338.0
     },
     "Cleveland Cavaliers": {
       "games_played": 20,
@@ -56,40 +56,40 @@
       "total_pts_allowed": 2311.0
     },
     "Dallas Mavericks": {
-      "games_played": 20,
-      "wins": 5,
+      "games_played": 21,
+      "wins": 6,
       "losses": 15,
-      "win_pct": 0.25,
-      "total_pts_scored": 2200.0,
-      "total_plus_minus": -123.0,
-      "total_pts_allowed": 2323.0
+      "win_pct": 0.286,
+      "total_pts_scored": 2314.0,
+      "total_plus_minus": -119.0,
+      "total_pts_allowed": 2433.0
     },
     "Denver Nuggets": {
-      "games_played": 18,
-      "wins": 13,
+      "games_played": 19,
+      "wins": 14,
       "losses": 5,
-      "win_pct": 0.722,
-      "total_pts_scored": 2241.0,
-      "total_plus_minus": 167.0,
-      "total_pts_allowed": 2074.0
+      "win_pct": 0.737,
+      "total_pts_scored": 2371.0,
+      "total_plus_minus": 185.0,
+      "total_pts_allowed": 2186.0
     },
     "Detroit Pistons": {
-      "games_played": 19,
-      "wins": 15,
+      "games_played": 20,
+      "wins": 16,
       "losses": 4,
-      "win_pct": 0.789,
-      "total_pts_scored": 2257.0,
-      "total_plus_minus": 113.0,
-      "total_pts_allowed": 2144.0
+      "win_pct": 0.8,
+      "total_pts_scored": 2395.0,
+      "total_plus_minus": 116.0,
+      "total_pts_allowed": 2279.0
     },
     "Golden State Warriors": {
-      "games_played": 20,
-      "wins": 10,
+      "games_played": 21,
+      "wins": 11,
       "losses": 10,
-      "win_pct": 0.5,
-      "total_pts_scored": 2301.0,
-      "total_plus_minus": 12.0,
-      "total_pts_allowed": 2289.0
+      "win_pct": 0.524,
+      "total_pts_scored": 2405.0,
+      "total_plus_minus": 20.0,
+      "total_pts_allowed": 2385.0
     },
     "Houston Rockets": {
       "games_played": 16,
@@ -101,22 +101,22 @@
       "total_pts_allowed": 1767.0
     },
     "Indiana Pacers": {
-      "games_played": 19,
-      "wins": 3,
+      "games_played": 20,
+      "wins": 4,
       "losses": 16,
-      "win_pct": 0.158,
-      "total_pts_scored": 2092.0,
-      "total_plus_minus": -179.0,
-      "total_pts_allowed": 2271.0
+      "win_pct": 0.2,
+      "total_pts_scored": 2195.0,
+      "total_plus_minus": -177.0,
+      "total_pts_allowed": 2372.0
     },
     "LA Clippers": {
-      "games_played": 19,
+      "games_played": 20,
       "wins": 5,
-      "losses": 14,
-      "win_pct": 0.263,
-      "total_pts_scored": 2126.0,
-      "total_plus_minus": -114.0,
-      "total_pts_allowed": 2240.0
+      "losses": 15,
+      "win_pct": 0.25,
+      "total_pts_scored": 2236.0,
+      "total_plus_minus": -118.0,
+      "total_pts_allowed": 2354.0
     },
     "Los Angeles Lakers": {
       "games_played": 18,
@@ -137,40 +137,40 @@
       "total_pts_allowed": 2340.0
     },
     "Miami Heat": {
-      "games_played": 19,
+      "games_played": 20,
       "wins": 13,
-      "losses": 6,
-      "win_pct": 0.684,
-      "total_pts_scored": 2336.0,
-      "total_plus_minus": 110.0,
-      "total_pts_allowed": 2226.0
+      "losses": 7,
+      "win_pct": 0.65,
+      "total_pts_scored": 2471.0,
+      "total_plus_minus": 107.0,
+      "total_pts_allowed": 2364.0
     },
     "Milwaukee Bucks": {
-      "games_played": 20,
-      "wins": 8,
+      "games_played": 21,
+      "wins": 9,
       "losses": 12,
-      "win_pct": 0.4,
-      "total_pts_scored": 2309.0,
-      "total_plus_minus": -63.0,
-      "total_pts_allowed": 2372.0
+      "win_pct": 0.429,
+      "total_pts_scored": 2425.0,
+      "total_plus_minus": -46.0,
+      "total_pts_allowed": 2471.0
     },
     "Minnesota Timberwolves": {
-      "games_played": 18,
-      "wins": 10,
+      "games_played": 19,
+      "wins": 11,
       "losses": 8,
-      "win_pct": 0.556,
-      "total_pts_scored": 2139.0,
-      "total_plus_minus": 84.0,
-      "total_pts_allowed": 2055.0
+      "win_pct": 0.579,
+      "total_pts_scored": 2258.0,
+      "total_plus_minus": 88.0,
+      "total_pts_allowed": 2170.0
     },
     "New Orleans Pelicans": {
-      "games_played": 19,
+      "games_played": 20,
       "wins": 3,
-      "losses": 16,
-      "win_pct": 0.158,
-      "total_pts_scored": 2118.0,
-      "total_plus_minus": -209.0,
-      "total_pts_allowed": 2327.0
+      "losses": 17,
+      "win_pct": 0.15,
+      "total_pts_scored": 2214.0,
+      "total_plus_minus": -217.0,
+      "total_pts_allowed": 2431.0
     },
     "New York Knicks": {
       "games_played": 18,
@@ -209,13 +209,13 @@
       "total_pts_allowed": 2116.0
     },
     "Phoenix Suns": {
-      "games_played": 20,
+      "games_played": 21,
       "wins": 12,
-      "losses": 8,
-      "win_pct": 0.6,
-      "total_pts_scored": 2338.0,
-      "total_plus_minus": 75.0,
-      "total_pts_allowed": 2263.0
+      "losses": 9,
+      "win_pct": 0.571,
+      "total_pts_scored": 2450.0,
+      "total_plus_minus": 57.0,
+      "total_pts_allowed": 2393.0
     },
     "Portland Trail Blazers": {
       "games_played": 19,
@@ -245,13 +245,13 @@
       "total_pts_allowed": 2033.0
     },
     "Toronto Raptors": {
-      "games_played": 19,
+      "games_played": 20,
       "wins": 14,
-      "losses": 5,
-      "win_pct": 0.737,
-      "total_pts_scored": 2264.0,
-      "total_plus_minus": 127.0,
-      "total_pts_allowed": 2137.0
+      "losses": 6,
+      "win_pct": 0.7,
+      "total_pts_scored": 2375.0,
+      "total_plus_minus": 120.0,
+      "total_pts_allowed": 2255.0
     },
     "Utah Jazz": {
       "games_played": 18,
@@ -274,13 +274,13 @@
   },
   "friend_totals": {
     "JJ": {
-      "total_wins": 50,
-      "total_losses": 26,
-      "total_games": 76,
-      "win_pct": 0.6578947368421053,
-      "point_diff_per_game": 4.394736842105263,
-      "games_remaining": 252,
-      "max_possible_win_pct": 0.9207317073170732,
+      "total_wins": 51,
+      "total_losses": 27,
+      "total_games": 78,
+      "win_pct": 0.6538461538461539,
+      "point_diff_per_game": 4.217948717948718,
+      "games_remaining": 250,
+      "max_possible_win_pct": 0.9176829268292683,
       "teams": [
         "Oklahoma City Thunder",
         "San Antonio Spurs",
@@ -290,12 +290,12 @@
       "is_eliminated": false
     },
     "Andy": {
-      "total_wins": 36,
+      "total_wins": 37,
       "total_losses": 40,
-      "total_games": 76,
-      "win_pct": 0.47368421052631576,
-      "point_diff_per_game": -2.6052631578947367,
-      "games_remaining": 252,
+      "total_games": 77,
+      "win_pct": 0.4805194805194805,
+      "point_diff_per_game": -2.3506493506493507,
+      "games_remaining": 251,
       "max_possible_win_pct": 0.8780487804878049,
       "teams": [
         "Cleveland Cavaliers",
@@ -307,12 +307,12 @@
     },
     "Nate": {
       "total_wins": 44,
-      "total_losses": 36,
-      "total_games": 80,
-      "win_pct": 0.55,
-      "point_diff_per_game": 1.825,
-      "games_remaining": 248,
-      "max_possible_win_pct": 0.8902439024390244,
+      "total_losses": 37,
+      "total_games": 81,
+      "win_pct": 0.5432098765432098,
+      "point_diff_per_game": 1.5802469135802468,
+      "games_remaining": 247,
+      "max_possible_win_pct": 0.8871951219512195,
       "teams": [
         "Orlando Magic",
         "Atlanta Hawks",
@@ -322,12 +322,12 @@
       "is_eliminated": false
     },
     "Chris": {
-      "total_wins": 23,
+      "total_wins": 27,
       "total_losses": 55,
-      "total_games": 78,
-      "win_pct": 0.2948717948717949,
-      "point_diff_per_game": -4.910256410256411,
-      "games_remaining": 250,
+      "total_games": 82,
+      "win_pct": 0.32926829268292684,
+      "point_diff_per_game": -4.414634146341464,
+      "games_remaining": 246,
       "max_possible_win_pct": 0.8323170731707317,
       "teams": [
         "Golden State Warriors",
@@ -338,13 +338,13 @@
       "is_eliminated": false
     },
     "Adam": {
-      "total_wins": 41,
-      "total_losses": 34,
-      "total_games": 75,
-      "win_pct": 0.5466666666666666,
-      "point_diff_per_game": 1.7733333333333334,
-      "games_remaining": 253,
-      "max_possible_win_pct": 0.8963414634146342,
+      "total_wins": 42,
+      "total_losses": 36,
+      "total_games": 78,
+      "win_pct": 0.5384615384615384,
+      "point_diff_per_game": 1.8461538461538463,
+      "games_remaining": 250,
+      "max_possible_win_pct": 0.8902439024390244,
       "teams": [
         "Denver Nuggets",
         "Boston Celtics",
@@ -355,12 +355,12 @@
     },
     "Duke": {
       "total_wins": 40,
-      "total_losses": 34,
-      "total_games": 74,
-      "win_pct": 0.5405405405405406,
-      "point_diff_per_game": 1.027027027027027,
-      "games_remaining": 254,
-      "max_possible_win_pct": 0.8963414634146342,
+      "total_losses": 37,
+      "total_games": 77,
+      "win_pct": 0.5194805194805194,
+      "point_diff_per_game": 0.8181818181818182,
+      "games_remaining": 251,
+      "max_possible_win_pct": 0.8871951219512195,
       "teams": [
         "New York Knicks",
         "LA Clippers",
@@ -370,12 +370,12 @@
       "is_eliminated": false
     },
     "Nick": {
-      "total_wins": 40,
+      "total_wins": 41,
       "total_losses": 31,
-      "total_games": 71,
-      "win_pct": 0.5633802816901409,
-      "point_diff_per_game": 2.816901408450704,
-      "games_remaining": 257,
+      "total_games": 72,
+      "win_pct": 0.5694444444444444,
+      "point_diff_per_game": 2.8333333333333335,
+      "games_remaining": 256,
       "max_possible_win_pct": 0.9054878048780488,
       "teams": [
         "Houston Rockets",
@@ -387,12 +387,12 @@
     },
     "Undrafted": {
       "total_wins": 9,
-      "total_losses": 27,
-      "total_games": 36,
-      "win_pct": 0.25,
-      "point_diff_per_game": -8.555555555555555,
-      "games_remaining": 128,
-      "max_possible_win_pct": 0.8353658536585366,
+      "total_losses": 28,
+      "total_games": 37,
+      "win_pct": 0.24324324324324326,
+      "point_diff_per_game": -8.783783783783784,
+      "games_remaining": 127,
+      "max_possible_win_pct": 0.8292682926829268,
       "teams": [
         "Brooklyn Nets",
         "Utah Jazz"
@@ -553,6 +553,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 65.78947368421053
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 65.38461538461539
       }
     ],
     "Andy": [
@@ -707,6 +711,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 47.368421052631575
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 48.05194805194805
       }
     ],
     "Nate": [
@@ -861,6 +869,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 55.00000000000001
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 54.32098765432099
       }
     ],
     "Chris": [
@@ -1015,6 +1027,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 29.48717948717949
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 32.926829268292686
       }
     ],
     "Adam": [
@@ -1169,6 +1185,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 54.666666666666664
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 53.84615384615385
       }
     ],
     "Duke": [
@@ -1323,6 +1343,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 41.333333333333336
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 39.24050632911392
       }
     ],
     "Nick": [
@@ -1477,6 +1501,10 @@
       {
         "date": "2025-11-28",
         "win_pct": 56.33802816901409
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 56.94444444444444
       }
     ],
     "Undrafted": [
@@ -1631,155 +1659,135 @@
       {
         "date": "2025-11-28",
         "win_pct": 25.0
+      },
+      {
+        "date": "2025-11-29",
+        "win_pct": 24.324324324324326
       }
     ]
   },
   "todays_games": [
     {
+      "visitor": "Houston Rockets",
+      "home": "Utah Jazz",
+      "time": "3:00 pm ET",
+      "visitor_friend": "Nick",
+      "home_friend": "Undrafted"
+    },
+    {
+      "visitor": "Boston Celtics",
+      "home": "Cleveland Cavaliers",
+      "time": "6:00 pm ET",
+      "visitor_friend": "Adam",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Toronto Raptors",
+      "home": "New York Knicks",
+      "time": "6:00 pm ET",
+      "visitor_friend": "Duke",
+      "home_friend": "Duke"
+    },
+    {
+      "visitor": "Atlanta Hawks",
+      "home": "Philadelphia 76ers",
+      "time": "6:00 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Oklahoma City Thunder",
+      "home": "Portland Trail Blazers",
+      "time": "6:00 pm ET",
+      "visitor_friend": "JJ",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "San Antonio Spurs",
+      "home": "Minnesota Timberwolves",
+      "time": "7:00 pm ET",
+      "visitor_friend": "JJ",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Memphis Grizzlies",
+      "home": "Sacramento Kings",
+      "time": "9:00 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "Adam"
+    },
+    {
+      "visitor": "New Orleans Pelicans",
+      "home": "Los Angeles Lakers",
+      "time": "9:30 pm ET",
+      "visitor_friend": "JJ",
+      "home_friend": "Andy"
+    }
+  ],
+  "yesterdays_games": [
+    {
       "visitor": "Boston Celtics",
       "home": "Minnesota Timberwolves",
-      "time": "5:00 pm ET",
+      "visitor_score": 115,
+      "home_score": 119,
       "visitor_friend": "Adam",
       "home_friend": "Nick"
     },
     {
       "visitor": "Toronto Raptors",
       "home": "Charlotte Hornets",
-      "time": "6:00 pm ET",
+      "visitor_score": 111,
+      "home_score": 118,
       "visitor_friend": "Duke",
       "home_friend": "Chris"
     },
     {
       "visitor": "Chicago Bulls",
       "home": "Indiana Pacers",
-      "time": "7:30 pm ET",
+      "visitor_score": 101,
+      "home_score": 103,
       "visitor_friend": "Duke",
       "home_friend": "Chris"
     },
     {
       "visitor": "Detroit Pistons",
       "home": "Miami Heat",
-      "time": "8:00 pm ET",
+      "visitor_score": 138,
+      "home_score": 135,
       "visitor_friend": "JJ",
       "home_friend": "Adam"
-    },
-    {
-      "visitor": "Brooklyn Nets",
-      "home": "Milwaukee Bucks",
-      "time": "8:00 pm ET",
-      "visitor_friend": "Undrafted",
-      "home_friend": "Andy"
-    },
-    {
-      "visitor": "New Orleans Pelicans",
-      "home": "Golden State Warriors",
-      "time": "8:30 pm ET",
-      "visitor_friend": "JJ",
-      "home_friend": "Chris"
     },
     {
       "visitor": "Denver Nuggets",
       "home": "Phoenix Suns",
-      "time": "9:00 pm ET",
+      "visitor_score": 130,
+      "home_score": 112,
       "visitor_friend": "Adam",
       "home_friend": "Nate"
     },
     {
-      "visitor": "Dallas Mavericks",
-      "home": "Los Angeles Clippers",
-      "time": "10:00 pm ET",
-      "visitor_friend": "Chris",
-      "home_friend": "Duke"
-    }
-  ],
-  "yesterdays_games": [
-    {
-      "visitor": "Memphis Grizzlies",
-      "home": "LA Clippers",
-      "visitor_score": 112,
-      "home_score": 107,
-      "visitor_friend": "Nate",
-      "home_friend": "Duke"
-    },
-    {
-      "visitor": "Cleveland Cavaliers",
-      "home": "Atlanta Hawks",
-      "visitor_score": 123,
-      "home_score": 130,
-      "visitor_friend": "Andy",
-      "home_friend": "Nate"
-    },
-    {
-      "visitor": "Chicago Bulls",
-      "home": "Charlotte Hornets",
-      "visitor_score": 116,
-      "home_score": 123,
-      "visitor_friend": "Duke",
+      "visitor": "New Orleans Pelicans",
+      "home": "Golden State Warriors",
+      "visitor_score": 96,
+      "home_score": 104,
+      "visitor_friend": "JJ",
       "home_friend": "Chris"
     },
     {
-      "visitor": "Washington Wizards",
-      "home": "Indiana Pacers",
-      "visitor_score": 86,
-      "home_score": 119,
-      "visitor_friend": "Andy",
-      "home_friend": "Chris"
-    },
-    {
-      "visitor": "Orlando Magic",
-      "home": "Detroit Pistons",
-      "visitor_score": 112,
-      "home_score": 109,
-      "visitor_friend": "Nate",
-      "home_friend": "JJ"
-    },
-    {
-      "visitor": "Milwaukee Bucks",
-      "home": "New York Knicks",
-      "visitor_score": 109,
-      "home_score": 118,
-      "visitor_friend": "Andy",
-      "home_friend": "Duke"
-    },
-    {
-      "visitor": "Philadelphia 76ers",
-      "home": "Brooklyn Nets",
-      "visitor_score": 115,
-      "home_score": 103,
-      "visitor_friend": "Nick",
-      "home_friend": "Undrafted"
-    },
-    {
-      "visitor": "Sacramento Kings",
-      "home": "Utah Jazz",
-      "visitor_score": 119,
-      "home_score": 128,
-      "visitor_friend": "Adam",
-      "home_friend": "Undrafted"
-    },
-    {
-      "visitor": "Phoenix Suns",
-      "home": "Oklahoma City Thunder",
-      "visitor_score": 119,
-      "home_score": 123,
-      "visitor_friend": "Nate",
-      "home_friend": "JJ"
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "Los Angeles Lakers",
-      "visitor_score": 119,
-      "home_score": 129,
-      "visitor_friend": "Chris",
+      "visitor": "Brooklyn Nets",
+      "home": "Milwaukee Bucks",
+      "visitor_score": 99,
+      "home_score": 116,
+      "visitor_friend": "Undrafted",
       "home_friend": "Andy"
     },
     {
-      "visitor": "San Antonio Spurs",
-      "home": "Denver Nuggets",
-      "visitor_score": 139,
-      "home_score": 136,
-      "visitor_friend": "JJ",
-      "home_friend": "Adam"
+      "visitor": "Dallas Mavericks",
+      "home": "LA Clippers",
+      "visitor_score": 114,
+      "home_score": 110,
+      "visitor_friend": "Chris",
+      "home_friend": "Duke"
     }
   ]
 }
