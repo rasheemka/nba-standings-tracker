@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-04T06:45:53.381048",
+  "last_updated": "2025-12-05T06:04:17.594024",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 23,
@@ -11,22 +11,22 @@
       "total_pts_allowed": 2662.0
     },
     "Boston Celtics": {
-      "games_played": 21,
-      "wins": 12,
+      "games_played": 22,
+      "wins": 13,
       "losses": 9,
-      "win_pct": 0.571,
-      "total_pts_scored": 2421.0,
-      "total_plus_minus": 86.0,
-      "total_pts_allowed": 2335.0
+      "win_pct": 0.591,
+      "total_pts_scored": 2567.0,
+      "total_plus_minus": 131.0,
+      "total_pts_allowed": 2436.0
     },
     "Brooklyn Nets": {
-      "games_played": 21,
+      "games_played": 22,
       "wins": 5,
-      "losses": 16,
-      "win_pct": 0.238,
-      "total_pts_scored": 2288.0,
-      "total_plus_minus": -184.0,
-      "total_pts_allowed": 2472.0
+      "losses": 17,
+      "win_pct": 0.227,
+      "total_pts_scored": 2398.0,
+      "total_plus_minus": -197.0,
+      "total_pts_allowed": 2595.0
     },
     "Charlotte Hornets": {
       "games_played": 22,
@@ -83,13 +83,13 @@
       "total_pts_allowed": 2490.0
     },
     "Golden State Warriors": {
-      "games_played": 22,
+      "games_played": 23,
       "wins": 11,
-      "losses": 11,
-      "win_pct": 0.5,
-      "total_pts_scored": 2517.0,
-      "total_plus_minus": 8.0,
-      "total_pts_allowed": 2509.0
+      "losses": 12,
+      "win_pct": 0.478,
+      "total_pts_scored": 2615.0,
+      "total_plus_minus": 7.0,
+      "total_pts_allowed": 2608.0
     },
     "Houston Rockets": {
       "games_played": 19,
@@ -119,13 +119,13 @@
       "total_pts_allowed": 2586.0
     },
     "Los Angeles Lakers": {
-      "games_played": 20,
-      "wins": 15,
+      "games_played": 21,
+      "wins": 16,
       "losses": 5,
-      "win_pct": 0.75,
-      "total_pts_scored": 2381.0,
-      "total_plus_minus": 64.0,
-      "total_pts_allowed": 2317.0
+      "win_pct": 0.762,
+      "total_pts_scored": 2504.0,
+      "total_plus_minus": 67.0,
+      "total_pts_allowed": 2437.0
     },
     "Memphis Grizzlies": {
       "games_played": 22,
@@ -155,22 +155,22 @@
       "total_pts_allowed": 2709.0
     },
     "Minnesota Timberwolves": {
-      "games_played": 21,
-      "wins": 13,
+      "games_played": 22,
+      "wins": 14,
       "losses": 8,
-      "win_pct": 0.619,
-      "total_pts_scored": 2532.0,
-      "total_plus_minus": 108.0,
-      "total_pts_allowed": 2424.0
+      "win_pct": 0.636,
+      "total_pts_scored": 2657.0,
+      "total_plus_minus": 117.0,
+      "total_pts_allowed": 2540.0
     },
     "New Orleans Pelicans": {
-      "games_played": 22,
+      "games_played": 23,
       "wins": 3,
-      "losses": 19,
-      "win_pct": 0.136,
-      "total_pts_scored": 2477.0,
-      "total_plus_minus": -236.0,
-      "total_pts_allowed": 2713.0
+      "losses": 20,
+      "win_pct": 0.13,
+      "total_pts_scored": 2593.0,
+      "total_plus_minus": -245.0,
+      "total_pts_allowed": 2838.0
     },
     "New York Knicks": {
       "games_played": 21,
@@ -200,13 +200,13 @@
       "total_pts_allowed": 2515.0
     },
     "Philadelphia 76ers": {
-      "games_played": 20,
-      "wins": 11,
+      "games_played": 21,
+      "wins": 12,
       "losses": 9,
-      "win_pct": 0.55,
-      "total_pts_scored": 2366.0,
-      "total_plus_minus": 6.0,
-      "total_pts_allowed": 2360.0
+      "win_pct": 0.571,
+      "total_pts_scored": 2465.0,
+      "total_plus_minus": 7.0,
+      "total_pts_allowed": 2458.0
     },
     "Phoenix Suns": {
       "games_played": 22,
@@ -245,42 +245,42 @@
       "total_pts_allowed": 2389.0
     },
     "Toronto Raptors": {
-      "games_played": 22,
+      "games_played": 23,
       "wins": 15,
-      "losses": 7,
-      "win_pct": 0.682,
-      "total_pts_scored": 2590.0,
-      "total_plus_minus": 101.0,
-      "total_pts_allowed": 2489.0
+      "losses": 8,
+      "win_pct": 0.652,
+      "total_pts_scored": 2710.0,
+      "total_plus_minus": 98.0,
+      "total_pts_allowed": 2612.0
     },
     "Utah Jazz": {
-      "games_played": 20,
-      "wins": 7,
+      "games_played": 21,
+      "wins": 8,
       "losses": 13,
-      "win_pct": 0.35,
-      "total_pts_scored": 2369.0,
-      "total_plus_minus": -138.0,
-      "total_pts_allowed": 2507.0
+      "win_pct": 0.381,
+      "total_pts_scored": 2492.0,
+      "total_plus_minus": -125.0,
+      "total_pts_allowed": 2617.0
     },
     "Washington Wizards": {
-      "games_played": 20,
+      "games_played": 21,
       "wins": 3,
-      "losses": 17,
-      "win_pct": 0.15,
-      "total_pts_scored": 2256.0,
-      "total_plus_minus": -289.0,
-      "total_pts_allowed": 2545.0
+      "losses": 18,
+      "win_pct": 0.143,
+      "total_pts_scored": 2357.0,
+      "total_plus_minus": -334.0,
+      "total_pts_allowed": 2691.0
     }
   },
   "friend_totals": {
     "JJ": {
       "total_wins": 56,
-      "total_losses": 31,
-      "total_games": 87,
-      "win_pct": 0.6436781609195402,
-      "point_diff_per_game": 3.7126436781609193,
-      "games_remaining": 241,
-      "max_possible_win_pct": 0.9054878048780488,
+      "total_losses": 32,
+      "total_games": 88,
+      "win_pct": 0.6363636363636364,
+      "point_diff_per_game": 3.5681818181818183,
+      "games_remaining": 240,
+      "max_possible_win_pct": 0.9024390243902439,
       "teams": [
         "Oklahoma City Thunder",
         "San Antonio Spurs",
@@ -290,13 +290,13 @@
       "is_eliminated": false
     },
     "Andy": {
-      "total_wins": 41,
-      "total_losses": 45,
-      "total_games": 86,
-      "win_pct": 0.47674418604651164,
-      "point_diff_per_game": -2.313953488372093,
-      "games_remaining": 242,
-      "max_possible_win_pct": 0.8628048780487805,
+      "total_wins": 42,
+      "total_losses": 46,
+      "total_games": 88,
+      "win_pct": 0.4772727272727273,
+      "point_diff_per_game": -2.7386363636363638,
+      "games_remaining": 240,
+      "max_possible_win_pct": 0.8597560975609756,
       "teams": [
         "Cleveland Cavaliers",
         "Los Angeles Lakers",
@@ -323,12 +323,12 @@
     },
     "Chris": {
       "total_wins": 29,
-      "total_losses": 60,
-      "total_games": 89,
-      "win_pct": 0.3258426966292135,
-      "point_diff_per_game": -4.640449438202247,
-      "games_remaining": 239,
-      "max_possible_win_pct": 0.8170731707317073,
+      "total_losses": 61,
+      "total_games": 90,
+      "win_pct": 0.32222222222222224,
+      "point_diff_per_game": -4.6,
+      "games_remaining": 238,
+      "max_possible_win_pct": 0.8140243902439024,
       "teams": [
         "Golden State Warriors",
         "Indiana Pacers",
@@ -338,12 +338,12 @@
       "is_eliminated": false
     },
     "Adam": {
-      "total_wins": 46,
+      "total_wins": 47,
       "total_losses": 40,
-      "total_games": 86,
-      "win_pct": 0.5348837209302325,
-      "point_diff_per_game": 1.5116279069767442,
-      "games_remaining": 242,
+      "total_games": 87,
+      "win_pct": 0.5402298850574713,
+      "point_diff_per_game": 2.0114942528735633,
+      "games_remaining": 241,
       "max_possible_win_pct": 0.8780487804878049,
       "teams": [
         "Denver Nuggets",
@@ -355,12 +355,12 @@
     },
     "Duke": {
       "total_wins": 44,
-      "total_losses": 42,
-      "total_games": 86,
-      "win_pct": 0.5116279069767442,
-      "point_diff_per_game": 0.7674418604651163,
-      "games_remaining": 242,
-      "max_possible_win_pct": 0.8719512195121951,
+      "total_losses": 43,
+      "total_games": 87,
+      "win_pct": 0.5057471264367817,
+      "point_diff_per_game": 0.7241379310344828,
+      "games_remaining": 241,
+      "max_possible_win_pct": 0.8689024390243902,
       "teams": [
         "New York Knicks",
         "LA Clippers",
@@ -370,12 +370,12 @@
       "is_eliminated": false
     },
     "Nick": {
-      "total_wins": 47,
+      "total_wins": 49,
       "total_losses": 35,
-      "total_games": 82,
-      "win_pct": 0.573170731707317,
-      "point_diff_per_game": 3.4390243902439024,
-      "games_remaining": 246,
+      "total_games": 84,
+      "win_pct": 0.5833333333333334,
+      "point_diff_per_game": 3.4761904761904763,
+      "games_remaining": 244,
       "max_possible_win_pct": 0.8932926829268293,
       "teams": [
         "Houston Rockets",
@@ -386,13 +386,13 @@
       "is_eliminated": false
     },
     "Undrafted": {
-      "total_wins": 12,
-      "total_losses": 29,
-      "total_games": 41,
-      "win_pct": 0.2926829268292683,
-      "point_diff_per_game": -7.853658536585366,
-      "games_remaining": 123,
-      "max_possible_win_pct": 0.823170731707317,
+      "total_wins": 13,
+      "total_losses": 30,
+      "total_games": 43,
+      "win_pct": 0.3023255813953488,
+      "point_diff_per_game": -7.488372093023256,
+      "games_remaining": 121,
+      "max_possible_win_pct": 0.8170731707317073,
       "teams": [
         "Brooklyn Nets",
         "Utah Jazz"
@@ -408,171 +408,175 @@
       },
       {
         "date": "2025-10-22",
-        "win_pct": 50.0
+        "win_pct": 75.0
       },
       {
         "date": "2025-10-23",
-        "win_pct": 60.0
+        "win_pct": 80.0
       },
       {
         "date": "2025-10-24",
-        "win_pct": 62.5
+        "win_pct": 87.5
       },
       {
         "date": "2025-10-25",
-        "win_pct": 66.66666666666666
+        "win_pct": 88.88888888888889
       },
       {
         "date": "2025-10-26",
-        "win_pct": 72.72727272727273
+        "win_pct": 83.33333333333334
       },
       {
         "date": "2025-10-27",
-        "win_pct": 66.66666666666666
+        "win_pct": 80.0
       },
       {
         "date": "2025-10-28",
-        "win_pct": 68.75
+        "win_pct": 76.47058823529412
       },
       {
         "date": "2025-10-29",
-        "win_pct": 66.66666666666666
+        "win_pct": 77.77777777777779
       },
       {
         "date": "2025-10-30",
-        "win_pct": 70.0
+        "win_pct": 80.0
       },
       {
         "date": "2025-10-31",
-        "win_pct": 66.66666666666666
+        "win_pct": 76.19047619047619
       },
       {
         "date": "2025-11-01",
-        "win_pct": 68.18181818181817
+        "win_pct": 77.27272727272727
       },
       {
         "date": "2025-11-02",
-        "win_pct": 64.0
+        "win_pct": 76.0
       },
       {
         "date": "2025-11-03",
-        "win_pct": 65.38461538461539
+        "win_pct": 77.77777777777779
       },
       {
         "date": "2025-11-04",
-        "win_pct": 67.85714285714286
+        "win_pct": 78.57142857142857
       },
       {
         "date": "2025-11-05",
-        "win_pct": 65.625
+        "win_pct": 75.0
       },
       {
         "date": "2025-11-06",
-        "win_pct": 65.625
+        "win_pct": 75.0
       },
       {
         "date": "2025-11-07",
-        "win_pct": 68.57142857142857
+        "win_pct": 77.14285714285715
       },
       {
         "date": "2025-11-08",
-        "win_pct": 67.56756756756756
+        "win_pct": 77.77777777777779
       },
       {
         "date": "2025-11-09",
-        "win_pct": 69.23076923076923
+        "win_pct": 79.48717948717949
       },
       {
         "date": "2025-11-10",
-        "win_pct": 69.04761904761905
+        "win_pct": 80.48780487804879
       },
       {
         "date": "2025-11-11",
-        "win_pct": 69.76744186046511
+        "win_pct": 81.3953488372093
       },
       {
         "date": "2025-11-12",
-        "win_pct": 68.08510638297872
+        "win_pct": 78.72340425531915
       },
       {
         "date": "2025-11-13",
-        "win_pct": 68.08510638297872
+        "win_pct": 78.72340425531915
       },
       {
         "date": "2025-11-14",
-        "win_pct": 66.0
+        "win_pct": 78.0
       },
       {
         "date": "2025-11-15",
-        "win_pct": 66.66666666666666
+        "win_pct": 78.43137254901961
       },
       {
         "date": "2025-11-16",
-        "win_pct": 66.0377358490566
+        "win_pct": 78.84615384615384
       },
       {
         "date": "2025-11-17",
-        "win_pct": 66.07142857142857
+        "win_pct": 78.18181818181819
       },
       {
         "date": "2025-11-18",
-        "win_pct": 67.24137931034483
+        "win_pct": 78.94736842105263
       },
       {
         "date": "2025-11-19",
-        "win_pct": 66.66666666666666
+        "win_pct": 79.66101694915254
       },
       {
         "date": "2025-11-20",
-        "win_pct": 67.21311475409836
+        "win_pct": 80.0
       },
       {
         "date": "2025-11-21",
-        "win_pct": 66.66666666666666
+        "win_pct": 80.32786885245902
       },
       {
         "date": "2025-11-22",
-        "win_pct": 66.15384615384615
+        "win_pct": 79.36507936507937
       },
       {
         "date": "2025-11-23",
-        "win_pct": 65.67164179104478
+        "win_pct": 78.46153846153847
       },
       {
         "date": "2025-11-24",
-        "win_pct": 66.66666666666666
+        "win_pct": 79.1044776119403
       },
       {
         "date": "2025-11-25",
-        "win_pct": 66.66666666666666
+        "win_pct": 79.1044776119403
       },
       {
         "date": "2025-11-26",
-        "win_pct": 65.75342465753424
+        "win_pct": 78.87323943661971
       },
       {
         "date": "2025-11-28",
-        "win_pct": 65.78947368421053
+        "win_pct": 78.66666666666666
       },
       {
         "date": "2025-11-29",
-        "win_pct": 65.38461538461539
+        "win_pct": 78.94736842105263
       },
       {
         "date": "2025-11-30",
-        "win_pct": 64.19753086419753
+        "win_pct": 78.48101265822784
       },
       {
         "date": "2025-12-01",
-        "win_pct": 64.63414634146342
+        "win_pct": 78.75
       },
       {
         "date": "2025-12-02",
-        "win_pct": 64.70588235294117
+        "win_pct": 78.3132530120482
       },
       {
         "date": "2025-12-03",
-        "win_pct": 64.36781609195403
+        "win_pct": 77.90697674418605
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 77.90697674418605
       }
     ],
     "Andy": [
@@ -747,6 +751,10 @@
       {
         "date": "2025-12-03",
         "win_pct": 47.674418604651166
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 47.72727272727273
       }
     ],
     "Nate": [
@@ -920,6 +928,10 @@
       },
       {
         "date": "2025-12-03",
+        "win_pct": 53.93258426966292
+      },
+      {
+        "date": "2025-12-04",
         "win_pct": 53.93258426966292
       }
     ],
@@ -1095,6 +1107,10 @@
       {
         "date": "2025-12-03",
         "win_pct": 32.58426966292135
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 32.22222222222222
       }
     ],
     "Adam": [
@@ -1269,6 +1285,10 @@
       {
         "date": "2025-12-03",
         "win_pct": 53.48837209302325
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 54.02298850574713
       }
     ],
     "Duke": [
@@ -1278,171 +1298,175 @@
       },
       {
         "date": "2025-10-22",
-        "win_pct": 50.0
+        "win_pct": 75.0
       },
       {
         "date": "2025-10-23",
-        "win_pct": 50.0
+        "win_pct": 75.0
       },
       {
         "date": "2025-10-24",
-        "win_pct": 42.857142857142854
+        "win_pct": 71.42857142857143
       },
       {
         "date": "2025-10-25",
-        "win_pct": 50.0
+        "win_pct": 75.0
       },
       {
         "date": "2025-10-26",
-        "win_pct": 50.0
+        "win_pct": 63.63636363636363
       },
       {
         "date": "2025-10-27",
-        "win_pct": 46.15384615384615
+        "win_pct": 61.53846153846154
       },
       {
         "date": "2025-10-28",
-        "win_pct": 42.857142857142854
+        "win_pct": 53.333333333333336
       },
       {
         "date": "2025-10-29",
-        "win_pct": 41.17647058823529
+        "win_pct": 52.94117647058824
       },
       {
         "date": "2025-10-30",
-        "win_pct": 41.17647058823529
+        "win_pct": 52.94117647058824
       },
       {
         "date": "2025-10-31",
-        "win_pct": 47.61904761904761
+        "win_pct": 57.14285714285714
       },
       {
         "date": "2025-11-01",
-        "win_pct": 47.61904761904761
+        "win_pct": 57.14285714285714
       },
       {
         "date": "2025-11-02",
-        "win_pct": 45.83333333333333
+        "win_pct": 58.333333333333336
       },
       {
         "date": "2025-11-03",
-        "win_pct": 44.0
+        "win_pct": 57.692307692307686
       },
       {
         "date": "2025-11-04",
-        "win_pct": 48.275862068965516
+        "win_pct": 58.620689655172406
       },
       {
         "date": "2025-11-05",
-        "win_pct": 50.0
+        "win_pct": 60.0
       },
       {
         "date": "2025-11-06",
-        "win_pct": 48.38709677419355
+        "win_pct": 58.06451612903226
       },
       {
         "date": "2025-11-07",
-        "win_pct": 48.484848484848484
+        "win_pct": 57.57575757575758
       },
       {
         "date": "2025-11-08",
-        "win_pct": 43.24324324324324
+        "win_pct": 52.77777777777778
       },
       {
         "date": "2025-11-09",
-        "win_pct": 43.24324324324324
+        "win_pct": 54.054054054054056
       },
       {
         "date": "2025-11-10",
-        "win_pct": 40.0
+        "win_pct": 51.28205128205128
       },
       {
         "date": "2025-11-11",
-        "win_pct": 41.46341463414634
+        "win_pct": 53.65853658536586
       },
       {
         "date": "2025-11-12",
-        "win_pct": 38.63636363636363
+        "win_pct": 50.0
       },
       {
         "date": "2025-11-13",
-        "win_pct": 40.0
+        "win_pct": 51.11111111111111
       },
       {
         "date": "2025-11-14",
-        "win_pct": 40.42553191489361
+        "win_pct": 53.191489361702125
       },
       {
         "date": "2025-11-15",
-        "win_pct": 41.66666666666667
+        "win_pct": 54.166666666666664
       },
       {
         "date": "2025-11-16",
-        "win_pct": 39.21568627450981
+        "win_pct": 52.0
       },
       {
         "date": "2025-11-17",
-        "win_pct": 40.0
+        "win_pct": 51.85185185185185
       },
       {
         "date": "2025-11-18",
-        "win_pct": 40.0
+        "win_pct": 51.85185185185185
       },
       {
         "date": "2025-11-19",
-        "win_pct": 41.37931034482759
+        "win_pct": 54.385964912280706
       },
       {
         "date": "2025-11-20",
-        "win_pct": 40.67796610169492
+        "win_pct": 53.44827586206896
       },
       {
         "date": "2025-11-21",
-        "win_pct": 40.32258064516129
+        "win_pct": 53.333333333333336
       },
       {
         "date": "2025-11-22",
-        "win_pct": 41.53846153846154
+        "win_pct": 53.96825396825397
       },
       {
         "date": "2025-11-23",
-        "win_pct": 41.7910447761194
+        "win_pct": 53.84615384615385
       },
       {
         "date": "2025-11-24",
-        "win_pct": 42.857142857142854
+        "win_pct": 54.41176470588235
       },
       {
         "date": "2025-11-25",
-        "win_pct": 42.25352112676056
+        "win_pct": 53.62318840579711
       },
       {
         "date": "2025-11-26",
-        "win_pct": 42.465753424657535
+        "win_pct": 54.929577464788736
       },
       {
         "date": "2025-11-28",
-        "win_pct": 41.333333333333336
+        "win_pct": 54.054054054054056
       },
       {
         "date": "2025-11-29",
-        "win_pct": 39.24050632911392
+        "win_pct": 51.94805194805194
       },
       {
         "date": "2025-11-30",
-        "win_pct": 38.2716049382716
+        "win_pct": 51.89873417721519
       },
       {
         "date": "2025-12-01",
-        "win_pct": 37.34939759036144
+        "win_pct": 50.617283950617285
       },
       {
         "date": "2025-12-02",
-        "win_pct": 37.64705882352941
+        "win_pct": 50.602409638554214
       },
       {
         "date": "2025-12-03",
-        "win_pct": 37.93103448275862
+        "win_pct": 51.162790697674424
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 50.57471264367817
       }
     ],
     "Nick": [
@@ -1617,6 +1641,10 @@
       {
         "date": "2025-12-03",
         "win_pct": 57.3170731707317
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 58.333333333333336
       }
     ],
     "Undrafted": [
@@ -1791,118 +1819,139 @@
       {
         "date": "2025-12-03",
         "win_pct": 29.268292682926827
+      },
+      {
+        "date": "2025-12-04",
+        "win_pct": 30.23255813953488
       }
     ]
   },
   "todays_games": [
     {
-      "visitor": "Golden State Warriors",
-      "home": "Philadelphia 76ers",
+      "visitor": "Los Angeles Lakers",
+      "home": "Boston Celtics",
       "time": "7:00 pm ET",
-      "visitor_friend": "Chris",
-      "home_friend": "Nick"
+      "visitor_friend": "Andy",
+      "home_friend": "Adam"
     },
     {
-      "visitor": "Boston Celtics",
-      "home": "Washington Wizards",
+      "visitor": "Miami Heat",
+      "home": "Orlando Magic",
       "time": "7:00 pm ET",
       "visitor_friend": "Adam",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Denver Nuggets",
+      "home": "Atlanta Hawks",
+      "time": "7:30 pm ET",
+      "visitor_friend": "Adam",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "San Antonio Spurs",
+      "home": "Cleveland Cavaliers",
+      "time": "7:30 pm ET",
+      "visitor_friend": "JJ",
       "home_friend": "Andy"
     },
     {
-      "visitor": "Utah Jazz",
-      "home": "Brooklyn Nets",
+      "visitor": "Portland Trail Blazers",
+      "home": "Detroit Pistons",
       "time": "7:30 pm ET",
-      "visitor_friend": "Undrafted",
-      "home_friend": "Undrafted"
+      "visitor_friend": "Nick",
+      "home_friend": "JJ"
     },
     {
-      "visitor": "Los Angeles Lakers",
-      "home": "Toronto Raptors",
+      "visitor": "Utah Jazz",
+      "home": "New York Knicks",
       "time": "7:30 pm ET",
-      "visitor_friend": "Andy",
+      "visitor_friend": "Undrafted",
       "home_friend": "Duke"
     },
     {
-      "visitor": "Minnesota Timberwolves",
-      "home": "New Orleans Pelicans",
+      "visitor": "Charlotte Hornets",
+      "home": "Toronto Raptors",
+      "time": "7:30 pm ET",
+      "visitor_friend": "Chris",
+      "home_friend": "Duke"
+    },
+    {
+      "visitor": "Indiana Pacers",
+      "home": "Chicago Bulls",
+      "time": "8:00 pm ET",
+      "visitor_friend": "Chris",
+      "home_friend": "Duke"
+    },
+    {
+      "visitor": "Phoenix Suns",
+      "home": "Houston Rockets",
+      "time": "8:00 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Los Angeles Clippers",
+      "home": "Memphis Grizzlies",
+      "time": "8:00 pm ET",
+      "visitor_friend": "Duke",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Philadelphia 76ers",
+      "home": "Milwaukee Bucks",
       "time": "8:00 pm ET",
       "visitor_friend": "Nick",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Dallas Mavericks",
+      "home": "Oklahoma City Thunder",
+      "time": "9:30 pm ET",
+      "visitor_friend": "Chris",
       "home_friend": "JJ"
     }
   ],
   "yesterdays_games": [
     {
-      "visitor": "Portland Trail Blazers",
-      "home": "Cleveland Cavaliers",
-      "visitor_score": 122,
-      "home_score": 110,
-      "visitor_friend": "Nick",
+      "visitor": "Boston Celtics",
+      "home": "Washington Wizards",
+      "visitor_score": 146,
+      "home_score": 101,
+      "visitor_friend": "Adam",
       "home_friend": "Andy"
     },
     {
-      "visitor": "San Antonio Spurs",
-      "home": "Orlando Magic",
-      "visitor_score": 114,
-      "home_score": 112,
-      "visitor_friend": "JJ",
-      "home_friend": "Nate"
-    },
-    {
-      "visitor": "Denver Nuggets",
-      "home": "Indiana Pacers",
-      "visitor_score": 135,
-      "home_score": 120,
-      "visitor_friend": "Adam",
-      "home_friend": "Chris"
-    },
-    {
-      "visitor": "Detroit Pistons",
-      "home": "Milwaukee Bucks",
-      "visitor_score": 109,
-      "home_score": 113,
-      "visitor_friend": "JJ",
-      "home_friend": "Andy"
-    },
-    {
-      "visitor": "Sacramento Kings",
-      "home": "Houston Rockets",
-      "visitor_score": 95,
-      "home_score": 121,
-      "visitor_friend": "Adam",
+      "visitor": "Golden State Warriors",
+      "home": "Philadelphia 76ers",
+      "visitor_score": 98,
+      "home_score": 99,
+      "visitor_friend": "Chris",
       "home_friend": "Nick"
     },
     {
-      "visitor": "Brooklyn Nets",
-      "home": "Chicago Bulls",
-      "visitor_score": 113,
-      "home_score": 103,
+      "visitor": "Utah Jazz",
+      "home": "Brooklyn Nets",
+      "visitor_score": 123,
+      "home_score": 110,
       "visitor_friend": "Undrafted",
+      "home_friend": "Undrafted"
+    },
+    {
+      "visitor": "Minnesota Timberwolves",
+      "home": "New Orleans Pelicans",
+      "visitor_score": 125,
+      "home_score": 116,
+      "visitor_friend": "Nick",
+      "home_friend": "JJ"
+    },
+    {
+      "visitor": "Los Angeles Lakers",
+      "home": "Toronto Raptors",
+      "visitor_score": 123,
+      "home_score": 120,
+      "visitor_friend": "Andy",
       "home_friend": "Duke"
-    },
-    {
-      "visitor": "Miami Heat",
-      "home": "Dallas Mavericks",
-      "visitor_score": 108,
-      "home_score": 118,
-      "visitor_friend": "Adam",
-      "home_friend": "Chris"
-    },
-    {
-      "visitor": "Charlotte Hornets",
-      "home": "New York Knicks",
-      "visitor_score": 104,
-      "home_score": 119,
-      "visitor_friend": "Chris",
-      "home_friend": "Duke"
-    },
-    {
-      "visitor": "LA Clippers",
-      "home": "Atlanta Hawks",
-      "visitor_score": 115,
-      "home_score": 92,
-      "visitor_friend": "Duke",
-      "home_friend": "Nate"
     }
   ]
 }
