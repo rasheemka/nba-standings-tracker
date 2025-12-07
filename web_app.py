@@ -107,15 +107,9 @@ def index():
     for friend, stats in sorted_friends:
         team_records = []
         for team in stats['teams']:
-            # Find matching team in data
-            matched_team = None
-            for api_team_name in data['team_stats'].keys():
-                if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
-                    matched_team = api_team_name
-                    break
-            
-            if matched_team:
-                team_info = data['team_stats'][matched_team]
+            # Use exact team name matching from TEAM_ASSIGNMENTS
+            if team in data['team_stats']:
+                team_info = data['team_stats'][team]
                 games_played = team_info.get('games_played', 1)
                 pts_scored = team_info.get('total_pts_scored', 0)
                 pts_allowed = team_info.get('total_pts_allowed', 0)
@@ -225,15 +219,9 @@ def api_recalculate():
         for friend, stats in sorted_friends:
             team_records = []
             for team in stats['teams']:
-                # Find matching team in data
-                matched_team = None
-                for api_team_name in data['team_stats'].keys():
-                    if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
-                        matched_team = api_team_name
-                        break
-                
-                if matched_team:
-                    team_info = data['team_stats'][matched_team]
+                # Use exact team name matching from TEAM_ASSIGNMENTS
+                if team in data['team_stats']:
+                    team_info = data['team_stats'][team]
                     games_played = team_info.get('games_played', 1)
                     pts_scored = team_info.get('total_pts_scored', 0)
                     pts_allowed = team_info.get('total_pts_allowed', 0)

@@ -313,15 +313,9 @@ def calculate_projected_standings(current_stats, projections):
         total_projected_wins = 0
         
         for team in teams:
-            # Find matching team
-            matched_team = None
-            for api_team_name in current_stats.keys():
-                if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
-                    matched_team = api_team_name
-                    break
-            
-            if matched_team:
-                team_data = current_stats[matched_team]
+            # Use exact team name matching from TEAM_ASSIGNMENTS
+            if team in current_stats:
+                team_data = current_stats[team]
                 current_wins = team_data.get('wins', 0)
                 current_losses = team_data.get('losses', 0)
                 games_played = current_wins + current_losses
@@ -518,18 +512,12 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
         team_count = 0
         
         for team in teams:
-            # Try to find the team in team_data (case-insensitive partial match)
-            matched_team = None
-            for api_team_name in team_data.keys():
-                if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
-                    matched_team = api_team_name
-                    break
-            
-            if matched_team:
-                total_wins += team_data[matched_team].get('wins', 0)
-                total_losses += team_data[matched_team].get('losses', 0)
-                total_plus_minus += team_data[matched_team].get('total_plus_minus', 0)
-                total_games_played += team_data[matched_team].get('games_played', 0)
+            # Use exact team name matching from TEAM_ASSIGNMENTS
+            if team in team_data:
+                total_wins += team_data[team].get('wins', 0)
+                total_losses += team_data[team].get('losses', 0)
+                total_plus_minus += team_data[team].get('total_plus_minus', 0)
+                total_games_played += team_data[team].get('games_played', 0)
                 team_count += 1
         
         # Calculate games remaining (82 games per team)
@@ -635,15 +623,9 @@ def display_team_breakdown(team_data: Dict, friend_totals: Dict):
         
         team_records = []
         for team in stats['teams']:
-            # Find matching team in data
-            matched_team = None
-            for api_team_name in team_data.keys():
-                if team.lower() in api_team_name.lower() or api_team_name.lower() in team.lower():
-                    matched_team = api_team_name
-                    break
-            
-            if matched_team:
-                team_info = team_data[matched_team]
+            # Use exact team name matching from TEAM_ASSIGNMENTS
+            if team in team_data:
+                team_info = team_data[team]
                 team_records.append({
                     'name': team,
                     'wins': team_info.get('wins', 0),
