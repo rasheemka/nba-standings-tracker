@@ -258,23 +258,12 @@ def calculate_friend_historical_standings(team_records, dates):
             total_losses = 0
             
             for team in teams:
-                # Find matching team - look for exact word matches
-                matched_team = None
-                for api_team_name in team_records.keys():
-                    # Split into words for exact matching
-                    team_words = set(team.lower().split())
-                    api_words = set(api_team_name.lower().split())
-                    
-                    # Check if there's an exact word match
-                    if team_words & api_words:  # Intersection
-                        matched_team = api_team_name
-                        break
-                
-                if matched_team and team_records[matched_team]['history']:
+                # Use exact team name matching from TEAM_ASSIGNMENTS
+                if team in team_records and team_records[team]['history']:
                     # Find the most recent game on or before this date
                     latest_wins = 0
                     latest_losses = 0
-                    for record in team_records[matched_team]['history']:
+                    for record in team_records[team]['history']:
                         if record['date'] <= date:
                             latest_wins = record['wins']
                             latest_losses = record['losses']
