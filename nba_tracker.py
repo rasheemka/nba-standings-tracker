@@ -380,13 +380,15 @@ def fetch_todays_games():
                     
                     # Games on 2025-12-09
                     if today_str == '2025-12-09' and str(game_id) == '0022501201':
-                        # Miami @ Orlando (6:00 PM)
+                        # Miami @ Orlando (6:00 PM ET)
                         home_name = 'Orlando Magic'
                         visitor_name = 'Miami Heat'
+                        game_time = '6:00 PM ET'
                     elif today_str == '2025-12-09' and str(game_id) == '0022501203':
-                        # New York @ Toronto (8:30 PM)
+                        # New York @ Toronto (8:30 PM ET)
                         home_name = 'Toronto Raptors'
                         visitor_name = 'New York Knicks'
+                        game_time = '8:30 PM ET'
                     else:
                         # Skip games where teams are not yet determined
                         continue
