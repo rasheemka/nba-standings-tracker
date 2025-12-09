@@ -338,7 +338,8 @@ def calculate_projected_standings(current_stats, projections):
 
 def fetch_todays_games():
     """
-    Fetch today's NBA games and map teams to friends
+    Fetch today's NBA games and map teams to friends.
+    Falls back to live scoreboard API if stats API hasn't populated team IDs yet.
     """
     max_retries = 3
     retry_delay = 5
@@ -365,6 +366,38 @@ def fetch_todays_games():
                 for team in teams_list:
                     team_to_friend[team] = friend
             
+            # Check if we need to use live scoreboard API as fallback
+            has_null_teams = any(
+                game['HOME_TEAM_ID'] is None or game['VISITOR_TEAM_ID'] is None 
+                for _, game in games_df.iterrows()
+            )
+            
+            live_games = {}
+            if has_null_teams:
+                # Fall back to live scoreboard API which updates earlier
+                try:
+                    from nba_api.live.nba.endpoints import scoreboard as live_scoreboard
+                    time.sleep(0.6)
+                    board = live_scoreboard.ScoreBoard()
+                    games_dict = board.get_dict()
+                    
+                    # Index live games by position for matching
+                    for idx, game in enumerate(games_dict['scoreboard']['games']):
+                        away_team = game.get('awayTeam', {})
+                        home_team = game.get('homeTeam', {})
+                        # Build full team names (city + name)
+                        away_name = f"{away_team.get('teamCity', '')} {away_team.get('teamName', '')}".strip()
+                        home_name = f"{home_team.get('teamCity', '')} {home_team.get('teamName', '')}".strip()
+                        status = game.get('gameStatusText', 'TBD')
+                        
+                        live_games[idx] = {
+                            'visitor': away_name,
+                            'home': home_name,
+                            'time': status
+                        }
+                except Exception as e:
+                    print(f"Live scoreboard fallback failed: {e}")
+            
             # Build games list
             todays_games = []
             for idx, game in games_df.iterrows():
@@ -372,26 +405,14 @@ def fetch_todays_games():
                 visitor_id = game['VISITOR_TEAM_ID']
                 game_time = game['GAME_STATUS_TEXT']
                 
-                # Handle cases where API hasn't populated team IDs yet
-                # Based on ESPN schedule for 12/9/2025: Miami @ Orlando, New York @ Toronto
-                if home_id is None or visitor_id is None:
-                    game_id = game.get('GAME_ID', '')
-                    today_str = datetime.now().strftime('%Y-%m-%d')
-                    
-                    # Games on 2025-12-09
-                    if today_str == '2025-12-09' and str(game_id) == '0022501201':
-                        # Miami @ Orlando (6:00 PM ET)
-                        home_name = 'Orlando Magic'
-                        visitor_name = 'Miami Heat'
-                        game_time = '6:00 PM ET'
-                    elif today_str == '2025-12-09' and str(game_id) == '0022501203':
-                        # New York @ Toronto (8:30 PM ET)
-                        home_name = 'Toronto Raptors'
-                        visitor_name = 'New York Knicks'
-                        game_time = '8:30 PM ET'
-                    else:
-                        # Skip games where teams are not yet determined
-                        continue
+                # Use live API data if team IDs are not populated
+                if (home_id is None or visitor_id is None) and idx in live_games:
+                    home_name = live_games[idx]['home']
+                    visitor_name = live_games[idx]['visitor']
+                    game_time = live_games[idx]['time']
+                elif home_id is None or visitor_id is None:
+                    # Skip games where teams are not yet determined and no fallback available
+                    continue
                 else:
                     home_name = team_map.get(home_id, 'Unknown')
                     visitor_name = team_map.get(visitor_id, 'Unknown')
