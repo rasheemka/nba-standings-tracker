@@ -370,9 +370,29 @@ def fetch_todays_games():
             for idx, game in games_df.iterrows():
                 home_id = game['HOME_TEAM_ID']
                 visitor_id = game['VISITOR_TEAM_ID']
-                home_name = team_map.get(home_id, 'Unknown')
-                visitor_name = team_map.get(visitor_id, 'Unknown')
                 game_time = game['GAME_STATUS_TEXT']
+                
+                # Handle NBA Cup semifinals on 12/9/2025 where API hasn't populated team IDs yet
+                # Based on ESPN schedule: Bucks vs Hawks, Rockets vs Thunder
+                if home_id is None or visitor_id is None:
+                    game_id = game.get('GAME_ID', '')
+                    today_str = datetime.now().strftime('%Y-%m-%d')
+                    
+                    # NBA Cup semifinals on 2025-12-09
+                    if today_str == '2025-12-09' and str(game_id) == '0022501201':
+                        # First semifinal: Hawks vs Bucks
+                        home_name = 'Milwaukee Bucks'
+                        visitor_name = 'Atlanta Hawks'
+                    elif today_str == '2025-12-09' and str(game_id) == '0022501203':
+                        # Second semifinal: Thunder vs Rockets  
+                        home_name = 'Houston Rockets'
+                        visitor_name = 'Oklahoma City Thunder'
+                    else:
+                        # Skip games where teams are not yet determined
+                        continue
+                else:
+                    home_name = team_map.get(home_id, 'Unknown')
+                    visitor_name = team_map.get(visitor_id, 'Unknown')
                 
                 # Normalize team names to match TEAM_ASSIGNMENTS
                 home_name_normalized = normalize_team_name(home_name)
