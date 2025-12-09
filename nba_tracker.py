@@ -372,21 +372,21 @@ def fetch_todays_games():
                 visitor_id = game['VISITOR_TEAM_ID']
                 game_time = game['GAME_STATUS_TEXT']
                 
-                # Handle NBA Cup semifinals on 12/9/2025 where API hasn't populated team IDs yet
-                # Based on ESPN schedule: Bucks vs Hawks, Rockets vs Thunder
+                # Handle cases where API hasn't populated team IDs yet
+                # Based on ESPN schedule for 12/9/2025: Miami @ Orlando, New York @ Toronto
                 if home_id is None or visitor_id is None:
                     game_id = game.get('GAME_ID', '')
                     today_str = datetime.now().strftime('%Y-%m-%d')
                     
-                    # NBA Cup semifinals on 2025-12-09
+                    # Games on 2025-12-09
                     if today_str == '2025-12-09' and str(game_id) == '0022501201':
-                        # First semifinal: Hawks vs Bucks
-                        home_name = 'Milwaukee Bucks'
-                        visitor_name = 'Atlanta Hawks'
+                        # Miami @ Orlando (6:00 PM)
+                        home_name = 'Orlando Magic'
+                        visitor_name = 'Miami Heat'
                     elif today_str == '2025-12-09' and str(game_id) == '0022501203':
-                        # Second semifinal: Thunder vs Rockets  
-                        home_name = 'Houston Rockets'
-                        visitor_name = 'Oklahoma City Thunder'
+                        # New York @ Toronto (8:30 PM)
+                        home_name = 'Toronto Raptors'
+                        visitor_name = 'New York Knicks'
                     else:
                         # Skip games where teams are not yet determined
                         continue
