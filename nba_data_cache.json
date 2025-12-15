@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-15T06:50:02.568184",
+  "last_updated": "2025-12-15T14:03:07.060598",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 27,
@@ -2185,14 +2185,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Washington Wizards",
-      "home": "Indiana Pacers",
-      "visitor_score": 108,
-      "home_score": 89,
-      "visitor_friend": "Andy",
-      "home_friend": "Chris"
-    },
-    {
       "visitor": "Charlotte Hornets",
       "home": "Cleveland Cavaliers",
       "visitor_score": 119,
@@ -2201,28 +2193,12 @@
       "home_friend": "Andy"
     },
     {
-      "visitor": "Milwaukee Bucks",
-      "home": "Brooklyn Nets",
-      "visitor_score": 82,
-      "home_score": 127,
-      "visitor_friend": "Andy",
-      "home_friend": "Undrafted"
-    },
-    {
       "visitor": "Sacramento Kings",
       "home": "Minnesota Timberwolves",
       "visitor_score": 103,
       "home_score": 117,
       "visitor_friend": "Adam",
       "home_friend": "Nick"
-    },
-    {
-      "visitor": "Philadelphia 76ers",
-      "home": "Atlanta Hawks",
-      "visitor_score": 117,
-      "home_score": 120,
-      "visitor_friend": "Nick",
-      "home_friend": "Nate"
     },
     {
       "visitor": "New Orleans Pelicans",
@@ -2247,6 +2223,30 @@
       "home_score": 136,
       "visitor_friend": "Chris",
       "home_friend": "Nick"
+    },
+    {
+      "visitor": "Philadelphia 76ers",
+      "home": "Atlanta Hawks",
+      "visitor_score": 117,
+      "home_score": 120,
+      "visitor_friend": "Nick",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Milwaukee Bucks",
+      "home": "Brooklyn Nets",
+      "visitor_score": 82,
+      "home_score": 127,
+      "visitor_friend": "Andy",
+      "home_friend": "Undrafted"
+    },
+    {
+      "visitor": "Washington Wizards",
+      "home": "Indiana Pacers",
+      "visitor_score": 108,
+      "home_score": 89,
+      "visitor_friend": "Andy",
+      "home_friend": "Chris"
     }
   ]
 }
