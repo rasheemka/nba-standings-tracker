@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-21T07:30:06.714976",
+  "last_updated": "2025-12-21T14:00:41.598818",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 29,
@@ -375,9 +375,9 @@
       "wins": 12,
       "losses": 16,
       "win_pct": 0.429,
-      "total_pts_scored": 3273.0,
-      "total_plus_minus": -88.0,
-      "total_pts_allowed": 3361.0
+      "total_pts_scored": 3305.0,
+      "total_plus_minus": -90.0,
+      "total_pts_allowed": 3395.0
     },
     "Raptors 905": {
       "games_played": 1,
@@ -411,9 +411,9 @@
       "wins": 6,
       "losses": 22,
       "win_pct": 0.214,
-      "total_pts_scored": 3074.0,
-      "total_plus_minus": -308.0,
-      "total_pts_allowed": 3382.0
+      "total_pts_scored": 3108.0,
+      "total_plus_minus": -306.0,
+      "total_pts_allowed": 3414.0
     },
     "Salt Lake City Stars": {
       "games_played": 1,
@@ -612,7 +612,7 @@
       "total_losses": 53,
       "total_games": 111,
       "win_pct": 0.5225225225225225,
-      "point_diff_per_game": 1.4954954954954955,
+      "point_diff_per_game": 1.5135135135135136,
       "games_remaining": 217,
       "max_possible_win_pct": 0.8384146341463414,
       "teams": [
@@ -644,7 +644,7 @@
       "total_losses": 45,
       "total_games": 108,
       "win_pct": 0.5833333333333334,
-      "point_diff_per_game": 2.9722222222222223,
+      "point_diff_per_game": 2.9537037037037037,
       "games_remaining": 220,
       "max_possible_win_pct": 0.8628048780487805,
       "teams": [
@@ -2622,14 +2622,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Houston Rockets",
-      "home": "Denver Nuggets",
-      "visitor_score": 115,
-      "home_score": 101,
-      "visitor_friend": "Nick",
-      "home_friend": "Adam"
-    },
-    {
       "visitor": "Dallas Mavericks",
       "home": "Philadelphia 76ers",
       "visitor_score": 114,
@@ -2670,22 +2662,6 @@
       "home_friend": "Nate"
     },
     {
-      "visitor": "Phoenix Suns",
-      "home": "Golden State Warriors",
-      "visitor_score": 116,
-      "home_score": 119,
-      "visitor_friend": "Nate",
-      "home_friend": "Chris"
-    },
-    {
-      "visitor": "Orlando Magic",
-      "home": "Utah Jazz",
-      "visitor_score": 128,
-      "home_score": 127,
-      "visitor_friend": "Nate",
-      "home_friend": "Undrafted"
-    },
-    {
       "visitor": "Los Angeles Lakers",
       "home": "LA Clippers",
       "visitor_score": 88,
@@ -2700,6 +2676,30 @@
       "home_score": 93,
       "visitor_friend": "Nick",
       "home_friend": "Adam"
+    },
+    {
+      "visitor": "Houston Rockets",
+      "home": "Denver Nuggets",
+      "visitor_score": 115,
+      "home_score": 101,
+      "visitor_friend": "Nick",
+      "home_friend": "Adam"
+    },
+    {
+      "visitor": "Phoenix Suns",
+      "home": "Golden State Warriors",
+      "visitor_score": 114,
+      "home_score": 119,
+      "visitor_friend": "Nate",
+      "home_friend": "Chris"
+    },
+    {
+      "visitor": "Orlando Magic",
+      "home": "Utah Jazz",
+      "visitor_score": 128,
+      "home_score": 127,
+      "visitor_friend": "Nate",
+      "home_friend": "Undrafted"
     }
   ]
 }
