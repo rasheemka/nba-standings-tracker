@@ -953,9 +953,29 @@
             const ctx = document.getElementById('horseRaceChart').getContext('2d');
             
             // Get all unique dates
-            const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+            const allDates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
             
-            // Dynamically set chart width based on number of dates
+            // Sample data to show ~30 points evenly distributed across the entire season
+            const maxPoints = 30;
+            let sampledIndices = [];
+            let dates = [];
+            let sampledData = {};
+            
+            if (allDates.length <= maxPoints) {
+                // Show all data if we have fewer than maxPoints
+                sampledIndices = allDates.map((_, i) => i);
+                dates = allDates;
+            } else {
+                // Sample evenly across the date range
+                const step = (allDates.length - 1) / (maxPoints - 1);
+                for (let i = 0; i < maxPoints; i++) {
+                    const index = Math.round(i * step);
+                    sampledIndices.push(index);
+                }
+                dates = sampledIndices.map(i => allDates[i]);
+            }
+            
+            // Dynamically set chart width based on number of points
             const isMobile = window.innerWidth <= 768;
             const chartCanvas = document.getElementById('horseRaceChart');
             if (isMobile) {
@@ -977,10 +997,10 @@
                 return month + '/' + day;
             });
             
-            // Create datasets for each friend
+            // Create datasets for each friend (sampled to match date range)
             const datasets = Object.keys(friendHistory).map(friend => ({
                 label: friend,
-                data: friendHistory[friend].map(d => d.win_pct),
+                data: sampledIndices.map(i => friendHistory[friend][i].win_pct),
                 borderColor: friendColors[friend] || '#000000',
                 backgroundColor: friendColors[friend] || '#000000',
                 borderWidth: 3,
@@ -1077,9 +1097,28 @@
             }
 
             // Get all unique dates
-            const dates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
+            const allDates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
             
-            // Dynamically set chart width based on number of dates (same logic as init)
+            // Sample data to show ~30 points evenly distributed across the entire season
+            const maxPoints = 30;
+            let sampledIndices = [];
+            let dates = [];
+            
+            if (allDates.length <= maxPoints) {
+                // Show all data if we have fewer than maxPoints
+                sampledIndices = allDates.map((_, i) => i);
+                dates = allDates;
+            } else {
+                // Sample evenly across the date range
+                const step = (allDates.length - 1) / (maxPoints - 1);
+                for (let i = 0; i < maxPoints; i++) {
+                    const index = Math.round(i * step);
+                    sampledIndices.push(index);
+                }
+                dates = sampledIndices.map(i => allDates[i]);
+            }
+            
+            // Dynamically set chart width based on number of points (same logic as init)
             const isMobile = window.innerWidth <= 768;
             const chartCanvas = document.getElementById('horseRaceChart');
             if (isMobile) {
@@ -1098,10 +1137,10 @@
                 return month + '/' + day;
             });
             
-            // Create new datasets
+            // Create new datasets (sampled)
             const datasets = Object.keys(friendHistory).map(friend => ({
                 label: friend,
-                data: friendHistory[friend].map(d => d.win_pct),
+                data: sampledIndices.map(i => friendHistory[friend][i].win_pct),
                 borderColor: friendColors[friend] || '#000000',
                 backgroundColor: friendColors[friend] || '#000000',
                 borderWidth: 3,
