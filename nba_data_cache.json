@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-22T07:27:34.255484",
+  "last_updated": "2025-12-22T15:14:30.874156",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 30,
@@ -2670,12 +2670,12 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Houston Rockets",
-      "home": "Sacramento Kings",
-      "visitor_score": 124,
-      "home_score": 125,
-      "visitor_friend": "Nick",
-      "home_friend": "Adam"
+      "visitor": "Toronto Raptors",
+      "home": "Brooklyn Nets",
+      "visitor_score": 81,
+      "home_score": 96,
+      "visitor_friend": "Duke",
+      "home_friend": "Undrafted"
     },
     {
       "visitor": "Chicago Bulls",
@@ -2694,12 +2694,12 @@
       "home_friend": "Duke"
     },
     {
-      "visitor": "Toronto Raptors",
-      "home": "Brooklyn Nets",
-      "visitor_score": 81,
-      "home_score": 96,
-      "visitor_friend": "Duke",
-      "home_friend": "Undrafted"
+      "visitor": "San Antonio Spurs",
+      "home": "Washington Wizards",
+      "visitor_score": 124,
+      "home_score": 113,
+      "visitor_friend": "JJ",
+      "home_friend": "Andy"
     },
     {
       "visitor": "Milwaukee Bucks",
@@ -2710,12 +2710,12 @@
       "home_friend": "Nick"
     },
     {
-      "visitor": "San Antonio Spurs",
-      "home": "Washington Wizards",
+      "visitor": "Houston Rockets",
+      "home": "Sacramento Kings",
       "visitor_score": 124,
-      "home_score": 113,
-      "visitor_friend": "JJ",
-      "home_friend": "Andy"
+      "home_score": 125,
+      "visitor_friend": "Nick",
+      "home_friend": "Adam"
     }
   ]
 }
