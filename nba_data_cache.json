@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-24T06:51:01.522007",
+  "last_updated": "2025-12-24T14:00:56.052350",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 31,
@@ -2684,12 +2684,12 @@
   "todays_games": [],
   "yesterdays_games": [
     {
-      "visitor": "Detroit Pistons",
-      "home": "Sacramento Kings",
-      "visitor_score": 136,
-      "home_score": 127,
+      "visitor": "New Orleans Pelicans",
+      "home": "Cleveland Cavaliers",
+      "visitor_score": 118,
+      "home_score": 141,
       "visitor_friend": "JJ",
-      "home_friend": "Adam"
+      "home_friend": "Andy"
     },
     {
       "visitor": "Brooklyn Nets",
@@ -2698,14 +2698,6 @@
       "home_score": 106,
       "visitor_friend": "Undrafted",
       "home_friend": "Nick"
-    },
-    {
-      "visitor": "New Orleans Pelicans",
-      "home": "Cleveland Cavaliers",
-      "visitor_score": 118,
-      "home_score": 141,
-      "visitor_friend": "JJ",
-      "home_friend": "Andy"
     },
     {
       "visitor": "Washington Wizards",
@@ -2794,6 +2786,14 @@
       "home_score": 128,
       "visitor_friend": "Nick",
       "home_friend": "Duke"
+    },
+    {
+      "visitor": "Detroit Pistons",
+      "home": "Sacramento Kings",
+      "visitor_score": 136,
+      "home_score": 127,
+      "visitor_friend": "JJ",
+      "home_friend": "Adam"
     }
   ]
 }
