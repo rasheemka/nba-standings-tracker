@@ -99,6 +99,27 @@
             background: #ffd0d0 !important;
         }
 
+        .below-undrafted {
+            background: linear-gradient(90deg, #ff6b6b, #ffa07a, #ff6b6b) !important;
+            background-size: 200% 100% !important;
+            animation: shame-pulse 2s ease-in-out infinite !important;
+        }
+
+        .below-undrafted td {
+            color: #8b0000 !important;
+            font-weight: bold !important;
+        }
+
+        .below-undrafted:hover {
+            background: linear-gradient(90deg, #ff5252, #ff8a65, #ff5252) !important;
+            background-size: 200% 100% !important;
+        }
+
+        @keyframes shame-pulse {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
         .rank {
             font-weight: bold;
             font-size: 1.3em;
@@ -530,11 +551,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% set undrafted_rank = namespace(value=999) %}
                     {% for friend, stats in sorted_friends %}
-                    <tr {% if stats.is_eliminated %}class="eliminated"{% endif %}>
+                        {% if friend == 'Undrafted' %}
+                            {% set undrafted_rank.value = loop.index %}
+                        {% endif %}
+                    {% endfor %}
+                    {% for friend, stats in sorted_friends %}
+                    <tr {% if stats.is_eliminated %}class="eliminated"{% elif friend != 'Undrafted' and loop.index > undrafted_rank.value %}class="below-undrafted"{% endif %}>
                         <td class="rank rank-{{ loop.index }}">
                             {% if stats.is_eliminated %}
                                 <span class="medal">💀</span>
+                            {% elif friend != 'Undrafted' and loop.index > undrafted_rank.value %}
+                                <span class="medal">🤡</span>
                             {% elif loop.index == 1 %}
                                 <span class="medal">🍆</span>
                             {% else %}
@@ -850,20 +879,37 @@
             const tbody = document.querySelector('.standings-table table tbody');
             let html = '';
             
+            // Find Undrafted's position
+            let undraftedRank = 999;
+            sortedFriends.forEach(([friend, stats], index) => {
+                if (friend === 'Undrafted') {
+                    undraftedRank = index + 1;
+                }
+            });
+            
             sortedFriends.forEach(([friend, stats], index) => {
                 const rank = index + 1;
-                const eliminatedClass = stats.is_eliminated ? 'class="eliminated"' : '';
-                let rankDisplay;
+                const isBelowUndrafted = friend !== 'Undrafted' && rank > undraftedRank;
+                let rowClass = '';
                 
                 if (stats.is_eliminated) {
+                    rowClass = 'class="eliminated"';
+                } else if (isBelowUndrafted) {
+                    rowClass = 'class="below-undrafted"';
+                }
+                
+                let rankDisplay;
+                if (stats.is_eliminated) {
                     rankDisplay = '<span class="medal">💀</span>';
+                } else if (isBelowUndrafted) {
+                    rankDisplay = '<span class="medal">🤡</span>';
                 } else if (rank === 1) {
                     rankDisplay = '<span class="medal">🍆</span>';
                 } else {
                     rankDisplay = rank;
                 }
                 
-                html += '<tr ' + eliminatedClass + '>';
+                html += '<tr ' + rowClass + '>';
                 html += '<td class="rank rank-' + rank + '">' + rankDisplay + '</td>';
                 html += '<td class="friend-name">' + friend + '</td>';
                 html += '<td class="stat">' + stats.total_wins + '</td>';
