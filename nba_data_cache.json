@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-29T07:34:35.972297",
+  "last_updated": "2025-12-29T08:41:09.214920",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 33,
@@ -2881,20 +2881,6 @@
       "home_friend": "JJ"
     },
     {
-      "visitor": "Cleveland Cavaliers",
-      "home": "San Antonio Spurs",
-      "time": "8:00 pm ET",
-      "visitor_friend": "Andy",
-      "home_friend": "JJ"
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "Portland Trail Blazers",
-      "time": "10:30 pm ET",
-      "visitor_friend": "Chris",
-      "home_friend": "Nick"
-    },
-    {
       "visitor": "Dallas Mavericks",
       "home": "Portland Trail Blazers",
       "time": "10:30 pm ET",
@@ -2920,22 +2906,6 @@
       "home_friend": "Duke"
     },
     {
-      "visitor": "Memphis Grizzlies",
-      "home": "Washington Wizards",
-      "visitor_score": 112,
-      "home_score": 116,
-      "visitor_friend": "Nate",
-      "home_friend": "Andy"
-    },
-    {
-      "visitor": "Boston Celtics",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 108,
-      "home_score": 114,
-      "visitor_friend": "Adam",
-      "home_friend": "Nick"
-    },
-    {
       "visitor": "Detroit Pistons",
       "home": "LA Clippers",
       "visitor_score": 99,
@@ -2950,6 +2920,22 @@
       "home_score": 125,
       "visitor_friend": "Adam",
       "home_friend": "Andy"
+    },
+    {
+      "visitor": "Memphis Grizzlies",
+      "home": "Washington Wizards",
+      "visitor_score": 112,
+      "home_score": 116,
+      "visitor_friend": "Nate",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Boston Celtics",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 108,
+      "home_score": 114,
+      "visitor_friend": "Adam",
+      "home_friend": "Nick"
     }
   ]
 }

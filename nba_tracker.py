@@ -400,6 +400,8 @@ def fetch_todays_games():
             
             # Build games list
             todays_games = []
+            seen_games = set()  # Track unique games to avoid API duplicates
+            
             for idx, game in games_df.iterrows():
                 home_id = game['HOME_TEAM_ID']
                 visitor_id = game['VISITOR_TEAM_ID']
@@ -416,6 +418,12 @@ def fetch_todays_games():
                 else:
                     home_name = team_map.get(home_id, 'Unknown')
                     visitor_name = team_map.get(visitor_id, 'Unknown')
+                
+                # Skip duplicate games (NBA API sometimes returns duplicates)
+                game_key = f"{visitor_name}@{home_name}"
+                if game_key in seen_games:
+                    continue
+                seen_games.add(game_key)
                 
                 # Normalize team names to match TEAM_ASSIGNMENTS
                 home_name_normalized = normalize_team_name(home_name)
