@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-12-30T06:01:30.087621",
+  "last_updated": "2025-12-30T14:00:56.094418",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 34,
@@ -2873,6 +2873,14 @@
   ],
   "yesterdays_games": [
     {
+      "visitor": "Dallas Mavericks",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 122,
+      "home_score": 125,
+      "visitor_friend": "Chris",
+      "home_friend": "Nick"
+    },
+    {
       "visitor": "Milwaukee Bucks",
       "home": "Charlotte Hornets",
       "visitor_score": 123,
@@ -2951,14 +2959,6 @@
       "home_score": 140,
       "visitor_friend": "Nate",
       "home_friend": "JJ"
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 122,
-      "home_score": 125,
-      "visitor_friend": "Chris",
-      "home_friend": "Nick"
     }
   ]
 }
