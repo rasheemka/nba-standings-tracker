@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-09T06:00:26.306222",
+  "last_updated": "2026-01-09T14:00:26.376089",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 39,
@@ -3235,6 +3235,14 @@
   ],
   "yesterdays_games": [
     {
+      "visitor": "Indiana Pacers",
+      "home": "Charlotte Hornets",
+      "visitor_score": 114,
+      "home_score": 112,
+      "visitor_friend": "Chris",
+      "home_friend": "Chris"
+    },
+    {
       "visitor": "Cleveland Cavaliers",
       "home": "Minnesota Timberwolves",
       "visitor_score": 122,
@@ -3249,14 +3257,6 @@
       "home_score": 116,
       "visitor_friend": "Chris",
       "home_friend": "Undrafted"
-    },
-    {
-      "visitor": "Indiana Pacers",
-      "home": "Charlotte Hornets",
-      "visitor_score": 114,
-      "home_score": 112,
-      "visitor_friend": "Chris",
-      "home_friend": "Chris"
     }
   ]
 }
