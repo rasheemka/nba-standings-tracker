@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-12T06:00:56.430525",
+  "last_updated": "2026-01-12T14:00:25.033946",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 41,
@@ -191,13 +191,13 @@
       "total_pts_allowed": 4640.0
     },
     "Iowa Wolves": {
-      "games_played": 8,
+      "games_played": 9,
       "wins": 5,
-      "losses": 3,
-      "win_pct": 0.625,
-      "total_pts_scored": 959.0,
-      "total_plus_minus": 69.0,
-      "total_pts_allowed": 890.0
+      "losses": 4,
+      "win_pct": 0.556,
+      "total_pts_scored": 1077.0,
+      "total_plus_minus": 62.0,
+      "total_pts_allowed": 1015.0
     },
     "LA Clippers": {
       "games_played": 38,
@@ -434,13 +434,13 @@
       "total_pts_allowed": 4392.0
     },
     "San Diego Clippers": {
-      "games_played": 8,
-      "wins": 3,
+      "games_played": 9,
+      "wins": 4,
       "losses": 5,
-      "win_pct": 0.375,
-      "total_pts_scored": 885.0,
-      "total_plus_minus": -18.0,
-      "total_pts_allowed": 903.0
+      "win_pct": 0.444,
+      "total_pts_scored": 1010.0,
+      "total_plus_minus": -11.0,
+      "total_pts_allowed": 1021.0
     },
     "Santa Cruz Warriors": {
       "games_played": 9,
@@ -3311,14 +3311,6 @@
       "home_friend": "Nate"
     },
     {
-      "visitor": "New Orleans Pelicans",
-      "home": "Orlando Magic",
-      "visitor_score": 118,
-      "home_score": 128,
-      "visitor_friend": "JJ",
-      "home_friend": "Nate"
-    },
-    {
       "visitor": "New York Knicks",
       "home": "Portland Trail Blazers",
       "visitor_score": 123,
@@ -3381,6 +3373,14 @@
       "home_score": 111,
       "visitor_friend": "Nick",
       "home_friend": "Adam"
+    },
+    {
+      "visitor": "New Orleans Pelicans",
+      "home": "Orlando Magic",
+      "visitor_score": 118,
+      "home_score": 128,
+      "visitor_friend": "JJ",
+      "home_friend": "Nate"
     }
   ]
 }
