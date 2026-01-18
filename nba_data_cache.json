@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-18T06:06:30.179399",
+  "last_updated": "2026-01-18T14:42:06.839399",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 44,
@@ -3453,7 +3453,7 @@
     {
       "visitor": "Orlando Magic",
       "home": "Memphis Grizzlies",
-      "time": "12:00 pm ET",
+      "time": "4th Qtr             ",
       "visitor_friend": "Nate",
       "home_friend": "Nate"
     },
@@ -3494,22 +3494,6 @@
     }
   ],
   "yesterdays_games": [
-    {
-      "visitor": "Los Angeles Lakers",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 116,
-      "home_score": 132,
-      "visitor_friend": "Andy",
-      "home_friend": "Nick"
-    },
-    {
-      "visitor": "Utah Jazz",
-      "home": "Dallas Mavericks",
-      "visitor_score": 120,
-      "home_score": 138,
-      "visitor_friend": "Undrafted",
-      "home_friend": "Chris"
-    },
     {
       "visitor": "Indiana Pacers",
       "home": "Detroit Pistons",
@@ -3565,6 +3549,22 @@
       "home_score": 126,
       "visitor_friend": "Nick",
       "home_friend": "JJ"
+    },
+    {
+      "visitor": "Los Angeles Lakers",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 116,
+      "home_score": 132,
+      "visitor_friend": "Andy",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Utah Jazz",
+      "home": "Dallas Mavericks",
+      "visitor_score": 120,
+      "home_score": 138,
+      "visitor_friend": "Undrafted",
+      "home_friend": "Chris"
     }
   ]
 }
