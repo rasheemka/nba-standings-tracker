@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-19T06:04:51.373850",
+  "last_updated": "2026-01-19T14:00:22.742453",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 44,
@@ -3485,7 +3485,7 @@
     {
       "visitor": "Milwaukee Bucks",
       "home": "Atlanta Hawks",
-      "time": "1:00 pm ET",
+      "time": "2nd Qtr             ",
       "visitor_friend": "Andy",
       "home_friend": "Nate"
     },
@@ -3548,14 +3548,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Memphis Grizzlies",
-      "home": "Orlando Magic",
-      "visitor_score": 126,
-      "home_score": 109,
-      "visitor_friend": "Nate",
-      "home_friend": "Nate"
-    },
-    {
       "visitor": "Brooklyn Nets",
       "home": "Chicago Bulls",
       "visitor_score": 102,
@@ -3578,6 +3570,14 @@
       "home_score": 87,
       "visitor_friend": "Chris",
       "home_friend": "Adam"
+    },
+    {
+      "visitor": "Orlando Magic",
+      "home": "Memphis Grizzlies",
+      "visitor_score": 109,
+      "home_score": 126,
+      "visitor_friend": "Nate",
+      "home_friend": "Nate"
     },
     {
       "visitor": "Portland Trail Blazers",
