@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-20T06:07:24.702084",
+  "last_updated": "2026-01-20T14:00:20.933727",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 45,
@@ -3566,20 +3566,12 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Milwaukee Bucks",
-      "home": "Atlanta Hawks",
-      "visitor_score": 112,
-      "home_score": 110,
-      "visitor_friend": "Andy",
-      "home_friend": "Nate"
-    },
-    {
-      "visitor": "Oklahoma City Thunder",
-      "home": "Cleveland Cavaliers",
-      "visitor_score": 136,
-      "home_score": 104,
-      "visitor_friend": "JJ",
-      "home_friend": "Andy"
+      "visitor": "Dallas Mavericks",
+      "home": "New York Knicks",
+      "visitor_score": 114,
+      "home_score": 97,
+      "visitor_friend": "Chris",
+      "home_friend": "Duke"
     },
     {
       "visitor": "LA Clippers",
@@ -3598,12 +3590,28 @@
       "home_friend": "JJ"
     },
     {
-      "visitor": "Dallas Mavericks",
-      "home": "New York Knicks",
-      "visitor_score": 114,
-      "home_score": 97,
-      "visitor_friend": "Chris",
-      "home_friend": "Duke"
+      "visitor": "Oklahoma City Thunder",
+      "home": "Cleveland Cavaliers",
+      "visitor_score": 136,
+      "home_score": 104,
+      "visitor_friend": "JJ",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Boston Celtics",
+      "home": "Detroit Pistons",
+      "visitor_score": 103,
+      "home_score": 104,
+      "visitor_friend": "Adam",
+      "home_friend": "JJ"
+    },
+    {
+      "visitor": "Milwaukee Bucks",
+      "home": "Atlanta Hawks",
+      "visitor_score": 112,
+      "home_score": 110,
+      "visitor_friend": "Andy",
+      "home_friend": "Nate"
     },
     {
       "visitor": "Indiana Pacers",
@@ -3620,14 +3628,6 @@
       "home_score": 117,
       "visitor_friend": "Nate",
       "home_friend": "Undrafted"
-    },
-    {
-      "visitor": "Boston Celtics",
-      "home": "Detroit Pistons",
-      "visitor_score": 103,
-      "home_score": 104,
-      "visitor_friend": "Adam",
-      "home_friend": "JJ"
     },
     {
       "visitor": "Miami Heat",
