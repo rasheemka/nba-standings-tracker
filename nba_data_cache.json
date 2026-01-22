@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-22T06:13:07.756356",
+  "last_updated": "2026-01-22T14:00:29.586154",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 46,
@@ -3637,30 +3637,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Atlanta Hawks",
-      "home": "Memphis Grizzlies",
-      "visitor_score": 124,
-      "home_score": 122,
-      "visitor_friend": "Nate",
-      "home_friend": "Nate"
-    },
-    {
-      "visitor": "Detroit Pistons",
-      "home": "New Orleans Pelicans",
-      "visitor_score": 112,
-      "home_score": 104,
-      "visitor_friend": "JJ",
-      "home_friend": "JJ"
-    },
-    {
-      "visitor": "Oklahoma City Thunder",
-      "home": "Milwaukee Bucks",
-      "visitor_score": 122,
-      "home_score": 102,
-      "visitor_friend": "JJ",
-      "home_friend": "Andy"
-    },
-    {
       "visitor": "Indiana Pacers",
       "home": "Boston Celtics",
       "visitor_score": 104,
@@ -3677,6 +3653,14 @@
       "home_friend": "Duke"
     },
     {
+      "visitor": "Detroit Pistons",
+      "home": "New Orleans Pelicans",
+      "visitor_score": 112,
+      "home_score": 104,
+      "visitor_friend": "JJ",
+      "home_friend": "JJ"
+    },
+    {
       "visitor": "Cleveland Cavaliers",
       "home": "Charlotte Hornets",
       "visitor_score": 94,
@@ -3685,12 +3669,28 @@
       "home_friend": "Chris"
     },
     {
+      "visitor": "Atlanta Hawks",
+      "home": "Memphis Grizzlies",
+      "visitor_score": 124,
+      "home_score": 122,
+      "visitor_friend": "Nate",
+      "home_friend": "Nate"
+    },
+    {
       "visitor": "Toronto Raptors",
       "home": "Sacramento Kings",
       "visitor_score": 122,
       "home_score": 109,
       "visitor_friend": "Duke",
       "home_friend": "Adam"
+    },
+    {
+      "visitor": "Oklahoma City Thunder",
+      "home": "Milwaukee Bucks",
+      "visitor_score": 122,
+      "home_score": 102,
+      "visitor_friend": "JJ",
+      "home_friend": "Andy"
     }
   ]
 }
