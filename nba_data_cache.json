@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-23T06:24:43.411106",
+  "last_updated": "2026-01-23T14:00:34.682423",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 46,
@@ -3669,22 +3669,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Miami Heat",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 110,
-      "home_score": 127,
-      "visitor_friend": "Adam",
-      "home_friend": "Nick"
-    },
-    {
-      "visitor": "Los Angeles Lakers",
-      "home": "LA Clippers",
-      "visitor_score": 104,
-      "home_score": 112,
-      "visitor_friend": "Andy",
-      "home_friend": "Duke"
-    },
-    {
       "visitor": "Denver Nuggets",
       "home": "Washington Wizards",
       "visitor_score": 107,
@@ -3731,6 +3715,22 @@
       "home_score": 109,
       "visitor_friend": "JJ",
       "home_friend": "Undrafted"
+    },
+    {
+      "visitor": "Miami Heat",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 110,
+      "home_score": 127,
+      "visitor_friend": "Adam",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Los Angeles Lakers",
+      "home": "LA Clippers",
+      "visitor_score": 104,
+      "home_score": 112,
+      "visitor_friend": "Andy",
+      "home_friend": "Duke"
     }
   ]
 }
