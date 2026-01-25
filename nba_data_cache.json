@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-01-25T06:58:27.093880",
+  "last_updated": "2026-01-25T14:00:50.949386",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 47,
@@ -3684,7 +3684,7 @@
     {
       "visitor": "Denver Nuggets",
       "home": "Memphis Grizzlies",
-      "time": "3:30 pm ET",
+      "time": "PPD",
       "visitor_friend": "Adam",
       "home_friend": "Nate"
     },
@@ -3733,14 +3733,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Washington Wizards",
-      "home": "Charlotte Hornets",
-      "visitor_score": 115,
-      "home_score": 119,
-      "visitor_friend": "Andy",
-      "home_friend": "Chris"
-    },
-    {
       "visitor": "Cleveland Cavaliers",
       "home": "Orlando Magic",
       "visitor_score": 119,
@@ -3765,20 +3757,28 @@
       "home_friend": "Chris"
     },
     {
-      "visitor": "New York Knicks",
-      "home": "Philadelphia 76ers",
-      "visitor_score": 112,
-      "home_score": 109,
-      "visitor_friend": "Duke",
-      "home_friend": "Nick"
-    },
-    {
       "visitor": "Miami Heat",
       "home": "Utah Jazz",
       "visitor_score": 147,
       "home_score": 116,
       "visitor_friend": "Adam",
       "home_friend": "Undrafted"
+    },
+    {
+      "visitor": "Washington Wizards",
+      "home": "Charlotte Hornets",
+      "visitor_score": 115,
+      "home_score": 119,
+      "visitor_friend": "Andy",
+      "home_friend": "Chris"
+    },
+    {
+      "visitor": "New York Knicks",
+      "home": "Philadelphia 76ers",
+      "visitor_score": 112,
+      "home_score": 109,
+      "visitor_friend": "Duke",
+      "home_friend": "Nick"
     }
   ]
 }
