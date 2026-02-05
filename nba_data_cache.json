@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-02-05T06:42:21.628297",
+  "last_updated": "2026-02-05T14:00:27.315962",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 52,
       "wins": 25,
       "losses": 27,
       "win_pct": 0.481,
-      "total_pts_scored": 6101.0,
-      "total_plus_minus": -39.0,
-      "total_pts_allowed": 6140.0
+      "total_pts_scored": 6106.0,
+      "total_plus_minus": -44.0,
+      "total_pts_allowed": 6150.0
     },
     "Austin Spurs": {
       "games_played": 16,
@@ -258,9 +258,9 @@
       "wins": 27,
       "losses": 25,
       "win_pct": 0.519,
-      "total_pts_scored": 6225.0,
-      "total_plus_minus": 93.0,
-      "total_pts_allowed": 6132.0
+      "total_pts_scored": 6235.0,
+      "total_plus_minus": 98.0,
+      "total_pts_allowed": 6137.0
     },
     "Milwaukee Bucks": {
       "games_played": 49,
@@ -589,7 +589,7 @@
       "total_losses": 100,
       "total_games": 201,
       "win_pct": 0.5024875621890548,
-      "point_diff_per_game": -0.19900497512437812,
+      "point_diff_per_game": -0.22388059701492538,
       "games_remaining": 127,
       "max_possible_win_pct": 0.6951219512195121,
       "teams": [
@@ -621,7 +621,7 @@
       "total_losses": 102,
       "total_games": 207,
       "win_pct": 0.5072463768115942,
-      "point_diff_per_game": 0.6956521739130435,
+      "point_diff_per_game": 0.7198067632850241,
       "games_remaining": 121,
       "max_possible_win_pct": 0.6890243902439024,
       "teams": [
