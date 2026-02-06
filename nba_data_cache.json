@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-06T06:27:20.699757",
+  "last_updated": "2026-02-06T14:00:20.144212",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 53,
@@ -4111,6 +4111,14 @@
       "home_friend": "Duke"
     },
     {
+      "visitor": "Golden State Warriors",
+      "home": "Phoenix Suns",
+      "visitor_score": 101,
+      "home_score": 97,
+      "visitor_friend": "Chris",
+      "home_friend": "Nate"
+    },
+    {
       "visitor": "Philadelphia 76ers",
       "home": "Los Angeles Lakers",
       "visitor_score": 115,
@@ -4157,14 +4165,6 @@
       "home_score": 123,
       "visitor_friend": "JJ",
       "home_friend": "Chris"
-    },
-    {
-      "visitor": "Golden State Warriors",
-      "home": "Phoenix Suns",
-      "visitor_score": 101,
-      "home_score": 97,
-      "visitor_friend": "Chris",
-      "home_friend": "Nate"
     }
   ]
 }
