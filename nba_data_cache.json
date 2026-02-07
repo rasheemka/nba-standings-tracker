@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-07T06:06:17.141596",
+  "last_updated": "2026-02-07T14:03:19.036848",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 53,
@@ -4163,30 +4163,6 @@
   ],
   "yesterdays_games": [
     {
-      "visitor": "Indiana Pacers",
-      "home": "Milwaukee Bucks",
-      "visitor_score": 99,
-      "home_score": 105,
-      "visitor_friend": "Chris",
-      "home_friend": "Andy"
-    },
-    {
-      "visitor": "Memphis Grizzlies",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 115,
-      "home_score": 135,
-      "visitor_friend": "Nate",
-      "home_friend": "Nick"
-    },
-    {
-      "visitor": "LA Clippers",
-      "home": "Sacramento Kings",
-      "visitor_score": 114,
-      "home_score": 111,
-      "visitor_friend": "Duke",
-      "home_friend": "Adam"
-    },
-    {
       "visitor": "Miami Heat",
       "home": "Boston Celtics",
       "visitor_score": 96,
@@ -4209,6 +4185,30 @@
       "home_score": 115,
       "visitor_friend": "JJ",
       "home_friend": "Nick"
+    },
+    {
+      "visitor": "Indiana Pacers",
+      "home": "Milwaukee Bucks",
+      "visitor_score": 99,
+      "home_score": 105,
+      "visitor_friend": "Chris",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Memphis Grizzlies",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 115,
+      "home_score": 135,
+      "visitor_friend": "Nate",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "LA Clippers",
+      "home": "Sacramento Kings",
+      "visitor_score": 114,
+      "home_score": 111,
+      "visitor_friend": "Duke",
+      "home_friend": "Adam"
     }
   ]
 }
