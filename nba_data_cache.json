@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-08T06:26:43.277275",
+  "last_updated": "2026-02-08T14:00:28.773812",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 54,
@@ -4125,7 +4125,7 @@
     {
       "visitor": "New York Knicks",
       "home": "Boston Celtics",
-      "time": "12:30 pm ET",
+      "time": "2nd Qtr             ",
       "visitor_friend": "Duke",
       "home_friend": "Adam"
     },
@@ -4153,6 +4153,30 @@
   ],
   "yesterdays_games": [
     {
+      "visitor": "Memphis Grizzlies",
+      "home": "Portland Trail Blazers",
+      "visitor_score": 115,
+      "home_score": 122,
+      "visitor_friend": "Nate",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Philadelphia 76ers",
+      "home": "Phoenix Suns",
+      "visitor_score": 109,
+      "home_score": 103,
+      "visitor_friend": "Nick",
+      "home_friend": "Nate"
+    },
+    {
+      "visitor": "Cleveland Cavaliers",
+      "home": "Sacramento Kings",
+      "visitor_score": 132,
+      "home_score": 126,
+      "visitor_friend": "Andy",
+      "home_friend": "Adam"
+    },
+    {
       "visitor": "Washington Wizards",
       "home": "Brooklyn Nets",
       "visitor_score": 113,
@@ -4166,14 +4190,6 @@
       "visitor_score": 112,
       "home_score": 106,
       "visitor_friend": "Nick",
-      "home_friend": "JJ"
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "San Antonio Spurs",
-      "visitor_score": 125,
-      "home_score": 138,
-      "visitor_friend": "Chris",
       "home_friend": "JJ"
     },
     {
@@ -4209,28 +4225,12 @@
       "home_friend": "Andy"
     },
     {
-      "visitor": "Cleveland Cavaliers",
-      "home": "Sacramento Kings",
-      "visitor_score": 132,
-      "home_score": 126,
-      "visitor_friend": "Andy",
-      "home_friend": "Adam"
-    },
-    {
-      "visitor": "Memphis Grizzlies",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 115,
-      "home_score": 122,
-      "visitor_friend": "Nate",
-      "home_friend": "Nick"
-    },
-    {
-      "visitor": "Philadelphia 76ers",
-      "home": "Phoenix Suns",
-      "visitor_score": 109,
-      "home_score": 103,
-      "visitor_friend": "Nick",
-      "home_friend": "Nate"
+      "visitor": "Dallas Mavericks",
+      "home": "San Antonio Spurs",
+      "visitor_score": 125,
+      "home_score": 138,
+      "visitor_friend": "Chris",
+      "home_friend": "JJ"
     }
   ]
 }
