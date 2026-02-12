@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-12T06:31:26.623746",
+  "last_updated": "2026-02-12T14:00:37.648364",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 56,
@@ -4274,6 +4274,14 @@
   ],
   "yesterdays_games": [
     {
+      "visitor": "San Antonio Spurs",
+      "home": "Golden State Warriors",
+      "visitor_score": 126,
+      "home_score": 113,
+      "visitor_friend": "JJ",
+      "home_friend": "Chris"
+    },
+    {
       "visitor": "Atlanta Hawks",
       "home": "Charlotte Hornets",
       "visitor_score": 107,
@@ -4376,14 +4384,6 @@
       "home_score": 111,
       "visitor_friend": "Adam",
       "home_friend": "JJ"
-    },
-    {
-      "visitor": "San Antonio Spurs",
-      "home": "Golden State Warriors",
-      "visitor_score": 126,
-      "home_score": 113,
-      "visitor_friend": "JJ",
-      "home_friend": "Chris"
     }
   ]
 }
