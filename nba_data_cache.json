@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-13T06:00:21.922241",
+  "last_updated": "2026-02-13T14:00:27.035827",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 56,
@@ -4283,11 +4283,11 @@
   },
   "todays_games": [
     {
-      "visitor": "Milwaukee Bucks",
-      "home": "Oklahoma City Thunder",
-      "time": "Final",
-      "visitor_friend": "Andy",
-      "home_friend": "JJ"
+      "visitor": "Team Austin",
+      "home": "Team Melo",
+      "time": "9:00 pm ET",
+      "visitor_friend": null,
+      "home_friend": null
     }
   ],
   "yesterdays_games": [
