@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-14T14:14:35.363408",
+  "last_updated": "2026-02-15T07:09:43.992927",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 56,
@@ -4281,6 +4281,14 @@
       }
     ]
   },
-  "todays_games": [],
+  "todays_games": [
+    {
+      "visitor": "Unknown",
+      "home": "Unknown",
+      "time": "5:00 pm ET",
+      "visitor_friend": null,
+      "home_friend": null
+    }
+  ],
   "yesterdays_games": []
 }
