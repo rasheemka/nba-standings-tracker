@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-18T14:00:29.247223",
+  "last_updated": "2026-02-19T06:15:17.382369",
   "team_stats": {
     "Atlanta Hawks": {
       "games_played": 56,
@@ -4002,6 +4002,77 @@
       }
     ]
   },
-  "todays_games": [],
+  "todays_games": [
+    {
+      "visitor": "Houston Rockets",
+      "home": "Charlotte Hornets",
+      "time": "7:00 pm ET",
+      "visitor_friend": "Nick",
+      "home_friend": "Chris"
+    },
+    {
+      "visitor": "Brooklyn Nets",
+      "home": "Cleveland Cavaliers",
+      "time": "7:00 pm ET",
+      "visitor_friend": "Undrafted",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Atlanta Hawks",
+      "home": "Philadelphia 76ers",
+      "time": "7:00 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "Nick"
+    },
+    {
+      "visitor": "Indiana Pacers",
+      "home": "Washington Wizards",
+      "time": "7:00 pm ET",
+      "visitor_friend": "Chris",
+      "home_friend": "Andy"
+    },
+    {
+      "visitor": "Detroit Pistons",
+      "home": "New York Knicks",
+      "time": "7:30 pm ET",
+      "visitor_friend": "JJ",
+      "home_friend": "Duke"
+    },
+    {
+      "visitor": "Toronto Raptors",
+      "home": "Chicago Bulls",
+      "time": "8:00 pm ET",
+      "visitor_friend": "Duke",
+      "home_friend": "Duke"
+    },
+    {
+      "visitor": "Phoenix Suns",
+      "home": "San Antonio Spurs",
+      "time": "8:30 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "JJ"
+    },
+    {
+      "visitor": "Boston Celtics",
+      "home": "Golden State Warriors",
+      "time": "10:00 pm ET",
+      "visitor_friend": "Adam",
+      "home_friend": "Chris"
+    },
+    {
+      "visitor": "Orlando Magic",
+      "home": "Sacramento Kings",
+      "time": "10:00 pm ET",
+      "visitor_friend": "Nate",
+      "home_friend": "Adam"
+    },
+    {
+      "visitor": "Denver Nuggets",
+      "home": "Los Angeles Clippers",
+      "time": "10:30 pm ET",
+      "visitor_friend": "Adam",
+      "home_friend": "Duke"
+    }
+  ],
   "yesterdays_games": []
 }
