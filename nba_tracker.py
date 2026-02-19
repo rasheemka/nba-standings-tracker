@@ -11,6 +11,7 @@ from nba_api.stats.endpoints import leaguedashteamstats
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import leaguegamelog
 from nba_api.stats.endpoints import scoreboardv2
+from nba_api.stats.endpoints import ScheduleLeagueV2
 import time
 import csv
 from io import StringIO
@@ -549,6 +550,93 @@ def fetch_yesterdays_games():
                 return []
 
 
+# Module-level cache for the remaining schedule (list of (home_team, away_team) tuples)
+_remaining_schedule_cache = None
+_remaining_schedule_date = None
+
+def _fetch_remaining_schedule() -> List[tuple]:
+    """
+    Fetch and cache the remaining NBA schedule as a list of (home_team, away_team) tuples.
+    Cached for the day so we only hit the API once.
+    """
+    global _remaining_schedule_cache, _remaining_schedule_date
+    
+    today = datetime.now().date()
+    if _remaining_schedule_cache is not None and _remaining_schedule_date == today:
+        return _remaining_schedule_cache
+    
+    try:
+        schedule = ScheduleLeagueV2(season='2025-26')
+        data = schedule.get_dict()
+        game_dates = data.get('leagueSchedule', {}).get('gameDates', [])
+        
+        remaining_games = []
+        
+        for gd in game_dates:
+            date_str = gd['gameDate']  # e.g. '10/02/2025 00:00:00'
+            game_date = datetime.strptime(date_str, '%m/%d/%Y %H:%M:%S').date()
+            
+            if game_date < today:
+                continue
+            
+            for game in gd['games']:
+                # Only count games not yet played (gameStatus 1 = scheduled)
+                if game['gameStatus'] != 1:
+                    continue
+                
+                home_full = normalize_team_name(
+                    f"{game['homeTeam']['teamCity']} {game['homeTeam']['teamName']}"
+                )
+                away_full = normalize_team_name(
+                    f"{game['awayTeam']['teamCity']} {game['awayTeam']['teamName']}"
+                )
+                remaining_games.append((home_full, away_full))
+        
+        _remaining_schedule_cache = remaining_games
+        _remaining_schedule_date = today
+        print(f"Fetched remaining schedule: {len(remaining_games)} future games")
+        return remaining_games
+    
+    except Exception as e:
+        print(f"Error fetching remaining schedule: {e}")
+        import traceback
+        traceback.print_exc()
+        return []
+
+
+def get_remaining_head_to_head() -> Dict[str, int]:
+    """
+    Count future games where two of the same friend's teams play each other.
+    These are "guaranteed" 1W + 1L, meaning the friend's theoretical max wins
+    is reduced by 1 per such matchup (since best case for two separate games is 2W,
+    but a head-to-head locks in 1W + 1L).
+    
+    Uses cached schedule data so this is fast even for sandbox recalculations.
+    
+    Returns a dict of {friend_name: number_of_intra_team_games_remaining}
+    """
+    remaining_games = _fetch_remaining_schedule()
+    
+    # Build reverse lookup: team_name -> friend
+    team_to_friend = {}
+    for friend, friend_teams in TEAM_ASSIGNMENTS.items():
+        for team in friend_teams:
+            team_to_friend[team] = friend
+    
+    head_to_head_counts = {}
+    for home_team, away_team in remaining_games:
+        home_friend = team_to_friend.get(home_team)
+        away_friend = team_to_friend.get(away_team)
+        
+        if (home_friend and away_friend 
+                and home_friend == away_friend 
+                and home_friend != 'Undrafted'):
+            head_to_head_counts[home_friend] = head_to_head_counts.get(home_friend, 0) + 1
+    
+    print(f"Head-to-head remaining: {head_to_head_counts}")
+    return head_to_head_counts
+
+
 def calculate_friend_totals(team_data: Dict) -> Dict:
     """
     Calculate total wins and stats for each friend based on their drafted teams
@@ -599,27 +687,38 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
         else:
             friend_totals[friend]['is_eliminated'] = False
     
+    # Fetch remaining head-to-head games (where two of the same friend's teams play)
+    # Each such game guarantees 1W + 1L, reducing max possible wins by 1
+    # (because best case for two separate games is 2W, but head-to-head locks in 1W + 1L)
+    # Also: the leader gets guaranteed wins from THEIR head-to-head games,
+    # raising their minimum locked-in wins.
+    head_to_head = get_remaining_head_to_head()
+    
     # Check if anyone else is mathematically eliminated
-    # A friend is eliminated if, even winning ALL remaining games, they'd still have
-    # fewer total wins than the current leader already has locked in.
-    # Since everyone has 4 teams and will play the same total games (4*82=328),
-    # total wins is the fair comparison — not win%, which changes as games are played.
+    # A friend is eliminated if, even winning ALL remaining games (accounting for
+    # intra-team head-to-head matchups), they'd still have fewer total wins than
+    # the leader's minimum guaranteed wins.
     for friend in friend_totals:
         if friend == "Undrafted":
             continue
         
-        max_possible_wins = friend_totals[friend]['total_wins'] + friend_totals[friend]['games_remaining']
+        # Max possible wins = current wins + remaining games - head-to-head matchups
+        # (each h2h game means one of those "remaining" is a guaranteed loss, not a possible win)
+        h2h_penalty = head_to_head.get(friend, 0)
+        max_possible_wins = friend_totals[friend]['total_wins'] + friend_totals[friend]['games_remaining'] - h2h_penalty
         
-        # Find the most current wins among all other friends (excluding self and Undrafted)
-        best_other_wins = 0
+        # Find the best other friend's minimum guaranteed wins
+        # Their current wins are locked in, plus they get 1 guaranteed win per h2h game
+        best_other_min_wins = 0
         for other_friend in friend_totals:
             if other_friend == friend or other_friend == "Undrafted":
                 continue
             
-            best_other_wins = max(best_other_wins, friend_totals[other_friend]['total_wins'])
+            other_guaranteed_wins = friend_totals[other_friend]['total_wins'] + head_to_head.get(other_friend, 0)
+            best_other_min_wins = max(best_other_min_wins, other_guaranteed_wins)
         
-        # Eliminated if max possible wins can't reach the current leader's wins (tie is acceptable)
-        if max_possible_wins < best_other_wins:
+        # Eliminated if max possible wins can't reach the leader's minimum guaranteed wins (tie is acceptable)
+        if max_possible_wins < best_other_min_wins:
             friend_totals[friend]['is_eliminated'] = True
     
     return friend_totals
