@@ -547,6 +547,7 @@
                         <th style="text-align: center;">Losses</th>
                         <th style="text-align: center;">Win %</th>
                         <th style="text-align: center;">Games Remaining</th>
+                        <th style="text-align: center;" title="Remaining games where two of this player's teams face each other (guaranteed 1W + 1L)">H2H Left</th>
                         <th style="text-align: center;">Pt Diff/Game</th>
                     </tr>
                 </thead>
@@ -575,6 +576,7 @@
                         <td class="stat">{{ stats.total_losses }}</td>
                         <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
                         <td class="stat">{{ stats.games_remaining }}</td>
+                        <td class="stat" style="color: #888;">{{ stats.h2h_remaining | default(0) }}</td>
                         <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
                     </tr>
                     {% endfor %}
@@ -916,6 +918,7 @@
                 html += '<td class="stat">' + stats.total_losses + '</td>';
                 html += '<td class="stat win-pct">' + (stats.win_pct * 100).toFixed(1) + '%</td>';
                 html += '<td class="stat">' + stats.games_remaining + '</td>';
+                html += '<td class="stat" style="color: #888;">' + (stats.h2h_remaining || 0) + '</td>';
                 html += '<td class="stat">' + stats.point_diff_per_game.toFixed(3) + '</td>';
                 html += '</tr>';
             });

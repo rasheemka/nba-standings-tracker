@@ -694,6 +694,10 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
     # raising their minimum locked-in wins.
     head_to_head = get_remaining_head_to_head()
     
+    # Store h2h count in each friend's data for display
+    for friend in friend_totals:
+        friend_totals[friend]['h2h_remaining'] = head_to_head.get(friend, 0)
+    
     # Check if anyone else is mathematically eliminated
     # A friend is eliminated if, even winning ALL remaining games (accounting for
     # intra-team head-to-head matchups), they'd still have fewer total wins than
@@ -704,7 +708,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
         
         # Max possible wins = current wins + remaining games - head-to-head matchups
         # (each h2h game means one of those "remaining" is a guaranteed loss, not a possible win)
-        h2h_penalty = head_to_head.get(friend, 0)
+        h2h_penalty = friend_totals[friend]['h2h_remaining']
         max_possible_wins = friend_totals[friend]['total_wins'] + friend_totals[friend]['games_remaining'] - h2h_penalty
         
         # Find the best other friend's minimum guaranteed wins
@@ -714,7 +718,7 @@ def calculate_friend_totals(team_data: Dict) -> Dict:
             if other_friend == friend or other_friend == "Undrafted":
                 continue
             
-            other_guaranteed_wins = friend_totals[other_friend]['total_wins'] + head_to_head.get(other_friend, 0)
+            other_guaranteed_wins = friend_totals[other_friend]['total_wins'] + friend_totals[other_friend]['h2h_remaining']
             best_other_min_wins = max(best_other_min_wins, other_guaranteed_wins)
         
         # Eliminated if max possible wins can't reach the leader's minimum guaranteed wins (tie is acceptable)
