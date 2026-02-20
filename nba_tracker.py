@@ -130,12 +130,12 @@ def fetch_team_stats():
     Fetch additional team statistics using nba_api library
     """
     max_retries = 3
-    retry_delay = 5
+    retry_delay = 10
     
     for attempt in range(max_retries):
         try:
             # Use nba_api library which is more reliable
-            time.sleep(0.6)  # Rate limiting
+            time.sleep(1)  # Rate limiting
             
             # Filter to regular season only (Oct 21, 2025 - Apr 12, 2026)
             stats = leaguedashteamstats.LeagueDashTeamStats(
@@ -144,7 +144,7 @@ def fetch_team_stats():
                 per_mode_detailed='Totals',  # Use Totals to get cumulative stats
                 date_from_nullable='10/21/2025',
                 date_to_nullable='04/12/2026',
-                timeout=60  # Increased timeout to 60 seconds
+                timeout=60
             )
             
             df = stats.get_data_frames()[0]
