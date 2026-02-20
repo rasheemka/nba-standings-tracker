@@ -740,55 +740,118 @@ def update_historical_from_espn(team_records, dates):
     return team_records, dates
 
 
-# Module-level cache for the remaining schedule (list of (home_team, away_team) tuples)
-_remaining_schedule_cache = None
-_remaining_schedule_date = None
+# Module-level cache for the full season schedule
+# List of {"date": "YYYY-MM-DD", "home": "Team Name", "away": "Team Name"} dicts
+_full_season_schedule = None
 
-def _fetch_remaining_schedule() -> List[tuple]:
+# ESPN team name -> ESPN team ID mapping
+ESPN_TEAM_IDS = {
+    "Atlanta Hawks": 1, "Boston Celtics": 2, "Brooklyn Nets": 17,
+    "Charlotte Hornets": 30, "Chicago Bulls": 4, "Cleveland Cavaliers": 5,
+    "Dallas Mavericks": 6, "Denver Nuggets": 7, "Detroit Pistons": 8,
+    "Golden State Warriors": 9, "Houston Rockets": 10, "Indiana Pacers": 11,
+    "LA Clippers": 12, "Los Angeles Lakers": 13, "Memphis Grizzlies": 29,
+    "Miami Heat": 14, "Milwaukee Bucks": 15, "Minnesota Timberwolves": 16,
+    "New Orleans Pelicans": 3, "New York Knicks": 18, "Oklahoma City Thunder": 25,
+    "Orlando Magic": 19, "Philadelphia 76ers": 20, "Phoenix Suns": 21,
+    "Portland Trail Blazers": 22, "Sacramento Kings": 23, "San Antonio Spurs": 24,
+    "Toronto Raptors": 28, "Utah Jazz": 26, "Washington Wizards": 27,
+}
+
+
+def load_season_schedule(cached_schedule=None):
     """
-    Fetch and cache the remaining NBA schedule as a list of (home_team, away_team) tuples.
-    Cached for the day so we only hit the API once.
-    """
-    global _remaining_schedule_cache, _remaining_schedule_date
+    Load or fetch the full season schedule. The schedule is fixed for the season,
+    so once fetched from ESPN it's cached in the JSON file forever.
     
-    today = datetime.now().date()
-    if _remaining_schedule_cache is not None and _remaining_schedule_date == today:
-        return _remaining_schedule_cache
+    cached_schedule: list from nba_data_cache.json['full_season_schedule'], or None
+    Returns the full schedule list, or None if fetch fails.
+    """
+    global _full_season_schedule
+    
+    if _full_season_schedule is not None:
+        return _full_season_schedule
+    
+    if cached_schedule:
+        _full_season_schedule = cached_schedule
+        print(f"Loaded cached season schedule: {len(cached_schedule)} games")
+        return _full_season_schedule
+    
+    # No cache — fetch from ESPN (one-time operation)
+    print("Fetching full season schedule from ESPN (one-time)...")
+    return _fetch_season_schedule_from_espn()
+
+
+def _fetch_season_schedule_from_espn() -> list:
+    """
+    Fetch the full 2025-26 NBA season schedule from ESPN.
+    Fetches one team per friend to get all intra-friend matchups,
+    plus all remaining teams to get the complete schedule.
+    Returns list of {"date": "YYYY-MM-DD", "home": "...", "away": "..."} dicts.
+    """
+    global _full_season_schedule
     
     try:
-        schedule = ScheduleLeagueV2(season='2025-26', timeout=15)
-        data = schedule.get_dict()
-        game_dates = data.get('leagueSchedule', {}).get('gameDates', [])
+        all_games = []
+        seen_game_ids = set()
         
-        remaining_games = []
+        # Collect all unique teams from TEAM_ASSIGNMENTS (excluding duplicates)
+        all_assigned_teams = set()
+        for friend, teams_list in TEAM_ASSIGNMENTS.items():
+            for team in teams_list:
+                all_assigned_teams.add(team)
         
-        for gd in game_dates:
-            date_str = gd['gameDate']  # e.g. '10/02/2025 00:00:00'
-            game_date = datetime.strptime(date_str, '%m/%d/%Y %H:%M:%S').date()
-            
-            if game_date < today:
+        print(f"  Fetching schedules for {len(all_assigned_teams)} assigned teams...")
+        
+        for team_name in sorted(all_assigned_teams):
+            espn_id = ESPN_TEAM_IDS.get(team_name)
+            if not espn_id:
+                print(f"  ⚠️  No ESPN ID for {team_name}")
                 continue
             
-            for game in gd['games']:
-                # Only count games not yet played (gameStatus 1 = scheduled)
-                if game['gameStatus'] != 1:
+            url = f"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/{espn_id}/schedule?season=2026"
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            data = response.json()
+            
+            team_new = 0
+            for event in data.get('events', []):
+                game_id = event.get('id')
+                if game_id in seen_game_ids:
+                    continue
+                seen_game_ids.add(game_id)
+                
+                # Parse date (ESPN gives ISO format like "2025-10-22T23:30Z")
+                event_date_str = event.get('date', '')
+                try:
+                    game_date = datetime.strptime(event_date_str[:10], '%Y-%m-%d').strftime('%Y-%m-%d')
+                except (ValueError, IndexError):
                     continue
                 
-                home_full = normalize_team_name(
-                    f"{game['homeTeam']['teamCity']} {game['homeTeam']['teamName']}"
-                )
-                away_full = normalize_team_name(
-                    f"{game['awayTeam']['teamCity']} {game['awayTeam']['teamName']}"
-                )
-                remaining_games.append((home_full, away_full))
+                comps = event.get('competitions', [{}])[0]
+                competitors = comps.get('competitors', [])
+                if len(competitors) == 2:
+                    home_team = competitors[0].get('team', {}).get('displayName', 'Unknown')
+                    away_team = competitors[1].get('team', {}).get('displayName', 'Unknown')
+                    all_games.append({
+                        'date': game_date,
+                        'home': home_team,
+                        'away': away_team,
+                    })
+                    team_new += 1
+            
+            print(f"    {team_name}: +{team_new} new games (total: {len(all_games)})")
+            time.sleep(0.2)  # Be nice to ESPN
         
-        _remaining_schedule_cache = remaining_games
-        _remaining_schedule_date = today
-        print(f"Fetched remaining schedule: {len(remaining_games)} future games")
-        return remaining_games
+        # Sort by date
+        all_games.sort(key=lambda g: g['date'])
+        
+        _full_season_schedule = all_games
+        print(f"  ✅ Full season schedule: {len(all_games)} games")
+        return all_games
     
     except Exception as e:
-        print(f"Error fetching remaining schedule: {e}")
+        print(f"Error fetching season schedule from ESPN: {e}")
         import traceback
         traceback.print_exc()
         return []
@@ -797,15 +860,15 @@ def _fetch_remaining_schedule() -> List[tuple]:
 def get_remaining_head_to_head() -> Dict[str, int]:
     """
     Count future games where two of the same friend's teams play each other.
-    These are "guaranteed" 1W + 1L, meaning the friend's theoretical max wins
-    is reduced by 1 per such matchup (since best case for two separate games is 2W,
-    but a head-to-head locks in 1W + 1L).
-    
-    Uses cached schedule data so this is fast even for sandbox recalculations.
+    Uses the cached full-season schedule and filters to games on or after today.
     
     Returns a dict of {friend_name: number_of_intra_team_games_remaining}
     """
-    remaining_games = _fetch_remaining_schedule()
+    if not _full_season_schedule:
+        print("No season schedule available for H2H calculation")
+        return {}
+    
+    today_str = datetime.now().strftime('%Y-%m-%d')
     
     # Build reverse lookup: team_name -> friend
     team_to_friend = {}
@@ -814,9 +877,13 @@ def get_remaining_head_to_head() -> Dict[str, int]:
             team_to_friend[team] = friend
     
     head_to_head_counts = {}
-    for home_team, away_team in remaining_games:
-        home_friend = team_to_friend.get(home_team)
-        away_friend = team_to_friend.get(away_team)
+    for game in _full_season_schedule:
+        # Only count games on or after today
+        if game['date'] < today_str:
+            continue
+        
+        home_friend = team_to_friend.get(game['home'])
+        away_friend = team_to_friend.get(game['away'])
         
         if (home_friend and away_friend 
                 and home_friend == away_friend 

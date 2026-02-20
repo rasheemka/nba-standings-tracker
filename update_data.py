@@ -14,7 +14,7 @@ from nba_tracker import (
     fetch_todays_games_espn,
     fetch_yesterdays_games_espn,
     update_historical_from_espn,
-    get_remaining_head_to_head,
+    load_season_schedule,
 )
 
 CACHE_FILE = 'nba_data_cache.json'
@@ -34,6 +34,10 @@ team_stats = fetch_team_stats()
 
 if team_stats:
     print(f"✅ Got stats for {len(team_stats)} teams")
+    
+    # --- Season schedule: load from cache or fetch once from ESPN ---
+    cached_schedule = old_cache.get('full_season_schedule')
+    season_schedule = load_season_schedule(cached_schedule)
     
     print("Calculating friend totals...")
     friend_totals = calculate_friend_totals(team_stats)
@@ -67,12 +71,15 @@ if team_stats:
         'yesterdays_games': yesterdays_games,
         'team_records': team_records,
         'dates': dates,
+        'full_season_schedule': season_schedule,
     }
     
     with open(CACHE_FILE, 'w') as f:
         json.dump(cache_data, f, indent=2)
     
     print(f"\n✅ Successfully fetched data for {len(team_stats)} teams")
+    if season_schedule:
+        print(f"✅ Season schedule: {len(season_schedule)} games cached")
     if friend_history:
         print(f"✅ Historical data: {len(dates)} dates (through {dates[-1] if dates else '?'})")
     if todays_games:

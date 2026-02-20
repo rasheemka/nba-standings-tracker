@@ -10,7 +10,7 @@ from datetime import datetime
 import pytz
 import json
 import os
-from nba_tracker import fetch_team_stats, calculate_friend_totals, TEAM_ASSIGNMENTS, fetch_historical_standings, calculate_friend_historical_standings
+from nba_tracker import fetch_team_stats, calculate_friend_totals, TEAM_ASSIGNMENTS, fetch_historical_standings, calculate_friend_historical_standings, load_season_schedule
 
 app = Flask(__name__)
 
@@ -70,7 +70,11 @@ def load_cached_data():
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, 'r') as f:
-                return json.load(f)
+                data = json.load(f)
+            # Populate the season schedule module variable for H2H calculations
+            if data.get('full_season_schedule'):
+                load_season_schedule(cached_schedule=data['full_season_schedule'])
+            return data
         except Exception as e:
             print(f"Error loading cache: {e}")
     
