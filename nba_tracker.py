@@ -125,26 +125,69 @@ def fetch_nba_standings():
         return None
 
 
-def fetch_team_stats():
+def fetch_team_stats_espn():
     """
-    Fetch additional team statistics using nba_api library
+    Primary: Fetch team standings from ESPN's public API.
+    Fast and reliable.
     """
-    max_retries = 3
+    try:
+        print("Fetching from ESPN API...")
+        url = "https://site.api.espn.com/apis/v2/sports/basketball/nba/standings"
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
+        data = response.json()
+        
+        team_stats = {}
+        for conf in data.get('children', []):
+            for entry in conf.get('standings', {}).get('entries', []):
+                team_name = entry.get('team', {}).get('displayName', '')
+                stats_map = {s['name']: s for s in entry.get('stats', [])}
+                
+                wins = int(float(stats_map.get('wins', {}).get('value', 0)))
+                losses = int(float(stats_map.get('losses', {}).get('value', 0)))
+                pts_for = float(stats_map.get('pointsFor', {}).get('value', 0))
+                pts_against = float(stats_map.get('pointsAgainst', {}).get('value', 0))
+                win_pct = float(stats_map.get('winPercent', {}).get('value', 0))
+                
+                team_stats[team_name] = {
+                    'games_played': wins + losses,
+                    'wins': wins,
+                    'losses': losses,
+                    'win_pct': win_pct,
+                    'total_pts_scored': pts_for,
+                    'total_plus_minus': pts_for - pts_against,
+                    'total_pts_allowed': pts_against
+                }
+        
+        if len(team_stats) == 30:
+            print(f"✅ ESPN API: Got data for {len(team_stats)} teams")
+            return team_stats
+        else:
+            print(f"ESPN API: Expected 30 teams, got {len(team_stats)}")
+            return None
+    except Exception as e:
+        print(f"ESPN API failed: {e}")
+        return None
+
+
+def fetch_team_stats_nba():
+    """
+    Backup: Fetch team statistics from stats.nba.com via nba_api library.
+    """
+    max_retries = 2
     retry_delay = 10
     
     for attempt in range(max_retries):
         try:
-            # Use nba_api library which is more reliable
             time.sleep(1)  # Rate limiting
             
-            # Filter to regular season only (Oct 21, 2025 - Apr 12, 2026)
             stats = leaguedashteamstats.LeagueDashTeamStats(
                 season='2025-26',
                 season_type_all_star='Regular Season',
-                per_mode_detailed='Totals',  # Use Totals to get cumulative stats
+                per_mode_detailed='Totals',
                 date_from_nullable='10/21/2025',
                 date_to_nullable='04/12/2026',
-                timeout=60
+                timeout=30
             )
             
             df = stats.get_data_frames()[0]
@@ -164,15 +207,30 @@ def fetch_team_stats():
                     'total_pts_allowed': total_pts - total_plus_minus
                 }
             
+            print(f"✅ NBA API: Got data for {len(team_stats)} teams")
             return team_stats
             
         except Exception as e:
             if attempt < max_retries - 1:
-                print(f"Attempt {attempt + 1} failed: {e}. Retrying in {retry_delay} seconds...")
+                print(f"NBA API attempt {attempt + 1} failed: {e}. Retrying in {retry_delay}s...")
                 time.sleep(retry_delay)
             else:
-                print(f"Error fetching team stats after {max_retries} attempts: {e}")
+                print(f"NBA API failed after {max_retries} attempts: {e}")
                 return None
+
+
+def fetch_team_stats():
+    """
+    Fetch team statistics. Tries ESPN first (fast), falls back to NBA stats API.
+    """
+    # Try ESPN first (fast and reliable)
+    result = fetch_team_stats_espn()
+    if result:
+        return result
+    
+    # Fall back to NBA stats API
+    print("ESPN failed, trying NBA stats API as backup...")
+    return fetch_team_stats_nba()
 
 
 def fetch_historical_standings():
@@ -550,6 +608,138 @@ def fetch_yesterdays_games():
                 return []
 
 
+def fetch_espn_scoreboard(date_str=None):
+    """
+    Fetch games from ESPN scoreboard API for a given date.
+    date_str format: 'YYYYMMDD'. If None, fetches today.
+    Returns list of game dicts with team names, scores, status, and friend mappings.
+    """
+    try:
+        url = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"
+        if date_str:
+            url += f"?dates={date_str}"
+        
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
+        data = response.json()
+        
+        # Create reverse mapping from team to friend
+        team_to_friend = {}
+        for friend, teams_list in TEAM_ASSIGNMENTS.items():
+            for team in teams_list:
+                team_to_friend[team] = friend
+        
+        games = []
+        for event in data.get('events', []):
+            comps = event.get('competitions', [{}])[0]
+            competitors = comps.get('competitors', [])
+            status_detail = event.get('status', {}).get('type', {}).get('shortDetail', 'TBD')
+            is_final = event.get('status', {}).get('type', {}).get('completed', False)
+            
+            if len(competitors) == 2:
+                # ESPN: competitors[0] is home, competitors[1] is away
+                home_team = competitors[0].get('team', {}).get('displayName', 'Unknown')
+                away_team = competitors[1].get('team', {}).get('displayName', 'Unknown')
+                home_score = int(competitors[0].get('score', 0)) if is_final else None
+                away_score = int(competitors[1].get('score', 0)) if is_final else None
+                
+                games.append({
+                    'visitor': away_team,
+                    'home': home_team,
+                    'visitor_score': away_score,
+                    'home_score': home_score,
+                    'time': status_detail,
+                    'visitor_friend': team_to_friend.get(away_team, None),
+                    'home_friend': team_to_friend.get(home_team, None),
+                    'is_final': is_final
+                })
+        
+        return games
+    except Exception as e:
+        print(f"ESPN scoreboard fetch failed: {e}")
+        return []
+
+
+def fetch_todays_games_espn():
+    """Fetch today's games from ESPN API."""
+    games = fetch_espn_scoreboard()
+    # Today's games don't need scores in the display (just schedule + times)
+    return games
+
+
+def fetch_yesterdays_games_espn():
+    """Fetch yesterday's completed games from ESPN API."""
+    from datetime import timedelta
+    yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y%m%d')
+    games = fetch_espn_scoreboard(yesterday)
+    return [g for g in games if g.get('is_final')]
+
+
+def update_historical_from_espn(team_records, dates):
+    """
+    Incrementally update team_records with any new game results from ESPN.
+    Fetches recent days' scoreboards and appends W/L results for each team.
+    Returns updated team_records and dates.
+    """
+    from datetime import timedelta
+    
+    if not team_records or not dates:
+        print("No existing historical data to update")
+        return team_records, dates
+    
+    last_date = dates[-1]  # e.g. '2026-02-12'
+    last_dt = datetime.strptime(last_date, '%Y-%m-%d')
+    today = datetime.now()
+    
+    # Fetch each missing day
+    current = last_dt + timedelta(days=1)
+    new_dates_added = 0
+    
+    while current.date() < today.date():
+        date_espn = current.strftime('%Y%m%d')
+        date_iso = current.strftime('%Y-%m-%d')
+        
+        print(f"  Fetching results for {date_iso}...")
+        games = fetch_espn_scoreboard(date_espn)
+        completed = [g for g in games if g.get('is_final')]
+        
+        if completed:
+            dates.append(date_iso)
+            new_dates_added += 1
+            
+            for game in completed:
+                home = game['home']
+                visitor = game['visitor']
+                home_score = game.get('home_score', 0)
+                visitor_score = game.get('visitor_score', 0)
+                
+                home_won = home_score > visitor_score if home_score and visitor_score else False
+                
+                for team_name, won in [(home, home_won), (visitor, not home_won)]:
+                    if team_name not in team_records:
+                        team_records[team_name] = {'wins': 0, 'losses': 0, 'history': []}
+                    
+                    rec = team_records[team_name]
+                    if won:
+                        rec['wins'] += 1
+                    else:
+                        rec['losses'] += 1
+                    
+                    total = rec['wins'] + rec['losses']
+                    rec['history'].append({
+                        'date': date_iso,
+                        'wins': rec['wins'],
+                        'losses': rec['losses'],
+                        'win_pct': rec['wins'] / total if total > 0 else 0
+                    })
+        
+        current += timedelta(days=1)
+        time.sleep(0.3)  # Be nice to ESPN
+    
+    print(f"  Added {new_dates_added} new dates to historical data")
+    return team_records, dates
+
+
 # Module-level cache for the remaining schedule (list of (home_team, away_team) tuples)
 _remaining_schedule_cache = None
 _remaining_schedule_date = None
@@ -566,7 +756,7 @@ def _fetch_remaining_schedule() -> List[tuple]:
         return _remaining_schedule_cache
     
     try:
-        schedule = ScheduleLeagueV2(season='2025-26')
+        schedule = ScheduleLeagueV2(season='2025-26', timeout=15)
         data = schedule.get_dict()
         game_dates = data.get('leagueSchedule', {}).get('gameDates', [])
         
