@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-24T10:00:06.086334",
+  "last_updated": "2026-02-24T14:00:06.016551",
   "team_stats": {
     "Indiana Pacers": {
       "games_played": 58,
@@ -4204,34 +4204,114 @@
   },
   "todays_games": [
     {
-      "visitor": "San Antonio Spurs",
-      "home": "Detroit Pistons",
-      "visitor_score": 114,
-      "home_score": 103,
-      "time": "Final",
-      "visitor_friend": "JJ",
-      "home_friend": "JJ",
-      "is_final": true
+      "visitor": "Philadelphia 76ers",
+      "home": "Indiana Pacers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 7:00 PM EST",
+      "visitor_friend": "Nick",
+      "home_friend": "Chris",
+      "is_final": false
     },
     {
-      "visitor": "Sacramento Kings",
-      "home": "Memphis Grizzlies",
-      "visitor_score": 123,
-      "home_score": 114,
-      "time": "Final",
+      "visitor": "Washington Wizards",
+      "home": "Atlanta Hawks",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 7:30 PM EST",
+      "visitor_friend": "Andy",
+      "home_friend": "Nate",
+      "is_final": false
+    },
+    {
+      "visitor": "Dallas Mavericks",
+      "home": "Brooklyn Nets",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 7:30 PM EST",
+      "visitor_friend": "Chris",
+      "home_friend": "Undrafted",
+      "is_final": false
+    },
+    {
+      "visitor": "Oklahoma City Thunder",
+      "home": "Toronto Raptors",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 7:30 PM EST",
+      "visitor_friend": "JJ",
+      "home_friend": "Duke",
+      "is_final": false
+    },
+    {
+      "visitor": "New York Knicks",
+      "home": "Cleveland Cavaliers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 7:30 PM EST",
+      "visitor_friend": "Duke",
+      "home_friend": "Andy",
+      "is_final": false
+    },
+    {
+      "visitor": "Charlotte Hornets",
+      "home": "Chicago Bulls",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 8:00 PM EST",
+      "visitor_friend": "Chris",
+      "home_friend": "Duke",
+      "is_final": false
+    },
+    {
+      "visitor": "Miami Heat",
+      "home": "Milwaukee Bucks",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 8:00 PM EST",
+      "visitor_friend": "Adam",
+      "home_friend": "Andy",
+      "is_final": false
+    },
+    {
+      "visitor": "Golden State Warriors",
+      "home": "New Orleans Pelicans",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 8:00 PM EST",
+      "visitor_friend": "Chris",
+      "home_friend": "JJ",
+      "is_final": false
+    },
+    {
+      "visitor": "Boston Celtics",
+      "home": "Phoenix Suns",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 9:00 PM EST",
       "visitor_friend": "Adam",
       "home_friend": "Nate",
-      "is_final": true
+      "is_final": false
     },
     {
-      "visitor": "Utah Jazz",
-      "home": "Houston Rockets",
-      "visitor_score": 105,
-      "home_score": 125,
-      "time": "Final",
-      "visitor_friend": "Undrafted",
+      "visitor": "Minnesota Timberwolves",
+      "home": "Portland Trail Blazers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 10:00 PM EST",
+      "visitor_friend": "Nick",
       "home_friend": "Nick",
-      "is_final": true
+      "is_final": false
+    },
+    {
+      "visitor": "Orlando Magic",
+      "home": "Los Angeles Lakers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "2/24 - 10:30 PM EST",
+      "visitor_friend": "Nate",
+      "home_friend": "Andy",
+      "is_final": false
     }
   ],
   "yesterdays_games": [
