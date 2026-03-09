@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-09T10:00:05.639819",
+  "last_updated": "2026-03-09T14:00:20.065700",
   "team_stats": {
     "Indiana Pacers": {
       "games_played": 64,
@@ -859,10 +859,6 @@
         "win_pct": 61.64383561643836
       },
       {
-        "date": "2026-02-15",
-        "win_pct": 61.64383561643836
-      },
-      {
         "date": "2026-02-19",
         "win_pct": 61.990950226244344
       },
@@ -1382,10 +1378,6 @@
       },
       {
         "date": "2026-02-12",
-        "win_pct": 48.372093023255815
-      },
-      {
-        "date": "2026-02-15",
         "win_pct": 48.372093023255815
       },
       {
@@ -1911,10 +1903,6 @@
         "win_pct": 48.8479262672811
       },
       {
-        "date": "2026-02-15",
-        "win_pct": 48.8479262672811
-      },
-      {
         "date": "2026-02-19",
         "win_pct": 49.09090909090909
       },
@@ -2434,10 +2422,6 @@
       },
       {
         "date": "2026-02-12",
-        "win_pct": 40.63926940639269
-      },
-      {
-        "date": "2026-02-15",
         "win_pct": 40.63926940639269
       },
       {
@@ -2963,10 +2947,6 @@
         "win_pct": 50.2262443438914
       },
       {
-        "date": "2026-02-15",
-        "win_pct": 50.2262443438914
-      },
-      {
         "date": "2026-02-19",
         "win_pct": 50.0
       },
@@ -3486,10 +3466,6 @@
       },
       {
         "date": "2026-02-12",
-        "win_pct": 53.42465753424658
-      },
-      {
-        "date": "2026-02-15",
         "win_pct": 53.42465753424658
       },
       {
@@ -4015,10 +3991,6 @@
         "win_pct": 56.62100456621004
       },
       {
-        "date": "2026-02-15",
-        "win_pct": 56.62100456621004
-      },
-      {
         "date": "2026-02-19",
         "win_pct": 56.56108597285068
       },
@@ -4541,10 +4513,6 @@
         "win_pct": 30.275229357798167
       },
       {
-        "date": "2026-02-15",
-        "win_pct": 30.275229357798167
-      },
-      {
         "date": "2026-02-19",
         "win_pct": 30.0
       },
@@ -4620,104 +4588,54 @@
   },
   "todays_games": [
     {
-      "visitor": "Boston Celtics",
+      "visitor": "Philadelphia 76ers",
       "home": "Cleveland Cavaliers",
-      "visitor_score": 109,
-      "home_score": 98,
-      "time": "Final",
-      "visitor_friend": "Adam",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "3/9 - 7:00 PM EDT",
+      "visitor_friend": "Nick",
       "home_friend": "Andy",
-      "is_final": true
+      "is_final": false
+    },
+    {
+      "visitor": "Memphis Grizzlies",
+      "home": "Brooklyn Nets",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "3/9 - 7:30 PM EDT",
+      "visitor_friend": "Nate",
+      "home_friend": "Undrafted",
+      "is_final": false
+    },
+    {
+      "visitor": "Denver Nuggets",
+      "home": "Oklahoma City Thunder",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "3/9 - 7:30 PM EDT",
+      "visitor_friend": "Adam",
+      "home_friend": "JJ",
+      "is_final": false
+    },
+    {
+      "visitor": "Golden State Warriors",
+      "home": "Utah Jazz",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "3/9 - 9:00 PM EDT",
+      "visitor_friend": "Chris",
+      "home_friend": "Undrafted",
+      "is_final": false
     },
     {
       "visitor": "New York Knicks",
-      "home": "Los Angeles Lakers",
-      "visitor_score": 97,
-      "home_score": 110,
-      "time": "Final",
+      "home": "LA Clippers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "3/9 - 10:00 PM EDT",
       "visitor_friend": "Duke",
-      "home_friend": "Andy",
-      "is_final": true
-    },
-    {
-      "visitor": "Detroit Pistons",
-      "home": "Miami Heat",
-      "visitor_score": 110,
-      "home_score": 121,
-      "time": "Final",
-      "visitor_friend": "JJ",
-      "home_friend": "Adam",
-      "is_final": true
-    },
-    {
-      "visitor": "Dallas Mavericks",
-      "home": "Toronto Raptors",
-      "visitor_score": 92,
-      "home_score": 122,
-      "time": "Final",
-      "visitor_friend": "Chris",
       "home_friend": "Duke",
-      "is_final": true
-    },
-    {
-      "visitor": "Washington Wizards",
-      "home": "New Orleans Pelicans",
-      "visitor_score": 118,
-      "home_score": 138,
-      "time": "Final",
-      "visitor_friend": "Andy",
-      "home_friend": "JJ",
-      "is_final": true
-    },
-    {
-      "visitor": "Orlando Magic",
-      "home": "Milwaukee Bucks",
-      "visitor_score": 130,
-      "home_score": 91,
-      "time": "Final",
-      "visitor_friend": "Nate",
-      "home_friend": "Andy",
-      "is_final": true
-    },
-    {
-      "visitor": "Houston Rockets",
-      "home": "San Antonio Spurs",
-      "visitor_score": 120,
-      "home_score": 145,
-      "time": "Final",
-      "visitor_friend": "Nick",
-      "home_friend": "JJ",
-      "is_final": true
-    },
-    {
-      "visitor": "Indiana Pacers",
-      "home": "Portland Trail Blazers",
-      "visitor_score": 111,
-      "home_score": 131,
-      "time": "Final",
-      "visitor_friend": "Chris",
-      "home_friend": "Nick",
-      "is_final": true
-    },
-    {
-      "visitor": "Chicago Bulls",
-      "home": "Sacramento Kings",
-      "visitor_score": 110,
-      "home_score": 126,
-      "time": "Final",
-      "visitor_friend": "Duke",
-      "home_friend": "Adam",
-      "is_final": true
-    },
-    {
-      "visitor": "Charlotte Hornets",
-      "home": "Phoenix Suns",
-      "visitor_score": 99,
-      "home_score": 111,
-      "time": "Final",
-      "visitor_friend": "Chris",
-      "home_friend": "Nate",
-      "is_final": true
+      "is_final": false
     }
   ],
   "yesterdays_games": [
@@ -16498,72 +16416,6 @@
           "win_pct": 0.234375
         }
       ]
-    },
-    "Team Stars": {
-      "wins": 2,
-      "losses": 1,
-      "history": [
-        {
-          "date": "2026-02-15",
-          "wins": 1,
-          "losses": 0,
-          "win_pct": 1.0
-        },
-        {
-          "date": "2026-02-15",
-          "wins": 1,
-          "losses": 1,
-          "win_pct": 0.5
-        },
-        {
-          "date": "2026-02-15",
-          "wins": 2,
-          "losses": 1,
-          "win_pct": 0.6666666666666666
-        }
-      ]
-    },
-    "World": {
-      "wins": 0,
-      "losses": 2,
-      "history": [
-        {
-          "date": "2026-02-15",
-          "wins": 0,
-          "losses": 1,
-          "win_pct": 0.0
-        },
-        {
-          "date": "2026-02-15",
-          "wins": 0,
-          "losses": 2,
-          "win_pct": 0.0
-        }
-      ]
-    },
-    "Team Stripes": {
-      "wins": 2,
-      "losses": 1,
-      "history": [
-        {
-          "date": "2026-02-15",
-          "wins": 1,
-          "losses": 0,
-          "win_pct": 1.0
-        },
-        {
-          "date": "2026-02-15",
-          "wins": 2,
-          "losses": 0,
-          "win_pct": 1.0
-        },
-        {
-          "date": "2026-02-15",
-          "wins": 2,
-          "losses": 1,
-          "win_pct": 0.6666666666666666
-        }
-      ]
     }
   },
   "dates": [
@@ -16679,7 +16531,6 @@
     "2026-02-10",
     "2026-02-11",
     "2026-02-12",
-    "2026-02-15",
     "2026-02-19",
     "2026-02-20",
     "2026-02-21",
@@ -22242,6 +22093,11 @@
     },
     {
       "date": "2026-03-28",
+      "home": "Minnesota Timberwolves",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-03-28",
       "home": "Golden State Warriors",
       "away": "Washington Wizards"
     },
@@ -22274,11 +22130,6 @@
       "date": "2026-03-29",
       "home": "Memphis Grizzlies",
       "away": "Chicago Bulls"
-    },
-    {
-      "date": "2026-03-29",
-      "home": "Minnesota Timberwolves",
-      "away": "Detroit Pistons"
     },
     {
       "date": "2026-03-29",
