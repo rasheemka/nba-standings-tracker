@@ -661,14 +661,14 @@ def fetch_espn_scoreboard(date_str=None):
 
 
 def fetch_todays_games_espn():
-    """Fetch today's games from ESPN API."""
-    games = fetch_espn_scoreboard()
-    # Today's games don't need scores in the display (just schedule + times)
+    """Fetch today's games from ESPN API using explicit date."""
+    today = datetime.now().strftime('%Y%m%d')
+    games = fetch_espn_scoreboard(today)
     return games
 
 
 def fetch_yesterdays_games_espn():
-    """Fetch yesterday's completed games from ESPN API."""
+    """Fetch yesterday's completed games from ESPN API using explicit date."""
     from datetime import timedelta
     yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y%m%d')
     games = fetch_espn_scoreboard(yesterday)
