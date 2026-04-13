@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ season.season_display }} Season - Jumbros Basketball Challenge</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -86,20 +85,64 @@
         .stat { font-weight: 500; text-align: center; }
         .win-pct { font-weight: 600; color: #27ae60; }
 
-        .chart-container {
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Team Assignments */
+        .assignments-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             margin-bottom: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .chart-container h2 {
+        .assignments-section h2 {
             color: #2a5298;
             text-align: center;
             margin-bottom: 20px;
+            font-size: 1.4em;
         }
 
+        .assignments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .assignment-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .assignment-name {
+            font-weight: 700;
+            color: #2a5298;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .assignment-teams {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .assignment-team-tag {
+            background: #e8eaf6;
+            color: #3949ab;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* Team Breakdown */
         .friend-section {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
@@ -154,6 +197,11 @@
             th, td { padding: 8px 6px; font-size: 0.85em; }
             .friend-title { font-size: 1.1em; }
             .teams-grid { grid-template-columns: 1fr; }
+            .assignments-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .assignments-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -175,6 +223,7 @@
         </div>
         {% endif %}
 
+        <!-- Standings -->
         <div class="standings-table">
             <table>
                 <thead>
@@ -208,14 +257,31 @@
             </table>
         </div>
 
-        {% if friend_history %}
-        <div class="chart-container">
-            <h2>📈 Season Win % Horse Race</h2>
-            <canvas id="horseRaceChart" height="400"></canvas>
+        <!-- Team Assignments -->
+        {% if team_assignments %}
+        <div class="assignments-section">
+            <h2>🎯 Draft Assignments</h2>
+            <div class="assignments-grid">
+                {% for friend, stats in sorted_friends %}
+                {% if friend in team_assignments %}
+                <div class="assignment-card">
+                    <div class="assignment-name">
+                        {% if loop.index == 1 %}🏆{% endif %} {{ friend }}
+                    </div>
+                    <div class="assignment-teams">
+                        {% for team in team_assignments[friend] %}
+                        <span class="assignment-team-tag">{{ team }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
         {% endif %}
 
-        <h2 style="text-align: center; margin-bottom: 20px;">Team Breakdown</h2>
+        <!-- Team Breakdown -->
+        <h2 class="section-title">📊 Team Breakdown</h2>
 
         {% for friend, stats in sorted_friends %}
         <div class="friend-section">
@@ -245,76 +311,5 @@
         </div>
         {% endfor %}
     </div>
-
-    {% if friend_history %}
-    <script>
-        const friendHistory = {{ friend_history | tojson }};
-
-        // Color palette for friends
-        const friendColors = {
-            'JJ': '#e6194b',
-            'Nick': '#3cb44b',
-            'Duke': '#4363d8',
-            'Adam': '#f58231',
-            'Nate': '#911eb4',
-            'Andy': '#42d4f4',
-            'Chris': '#f032e6',
-            'Undrafted': '#808080'
-        };
-
-        // Build chart
-        const allDates = Object.values(friendHistory)[0]?.map(d => d.date) || [];
-
-        // Sample dates for readability (show ~30 points)
-        const step = Math.max(1, Math.floor(allDates.length / 30));
-        const sampledIndices = [];
-        for (let i = 0; i < allDates.length; i += step) {
-            sampledIndices.push(i);
-        }
-        if (sampledIndices[sampledIndices.length - 1] !== allDates.length - 1) {
-            sampledIndices.push(allDates.length - 1);
-        }
-
-        const labels = sampledIndices.map(i => {
-            const d = allDates[i];
-            return d ? d.substring(5) : '';
-        });
-
-        const datasets = Object.entries(friendHistory)
-            .filter(([name]) => name !== 'Undrafted')
-            .map(([name, history]) => ({
-                label: name,
-                data: sampledIndices.map(i => history[i] ? (history[i].win_pct * 100).toFixed(1) : null),
-                borderColor: friendColors[name] || '#999',
-                backgroundColor: friendColors[name] || '#999',
-                tension: 0.3,
-                pointRadius: 2,
-                borderWidth: 2.5,
-                fill: false,
-            }));
-
-        new Chart(document.getElementById('horseRaceChart'), {
-            type: 'line',
-            data: { labels, datasets },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'top', labels: { usePointStyle: true, padding: 15 } }
-                },
-                scales: {
-                    y: {
-                        title: { display: true, text: 'Win %', font: { size: 14 } },
-                        ticks: { callback: v => v + '%' }
-                    },
-                    x: {
-                        title: { display: true, text: 'Date', font: { size: 14 } },
-                        ticks: { maxRotation: 45 }
-                    }
-                }
-            }
-        });
-    </script>
-    {% endif %}
 </body>
 </html>

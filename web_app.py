@@ -318,34 +318,22 @@ def get_all_seasons():
 
 @app.route('/seasons')
 def seasons_list():
-    """Page listing all seasons."""
+    """Page listing all seasons with expandable standings."""
     seasons = get_all_seasons()
     
-    # Build all-time records for the summary
-    all_time = {}
+    # Load standings for each season
+    season_standings = {}
     for season_info in seasons:
         data = load_season_data(season_info['id'])
         if data and data.get('friend_totals'):
-            for friend, stats in data['friend_totals'].items():
-                if friend == 'Undrafted':
-                    continue
-                if friend not in all_time:
-                    all_time[friend] = {'wins': 0, 'losses': 0, 'seasons': 0, 'titles': 0}
-                all_time[friend]['wins'] += stats.get('total_wins', 0)
-                all_time[friend]['losses'] += stats.get('total_losses', 0)
-                all_time[friend]['seasons'] += 1
-                if friend == season_info.get('winner'):
-                    all_time[friend]['titles'] += 1
+            sorted_friends = sorted(
+                [(f, s) for f, s in data['friend_totals'].items()],
+                key=lambda x: x[1]['win_pct'],
+                reverse=True
+            )
+            season_standings[season_info['id']] = sorted_friends
     
-    # Calculate win pct
-    for friend in all_time:
-        total = all_time[friend]['wins'] + all_time[friend]['losses']
-        all_time[friend]['win_pct'] = all_time[friend]['wins'] / total if total > 0 else 0
-    
-    # Sort by win pct
-    sorted_all_time = sorted(all_time.items(), key=lambda x: x[1]['win_pct'], reverse=True)
-    
-    return render_template('seasons.html', seasons=seasons, all_time=sorted_all_time)
+    return render_template('seasons.html', seasons=seasons, season_standings=season_standings)
 
 
 @app.route('/seasons/<season_id>')
@@ -389,7 +377,7 @@ def season_detail(season_id):
         season_id=season_id,
         sorted_friends=sorted_friends,
         team_breakdown=team_breakdown,
-        friend_history=data.get('friend_history'),
+        team_assignments=data.get('team_assignments', {}),
     )
 
 

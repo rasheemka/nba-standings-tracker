@@ -247,31 +247,6 @@
             </table>
         </div>
 
-        <!-- Season-by-Season Breakdown per Player -->
-        <h2>📋 Player Season Histories</h2>
-
-        {% for friend, stats in all_time %}
-        <div class="player-card">
-            <div class="player-header">
-                <span class="player-name">
-                    {% if stats.titles > 0 %}🏆 {% endif %}{{ friend }}
-                </span>
-                <span class="player-record">{{ stats.wins }}W - {{ stats.losses }}L ({{ "%.1f"|format(stats.win_pct * 100) }}%)</span>
-            </div>
-            {% for sh in stats.season_history %}
-            <div class="season-row">
-                <span class="season-label">
-                    <a href="/seasons/{{ sh.season }}" style="color: #2a5298; text-decoration: none;">{{ sh.season }}</a>
-                </span>
-                <span class="season-record">{{ sh.wins }}W - {{ sh.losses }}L ({{ "%.1f"|format(sh.win_pct * 100) }}%)</span>
-                <span class="rank-badge rank-{% if sh.rank <= 3 %}{{ sh.rank }}{% else %}other{% endif %}">
-                    {% if sh.rank == 1 %}🏆{% else %}#{{ sh.rank }}{% endif %}
-                </span>
-            </div>
-            {% endfor %}
-        </div>
-        {% endfor %}
-
         {% if not all_time %}
         <div class="card" style="padding: 30px; text-align: center;">
             <p style="color: #666;">No season data available yet.</p>

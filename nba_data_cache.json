@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-04-13T08:04:45.842658",
+  "last_updated": "2026-04-13T08:30:27.846250",
   "team_stats": {
     "Detroit Pistons": {
       "games_played": 82,
@@ -1061,6 +1061,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 65.12345679012346
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 64.63414634146342
       }
     ],
     "Andy": [
@@ -1715,6 +1719,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 46.913580246913575
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 46.95121951219512
       }
     ],
     "Nate": [
@@ -2369,6 +2377,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 49.382716049382715
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 49.08536585365854
       }
     ],
     "Chris": [
@@ -3023,6 +3035,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 38.2716049382716
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 38.41463414634146
       }
     ],
     "Adam": [
@@ -3677,6 +3693,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 53.086419753086425
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 53.35365853658537
       }
     ],
     "Duke": [
@@ -4331,6 +4351,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 52.46913580246913
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 52.4390243902439
       }
     ],
     "Nick": [
@@ -4985,6 +5009,10 @@
       {
         "date": "2026-04-10",
         "win_pct": 56.79012345679012
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 57.3170731707317
       }
     ],
     "Undrafted": [
@@ -5639,13 +5667,17 @@
       {
         "date": "2026-04-10",
         "win_pct": 25.925925925925924
+      },
+      {
+        "date": "2026-04-12",
+        "win_pct": 25.609756097560975
       }
     ]
   },
   "team_records": {
     "Golden State Warriors": {
       "wins": 37,
-      "losses": 44,
+      "losses": 45,
       "history": [
         {
           "date": "2025-10-21",
@@ -6132,11 +6164,17 @@
           "wins": 37,
           "losses": 44,
           "win_pct": 0.4567901234567901
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 37,
+          "losses": 45,
+          "win_pct": 0.45121951219512196
         }
       ]
     },
     "Los Angeles Lakers": {
-      "wins": 52,
+      "wins": 53,
       "losses": 29,
       "history": [
         {
@@ -6624,11 +6662,17 @@
           "wins": 52,
           "losses": 29,
           "win_pct": 0.6419753086419753
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 53,
+          "losses": 29,
+          "win_pct": 0.6463414634146342
         }
       ]
     },
     "Houston Rockets": {
-      "wins": 51,
+      "wins": 52,
       "losses": 30,
       "history": [
         {
@@ -7116,12 +7160,18 @@
           "wins": 51,
           "losses": 30,
           "win_pct": 0.6296296296296297
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 52,
+          "losses": 30,
+          "win_pct": 0.6341463414634146
         }
       ]
     },
     "Oklahoma City Thunder": {
       "wins": 64,
-      "losses": 17,
+      "losses": 18,
       "history": [
         {
           "date": "2025-10-21",
@@ -7608,11 +7658,17 @@
           "wins": 64,
           "losses": 17,
           "win_pct": 0.7901234567901234
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 64,
+          "losses": 18,
+          "win_pct": 0.7804878048780488
         }
       ]
     },
     "Charlotte Hornets": {
-      "wins": 43,
+      "wins": 44,
       "losses": 38,
       "history": [
         {
@@ -8100,11 +8156,17 @@
           "wins": 43,
           "losses": 38,
           "win_pct": 0.5308641975308642
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 44,
+          "losses": 38,
+          "win_pct": 0.5365853658536586
         }
       ]
     },
     "Detroit Pistons": {
-      "wins": 59,
+      "wins": 60,
       "losses": 22,
       "history": [
         {
@@ -8592,12 +8654,18 @@
           "wins": 59,
           "losses": 22,
           "win_pct": 0.7283950617283951
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 60,
+          "losses": 22,
+          "win_pct": 0.7317073170731707
         }
       ]
     },
     "Utah Jazz": {
       "wins": 22,
-      "losses": 59,
+      "losses": 60,
       "history": [
         {
           "date": "2025-10-22",
@@ -9084,12 +9152,18 @@
           "wins": 22,
           "losses": 59,
           "win_pct": 0.2716049382716049
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 22,
+          "losses": 60,
+          "win_pct": 0.2682926829268293
         }
       ]
     },
     "San Antonio Spurs": {
       "wins": 62,
-      "losses": 19,
+      "losses": 20,
       "history": [
         {
           "date": "2025-10-22",
@@ -9576,12 +9650,18 @@
           "wins": 62,
           "losses": 19,
           "win_pct": 0.7654320987654321
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 62,
+          "losses": 20,
+          "win_pct": 0.7560975609756098
         }
       ]
     },
     "Sacramento Kings": {
       "wins": 22,
-      "losses": 59,
+      "losses": 60,
       "history": [
         {
           "date": "2025-10-22",
@@ -10068,12 +10148,18 @@
           "wins": 22,
           "losses": 59,
           "win_pct": 0.2716049382716049
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 22,
+          "losses": 60,
+          "win_pct": 0.2682926829268293
         }
       ]
     },
     "Orlando Magic": {
       "wins": 45,
-      "losses": 36,
+      "losses": 37,
       "history": [
         {
           "date": "2025-10-22",
@@ -10560,12 +10646,18 @@
           "wins": 45,
           "losses": 36,
           "win_pct": 0.5555555555555556
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 45,
+          "losses": 37,
+          "win_pct": 0.5487804878048781
         }
       ]
     },
     "Milwaukee Bucks": {
       "wins": 32,
-      "losses": 49,
+      "losses": 50,
       "history": [
         {
           "date": "2025-10-22",
@@ -11052,11 +11144,17 @@
           "wins": 32,
           "losses": 49,
           "win_pct": 0.3950617283950617
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 32,
+          "losses": 50,
+          "win_pct": 0.3902439024390244
         }
       ]
     },
     "Dallas Mavericks": {
-      "wins": 25,
+      "wins": 26,
       "losses": 56,
       "history": [
         {
@@ -11544,12 +11642,18 @@
           "wins": 25,
           "losses": 56,
           "win_pct": 0.30864197530864196
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 26,
+          "losses": 56,
+          "win_pct": 0.3170731707317073
         }
       ]
     },
     "Atlanta Hawks": {
       "wins": 46,
-      "losses": 35,
+      "losses": 36,
       "history": [
         {
           "date": "2025-10-22",
@@ -12036,12 +12140,18 @@
           "wins": 46,
           "losses": 35,
           "win_pct": 0.5679012345679012
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 46,
+          "losses": 36,
+          "win_pct": 0.5609756097560976
         }
       ]
     },
     "Washington Wizards": {
       "wins": 17,
-      "losses": 64,
+      "losses": 65,
       "history": [
         {
           "date": "2025-10-22",
@@ -12528,12 +12638,18 @@
           "wins": 17,
           "losses": 64,
           "win_pct": 0.20987654320987653
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 17,
+          "losses": 65,
+          "win_pct": 0.2073170731707317
         }
       ]
     },
     "Memphis Grizzlies": {
       "wins": 25,
-      "losses": 56,
+      "losses": 57,
       "history": [
         {
           "date": "2025-10-22",
@@ -13020,11 +13136,17 @@
           "wins": 25,
           "losses": 56,
           "win_pct": 0.30864197530864196
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 25,
+          "losses": 57,
+          "win_pct": 0.3048780487804878
         }
       ]
     },
     "Minnesota Timberwolves": {
-      "wins": 48,
+      "wins": 49,
       "losses": 33,
       "history": [
         {
@@ -13512,11 +13634,17 @@
           "wins": 48,
           "losses": 33,
           "win_pct": 0.5925925925925926
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 49,
+          "losses": 33,
+          "win_pct": 0.5975609756097561
         }
       ]
     },
     "Portland Trail Blazers": {
-      "wins": 41,
+      "wins": 42,
       "losses": 40,
       "history": [
         {
@@ -14004,11 +14132,17 @@
           "wins": 41,
           "losses": 40,
           "win_pct": 0.5061728395061729
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 42,
+          "losses": 40,
+          "win_pct": 0.5121951219512195
         }
       ]
     },
     "Phoenix Suns": {
-      "wins": 44,
+      "wins": 45,
       "losses": 37,
       "history": [
         {
@@ -14496,11 +14630,17 @@
           "wins": 44,
           "losses": 37,
           "win_pct": 0.5432098765432098
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 45,
+          "losses": 37,
+          "win_pct": 0.5487804878048781
         }
       ]
     },
     "Philadelphia 76ers": {
-      "wins": 44,
+      "wins": 45,
       "losses": 37,
       "history": [
         {
@@ -14988,12 +15128,18 @@
           "wins": 44,
           "losses": 37,
           "win_pct": 0.5432098765432098
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 45,
+          "losses": 37,
+          "win_pct": 0.5487804878048781
         }
       ]
     },
     "New York Knicks": {
       "wins": 53,
-      "losses": 28,
+      "losses": 29,
       "history": [
         {
           "date": "2025-10-22",
@@ -15480,12 +15626,18 @@
           "wins": 53,
           "losses": 28,
           "win_pct": 0.654320987654321
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 53,
+          "losses": 29,
+          "win_pct": 0.6463414634146342
         }
       ]
     },
     "Brooklyn Nets": {
       "wins": 20,
-      "losses": 61,
+      "losses": 62,
       "history": [
         {
           "date": "2025-10-22",
@@ -15972,11 +16124,17 @@
           "wins": 20,
           "losses": 61,
           "win_pct": 0.24691358024691357
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 20,
+          "losses": 62,
+          "win_pct": 0.24390243902439024
         }
       ]
     },
     "Miami Heat": {
-      "wins": 42,
+      "wins": 43,
       "losses": 39,
       "history": [
         {
@@ -16464,11 +16622,17 @@
           "wins": 42,
           "losses": 39,
           "win_pct": 0.5185185185185185
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 43,
+          "losses": 39,
+          "win_pct": 0.524390243902439
         }
       ]
     },
     "LA Clippers": {
-      "wins": 41,
+      "wins": 42,
       "losses": 40,
       "history": [
         {
@@ -16956,12 +17120,18 @@
           "wins": 41,
           "losses": 40,
           "win_pct": 0.5061728395061729
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 42,
+          "losses": 40,
+          "win_pct": 0.5121951219512195
         }
       ]
     },
     "Chicago Bulls": {
       "wins": 31,
-      "losses": 50,
+      "losses": 51,
       "history": [
         {
           "date": "2025-10-22",
@@ -17448,12 +17618,18 @@
           "wins": 31,
           "losses": 50,
           "win_pct": 0.38271604938271603
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 31,
+          "losses": 51,
+          "win_pct": 0.3780487804878049
         }
       ]
     },
     "New Orleans Pelicans": {
       "wins": 26,
-      "losses": 55,
+      "losses": 56,
       "history": [
         {
           "date": "2025-10-22",
@@ -17940,11 +18116,17 @@
           "wins": 26,
           "losses": 55,
           "win_pct": 0.32098765432098764
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 26,
+          "losses": 56,
+          "win_pct": 0.3170731707317073
         }
       ]
     },
     "Cleveland Cavaliers": {
-      "wins": 51,
+      "wins": 52,
       "losses": 30,
       "history": [
         {
@@ -18432,11 +18614,17 @@
           "wins": 51,
           "losses": 30,
           "win_pct": 0.6296296296296297
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 52,
+          "losses": 30,
+          "win_pct": 0.6341463414634146
         }
       ]
     },
     "Boston Celtics": {
-      "wins": 55,
+      "wins": 56,
       "losses": 26,
       "history": [
         {
@@ -18924,11 +19112,17 @@
           "wins": 55,
           "losses": 26,
           "win_pct": 0.6790123456790124
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 56,
+          "losses": 26,
+          "win_pct": 0.6829268292682927
         }
       ]
     },
     "Toronto Raptors": {
-      "wins": 45,
+      "wins": 46,
       "losses": 36,
       "history": [
         {
@@ -19416,11 +19610,17 @@
           "wins": 45,
           "losses": 36,
           "win_pct": 0.5555555555555556
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 46,
+          "losses": 36,
+          "win_pct": 0.5609756097560976
         }
       ]
     },
     "Denver Nuggets": {
-      "wins": 53,
+      "wins": 54,
       "losses": 28,
       "history": [
         {
@@ -19908,12 +20108,18 @@
           "wins": 53,
           "losses": 28,
           "win_pct": 0.654320987654321
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 54,
+          "losses": 28,
+          "win_pct": 0.6585365853658537
         }
       ]
     },
     "Indiana Pacers": {
       "wins": 19,
-      "losses": 62,
+      "losses": 63,
       "history": [
         {
           "date": "2025-10-23",
@@ -20400,6 +20606,12 @@
           "wins": 19,
           "losses": 62,
           "win_pct": 0.2345679012345679
+        },
+        {
+          "date": "2026-04-12",
+          "wins": 19,
+          "losses": 63,
+          "win_pct": 0.23170731707317074
         }
       ]
     }
@@ -20567,6 +20779,7 @@
     "2026-04-07",
     "2026-04-08",
     "2026-04-09",
-    "2026-04-10"
+    "2026-04-10",
+    "2026-04-12"
   ]
 }
