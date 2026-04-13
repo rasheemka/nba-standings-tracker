@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ season.season_display }} Season - Jumbros Basketball Challenge</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .standings-table {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 40px;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 18px 20px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f5f5f5; }
+
+        .rank { font-weight: bold; font-size: 1.3em; width: 60px; text-align: center; color: #333; }
+        .medal { font-weight: 600; font-size: 1.2em; color: #2a5298; }
+        .stat { font-weight: 500; text-align: center; }
+        .win-pct { font-weight: 600; color: #27ae60; }
+
+        .chart-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .chart-container h2 {
+            color: #2a5298;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .friend-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .friend-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .friend-title { font-size: 1.5em; font-weight: 700; color: #2a5298; }
+        .friend-wins { font-size: 1.3em; font-weight: 600; color: #27ae60; }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .team-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .team-name { font-weight: 600; color: #2a5298; margin-bottom: 8px; }
+        .team-record { font-size: 0.9em; color: #555; }
+
+        .winner-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            font-size: 1.3em;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5em; }
+            .container { padding: 0; }
+            th, td { padding: 8px 6px; font-size: 0.85em; }
+            .friend-title { font-size: 1.1em; }
+            .teams-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
+            <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">{{ season.season_display }} Season</div>
+            <div class="nav-links">
+                <a href="/">Current Season</a>
+                <a href="/seasons">All Seasons</a>
+                <a href="/all-time">All-Time Records</a>
+            </div>
+        </header>
+
+        {% if season.winner %}
+        <div class="winner-banner">
+            🏆 Season Champion: {{ season.winner }} — {{ season.winner_record }} 🏆
+        </div>
+        {% endif %}
+
+        <div class="standings-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Rank</th>
+                        <th>Player</th>
+                        <th style="text-align: center;">Wins</th>
+                        <th style="text-align: center;">Losses</th>
+                        <th style="text-align: center;">Win %</th>
+                        <th style="text-align: center;">Pt Diff/Game</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friend, stats in sorted_friends %}
+                    <tr>
+                        <td class="rank">
+                            {% if loop.index == 1 %}
+                                <span class="medal">🏆</span>
+                            {% else %}
+                                {{ loop.index }}
+                            {% endif %}
+                        </td>
+                        <td style="font-weight: 600; color: #333;">{{ friend }}</td>
+                        <td class="stat">{{ stats.total_wins }}</td>
+                        <td class="stat">{{ stats.total_losses }}</td>
+                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+                        <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {% if friend_history %}
+        <div class="chart-container">
+            <h2>📈 Season Win % Horse Race</h2>
+            <canvas id="horseRaceChart" height="400"></canvas>
+        </div>
+        {% endif %}
+
+        <h2 style="text-align: center; margin-bottom: 20px;">Team Breakdown</h2>
+
+        {% for friend, stats in sorted_friends %}
+        <div class="friend-section">
+            <div class="friend-header">
+                <span class="friend-title">
+                    {% if loop.index == 1 %}🏆{% endif %}
+                    {{ friend }}
+                </span>
+                <span class="friend-wins">{{ stats.total_wins }} Wins</span>
+            </div>
+            <div class="teams-grid">
+                {% for team in team_breakdown[friend] %}
+                <div class="team-card">
+                    <div class="team-name">{{ team.name }}</div>
+                    <div class="team-record">
+                        Record: {{ team.wins }}-{{ team.losses }} ({{ "%.1f"|format(team.win_pct * 100) }}%)
+                        {% if team.pt_diff >= 0 %}
+                            <span style="color: #27ae60;">+{{ "%.1f"|format(team.pt_diff) }}</span>
+                        {% else %}
+                            <span style="color: #e74c3c;">{{ "%.1f"|format(team.pt_diff) }}</span>
+                        {% endif %}
+                        Pt Diff/G
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if friend_history %}
+    <script>
+        const friendHistory = {{ friend_history | tojson }};
+
+        // Color palette for friends
+        const friendColors = {
+            'JJ': '#e6194b',
+            'Nick': '#3cb44b',
+            'Duke': '#4363d8',
+            'Adam': '#f58231',
+            'Nate': '#911eb4',
+            'Andy': '#42d4f4',
+            'Chris': '#f032e6',
+            'Undrafted': '#808080'
+        };
+
+        // Build chart
+        const allDates = Object.values(friendHistory)[0]?.map(d => d.date) || [];
+
+        // Sample dates for readability (show ~30 points)
+        const step = Math.max(1, Math.floor(allDates.length / 30));
+        const sampledIndices = [];
+        for (let i = 0; i < allDates.length; i += step) {
+            sampledIndices.push(i);
+        }
+        if (sampledIndices[sampledIndices.length - 1] !== allDates.length - 1) {
+            sampledIndices.push(allDates.length - 1);
+        }
+
+        const labels = sampledIndices.map(i => {
+            const d = allDates[i];
+            return d ? d.substring(5) : '';
+        });
+
+        const datasets = Object.entries(friendHistory)
+            .filter(([name]) => name !== 'Undrafted')
+            .map(([name, history]) => ({
+                label: name,
+                data: sampledIndices.map(i => history[i] ? (history[i].win_pct * 100).toFixed(1) : null),
+                borderColor: friendColors[name] || '#999',
+                backgroundColor: friendColors[name] || '#999',
+                tension: 0.3,
+                pointRadius: 2,
+                borderWidth: 2.5,
+                fill: false,
+            }));
+
+        new Chart(document.getElementById('horseRaceChart'), {
+            type: 'line',
+            data: { labels, datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top', labels: { usePointStyle: true, padding: 15 } }
+                },
+                scales: {
+                    y: {
+                        title: { display: true, text: 'Win %', font: { size: 14 } },
+                        ticks: { callback: v => v + '%' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Date', font: { size: 14 } },
+                        ticks: { maxRotation: 45 }
+                    }
+                }
+            }
+        });
+    </script>
+    {% endif %}
+</body>
+</html>

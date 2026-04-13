@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Time Records - Jumbros Basketball Challenge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+        h2 { text-align: center; margin-bottom: 20px; }
+
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .summary-stat {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-stat .value { font-size: 2em; font-weight: 700; }
+        .summary-stat .label { font-size: 0.9em; opacity: 0.8; margin-top: 5px; }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 14px 20px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f5f5f5; }
+
+        .rank { font-weight: bold; font-size: 1.3em; width: 60px; text-align: center; color: #333; }
+        .stat { font-weight: 500; text-align: center; }
+        .win-pct { font-weight: 600; color: #27ae60; }
+
+        .player-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .player-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .player-name { font-size: 1.5em; font-weight: 700; color: #2a5298; }
+        .player-record { font-size: 1.2em; font-weight: 600; color: #27ae60; }
+
+        .season-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        .season-row:last-child { border-bottom: none; }
+
+        .season-label { font-weight: 600; color: #2a5298; }
+        .season-record { color: #555; }
+
+        .rank-badge {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+
+        .rank-1 { background: #ffd700; color: #333; }
+        .rank-2 { background: #c0c0c0; color: #333; }
+        .rank-3 { background: #cd7f32; color: #fff; }
+        .rank-other { background: #e0e0e0; color: #555; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5em; }
+            .container { padding: 0; }
+            th, td { padding: 8px 6px; font-size: 0.85em; }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .player-header { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
+            <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">All-Time Records</div>
+            <div class="nav-links">
+                <a href="/">Current Season</a>
+                <a href="/seasons">All Seasons</a>
+                <a href="/all-time" class="active">All-Time Records</a>
+            </div>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-stat">
+                <div class="value">{{ total_seasons }}</div>
+                <div class="label">Seasons Played</div>
+            </div>
+            {% if all_time %}
+            <div class="summary-stat">
+                <div class="value">{{ all_time[0][0] }}</div>
+                <div class="label">Best All-Time Win %</div>
+            </div>
+            <div class="summary-stat">
+                <div class="value">{{ "%.1f"|format(all_time[0][1].win_pct * 100) }}%</div>
+                <div class="label">Highest Win %</div>
+            </div>
+            {% set most_titles = all_time | sort(attribute='1.titles', reverse=True) %}
+            <div class="summary-stat">
+                <div class="value">{{ most_titles[0][0] }}</div>
+                <div class="label">Most Titles ({{ most_titles[0][1].titles }})</div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- All-Time Standings Table -->
+        <div class="card">
+            <div class="card-header">🏆 Cumulative All-Time Standings</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Rank</th>
+                        <th>Player</th>
+                        <th style="text-align: center;">Total Wins</th>
+                        <th style="text-align: center;">Total Losses</th>
+                        <th style="text-align: center;">Win %</th>
+                        <th style="text-align: center;">🏆 Titles</th>
+                        <th style="text-align: center;">Seasons</th>
+                        <th style="text-align: center;">Best Finish</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friend, stats in all_time %}
+                    <tr>
+                        <td class="rank">
+                            {% if loop.index == 1 %}🏆{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% else %}{{ loop.index }}{% endif %}
+                        </td>
+                        <td style="color: #333; font-weight: 600; font-size: 1.05em;">{{ friend }}</td>
+                        <td class="stat">{{ stats.wins }}</td>
+                        <td class="stat">{{ stats.losses }}</td>
+                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+                        <td class="stat" style="font-size: 1.1em;">{{ stats.titles }}</td>
+                        <td class="stat">{{ stats.seasons }}</td>
+                        <td class="stat">
+                            {% if stats.best_finish == 1 %}🥇{% elif stats.best_finish == 2 %}🥈{% elif stats.best_finish == 3 %}🥉{% else %}{{ stats.best_finish }}{% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Season-by-Season Breakdown per Player -->
+        <h2>📋 Player Season Histories</h2>
+
+        {% for friend, stats in all_time %}
+        <div class="player-card">
+            <div class="player-header">
+                <span class="player-name">
+                    {% if stats.titles > 0 %}🏆 {% endif %}{{ friend }}
+                </span>
+                <span class="player-record">{{ stats.wins }}W - {{ stats.losses }}L ({{ "%.1f"|format(stats.win_pct * 100) }}%)</span>
+            </div>
+            {% for sh in stats.season_history %}
+            <div class="season-row">
+                <span class="season-label">
+                    <a href="/seasons/{{ sh.season }}" style="color: #2a5298; text-decoration: none;">{{ sh.season }}</a>
+                </span>
+                <span class="season-record">{{ sh.wins }}W - {{ sh.losses }}L ({{ "%.1f"|format(sh.win_pct * 100) }}%)</span>
+                <span class="rank-badge rank-{% if sh.rank <= 3 %}{{ sh.rank }}{% else %}other{% endif %}">
+                    {% if sh.rank == 1 %}🏆{% else %}#{{ sh.rank }}{% endif %}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        {% if not all_time %}
+        <div class="card" style="padding: 30px; text-align: center;">
+            <p style="color: #666;">No season data available yet.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

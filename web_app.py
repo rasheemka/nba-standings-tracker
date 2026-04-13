@@ -11,11 +11,14 @@ import pytz
 import json
 import os
 from nba_tracker import fetch_team_stats, calculate_friend_totals, TEAM_ASSIGNMENTS, fetch_historical_standings, calculate_friend_historical_standings, load_season_schedule
+import glob
 
 app = Flask(__name__)
 
 # Path to cache file
 CACHE_FILE = 'nba_data_cache.json'
+SEASON_CONFIG_FILE = 'season_config.json'
+SEASONS_DIR = 'seasons'
 
 def update_nba_data():
     """
@@ -273,6 +276,202 @@ def api_teams():
         'teams': all_teams,
         'current_assignments': TEAM_ASSIGNMENTS
     })
+
+
+def load_season_config():
+    """Load the season configuration file."""
+    if os.path.exists(SEASON_CONFIG_FILE):
+        with open(SEASON_CONFIG_FILE, 'r') as f:
+            return json.load(f)
+    return {'current_season': None, 'seasons': {}}
+
+
+def load_season_data(season_id):
+    """Load archived data for a specific season."""
+    data_file = os.path.join(SEASONS_DIR, season_id, 'data.json')
+    if os.path.exists(data_file):
+        with open(data_file, 'r') as f:
+            return json.load(f)
+    return None
+
+
+def get_all_seasons():
+    """Get list of all archived seasons with summary info."""
+    seasons = []
+    if os.path.exists(SEASONS_DIR):
+        for season_dir in sorted(os.listdir(SEASONS_DIR), reverse=True):
+            data_file = os.path.join(SEASONS_DIR, season_dir, 'data.json')
+            if os.path.exists(data_file):
+                with open(data_file, 'r') as f:
+                    data = json.load(f)
+                seasons.append({
+                    'id': season_dir,
+                    'display_name': data.get('season_display', season_dir),
+                    'winner': data.get('winner', 'TBD'),
+                    'winner_record': data.get('winner_record', ''),
+                    'status': data.get('status', 'completed'),
+                    'start_date': data.get('start_date', ''),
+                    'end_date': data.get('end_date', ''),
+                })
+    return seasons
+
+
+@app.route('/seasons')
+def seasons_list():
+    """Page listing all seasons."""
+    seasons = get_all_seasons()
+    
+    # Build all-time records for the summary
+    all_time = {}
+    for season_info in seasons:
+        data = load_season_data(season_info['id'])
+        if data and data.get('friend_totals'):
+            for friend, stats in data['friend_totals'].items():
+                if friend == 'Undrafted':
+                    continue
+                if friend not in all_time:
+                    all_time[friend] = {'wins': 0, 'losses': 0, 'seasons': 0, 'titles': 0}
+                all_time[friend]['wins'] += stats.get('total_wins', 0)
+                all_time[friend]['losses'] += stats.get('total_losses', 0)
+                all_time[friend]['seasons'] += 1
+                if friend == season_info.get('winner'):
+                    all_time[friend]['titles'] += 1
+    
+    # Calculate win pct
+    for friend in all_time:
+        total = all_time[friend]['wins'] + all_time[friend]['losses']
+        all_time[friend]['win_pct'] = all_time[friend]['wins'] / total if total > 0 else 0
+    
+    # Sort by win pct
+    sorted_all_time = sorted(all_time.items(), key=lambda x: x[1]['win_pct'], reverse=True)
+    
+    return render_template('seasons.html', seasons=seasons, all_time=sorted_all_time)
+
+
+@app.route('/seasons/<season_id>')
+def season_detail(season_id):
+    """View a specific past season."""
+    data = load_season_data(season_id)
+    if not data:
+        return "Season not found.", 404
+    
+    # Sort friends by win percentage
+    sorted_friends = sorted(
+        data['friend_totals'].items(),
+        key=lambda x: x[1]['win_pct'],
+        reverse=True
+    )
+    
+    # Prepare team breakdown
+    team_breakdown = {}
+    for friend, stats in sorted_friends:
+        team_records = []
+        for team in stats.get('teams', []):
+            if team in data.get('team_stats', {}):
+                team_info = data['team_stats'][team]
+                games_played = team_info.get('games_played', 1)
+                pts_scored = team_info.get('total_pts_scored', 0)
+                pts_allowed = team_info.get('total_pts_allowed', 0)
+                pt_diff_per_game = (pts_scored - pts_allowed) / games_played if games_played > 0 else 0
+                team_records.append({
+                    'name': team,
+                    'wins': team_info.get('wins', 0),
+                    'losses': team_info.get('losses', 0),
+                    'win_pct': team_info.get('win_pct', 0),
+                    'pt_diff': pt_diff_per_game
+                })
+        team_records.sort(key=lambda x: x['wins'], reverse=True)
+        team_breakdown[friend] = team_records
+    
+    return render_template(
+        'season_detail.html',
+        season=data,
+        season_id=season_id,
+        sorted_friends=sorted_friends,
+        team_breakdown=team_breakdown,
+        friend_history=data.get('friend_history'),
+    )
+
+
+@app.route('/all-time')
+def all_time():
+    """All-time cumulative records across all seasons."""
+    seasons = get_all_seasons()
+    
+    # Build per-friend cumulative data + per-season breakdown
+    all_time_records = {}
+    season_results = []  # list of {season, standings: [{friend, wins, losses, win_pct, rank}]}
+    
+    for season_info in sorted(seasons, key=lambda s: s['id']):
+        data = load_season_data(season_info['id'])
+        if not data or not data.get('friend_totals'):
+            continue
+        
+        # Sort this season's standings
+        sorted_season = sorted(
+            [(f, s) for f, s in data['friend_totals'].items() if f != 'Undrafted'],
+            key=lambda x: x[1]['win_pct'],
+            reverse=True
+        )
+        
+        standings = []
+        for rank, (friend, stats) in enumerate(sorted_season, 1):
+            wins = stats.get('total_wins', 0)
+            losses = stats.get('total_losses', 0)
+            total = wins + losses
+            
+            if friend not in all_time_records:
+                all_time_records[friend] = {
+                    'wins': 0, 'losses': 0, 'seasons': 0,
+                    'titles': 0, 'best_finish': 999, 'worst_finish': 0,
+                    'season_history': []
+                }
+            
+            rec = all_time_records[friend]
+            rec['wins'] += wins
+            rec['losses'] += losses
+            rec['seasons'] += 1
+            rec['best_finish'] = min(rec['best_finish'], rank)
+            rec['worst_finish'] = max(rec['worst_finish'], rank)
+            if rank == 1:
+                rec['titles'] += 1
+            rec['season_history'].append({
+                'season': season_info['display_name'],
+                'wins': wins,
+                'losses': losses,
+                'win_pct': wins / total if total > 0 else 0,
+                'rank': rank,
+            })
+            
+            standings.append({
+                'friend': friend,
+                'wins': wins,
+                'losses': losses,
+                'win_pct': wins / total if total > 0 else 0,
+                'rank': rank,
+            })
+        
+        season_results.append({
+            'season': season_info['display_name'],
+            'season_id': season_info['id'],
+            'winner': season_info.get('winner', ''),
+            'standings': standings,
+        })
+    
+    # Calculate win pct and sort
+    for friend in all_time_records:
+        rec = all_time_records[friend]
+        total = rec['wins'] + rec['losses']
+        rec['win_pct'] = rec['wins'] / total if total > 0 else 0
+    
+    sorted_all_time = sorted(all_time_records.items(), key=lambda x: x[1]['win_pct'], reverse=True)
+    
+    return render_template(
+        'all_time.html',
+        all_time=sorted_all_time,
+        season_results=season_results,
+        total_seasons=len(season_results),
+    )
 
 
 def start_scheduler():

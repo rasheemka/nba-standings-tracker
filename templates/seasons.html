@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Season History - Jumbros Basketball Challenge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
+        h2 { font-size: 1.8em; margin-bottom: 20px; text-align: center; }
+
+        .nav-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 8px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .nav-links a.active {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .card-body { padding: 25px; }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            text-align: left;
+            font-size: 1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 14px 20px;
+            color: #333;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f5f5f5; }
+
+        .stat { font-weight: 500; text-align: center; }
+        .win-pct { font-weight: 600; color: #27ae60; }
+
+        .season-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .season-card:hover { transform: translateY(-3px); }
+
+        .season-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .season-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #2a5298;
+        }
+
+        .season-badge {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge-completed {
+            background: #e8f5e9;
+            color: #27ae60;
+        }
+
+        .badge-active {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .season-winner {
+            font-size: 1.15em;
+            color: #333;
+        }
+
+        .trophy { font-size: 1.3em; }
+
+        .all-time-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .summary-stat {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .summary-stat .value {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .summary-stat .label {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .rank { font-weight: bold; font-size: 1.3em; width: 60px; text-align: center; color: #333; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5em; }
+            .container { padding: 0; }
+            th, td { padding: 8px 6px; font-size: 0.85em; }
+            .season-card-header { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
+            <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">Season History</div>
+            <div class="nav-links">
+                <a href="/">Current Season</a>
+                <a href="/seasons" class="active">All Seasons</a>
+                <a href="/all-time">All-Time Records</a>
+            </div>
+        </header>
+
+        {% if all_time %}
+        <div class="card" style="margin-bottom: 30px;">
+            <div class="card-header">🏆 All-Time Leaderboard</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Rank</th>
+                        <th>Player</th>
+                        <th style="text-align: center;">Wins</th>
+                        <th style="text-align: center;">Losses</th>
+                        <th style="text-align: center;">Win %</th>
+                        <th style="text-align: center;">Titles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friend, stats in all_time %}
+                    <tr>
+                        <td class="rank">
+                            {% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}
+                        </td>
+                        <td style="color: #333; font-weight: 600;">{{ friend }}</td>
+                        <td class="stat">{{ stats.wins }}</td>
+                        <td class="stat">{{ stats.losses }}</td>
+                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+                        <td class="stat">{{ stats.titles }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+        <h2>📅 Seasons</h2>
+
+        {% for season in seasons %}
+        <a href="/seasons/{{ season.id }}" class="season-card">
+            <div class="season-card-header">
+                <span class="season-title">{{ season.display_name }} Season</span>
+                <span class="season-badge {% if season.status == 'active' %}badge-active{% else %}badge-completed{% endif %}">
+                    {{ season.status | title }}
+                </span>
+            </div>
+            <div class="season-winner">
+                {% if season.winner %}
+                <span class="trophy">🏆</span> <strong>{{ season.winner }}</strong> — {{ season.winner_record }}
+                {% else %}
+                <em>In Progress</em>
+                {% endif %}
+            </div>
+        </a>
+        {% endfor %}
+
+        {% if not seasons %}
+        <div class="card">
+            <div class="card-body" style="text-align: center; color: #666;">
+                No archived seasons yet.
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "current_season": "2025-26",
+  "seasons": {
+    "2025-26": {
+      "display_name": "2025-26",
+      "start_date": "2025-10-21",
+      "end_date": "2026-04-13",
+      "espn_season_year": 2026,
+      "status": "completed",
+      "data_file": "seasons/2025-26/data.json",
+      "team_assignments": {
+        "JJ": ["Oklahoma City Thunder", "San Antonio Spurs", "Detroit Pistons", "New Orleans Pelicans"],
+        "Andy": ["Cleveland Cavaliers", "Los Angeles Lakers", "Milwaukee Bucks", "Washington Wizards"],
+        "Nate": ["Orlando Magic", "Atlanta Hawks", "Memphis Grizzlies", "Phoenix Suns"],
+        "Chris": ["Golden State Warriors", "Indiana Pacers", "Dallas Mavericks", "Charlotte Hornets"],
+        "Adam": ["Denver Nuggets", "Boston Celtics", "Miami Heat", "Sacramento Kings"],
+        "Duke": ["New York Knicks", "LA Clippers", "Toronto Raptors", "Chicago Bulls"],
+        "Nick": ["Houston Rockets", "Minnesota Timberwolves", "Philadelphia 76ers", "Portland Trail Blazers"],
+        "Undrafted": ["Brooklyn Nets", "Utah Jazz"]
+      }
+    }
+  }
+}
