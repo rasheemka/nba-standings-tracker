@@ -59,7 +59,12 @@
             margin-bottom: 40px;
         }
 
-        table { width: 100%; border-collapse: collapse; }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
 
         th {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -69,12 +74,14 @@
             font-size: 1.1em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         td {
             padding: 18px 20px;
             color: #333;
             border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
         }
 
         tr:last-child td { border-bottom: none; }
@@ -141,11 +148,20 @@
         }
 
         @media (max-width: 768px) {
+            body { padding: 10px; }
             h1 { font-size: 1.5em; }
+            header { padding: 20px 15px; margin-bottom: 25px; }
             .container { padding: 0; }
-            th, td { padding: 8px 6px; font-size: 0.85em; }
-            .friend-title { font-size: 1.1em; }
+            .nav-links { gap: 10px; }
+            .nav-links a { padding: 6px 14px; font-size: 0.85em; }
+            .winner-banner { font-size: 1em; padding: 12px; margin-bottom: 20px; }
+            .section-title { font-size: 1.2em; }
+            .friend-section { padding: 15px; margin-bottom: 15px; }
+            .friend-header { flex-direction: column; gap: 8px; align-items: flex-start; }
+            .friend-title { font-size: 1.15em; }
+            .friend-wins { font-size: 1.05em; }
             .teams-grid { grid-template-columns: 1fr; }
+            .team-card { padding: 12px; }
         }
     </style>
 </head>
@@ -169,6 +185,7 @@
 
         <!-- Standings -->
         <div class="standings-table">
+            <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -199,6 +216,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </div>
 
         <!-- Team Breakdown -->

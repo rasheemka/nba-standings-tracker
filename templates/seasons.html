@@ -101,7 +101,12 @@
 
         .season-details.open { display: block; }
 
-        table { width: 100%; border-collapse: collapse; }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 500px; }
 
         th {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -111,12 +116,14 @@
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         td {
             padding: 12px 16px;
             color: #333;
             border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
         }
 
         tr:last-child td { border-bottom: none; }
@@ -152,11 +159,17 @@
         .badge-active { background: #fff3e0; color: #e65100; }
 
         @media (max-width: 768px) {
+            body { padding: 10px; }
             h1 { font-size: 1.5em; }
-            .container { padding: 0 5px; }
-            th, td { padding: 8px 6px; font-size: 0.85em; }
-            .season-card-header { flex-direction: column; gap: 10px; align-items: flex-start; }
+            header { padding: 20px 15px; margin-bottom: 25px; }
+            .container { padding: 0; }
+            .nav-links { gap: 10px; }
+            .nav-links a { padding: 6px 14px; font-size: 0.85em; }
+            .season-card-header { flex-direction: column; gap: 10px; align-items: flex-start; padding: 15px; }
+            .season-title { font-size: 1.15em; }
             .season-meta { width: 100%; justify-content: space-between; }
+            .season-winner { font-size: 0.9em; }
+            .view-full-link { padding: 14px; font-size: 1em; }
         }
     </style>
 </head>
@@ -192,6 +205,7 @@
             </div>
             <div class="season-details" id="details-{{ season.id }}">
                 {% if season.id in season_standings %}
+                <div class="table-wrapper">
                 <table>
                     <thead>
                         <tr>
@@ -218,6 +232,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                </div>
                 <a href="/seasons/{{ season.id }}" class="view-full-link">View Full Season Details →</a>
                 {% endif %}
             </div>

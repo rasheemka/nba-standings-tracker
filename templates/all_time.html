@@ -92,7 +92,12 @@
             font-weight: 600;
         }
 
-        table { width: 100%; border-collapse: collapse; }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
 
         th {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -102,12 +107,14 @@
             font-size: 1em;
             text-transform: uppercase;
             letter-spacing: 1px;
+            white-space: nowrap;
         }
 
         td {
             padding: 14px 20px;
             color: #333;
             border-bottom: 1px solid #e0e0e0;
+            white-space: nowrap;
         }
 
         tr:last-child td { border-bottom: none; }
@@ -168,11 +175,17 @@
         .rank-other { background: #e0e0e0; color: #555; }
 
         @media (max-width: 768px) {
+            body { padding: 10px; }
             h1 { font-size: 1.5em; }
+            header { padding: 20px 15px; margin-bottom: 25px; }
             .container { padding: 0; }
-            th, td { padding: 8px 6px; font-size: 0.85em; }
-            .summary-grid { grid-template-columns: repeat(2, 1fr); }
-            .player-header { flex-direction: column; gap: 8px; }
+            .nav-links { gap: 10px; }
+            .nav-links a { padding: 6px 14px; font-size: 0.85em; }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .summary-stat { padding: 15px; }
+            .summary-stat .value { font-size: 1.5em; }
+            .summary-stat .label { font-size: 0.8em; }
+            .card-header { font-size: 1.1em; padding: 15px; }
         }
     </style>
 </head>
@@ -213,6 +226,7 @@
         <!-- All-Time Standings Table -->
         <div class="card">
             <div class="card-header">🏆 Cumulative All-Time Standings</div>
+            <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -245,6 +259,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </div>
 
         {% if not all_time %}
