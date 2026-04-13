@@ -377,7 +377,6 @@ def season_detail(season_id):
         season_id=season_id,
         sorted_friends=sorted_friends,
         team_breakdown=team_breakdown,
-        team_assignments=data.get('team_assignments', {}),
     )
 
 

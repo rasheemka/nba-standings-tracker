@@ -91,57 +91,6 @@
             font-size: 1.5em;
         }
 
-        /* Team Assignments */
-        .assignments-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .assignments-section h2 {
-            color: #2a5298;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.4em;
-        }
-
-        .assignments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .assignment-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .assignment-name {
-            font-weight: 700;
-            color: #2a5298;
-            font-size: 1.1em;
-            margin-bottom: 8px;
-        }
-
-        .assignment-teams {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .assignment-team-tag {
-            background: #e8eaf6;
-            color: #3949ab;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-
         /* Team Breakdown */
         .friend-section {
             background: rgba(255, 255, 255, 0.95);
@@ -197,11 +146,6 @@
             th, td { padding: 8px 6px; font-size: 0.85em; }
             .friend-title { font-size: 1.1em; }
             .teams-grid { grid-template-columns: 1fr; }
-            .assignments-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        @media (max-width: 480px) {
-            .assignments-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -256,29 +200,6 @@
                 </tbody>
             </table>
         </div>
-
-        <!-- Team Assignments -->
-        {% if team_assignments %}
-        <div class="assignments-section">
-            <h2>🎯 Draft Assignments</h2>
-            <div class="assignments-grid">
-                {% for friend, stats in sorted_friends %}
-                {% if friend in team_assignments %}
-                <div class="assignment-card">
-                    <div class="assignment-name">
-                        {% if loop.index == 1 %}🏆{% endif %} {{ friend }}
-                    </div>
-                    <div class="assignment-teams">
-                        {% for team in team_assignments[friend] %}
-                        <span class="assignment-team-tag">{{ team }}</span>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
 
         <!-- Team Breakdown -->
         <h2 class="section-title">📊 Team Breakdown</h2>
