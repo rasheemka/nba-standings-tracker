@@ -539,9 +539,9 @@
                 {% endif %}
             </div>
             <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.8); border-radius: 25px; font-size: 0.95em; background: rgba(255,255,255,0.25); font-weight: 600;">Current Season</a>
-                <a href="/seasons" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All Seasons</a>
-                <a href="/all-time" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All-Time Records</a>
+                <a href="{{ root }}/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.8); border-radius: 25px; font-size: 0.95em; background: rgba(255,255,255,0.25); font-weight: 600;">Current Season</a>
+                <a href="{{ root }}/seasons/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All Seasons</a>
+                <a href="{{ root }}/all-time/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All-Time Records</a>
             </div>
         </header>
 
@@ -698,9 +698,11 @@
     </div>
 
     <button class="sandbox-btn" onclick="toggleSandboxMode()" id="sandbox-toggle-btn">🎮 Enter Sandbox Mode</button>
-    <button class="refresh-btn" onclick="refreshData()">🔄 Refresh Data</button>
 
     <script>
+        // Data embedded at build time (see build.py)
+        const SANDBOX = {{ sandbox_data | tojson }};
+
         // Global state for sandbox mode
         let sandboxMode = false;
         let allTeams = [];
@@ -710,9 +712,7 @@
 
         // Initialize the page
         async function initializePage() {
-            // Fetch teams and current assignments
-            const response = await fetch('/api/teams');
-            const data = await response.json();
+            const data = { status: 'success', teams: SANDBOX.teams, current_assignments: SANDBOX.assignments };
             
             if (data.status === 'success') {
                 allTeams = data.teams;
@@ -846,44 +846,92 @@
             // Update current assignments
             currentAssignments[friendName] = teams;
             
-            // Recalculate standings
-            await recalculateStandings();
+            recalculateStandings();
             
             // Remove the selector
             cancelEdit(friendName);
         }
 
-        async function recalculateStandings() {
-            try {
-                const response = await fetch('/api/recalculate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        team_assignments: currentAssignments
-                    })
-                });
-                
-                const data = await response.json();
-                
-                if (data.status === 'success') {
-                    // Update the standings table
-                    updateStandingsTable(data.sorted_friends);
-                    
-                    // Update team breakdown
-                    updateTeamBreakdown(data.sorted_friends, data.team_breakdown);
-                    
-                    // Update horse race chart if historical data is included
-                    if (data.friend_history) {
-                        updateChart(data.friend_history);
-                    }
-                } else {
-                    alert('Error recalculating standings: ' + data.message);
-                }
-            } catch (error) {
-                alert('Error: ' + error);
+        // ---- Client-side standings math (mirrors nba_tracker.py) ----
+
+        function teamToFriend(assignments) {
+            const m = {};
+            for (const [f, teams] of Object.entries(assignments)) for (const t of teams) m[t] = f;
+            return m;
+        }
+
+        function remainingHeadToHead(assignments) {
+            const owner = teamToFriend(assignments), counts = {};
+            const today = new Date().toISOString().slice(0, 10);
+            for (const g of (SANDBOX.schedule || [])) {
+                if (g.date < today) continue;
+                const h = owner[g.home], a = owner[g.away];
+                if (h && h === a && h !== 'Undrafted') counts[h] = (counts[h] || 0) + 1;
             }
+            return counts;
+        }
+
+        function calculateFriendTotals(assignments) {
+            const stats = SANDBOX.team_stats, totals = {};
+            for (const [friend, teams] of Object.entries(assignments)) {
+                let w = 0, l = 0, gp = 0, pm = 0;
+                for (const t of teams) { const s = stats[t]; if (!s) continue; w += s.wins; l += s.losses; gp += s.games_played; pm += s.total_plus_minus; }
+                const possible = teams.length * 82, remaining = possible - gp;
+                totals[friend] = { total_wins: w, total_losses: l, total_games: w + l,
+                    win_pct: (w + l) ? w / (w + l) : 0, point_diff_per_game: gp ? pm / gp : 0,
+                    games_remaining: remaining, max_possible_win_pct: possible ? (w + remaining) / possible : 0,
+                    teams, is_eliminated: friend === 'Undrafted' };
+            }
+            const h2h = remainingHeadToHead(assignments);
+            for (const f in totals) totals[f].h2h_remaining = h2h[f] || 0;
+            for (const [f, ft] of Object.entries(totals)) {
+                if (f === 'Undrafted') continue;
+                const maxPossible = ft.total_wins + ft.games_remaining - ft.h2h_remaining;
+                let bestOtherFloor = 0;
+                for (const [o, os] of Object.entries(totals)) if (o !== f && o !== 'Undrafted') bestOtherFloor = Math.max(bestOtherFloor, os.total_wins + os.h2h_remaining);
+                if (maxPossible < bestOtherFloor) ft.is_eliminated = true;
+            }
+            return totals;
+        }
+
+        function buildTeamBreakdown(sortedFriends) {
+            const out = {};
+            for (const [friend, st] of sortedFriends) {
+                out[friend] = st.teams.filter(t => SANDBOX.team_stats[t]).map(t => {
+                    const s = SANDBOX.team_stats[t];
+                    return { name: t, wins: s.wins, losses: s.losses, win_pct: s.win_pct,
+                             pt_diff: s.games_played ? (s.total_pts_scored - s.total_pts_allowed) / s.games_played : 0 };
+                }).sort((a, b) => b.wins - a.wins);
+            }
+            return out;
+        }
+
+        function calculateFriendHistory(assignments) {
+            const { team_records, dates } = SANDBOX;
+            if (!team_records || !dates || !dates.length) return null;
+            const out = {};
+            for (const [friend, teams] of Object.entries(assignments)) {
+                const hist = teams.map(t => (team_records[t] || {}).history || []);
+                const idx = hist.map(() => 0);
+                out[friend] = dates.map(date => {
+                    let w = 0, l = 0;
+                    hist.forEach((h, i) => {
+                        while (idx[i] < h.length && h[idx[i]].date <= date) idx[i]++;
+                        if (idx[i] > 0) { w += h[idx[i] - 1].wins; l += h[idx[i] - 1].losses; }
+                    });
+                    return { date, win_pct: (w + l) ? w / (w + l) * 100 : 0 };
+                });
+            }
+            return out;
+        }
+
+        function recalculateStandings() {
+            const totals = calculateFriendTotals(currentAssignments);
+            const sortedFriends = Object.entries(totals).sort((a, b) => b[1].win_pct - a[1].win_pct);
+            updateStandingsTable(sortedFriends);
+            updateTeamBreakdown(sortedFriends, buildTeamBreakdown(sortedFriends));
+            const history = calculateFriendHistory(currentAssignments);
+            if (history) updateChart(history);
         }
 
         function updateStandingsTable(sortedFriends) {
@@ -960,29 +1008,6 @@
                     teamsGrid.innerHTML = html;
                 }
             });
-        }
-
-        function refreshData() {
-            const btn = document.querySelector('.refresh-btn');
-            btn.textContent = '⏳ Updating...';
-            btn.disabled = true;
-            
-            fetch('/api/update')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        location.reload();
-                    } else {
-                        alert('Failed to update data. Please try again.');
-                        btn.textContent = '🔄 Refresh Data';
-                        btn.disabled = false;
-                    }
-                })
-                .catch(error => {
-                    alert('Error updating data: ' + error);
-                    btn.textContent = '🔄 Refresh Data';
-                    btn.disabled = false;
-                });
         }
 
         {% if friend_history %}

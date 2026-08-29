@@ -2,7 +2,7 @@
 """
 Refresh nba_data_cache.json from ESPN for the current season.
 
-Run by auto_update.sh (launchd) twice daily; safe to run by hand any time.
+Run by the GitHub Actions workflow twice daily; safe to run by hand any time.
 """
 
 import json
@@ -31,6 +31,9 @@ def main() -> int:
     today = datetime.now().strftime('%Y-%m-%d')
     if today < SEASON_START:
         print(f"Season {CURRENT_SEASON_ID} starts {SEASON_START}; nothing to update yet.")
+        return 0
+    if today > SEASON_END and (datetime.strptime(today, '%Y-%m-%d') - datetime.strptime(SEASON_END, '%Y-%m-%d')).days > 2:
+        print(f"Season {CURRENT_SEASON_ID} ended {SEASON_END}; nothing to update. Run new_season.py when ready.")
         return 0
 
     old = {}

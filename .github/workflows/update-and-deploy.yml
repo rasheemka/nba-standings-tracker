@@ -1,0 +1,65 @@
+name: Update data & deploy
+
+on:
+  schedule:
+    # 06:00 and 14:00 US/Eastern (UTC-4 in season; an hour earlier during EST)
+    - cron: '0 10 * * *'
+    - cron: '0 18 * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Refresh data from ESPN (scheduled runs only)
+        if: github.event_name != 'push'
+        env:
+          TZ: America/New_York
+        run: |
+          python3 update_data.py
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add nba_data_cache.json
+          if git diff --cached --quiet; then
+            echo "No data changes."
+          else
+            git commit -m "Automated data update - $(date '+%Y-%m-%d %H:%M')"
+            git push
+          fi
+
+      - name: Build site
+        env:
+          TZ: America/New_York
+        run: python3 build.py
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

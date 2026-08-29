@@ -179,9 +179,9 @@
             <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
             <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">Season History</div>
             <div class="nav-links">
-                <a href="/">Current Season</a>
-                <a href="/seasons" class="active">All Seasons</a>
-                <a href="/all-time">All-Time Records</a>
+                <a href="{{ root }}/">Current Season</a>
+                <a href="{{ root }}/seasons/" class="active">All Seasons</a>
+                <a href="{{ root }}/all-time/">All-Time Records</a>
             </div>
         </header>
 
@@ -233,7 +233,7 @@
                     </tbody>
                 </table>
                 </div>
-                <a href="/seasons/{{ season.id }}" class="view-full-link">View Full Season Details →</a>
+                <a href="{{ root }}/seasons/{{ season.id }}/" class="view-full-link">View Full Season Details →</a>
                 {% endif %}
             </div>
         </div>
