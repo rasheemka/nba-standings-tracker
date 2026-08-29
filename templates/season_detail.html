@@ -1,254 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ season.season_display }} Season - Jumbros Basketball Challenge</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+{% extends "base.html" %}
+{% block title %}{{ season.season_display }} · Jumbros{% endblock %}
+{% block style %}
+.champ { display: flex; align-items: center; gap: 14px; padding: 16px 18px; margin-bottom: 20px; border-radius: var(--radius); background: var(--accent-soft); color: var(--accent); border: 1px solid transparent; }
+.champ .big { font-size: 28px; }
+.champ b { font-size: 17px; }
+.champ .sub { color: var(--text-2); font-size: 13px; }
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.person { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border-top: 3px solid var(--c, var(--border)); }
+.person-head { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 16px 10px; }
+.person-head .who { font-weight: 700; font-size: 16px; }
+.person-head .rec { color: var(--text-2); font-size: 13px; } .person-head .rec b { color: var(--text); font-size: 15px; }
+.teams { padding: 0 16px 14px; display: grid; gap: 6px; }
+.team { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 8px 10px; background: var(--surface-2); border-radius: 8px; font-size: 13.5px; }
+.team .tn { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.team .tr { font-weight: 600; } .team .td { font-size: 12px; min-width: 44px; text-align: right; }
+{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{{ season.season_display }} Season</h1><div class="sub">{{ season.start_date }} → {{ season.end_date }}</div></div>
+  <div class="meta"><a href="{{ root }}/seasons/">← All seasons</a></div>
+</div>
+{% if season.winner %}
+<div class="champ"><span class="big">🏆</span><div><b>{{ season.winner }}</b> — champion<div class="sub">Finished {{ season.winner_record }}</div></div></div>
+{% endif %}
+<div class="card"><div class="table-wrap"><table>
+  <thead><tr><th style="text-align:center">#</th><th>Player</th><th class="num">W</th><th class="num">L</th><th class="num">Win %</th><th class="num">+/- per game</th></tr></thead>
+  <tbody>
+  {% for friend, stats in sorted_friends %}
+  <tr class="{% if friend == 'Undrafted' %}muted{% endif %}">
+    <td class="rank">{% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}</td>
+    <td class="name"><span class="dot" style="--c:{{ friend_colors.get(friend, '#9ca3af') }}"></span>{{ friend }}</td>
+    <td class="num">{{ stats.total_wins }}</td><td class="num">{{ stats.total_losses }}</td>
+    <td class="num pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+    <td class="num {% if stats.point_diff_per_game >= 0 %}pos{% else %}neg{% endif %}">{{ "%+.1f"|format(stats.point_diff_per_game) }}</td>
+  </tr>
+  {% endfor %}
+  </tbody></table></div></div>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #fff;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-
-        .nav-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            transition: all 0.3s;
-            font-size: 0.95em;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .standings-table {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            border-radius: 15px;
-        }
-
-        table { width: 100%; border-collapse: collapse; min-width: 500px; }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            text-align: left;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        td {
-            padding: 18px 20px;
-            color: #333;
-            border-bottom: 1px solid #e0e0e0;
-            white-space: nowrap;
-        }
-
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: #f5f5f5; }
-
-        .rank { font-weight: bold; font-size: 1.3em; width: 60px; text-align: center; color: #333; }
-        .medal { font-weight: 600; font-size: 1.2em; color: #2a5298; }
-        .stat { font-weight: 500; text-align: center; }
-        .win-pct { font-weight: 600; color: #27ae60; }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.5em;
-        }
-
-        /* Team Breakdown */
-        .friend-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .friend-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .friend-title { font-size: 1.5em; font-weight: 700; color: #2a5298; }
-        .friend-wins { font-size: 1.3em; font-weight: 600; color: #27ae60; }
-
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .team-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .team-name { font-weight: 600; color: #2a5298; margin-bottom: 8px; }
-        .team-record { font-size: 0.9em; color: #555; }
-
-        .winner-banner {
-            background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
-            color: #333;
-            text-align: center;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-            font-size: 1.3em;
-            font-weight: 700;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            h1 { font-size: 1.5em; }
-            header { padding: 20px 15px; margin-bottom: 25px; }
-            .container { padding: 0; }
-            .nav-links { gap: 10px; }
-            .nav-links a { padding: 6px 14px; font-size: 0.85em; }
-            .winner-banner { font-size: 1em; padding: 12px; margin-bottom: 20px; }
-            .section-title { font-size: 1.2em; }
-            .friend-section { padding: 15px; margin-bottom: 15px; }
-            .friend-header { flex-direction: column; gap: 8px; align-items: flex-start; }
-            .friend-title { font-size: 1.15em; }
-            .friend-wins { font-size: 1.05em; }
-            .teams-grid { grid-template-columns: 1fr; }
-            .team-card { padding: 12px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
-            <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">{{ season.season_display }} Season</div>
-            <div class="nav-links">
-                <a href="{{ root }}/">Current Season</a>
-                <a href="{{ root }}/seasons/">All Seasons</a>
-                <a href="{{ root }}/all-time/">All-Time Records</a>
-            </div>
-        </header>
-
-        {% if season.winner %}
-        <div class="winner-banner">
-            🏆 Season Champion: {{ season.winner }} — {{ season.winner_record }} 🏆
-        </div>
-        {% endif %}
-
-        <!-- Standings -->
-        <div class="standings-table">
-            <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">Rank</th>
-                        <th>Player</th>
-                        <th style="text-align: center;">Wins</th>
-                        <th style="text-align: center;">Losses</th>
-                        <th style="text-align: center;">Win %</th>
-                        <th style="text-align: center;">Pt Diff/Game</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for friend, stats in sorted_friends %}
-                    <tr>
-                        <td class="rank">
-                            {% if loop.index == 1 %}
-                                <span class="medal">🏆</span>
-                            {% else %}
-                                {{ loop.index }}
-                            {% endif %}
-                        </td>
-                        <td style="font-weight: 600; color: #333;">{{ friend }}</td>
-                        <td class="stat">{{ stats.total_wins }}</td>
-                        <td class="stat">{{ stats.total_losses }}</td>
-                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
-                        <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            </div>
-        </div>
-
-        <!-- Team Breakdown -->
-        <h2 class="section-title">📊 Team Breakdown</h2>
-
-        {% for friend, stats in sorted_friends %}
-        <div class="friend-section">
-            <div class="friend-header">
-                <span class="friend-title">
-                    {% if loop.index == 1 %}🏆{% endif %}
-                    {{ friend }}
-                </span>
-                <span class="friend-wins">{{ stats.total_wins }} Wins</span>
-            </div>
-            <div class="teams-grid">
-                {% for team in team_breakdown[friend] %}
-                <div class="team-card">
-                    <div class="team-name">{{ team.name }}</div>
-                    <div class="team-record">
-                        Record: {{ team.wins }}-{{ team.losses }} ({{ "%.1f"|format(team.win_pct * 100) }}%)
-                        {% if team.pt_diff >= 0 %}
-                            <span style="color: #27ae60;">+{{ "%.1f"|format(team.pt_diff) }}</span>
-                        {% else %}
-                            <span style="color: #e74c3c;">{{ "%.1f"|format(team.pt_diff) }}</span>
-                        {% endif %}
-                        Pt Diff/G
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-        {% endfor %}
+<h2 style="font-size:15px;font-weight:700;margin:28px 0 12px">Teams</h2>
+<div class="people">
+{% for friend, stats in sorted_friends %}
+  <div class="person" style="--c:{{ friend_colors.get(friend, '#9ca3af') }}">
+    <div class="person-head"><span class="who">{% if loop.index == 1 %}🏆 {% endif %}{{ friend }}</span><span class="rec"><b>{{ stats.total_wins }}</b>–{{ stats.total_losses }}</span></div>
+    <div class="teams">
+    {% for t in team_breakdown[friend] %}
+      <div class="team"><span class="tn">{{ t.name }}</span><span class="tr">{{ t.wins }}–{{ t.losses }}</span><span class="td {% if t.pt_diff >= 0 %}pos{% else %}neg{% endif %}">{{ "%+.1f"|format(t.pt_diff) }}</span></div>
+    {% endfor %}
     </div>
-</body>
-</html>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

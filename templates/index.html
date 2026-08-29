@@ -1,1243 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jumbros Basketball Challenge</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #fff;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-
-        .last-updated {
-            margin-top: 15px;
-            font-size: 0.9em;
-            opacity: 0.8;
-            font-style: italic;
-        }
-
-        .standings-table {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 40px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            text-align: left;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        td {
-            padding: 18px 20px;
-            color: #333;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:hover td {
-            background: #f5f5f5;
-        }
-
-        .eliminated {
-            background: #ffe0e0 !important;
-            opacity: 0.7;
-        }
-
-        .eliminated:hover {
-            background: #ffd0d0 !important;
-        }
-
-        .below-undrafted {
-            background: linear-gradient(90deg, #ff6b6b, #ffa07a, #ff6b6b) !important;
-            background-size: 200% 100% !important;
-            animation: shame-pulse 2s ease-in-out infinite !important;
-        }
-
-        .below-undrafted td {
-            color: #8b0000 !important;
-            font-weight: bold !important;
-        }
-
-        .below-undrafted:hover {
-            background: linear-gradient(90deg, #ff5252, #ff8a65, #ff5252) !important;
-            background-size: 200% 100% !important;
-        }
-
-        @keyframes shame-pulse {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .rank {
-            font-weight: bold;
-            font-size: 1.3em;
-            width: 60px;
-            text-align: center;
-            color: #333;
-        }
-
-        .medal {
-            font-weight: 600;
-            font-size: 1.2em;
-            color: #2a5298;
-        }
-
-        .stat {
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .win-pct {
-            font-weight: 600;
-            color: #27ae60;
-        }
-
-        .team-breakdown {
-            margin-top: 50px;
-        }
-
-        .friend-section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .friend-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .friend-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #2a5298;
-        }
-
-        .friend-wins {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: #27ae60;
-        }
-
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .team-card {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .team-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-name {
-            font-weight: 600;
-            font-size: 1.1em;
-            color: #2a5298;
-            margin-bottom: 8px;
-        }
-
-        .team-record {
-            font-size: 1em;
-            color: #555;
-        }
-
-        .team-ppg {
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 5px;
-        }
-
-        .refresh-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .refresh-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .refresh-btn:active {
-            transform: translateY(0);
-        }
-
-        .sandbox-btn {
-            position: fixed;
-            bottom: 90px;
-            right: 30px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.2s;
-        }
-
-        .sandbox-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .sandbox-btn:active {
-            transform: translateY(0);
-        }
-
-        .sandbox-mode-active {
-            border: 3px solid #f5576c;
-            position: relative;
-        }
-
-        .sandbox-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: #f5576c;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 0.9em;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .edit-teams-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-left: 15px;
-            transition: background 0.2s;
-        }
-
-        .edit-teams-btn:hover {
-            background: #5568d3;
-        }
-
-        .team-selector {
-            margin-top: 10px;
-            padding: 10px;
-            background: #fff;
-            border: 2px solid #667eea;
-            border-radius: 8px;
-        }
-
-        .team-selector select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-
-        .team-selector button {
-            background: #27ae60;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px 5px 0 0;
-        }
-
-        .team-selector button.cancel {
-            background: #e74c3c;
-        }
-
-        .team-selector button:hover {
-            opacity: 0.9;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
-            header {
-                padding: 20px 15px;
-                margin-bottom: 20px;
-            }
-
-            .last-updated {
-                font-size: 0.8em;
-            }
-
-            /* Make table scrollable horizontally on mobile */
-            .standings-table {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            table {
-                font-size: 0.75em;
-                min-width: 600px; /* Force horizontal scroll for readability */
-            }
-
-            th, td {
-                padding: 8px 5px;
-                white-space: nowrap;
-            }
-
-            .friend-name {
-                min-width: 80px;
-            }
-
-            .teams-grid {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-
-            .friend-section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-
-            .friend-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .friend-title {
-                font-size: 1.3em;
-            }
-
-            .edit-teams-btn {
-                margin-left: 0;
-                margin-top: 5px;
-                display: block;
-                width: 100%;
-            }
-
-            .team-card {
-                padding: 12px;
-            }
-
-            /* Adjust floating buttons for mobile */
-            .sandbox-btn, .refresh-btn {
-                right: 15px;
-                padding: 12px 20px;
-                font-size: 0.9em;
-            }
-
-            .sandbox-btn {
-                bottom: 75px;
-            }
-
-            .refresh-btn {
-                bottom: 20px;
-            }
-
-            /* Make team selector more mobile friendly */
-            .team-selector {
-                padding: 8px;
-            }
-
-            .team-selector select {
-                font-size: 16px; /* Prevents zoom on iOS */
-                padding: 10px;
-            }
-
-            .team-selector button {
-                padding: 10px 12px;
-                font-size: 0.9em;
-                width: 48%;
-                display: inline-block;
-            }
-
-            /* Horse race chart */
-            #horseRaceChart {
-                max-height: none !important;
-            }
-
-            /* Adjust chart container height for mobile */
-            .standings-table > div[style*="height: 520px"] {
-                height: 600px !important;
-            }
-
-            /* Make chart scrollable horizontally on mobile */
-            .standings-table > div[style*="height"] {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* Today's/Yesterday's games - make more compact */
-            .standings-table > div {
-                padding: 15px !important;
-            }
-
-            /* Shrink game text on mobile */
-            .standings-table div[style*="font-size: 1.3em"] {
-                font-size: 0.9em !important;
-            }
-
-            .standings-table div[style*="font-size: 0.9em"] {
-                font-size: 0.75em !important;
-            }
-
-            .standings-table div[style*="display: flex"] {
-                font-size: 0.85em;
-            }
-
-            .standings-table h2 {
-                font-size: 1.3em !important;
-            }
-
-            /* Sandbox badge */
-            .sandbox-badge {
-                font-size: 0.8em;
-                padding: 3px 10px;
-                top: -12px;
-                right: 10px;
-            }
-        }
-
-        /* Extra small screens */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.3em;
-            }
-
-            .subtitle {
-                font-size: 0.9em;
-            }
-
-            table {
-                font-size: 0.7em;
-            }
-
-            th, td {
-                padding: 6px 3px;
-            }
-
-            .friend-title {
-                font-size: 1.1em;
-            }
-
-            .sandbox-btn, .refresh-btn {
-                padding: 10px 15px;
-                font-size: 0.85em;
-            }
-
-            .team-selector button {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-        }
-
-        .medal {
-            font-size: 1.5em;
-            margin-right: 5px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
-            <div class="subtitle">{{ season_display }} Season Standings</div>
-            <div class="last-updated">
-                {% if last_updated %}
-                Last Updated: {{ last_updated[:10] }} at {{ last_updated[11:16] }}
-                <br>
-                <small>Auto-updates twice daily</small>
-                {% else %}
-                Season starts {{ season_start }} — standings will appear after the first games.
-                {% endif %}
-            </div>
-            <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="{{ root }}/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.8); border-radius: 25px; font-size: 0.95em; background: rgba(255,255,255,0.25); font-weight: 600;">Current Season</a>
-                <a href="{{ root }}/seasons/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All Seasons</a>
-                <a href="{{ root }}/all-time/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.3); border-radius: 25px; font-size: 0.95em;">All-Time Records</a>
-            </div>
-        </header>
-
-        <div class="standings-table" id="standings-container">
-            <span class="sandbox-badge" id="sandbox-badge" style="display: none;">🎮 SANDBOX MODE</span>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Rank</th>
-                        <th>Player</th>
-                        <th style="text-align: center;">Wins</th>
-                        <th style="text-align: center;">Losses</th>
-                        <th style="text-align: center;">Win %</th>
-                        <th style="text-align: center;">Games Remaining</th>
-                        <th style="text-align: center;" title="Remaining games where two of this player's teams face each other (guaranteed 1W + 1L)">H2H Left</th>
-                        <th style="text-align: center;">Pt Diff/Game</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% set undrafted_rank = namespace(value=999) %}
-                    {% for friend, stats in sorted_friends %}
-                        {% if friend == 'Undrafted' %}
-                            {% set undrafted_rank.value = loop.index %}
-                        {% endif %}
-                    {% endfor %}
-                    {% for friend, stats in sorted_friends %}
-                    <tr {% if stats.is_eliminated %}class="eliminated"{% elif friend != 'Undrafted' and loop.index > undrafted_rank.value %}class="below-undrafted"{% endif %}>
-                        <td class="rank rank-{{ loop.index }}">
-                            {% if stats.is_eliminated %}
-                                <span class="medal">💀</span>
-                            {% elif friend != 'Undrafted' and loop.index > undrafted_rank.value %}
-                                <span class="medal">🤡</span>
-                            {% elif loop.index == 1 %}
-                                <span class="medal">🍆</span>
-                            {% else %}
-                                {{ loop.index }}
-                            {% endif %}
-                        </td>
-                        <td class="friend-name">{{ friend }}</td>
-                        <td class="stat">{{ stats.total_wins }}</td>
-                        <td class="stat">{{ stats.total_losses }}</td>
-                        <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
-                        <td class="stat">{{ stats.games_remaining }}</td>
-                        <td class="stat" style="color: #888;">{{ stats.h2h_remaining | default(0) }}</td>
-                        <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        {% if yesterdays_games and yesterdays_games|length > 0 %}
-        <div class="standings-table" style="margin-bottom: 30px;">
-            <div style="padding: 20px;">
-                <h2 style="text-align: center; margin-bottom: 15px; color: #2a5298; font-size: 1.6em;">📊 Yesterday's Results</h2>
-                <div style="display: grid; gap: 8px;">
-                    {% for game in yesterdays_games %}
-                    {% set visitor_won = game.visitor_score and game.home_score and game.visitor_score > game.home_score %}
-                    {% set home_won = game.visitor_score and game.home_score and game.home_score > game.visitor_score %}
-                    <div style="background: #f8f9fa; padding: 10px 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 1; text-align: right; color: {% if visitor_won %}#1a3d6e{% else %}#8899aa{% endif %}; font-weight: {% if visitor_won %}700{% else %}500{% endif %};">
-                            {{ game.visitor }}
-                            {% if game.visitor_friend %}
-                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.visitor_friend }})</span>
-                            {% endif %}
-                        </div>
-                        <div style="padding: 0 15px; font-size: 1.3em; font-weight: bold; color: {% if visitor_won %}#27ae60{% else %}#999{% endif %};">
-                            {{ game.visitor_score if game.visitor_score else '-' }}
-                        </div>
-                        <div style="padding: 0 10px; color: #999; font-weight: bold;">@</div>
-                        <div style="padding: 0 15px; font-size: 1.3em; font-weight: bold; color: {% if home_won %}#27ae60{% else %}#999{% endif %};">
-                            {{ game.home_score if game.home_score else '-' }}
-                        </div>
-                        <div style="flex: 1; text-align: left; color: {% if home_won %}#1a3d6e{% else %}#8899aa{% endif %}; font-weight: {% if home_won %}700{% else %}500{% endif %};">
-                            {{ game.home }}
-                            {% if game.home_friend %}
-                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.home_friend }})</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if todays_games and todays_games|length > 0 %}
-        <div class="standings-table" style="margin-bottom: 30px;">
-            <div style="padding: 20px;">
-                <h2 style="text-align: center; margin-bottom: 15px; color: #2a5298; font-size: 1.6em;">🏀 Today's Games</h2>
-                <div style="display: grid; gap: 8px;">
-                    {% for game in todays_games %}
-                    <div style="background: #f8f9fa; padding: 10px 15px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 1; text-align: right; color: #2a5298; font-weight: 600;">
-                            {{ game.visitor }}
-                            {% if game.visitor_friend %}
-                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.visitor_friend }})</span>
-                            {% endif %}
-                        </div>
-                        <div style="padding: 0 20px; color: #999; font-weight: bold;">@</div>
-                        <div style="flex: 1; text-align: left; color: #2a5298; font-weight: 600;">
-                            {{ game.home }}
-                            {% if game.home_friend %}
-                            <span style="font-size: 0.9em; color: #666; font-weight: normal;">({{ game.home_friend }})</span>
-                            {% endif %}
-                        </div>
-                        <div style="min-width: 100px; text-align: right; color: #667eea; font-weight: 600;">
-                            {{ game.time }}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        {% endif %}
-
-        {% if friend_history %}
-        <div class="standings-table" style="padding: 30px; margin-bottom: 40px;">
-            <h2 style="text-align: center; margin-bottom: 20px; color: #2a5298; font-size: 2em;">📈 Season Win % Horse Race</h2>
-            <div style="position: relative; height: 520px; width: 100%;">
-                <canvas id="horseRaceChart"></canvas>
-            </div>
-        </div>
-        {% endif %}
-
-        <div class="team-breakdown">
-            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em;">Team Breakdown</h2>
-            
-            {% for friend, stats in sorted_friends %}
-            <div class="friend-section" id="friend-{{ friend|replace(' ', '-') }}">
-                <div class="friend-header">
-                    <div class="friend-title">
-                        {% if loop.index == 1 %}🍆{% endif %}
-                        {{ friend }}
-                        <button class="edit-teams-btn sandbox-only" onclick="editTeams('{{ friend }}')" style="display: none;">✏️ Edit Teams</button>
-                    </div>
-                    <div class="friend-wins">{{ stats.total_wins }} Wins</div>
-                </div>
-                
-                <div class="teams-grid" id="teams-grid-{{ friend|replace(' ', '-') }}">
-                    {% for team in team_breakdown[friend] %}
-                    <div class="team-card">
-                        <div class="team-name">{{ team.name }}</div>
-                        <div class="team-record">
-                            Record: {{ team.wins }}-{{ team.losses }} ({{ "%.1f"|format(team.win_pct * 100) }}%)
-                        </div>
-                        <div class="team-ppg">{{ "%+.1f"|format(team.pt_diff) }} Pt Diff/G</div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
+{% extends "base.html" %}
+{% block title %}{{ season_display }} Standings · Jumbros{% endblock %}
+{% block head %}<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>{% endblock %}
+{% block style %}
+.game { display: grid; grid-template-columns: 1fr auto auto auto 1fr; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+.game:last-child { border-bottom: 0; }
+.game .t { display: flex; flex-direction: column; min-width: 0; }
+.game .t.away { text-align: right; align-items: flex-end; }
+.game .t .nm { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.game .t .own { font-size: 11px; color: var(--text-3); }
+.game .t.lost .nm { color: var(--text-3); font-weight: 500; }
+.game .sc { font-weight: 700; font-variant-numeric: tabular-nums; min-width: 26px; text-align: center; }
+.game .sc.l { color: var(--text-3); font-weight: 500; }
+.game .at { color: var(--text-3); font-size: 12px; }
+.game .time { grid-column: 2 / 5; text-align: center; font-size: 12px; color: var(--accent); font-weight: 600; white-space: nowrap; }
+.chart-box { position: relative; height: 420px; }
+@media (max-width: 560px) { .chart-box { height: 320px; } }
+.people { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.person { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; border-top: 3px solid var(--c, var(--border)); }
+.person-head { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 16px 10px; gap: 8px; }
+.person-head .who { font-weight: 700; font-size: 16px; letter-spacing: -.01em; }
+.person-head .rec { color: var(--text-2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.person-head .rec b { color: var(--text); font-size: 15px; }
+.teams { padding: 0 16px 14px; display: grid; gap: 6px; }
+.team { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; padding: 8px 10px; background: var(--surface-2); border-radius: 8px; font-size: 13.5px; }
+.team .tn { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.team .tr { font-variant-numeric: tabular-nums; font-weight: 600; }
+.team .td { font-variant-numeric: tabular-nums; font-size: 12px; min-width: 44px; text-align: right; }
+.editor { padding: 0 16px 14px; display: none; }
+.editor.open { display: block; }
+.editor select { width: 100%; margin-bottom: 6px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); font: inherit; font-size: 13px; }
+.editor .row { display: flex; gap: 8px; margin-top: 6px; }
+.sandbox-bar { display: none; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 16px; margin-bottom: 20px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600; border: 1px solid transparent; }
+body.sandbox .sandbox-bar { display: flex; }
+body.sandbox .sandbox-only { display: inline-flex; }
+.sandbox-only { display: none; }
+.empty { padding: 48px 20px; text-align: center; color: var(--text-2); }
+{% endblock %}
+
+{% block content %}
+<div class="page-head">
+  <div>
+    <h1>{{ season_display }} Standings</h1>
+    <div class="sub">Four teams each · most regular-season wins takes it</div>
+  </div>
+  <div class="meta">
+    {% if last_updated %}Updated {{ last_updated[:10] }} at {{ last_updated[11:16] }}{% else %}Season starts {{ season_start }}{% endif %}
+    <br><button class="btn sm" id="sandbox-toggle" onclick="toggleSandbox()" style="margin-top:6px">🎮 What-if mode</button>
+  </div>
+</div>
+
+<div class="sandbox-bar"><span>What-if mode — edit anyone's teams below; nothing is saved.</span><button class="btn sm" onclick="toggleSandbox()">Reset &amp; exit</button></div>
+
+{% if not sorted_friends %}
+<div class="card"><div class="empty">No games yet. Standings appear after opening night on {{ season_start }}.</div></div>
+{% else %}
+
+<div class="card">
+  <div class="table-wrap">
+  <table id="standings">
+    <thead><tr>
+      <th style="text-align:center">#</th><th>Player</th>
+      <th class="num">W</th><th class="num">L</th><th class="num">Win %</th>
+      <th class="num">Left</th>
+      <th class="num" title="Remaining games where two of this player's teams play each other (locks in 1W + 1L)">H2H</th>
+      <th class="num" title="Point differential per game across all four teams">+/- per game</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+  </div>
+</div>
+
+{% if yesterdays_games or todays_games %}
+<div class="grid-2">
+  {% if yesterdays_games %}
+  <div class="card">
+    <div class="card-head"><h2>Yesterday</h2><span class="hint">{{ yesterdays_games|length }} games</span></div>
+    <div class="card-body" style="padding-top:6px;padding-bottom:6px">
+      {% for g in yesterdays_games %}
+      {% set vw = g.visitor_score is not none and g.home_score is not none and g.visitor_score > g.home_score %}
+      {% set hw = g.visitor_score is not none and g.home_score is not none and g.home_score > g.visitor_score %}
+      <div class="game">
+        <div class="t away {% if not vw %}lost{% endif %}"><span class="nm">{{ g.visitor }}</span>{% if g.visitor_friend %}<span class="own">{{ g.visitor_friend }}</span>{% endif %}</div>
+        <span class="sc {% if not vw %}l{% endif %}">{{ g.visitor_score if g.visitor_score is not none else '–' }}</span>
+        <span class="at">@</span>
+        <span class="sc {% if not hw %}l{% endif %}">{{ g.home_score if g.home_score is not none else '–' }}</span>
+        <div class="t {% if not hw %}lost{% endif %}"><span class="nm">{{ g.home }}</span>{% if g.home_friend %}<span class="own">{{ g.home_friend }}</span>{% endif %}</div>
+      </div>
+      {% endfor %}
     </div>
+  </div>
+  {% endif %}
+  {% if todays_games %}
+  <div class="card">
+    <div class="card-head"><h2>Today</h2><span class="hint">{{ todays_games|length }} games</span></div>
+    <div class="card-body" style="padding-top:6px;padding-bottom:6px">
+      {% for g in todays_games %}
+      <div class="game">
+        <div class="t away"><span class="nm">{{ g.visitor }}</span>{% if g.visitor_friend %}<span class="own">{{ g.visitor_friend }}</span>{% endif %}</div>
+        <span class="time">{{ g.time }}</span>
+        <div class="t"><span class="nm">{{ g.home }}</span>{% if g.home_friend %}<span class="own">{{ g.home_friend }}</span>{% endif %}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
 
-    <button class="sandbox-btn" onclick="toggleSandboxMode()" id="sandbox-toggle-btn">🎮 Enter Sandbox Mode</button>
+{% if friend_history %}
+<div class="card">
+  <div class="card-head"><h2>Win % over the season</h2><span class="hint">Click a name to hide it</span></div>
+  <div class="card-body"><div class="chart-box"><canvas id="chart"></canvas></div></div>
+</div>
+{% endif %}
 
-    <script>
-        // Data embedded at build time (see build.py)
-        const SANDBOX = {{ sandbox_data | tojson }};
+<h2 style="font-size:15px;font-weight:700;margin:28px 0 12px">Teams</h2>
+<div class="people" id="people"></div>
+{% endif %}
+{% endblock %}
 
-        // Global state for sandbox mode
-        let sandboxMode = false;
-        let allTeams = [];
-        let currentAssignments = {};
-        let originalData = null;
-        let horseRaceChart = null; // Store chart instance globally
+{% block script %}
+<script>
+const SANDBOX = {{ sandbox_data | tojson }};
+const COLORS = {{ friend_colors | tojson }};
+const INITIAL = {{ sorted_friends | tojson }};
+const HISTORY = {{ friend_history | tojson }};
 
-        // Initialize the page
-        async function initializePage() {
-            const data = { status: 'success', teams: SANDBOX.teams, current_assignments: SANDBOX.assignments };
-            
-            if (data.status === 'success') {
-                allTeams = data.teams;
-                currentAssignments = JSON.parse(JSON.stringify(data.current_assignments));
-                
-                // Store original data for team breakdown rendering
-                originalData = {
-                    sorted_friends: {{ sorted_friends | tojson }},
-                    team_breakdown: {{ team_breakdown | tojson }}
-                };
-            }
-        }
+let assignments = JSON.parse(JSON.stringify(SANDBOX.assignments));
+let chart = null;
 
-        // Initialize on load
-        initializePage();
+// ---------- math (mirrors nba_tracker.py) ----------
+const ownerMap = a => Object.fromEntries(Object.entries(a).flatMap(([f, ts]) => ts.map(t => [t, f])));
 
-        function toggleSandboxMode() {
-            sandboxMode = !sandboxMode;
-            const btn = document.getElementById('sandbox-toggle-btn');
-            const badge = document.getElementById('sandbox-badge');
-            const container = document.getElementById('standings-container');
-            const editButtons = document.querySelectorAll('.edit-teams-btn');
-            
-            if (sandboxMode) {
-                btn.textContent = '🏠 Exit Sandbox Mode';
-                btn.style.background = 'linear-gradient(135deg, #27ae60 0%, #2ecc71 100%)';
-                badge.style.display = 'block';
-                container.classList.add('sandbox-mode-active');
-                
-                // Show all edit buttons
-                editButtons.forEach(button => {
-                    button.style.display = 'inline-block';
-                });
-            } else {
-                btn.textContent = '🎮 Enter Sandbox Mode';
-                btn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-                badge.style.display = 'none';
-                container.classList.remove('sandbox-mode-active');
-                
-                // Hide all edit buttons
-                editButtons.forEach(button => {
-                    button.style.display = 'none';
-                });
-                
-                // Reload page to reset to original state
-                location.reload();
-            }
-        }
+function remainingH2H(a) {
+  const owner = ownerMap(a), counts = {}, today = new Date().toISOString().slice(0, 10);
+  for (const g of SANDBOX.schedule || []) {
+    if (g.date < today) continue;
+    const h = owner[g.home];
+    if (h && h === owner[g.away] && h !== 'Undrafted') counts[h] = (counts[h] || 0) + 1;
+  }
+  return counts;
+}
 
-        function editTeams(friendName) {
-            if (!sandboxMode) {
-                alert('Please enter Sandbox Mode first!');
-                return;
-            }
+function totals(a) {
+  const S = SANDBOX.team_stats, out = {};
+  for (const [f, teams] of Object.entries(a)) {
+    let w = 0, l = 0, gp = 0, pm = 0;
+    for (const t of teams) { const s = S[t]; if (!s) continue; w += s.wins; l += s.losses; gp += s.games_played; pm += s.total_plus_minus; }
+    const remaining = teams.length * 82 - gp;
+    out[f] = { total_wins: w, total_losses: l, win_pct: w + l ? w / (w + l) : 0, point_diff_per_game: gp ? pm / gp : 0,
+               games_remaining: remaining, teams, is_eliminated: f === 'Undrafted' };
+  }
+  const h2h = remainingH2H(a);
+  for (const f in out) out[f].h2h_remaining = h2h[f] || 0;
+  for (const [f, ft] of Object.entries(out)) {
+    if (f === 'Undrafted') continue;
+    const ceiling = ft.total_wins + ft.games_remaining - ft.h2h_remaining;
+    const floor = Math.max(0, ...Object.entries(out).filter(([o]) => o !== f && o !== 'Undrafted').map(([, o]) => o.total_wins + o.h2h_remaining));
+    if (ceiling < floor) ft.is_eliminated = true;
+  }
+  return Object.entries(out).sort((x, y) => y[1].win_pct - x[1].win_pct);
+}
 
-            const friendSection = document.getElementById('friend-' + friendName.replace(' ', '-'));
-            const teamsGrid = document.getElementById('teams-grid-' + friendName.replace(' ', '-'));
-            
-            // Check if editor already exists
-            if (friendSection.querySelector('.team-selector')) {
-                return;
-            }
-            
-            // Get current teams for this friend
-            const currentTeams = currentAssignments[friendName] || [];
-            
-            // Determine number of teams (2 for Undrafted, 4 for everyone else)
-            const numTeams = friendName === 'Undrafted' ? 2 : 4;
-            
-            // Create team selector
-            const selector = document.createElement('div');
-            selector.className = 'team-selector';
-            
-            let html = '<div style="margin-bottom: 10px; font-weight: bold; color: #2a5298;">Select ' + numTeams + ' teams for ' + friendName + ':</div>';
-            
-            // Create dropdowns with current teams pre-selected
-            for (let i = 0; i < numTeams; i++) {
-                html += '<select id="team-select-' + friendName.replace(' ', '-') + '-' + i + '">';
-                html += '<option value="">-- Select Team --</option>';
-                
-                allTeams.forEach(team => {
-                    // Pre-select the current team for this slot (exact match now that names are consistent)
-                    const selected = (i < currentTeams.length && currentTeams[i] === team) ? 'selected' : '';
-                    html += '<option value="' + team + '" ' + selected + '>' + team + '</option>';
-                });
-                
-                html += '</select>';
-            }
-            
-            html += '<br><button onclick="saveTeams(\'' + friendName + '\')">💾 Save</button>';
-            html += '<button class="cancel" onclick="cancelEdit(\'' + friendName + '\')">❌ Cancel</button>';
-            
-            selector.innerHTML = html;
-            
-            // Insert before teams grid
-            teamsGrid.parentNode.insertBefore(selector, teamsGrid);
-        }
+function history(a) {
+  const { team_records: R, dates } = SANDBOX;
+  if (!R || !dates?.length) return null;
+  const out = {};
+  for (const [f, teams] of Object.entries(a)) {
+    const hs = teams.map(t => R[t]?.history || []), idx = hs.map(() => 0);
+    out[f] = dates.map(date => {
+      let w = 0, l = 0;
+      hs.forEach((h, i) => { while (idx[i] < h.length && h[idx[i]].date <= date) idx[i]++; if (idx[i]) { w += h[idx[i] - 1].wins; l += h[idx[i] - 1].losses; } });
+      return { date, win_pct: w + l ? w / (w + l) * 100 : 0 };
+    });
+  }
+  return out;
+}
 
-        function cancelEdit(friendName) {
-            const friendSection = document.getElementById('friend-' + friendName.replace(' ', '-'));
-            const selector = friendSection.querySelector('.team-selector');
-            if (selector) {
-                selector.remove();
-            }
-        }
+// ---------- rendering ----------
+const fmtPct = v => (v * 100).toFixed(1) + '%';
+const fmtDiff = v => (v >= 0 ? '+' : '') + v.toFixed(1);
+const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-        async function saveTeams(friendName) {
-            const teams = [];
-            
-            // Determine expected number of teams (2 for Undrafted, 4 for everyone else)
-            const numTeams = friendName === 'Undrafted' ? 2 : 4;
-            
-            // Collect selected teams
-            for (let i = 0; i < numTeams; i++) {
-                const select = document.getElementById('team-select-' + friendName.replace(' ', '-') + '-' + i);
-                const value = select.value;
-                
-                if (!value) {
-                    alert('Please select all ' + numTeams + ' teams!');
-                    return;
-                }
-                
-                if (teams.includes(value)) {
-                    alert('Cannot select the same team twice!');
-                    return;
-                }
-                
-                teams.push(value);
-            }
-            
-            // Update current assignments
-            currentAssignments[friendName] = teams;
-            
-            recalculateStandings();
-            
-            // Remove the selector
-            cancelEdit(friendName);
-        }
+function renderTable(rows) {
+  const undraftedRank = rows.findIndex(([f]) => f === 'Undrafted') + 1;
+  document.querySelector('#standings tbody').innerHTML = rows.map(([f, s], i) => {
+    const rank = i + 1, below = f !== 'Undrafted' && undraftedRank && rank > undraftedRank;
+    const mark = s.is_eliminated && f !== 'Undrafted' ? '💀' : below ? '🤡' : rank === 1 ? '🍆' : rank;
+    const tag = f === 'Undrafted' ? '' : s.is_eliminated ? '<span class="tag">Eliminated</span>' : below ? '<span class="tag">Below undrafted</span>' : '';
+    const d = s.point_diff_per_game;
+    return `<tr class="${s.is_eliminated || below ? 'muted' : ''}">
+      <td class="rank">${mark}</td>
+      <td class="name"><span class="dot" style="--c:${COLORS[f] || '#9ca3af'}"></span>${esc(f)}${tag}</td>
+      <td class="num">${s.total_wins}</td><td class="num">${s.total_losses}</td>
+      <td class="num pct">${fmtPct(s.win_pct)}</td>
+      <td class="num">${s.games_remaining}</td>
+      <td class="num" style="color:var(--text-3)">${s.h2h_remaining || 0}</td>
+      <td class="num ${d >= 0 ? 'pos' : 'neg'}">${fmtDiff(d)}</td></tr>`;
+  }).join('');
+}
 
-        // ---- Client-side standings math (mirrors nba_tracker.py) ----
+function renderPeople(rows) {
+  const S = SANDBOX.team_stats;
+  document.getElementById('people').innerHTML = rows.map(([f, s], i) => {
+    const teams = s.teams.filter(t => S[t]).sort((a, b) => S[b].wins - S[a].wins);
+    return `<div class="person" style="--c:${COLORS[f] || '#9ca3af'}" id="p-${esc(f)}">
+      <div class="person-head">
+        <span class="who">${i === 0 ? '🍆 ' : ''}${esc(f)} <button class="btn sm sandbox-only" onclick="openEditor('${esc(f)}')">Edit</button></span>
+        <span class="rec"><b>${s.total_wins}</b>–${s.total_losses}</span>
+      </div>
+      <div class="editor" id="ed-${esc(f)}"></div>
+      <div class="teams">${teams.map(t => { const x = S[t], gp = x.games_played, d = gp ? (x.total_pts_scored - x.total_pts_allowed) / gp : 0;
+        return `<div class="team"><span class="tn">${esc(t)}</span><span class="tr">${x.wins}–${x.losses}</span><span class="td ${d >= 0 ? 'pos' : 'neg'}">${fmtDiff(d)}</span></div>`; }).join('')}</div>
+    </div>`;
+  }).join('');
+}
 
-        function teamToFriend(assignments) {
-            const m = {};
-            for (const [f, teams] of Object.entries(assignments)) for (const t of teams) m[t] = f;
-            return m;
-        }
+function sample(hist) {
+  const dates = hist[Object.keys(hist)[0]].map(d => d.date), max = 40;
+  const start = dates.length > 21 ? 7 : 0;  // skip the first week: 0%/100% noise wrecks the scale
+  const span = dates.length - 1 - start;
+  const idx = span < max ? dates.map((_, i) => i).slice(start) : Array.from({ length: max }, (_, i) => start + Math.round(i * span / (max - 1)));
+  return { labels: idx.map(i => { const [, m, d] = dates[i].split('-'); return `${+m}/${+d}`; }),
+           datasets: Object.keys(hist).map(f => ({ label: f, data: idx.map(i => hist[f][i].win_pct), borderColor: COLORS[f] || '#9ca3af', backgroundColor: COLORS[f] || '#9ca3af',
+             borderWidth: f === 'Undrafted' ? 1.5 : 2.5, borderDash: f === 'Undrafted' ? [4, 4] : [], pointRadius: 0, pointHoverRadius: 5, tension: .25 })) };
+}
 
-        function remainingHeadToHead(assignments) {
-            const owner = teamToFriend(assignments), counts = {};
-            const today = new Date().toISOString().slice(0, 10);
-            for (const g of (SANDBOX.schedule || [])) {
-                if (g.date < today) continue;
-                const h = owner[g.home], a = owner[g.away];
-                if (h && h === a && h !== 'Undrafted') counts[h] = (counts[h] || 0) + 1;
-            }
-            return counts;
-        }
+function renderChart(hist) {
+  if (!hist || !document.getElementById('chart')) return;
+  const data = sample(hist);
+  if (chart) { chart.data = data; chart.update(); return; }
+  const css = getComputedStyle(document.documentElement), textCol = css.getPropertyValue('--text-2').trim(), gridCol = css.getPropertyValue('--border').trim();
+  Chart.defaults.font.family = 'Inter, sans-serif'; Chart.defaults.color = textCol;
+  chart = new Chart(document.getElementById('chart'), { type: 'line', data, options: {
+    responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+    plugins: { legend: { position: 'top', align: 'start', labels: { usePointStyle: true, pointStyle: 'circle', boxWidth: 8, padding: 14, font: { size: 12, weight: '600' } } },
+               tooltip: { callbacks: { label: c => ` ${c.dataset.label}  ${c.parsed.y.toFixed(1)}%` }, itemSort: (a, b) => b.parsed.y - a.parsed.y } },
+    scales: { y: { suggestedMin: 30, suggestedMax: 70, ticks: { callback: v => v + '%', stepSize: 10 }, grid: { color: gridCol }, border: { display: false } },
+              x: { ticks: { maxTicksLimit: 12, maxRotation: 0 }, grid: { display: false }, border: { display: false } } } } });
+}
 
-        function calculateFriendTotals(assignments) {
-            const stats = SANDBOX.team_stats, totals = {};
-            for (const [friend, teams] of Object.entries(assignments)) {
-                let w = 0, l = 0, gp = 0, pm = 0;
-                for (const t of teams) { const s = stats[t]; if (!s) continue; w += s.wins; l += s.losses; gp += s.games_played; pm += s.total_plus_minus; }
-                const possible = teams.length * 82, remaining = possible - gp;
-                totals[friend] = { total_wins: w, total_losses: l, total_games: w + l,
-                    win_pct: (w + l) ? w / (w + l) : 0, point_diff_per_game: gp ? pm / gp : 0,
-                    games_remaining: remaining, max_possible_win_pct: possible ? (w + remaining) / possible : 0,
-                    teams, is_eliminated: friend === 'Undrafted' };
-            }
-            const h2h = remainingHeadToHead(assignments);
-            for (const f in totals) totals[f].h2h_remaining = h2h[f] || 0;
-            for (const [f, ft] of Object.entries(totals)) {
-                if (f === 'Undrafted') continue;
-                const maxPossible = ft.total_wins + ft.games_remaining - ft.h2h_remaining;
-                let bestOtherFloor = 0;
-                for (const [o, os] of Object.entries(totals)) if (o !== f && o !== 'Undrafted') bestOtherFloor = Math.max(bestOtherFloor, os.total_wins + os.h2h_remaining);
-                if (maxPossible < bestOtherFloor) ft.is_eliminated = true;
-            }
-            return totals;
-        }
+function rerender() {
+  const rows = totals(assignments);
+  renderTable(rows); renderPeople(rows); renderChart(history(assignments));
+}
 
-        function buildTeamBreakdown(sortedFriends) {
-            const out = {};
-            for (const [friend, st] of sortedFriends) {
-                out[friend] = st.teams.filter(t => SANDBOX.team_stats[t]).map(t => {
-                    const s = SANDBOX.team_stats[t];
-                    return { name: t, wins: s.wins, losses: s.losses, win_pct: s.win_pct,
-                             pt_diff: s.games_played ? (s.total_pts_scored - s.total_pts_allowed) / s.games_played : 0 };
-                }).sort((a, b) => b.wins - a.wins);
-            }
-            return out;
-        }
+// ---------- what-if mode ----------
+function toggleSandbox() {
+  if (document.body.classList.contains('sandbox')) { assignments = JSON.parse(JSON.stringify(SANDBOX.assignments)); document.body.classList.remove('sandbox'); rerender(); return; }
+  document.body.classList.add('sandbox');
+  document.getElementById('sandbox-toggle').scrollIntoView({ block: 'nearest' });
+}
+function openEditor(f) {
+  const ed = document.getElementById('ed-' + f), n = f === 'Undrafted' ? 2 : 4, cur = assignments[f] || [];
+  ed.innerHTML = Array.from({ length: n }, (_, i) => `<select id="sel-${esc(f)}-${i}"><option value="">— Team ${i + 1} —</option>${SANDBOX.teams.map(t => `<option ${cur[i] === t ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select>`).join('')
+    + `<div class="row"><button class="btn sm primary" onclick="saveEditor('${esc(f)}')">Apply</button><button class="btn sm" onclick="document.getElementById('ed-${esc(f)}').classList.remove('open')">Cancel</button></div>`;
+  ed.classList.add('open');
+}
+function saveEditor(f) {
+  const n = f === 'Undrafted' ? 2 : 4, picked = Array.from({ length: n }, (_, i) => document.getElementById(`sel-${f}-${i}`).value);
+  if (picked.some(v => !v)) return alert(`Pick all ${n} teams.`);
+  if (new Set(picked).size !== n) return alert('Same team picked twice.');
+  assignments[f] = picked; rerender();
+}
 
-        function calculateFriendHistory(assignments) {
-            const { team_records, dates } = SANDBOX;
-            if (!team_records || !dates || !dates.length) return null;
-            const out = {};
-            for (const [friend, teams] of Object.entries(assignments)) {
-                const hist = teams.map(t => (team_records[t] || {}).history || []);
-                const idx = hist.map(() => 0);
-                out[friend] = dates.map(date => {
-                    let w = 0, l = 0;
-                    hist.forEach((h, i) => {
-                        while (idx[i] < h.length && h[idx[i]].date <= date) idx[i]++;
-                        if (idx[i] > 0) { w += h[idx[i] - 1].wins; l += h[idx[i] - 1].losses; }
-                    });
-                    return { date, win_pct: (w + l) ? w / (w + l) * 100 : 0 };
-                });
-            }
-            return out;
-        }
-
-        function recalculateStandings() {
-            const totals = calculateFriendTotals(currentAssignments);
-            const sortedFriends = Object.entries(totals).sort((a, b) => b[1].win_pct - a[1].win_pct);
-            updateStandingsTable(sortedFriends);
-            updateTeamBreakdown(sortedFriends, buildTeamBreakdown(sortedFriends));
-            const history = calculateFriendHistory(currentAssignments);
-            if (history) updateChart(history);
-        }
-
-        function updateStandingsTable(sortedFriends) {
-            const tbody = document.querySelector('.standings-table table tbody');
-            let html = '';
-            
-            // Find Undrafted's position
-            let undraftedRank = 999;
-            sortedFriends.forEach(([friend, stats], index) => {
-                if (friend === 'Undrafted') {
-                    undraftedRank = index + 1;
-                }
-            });
-            
-            sortedFriends.forEach(([friend, stats], index) => {
-                const rank = index + 1;
-                const isBelowUndrafted = friend !== 'Undrafted' && rank > undraftedRank;
-                let rowClass = '';
-                
-                if (stats.is_eliminated) {
-                    rowClass = 'class="eliminated"';
-                } else if (isBelowUndrafted) {
-                    rowClass = 'class="below-undrafted"';
-                }
-                
-                let rankDisplay;
-                if (stats.is_eliminated) {
-                    rankDisplay = '<span class="medal">💀</span>';
-                } else if (isBelowUndrafted) {
-                    rankDisplay = '<span class="medal">🤡</span>';
-                } else if (rank === 1) {
-                    rankDisplay = '<span class="medal">🍆</span>';
-                } else {
-                    rankDisplay = rank;
-                }
-                
-                html += '<tr ' + rowClass + '>';
-                html += '<td class="rank rank-' + rank + '">' + rankDisplay + '</td>';
-                html += '<td class="friend-name">' + friend + '</td>';
-                html += '<td class="stat">' + stats.total_wins + '</td>';
-                html += '<td class="stat">' + stats.total_losses + '</td>';
-                html += '<td class="stat win-pct">' + (stats.win_pct * 100).toFixed(1) + '%</td>';
-                html += '<td class="stat">' + stats.games_remaining + '</td>';
-                html += '<td class="stat" style="color: #888;">' + (stats.h2h_remaining || 0) + '</td>';
-                html += '<td class="stat">' + stats.point_diff_per_game.toFixed(3) + '</td>';
-                html += '</tr>';
-            });
-            
-            tbody.innerHTML = html;
-        }
-
-        function updateTeamBreakdown(sortedFriends, teamBreakdown) {
-            sortedFriends.forEach(([friend, stats], index) => {
-                const friendId = friend.replace(' ', '-');
-                const teamsGrid = document.getElementById('teams-grid-' + friendId);
-                const winsDisplay = document.querySelector('#friend-' + friendId + ' .friend-wins');
-                
-                if (winsDisplay) {
-                    winsDisplay.textContent = stats.total_wins + ' Wins';
-                }
-                
-                if (teamsGrid) {
-                    let html = '';
-                    const teams = teamBreakdown[friend] || [];
-                    
-                    teams.forEach(team => {
-                        html += '<div class="team-card">';
-                        html += '<div class="team-name">' + team.name + '</div>';
-                        html += '<div class="team-record">Record: ' + team.wins + '-' + team.losses + ' (' + (team.win_pct * 100).toFixed(1) + '%)</div>';
-                        html += '<div class="team-ppg">' + (team.pt_diff >= 0 ? '+' : '') + team.pt_diff.toFixed(1) + ' Pt Diff/G</div>';
-                        html += '</div>';
-                    });
-                    
-                    teamsGrid.innerHTML = html;
-                }
-            });
-        }
-
-        {% if friend_history %}
-        // Horse Race Chart - Initialize on page load after DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            const friendHistory = {{ friend_history | tojson }};
-            
-            // Initialize the chart
-            initializeChart(friendHistory);
-        });
-        {% endif %}
-
-        // Define colors for each friend (global for reuse)
-        const friendColors = {
-            'JJ': '#FF6384',
-            'Andy': '#36A2EB',
-            'Nate': '#FFCE56',
-            'Chris': '#4BC0C0',
-            'Adam': '#9966FF',
-            'Duke': '#FF9F40',
-            'Nick': '#C9CBCF',
-            'Undrafted': '#8B4513'
-        };
-
-        function initializeChart(friendHistory) {
-            const ctx = document.getElementById('horseRaceChart').getContext('2d');
-            
-            // Get all unique dates
-            const allDates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
-            
-            // Sample data to show ~30 points evenly distributed across the entire season
-            const maxPoints = 30;
-            let sampledIndices = [];
-            let dates = [];
-            let sampledData = {};
-            
-            if (allDates.length <= maxPoints) {
-                // Show all data if we have fewer than maxPoints
-                sampledIndices = allDates.map((_, i) => i);
-                dates = allDates;
-            } else {
-                // Sample evenly across the date range
-                const step = (allDates.length - 1) / (maxPoints - 1);
-                for (let i = 0; i < maxPoints; i++) {
-                    const index = Math.round(i * step);
-                    sampledIndices.push(index);
-                }
-                dates = sampledIndices.map(i => allDates[i]);
-            }
-            
-            // Dynamically set chart width based on number of points
-            const isMobile = window.innerWidth <= 768;
-            const chartCanvas = document.getElementById('horseRaceChart');
-            if (isMobile) {
-                // Mobile: grow from 450px up to 600px max
-                const dynamicWidth = Math.max(450, Math.min(dates.length * 15, 600));
-                chartCanvas.style.minWidth = dynamicWidth + 'px';
-            } else {
-                // Desktop: grow freely for better spacing
-                const dynamicWidth = Math.max(600, dates.length * 20);
-                chartCanvas.style.minWidth = dynamicWidth + 'px';
-            }
-            
-            // Format dates for display (force UTC to avoid timezone issues)
-            const formattedDates = dates.map(date => {
-                const parts = date.split('-');
-                const year = parseInt(parts[0]);
-                const month = parseInt(parts[1]);
-                const day = parseInt(parts[2]);
-                return month + '/' + day;
-            });
-            
-            // Create datasets for each friend (sampled to match date range)
-            const datasets = Object.keys(friendHistory).map(friend => ({
-                label: friend,
-                data: sampledIndices.map(i => friendHistory[friend][i].win_pct),
-                borderColor: friendColors[friend] || '#000000',
-                backgroundColor: friendColors[friend] || '#000000',
-                borderWidth: 3,
-                fill: false,
-                tension: 0.1,
-                pointRadius: 2,
-                pointHoverRadius: 6
-            }));
-            
-            horseRaceChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: formattedDates,
-                    datasets: datasets
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false, // Allow chart to fill container height
-                    interaction: {
-                        mode: 'index',
-                        intersect: false,
-                    },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'top',
-                            labels: window.innerWidth <= 768 ? {
-                                font: {
-                                    size: 11,
-                                    weight: 'bold'
-                                },
-                                usePointStyle: true,
-                                padding: 10,
-                                boxWidth: 15
-                            } : {
-                                font: {
-                                    size: 14,
-                                    weight: 'bold'
-                                },
-                                usePointStyle: true,
-                                padding: 15
-                            }
-                        },
-                        tooltip: {
-                            enabled: window.innerWidth > 768, // Disable tooltips on mobile
-                            callbacks: {
-                                label: function(context) {
-                                    return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Win Percentage (%)',
-                                font: {
-                                    size: 14,
-                                    weight: 'bold'
-                                }
-                            },
-                            ticks: {
-                                callback: function(value) {
-                                    return value + '%';
-                                }
-                            }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Date',
-                                font: {
-                                    size: 14,
-                                    weight: 'bold'
-                                }
-                            },
-                            ticks: {
-                                maxTicksLimit: 20,
-                                maxRotation: 45,
-                                minRotation: 45
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function updateChart(friendHistory) {
-            if (!horseRaceChart || !friendHistory) {
-                return;
-            }
-
-            // Get all unique dates
-            const allDates = friendHistory[Object.keys(friendHistory)[0]].map(d => d.date);
-            
-            // Sample data to show ~30 points evenly distributed across the entire season
-            const maxPoints = 30;
-            let sampledIndices = [];
-            let dates = [];
-            
-            if (allDates.length <= maxPoints) {
-                // Show all data if we have fewer than maxPoints
-                sampledIndices = allDates.map((_, i) => i);
-                dates = allDates;
-            } else {
-                // Sample evenly across the date range
-                const step = (allDates.length - 1) / (maxPoints - 1);
-                for (let i = 0; i < maxPoints; i++) {
-                    const index = Math.round(i * step);
-                    sampledIndices.push(index);
-                }
-                dates = sampledIndices.map(i => allDates[i]);
-            }
-            
-            // Dynamically set chart width based on number of points (same logic as init)
-            const isMobile = window.innerWidth <= 768;
-            const chartCanvas = document.getElementById('horseRaceChart');
-            if (isMobile) {
-                const dynamicWidth = Math.max(450, Math.min(dates.length * 15, 600));
-                chartCanvas.style.minWidth = dynamicWidth + 'px';
-            } else {
-                const dynamicWidth = Math.max(600, dates.length * 20);
-                chartCanvas.style.minWidth = dynamicWidth + 'px';
-            }
-            
-            // Format dates for display
-            const formattedDates = dates.map(date => {
-                const parts = date.split('-');
-                const month = parseInt(parts[1]);
-                const day = parseInt(parts[2]);
-                return month + '/' + day;
-            });
-            
-            // Create new datasets (sampled)
-            const datasets = Object.keys(friendHistory).map(friend => ({
-                label: friend,
-                data: sampledIndices.map(i => friendHistory[friend][i].win_pct),
-                borderColor: friendColors[friend] || '#000000',
-                backgroundColor: friendColors[friend] || '#000000',
-                borderWidth: 3,
-                fill: false,
-                tension: 0.1,
-                pointRadius: 2,
-                pointHoverRadius: 6
-            }));
-
-            // Update chart data
-            horseRaceChart.data.labels = formattedDates;
-            horseRaceChart.data.datasets = datasets;
-            horseRaceChart.update();
-        }
-    </script>
-</body>
-</html>
+if (INITIAL.length) { renderTable(INITIAL); renderPeople(INITIAL); renderChart(HISTORY); }
+</script>
+{% endblock %}

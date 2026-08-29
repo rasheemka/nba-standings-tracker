@@ -18,7 +18,10 @@ import shutil
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from nba_tracker import ALL_TEAMS, SEASON_DISPLAY, SEASON_START, TEAM_ASSIGNMENTS
+from nba_tracker import ALL_TEAMS, SEASON_DISPLAY, SEASON_START, TEAM_ASSIGNMENTS, load_season_config
+
+# One fixed color per person, stable across seasons (assigned by first appearance in config order).
+PALETTE = ['#2563eb', '#dc2626', '#16a34a', '#d97706', '#7c3aed', '#0891b2', '#db2777', '#65a30d', '#0d9488', '#9333ea']
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 CACHE_FILE = os.path.join(BASE_DIR, 'nba_data_cache.json')
@@ -32,6 +35,21 @@ env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, 'templates')),
 # ---------------------------------------------------------------------------
 # Data
 # ---------------------------------------------------------------------------
+
+def friend_colors():
+    cfg = load_season_config()
+    names = []
+    for season_id in sorted(cfg['seasons']):
+        for name in cfg['seasons'][season_id]['team_assignments']:
+            if name != 'Undrafted' and name not in names:
+                names.append(name)
+    colors = {n: PALETTE[i % len(PALETTE)] for i, n in enumerate(names)}
+    colors['Undrafted'] = '#9ca3af'
+    return colors
+
+
+FRIEND_COLORS = friend_colors()
+
 
 def load_json(path):
     if not os.path.exists(path):
@@ -100,6 +118,7 @@ def write(rel_path, template, **ctx):
     """Render template to dist/<rel_path>/index.html with `root` pointing back to site root."""
     depth = len([p for p in rel_path.split('/') if p])
     ctx['root'] = '/'.join(['..'] * depth) if depth else '.'
+    ctx['friend_colors'] = FRIEND_COLORS
     out_dir = os.path.join(DIST_DIR, rel_path)
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, 'index.html'), 'w') as f:
@@ -111,7 +130,7 @@ def page_index():
     data = load_json(CACHE_FILE) or {}
     team_stats = data.get('team_stats') or {}
     sorted_friends = rank_friends(data.get('friend_totals') or {})
-    write('', 'index.html',
+    write('', 'index.html', page='current',
           season_display=SEASON_DISPLAY,
           season_start=SEASON_START,
           sorted_friends=sorted_friends,
@@ -137,12 +156,12 @@ def page_seasons():
         data = load_season_data(s['id'])
         if data and data.get('friend_totals'):
             standings[s['id']] = rank_friends(data['friend_totals'])
-    write('seasons', 'seasons.html', seasons=seasons, season_standings=standings)
+    write('seasons', 'seasons.html', page='seasons', seasons=seasons, season_standings=standings)
 
     for s in seasons:
         data = load_season_data(s['id'])
         sorted_friends = rank_friends(data.get('friend_totals') or {})
-        write(f"seasons/{s['id']}", 'season_detail.html',
+        write(f"seasons/{s['id']}", 'season_detail.html', page='seasons',
               season=data, season_id=s['id'], sorted_friends=sorted_friends,
               team_breakdown=build_team_breakdown(sorted_friends, data.get('team_stats') or {}))
 
@@ -175,7 +194,7 @@ def page_all_time():
     for rec in all_time_records.values():
         total = rec['wins'] + rec['losses']
         rec['win_pct'] = rec['wins'] / total if total else 0
-    write('all-time', 'all_time.html',
+    write('all-time', 'all_time.html', page='alltime',
           all_time=sorted(all_time_records.items(), key=lambda x: x[1]['win_pct'], reverse=True),
           season_results=season_results, total_seasons=len(season_results))
 

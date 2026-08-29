@@ -1,265 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Season History - Jumbros Basketball Challenge</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #fff;
-            padding: 20px;
-            min-height: 100vh;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); }
-
-        .nav-links {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            padding: 8px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            transition: all 0.3s;
-            font-size: 0.95em;
-        }
-
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .nav-links a.active {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.8);
-            font-weight: 600;
-        }
-
-        .season-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .season-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 25px;
-            cursor: pointer;
-            transition: background 0.2s;
-            border-radius: 15px 15px 0 0;
-        }
-
-        .season-card-header:hover { background: #f0f0f0; }
-
-        .season-title { font-size: 1.4em; font-weight: 700; color: #2a5298; }
-
-        .season-meta {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .season-winner { font-size: 1.05em; color: #333; }
-
-        .toggle-icon {
-            font-size: 1.2em;
-            color: #667eea;
-            transition: transform 0.3s;
-        }
-
-        .toggle-icon.open { transform: rotate(180deg); }
-
-        .season-details {
-            display: none;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .season-details.open { display: block; }
-
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table { width: 100%; border-collapse: collapse; min-width: 500px; }
-
-        th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 16px;
-            text-align: left;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        td {
-            padding: 12px 16px;
-            color: #333;
-            border-bottom: 1px solid #e0e0e0;
-            white-space: nowrap;
-        }
-
-        tr:last-child td { border-bottom: none; }
-        tr:hover td { background: #f5f5f5; }
-
-        .stat { font-weight: 500; text-align: center; }
-        .win-pct { font-weight: 600; color: #27ae60; }
-        .rank { font-weight: bold; font-size: 1.2em; text-align: center; color: #333; }
-
-        .view-full-link {
-            display: block;
-            text-align: center;
-            padding: 12px;
-            background: #f8f9fa;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95em;
-            border-top: 1px solid #e0e0e0;
-            transition: background 0.2s;
-        }
-
-        .view-full-link:hover { background: #eef0ff; }
-
-        .season-badge {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-
-        .badge-completed { background: #e8f5e9; color: #27ae60; }
-        .badge-active { background: #fff3e0; color: #e65100; }
-
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            h1 { font-size: 1.5em; }
-            header { padding: 20px 15px; margin-bottom: 25px; }
-            .container { padding: 0; }
-            .nav-links { gap: 10px; }
-            .nav-links a { padding: 6px 14px; font-size: 0.85em; }
-            .season-card-header { flex-direction: column; gap: 10px; align-items: flex-start; padding: 15px; }
-            .season-title { font-size: 1.15em; }
-            .season-meta { width: 100%; justify-content: space-between; }
-            .season-winner { font-size: 0.9em; }
-            .view-full-link { padding: 14px; font-size: 1em; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
-            <div style="font-size: 1.1em; opacity: 0.9; margin-top: 5px;">Season History</div>
-            <div class="nav-links">
-                <a href="{{ root }}/">Current Season</a>
-                <a href="{{ root }}/seasons/" class="active">All Seasons</a>
-                <a href="{{ root }}/all-time/">All-Time Records</a>
-            </div>
-        </header>
-
-        {% for season in seasons %}
-        <div class="season-card">
-            <div class="season-card-header" onclick="toggleSeason('{{ season.id }}')">
-                <span class="season-title">🏀 {{ season.display_name }} Season</span>
-                <div class="season-meta">
-                    <span class="season-winner">
-                        {% if season.winner %}
-                            🏆 <strong>{{ season.winner }}</strong> — {{ season.winner_record }}
-                        {% else %}
-                            <em>In Progress</em>
-                        {% endif %}
-                    </span>
-                    <span class="season-badge {% if season.status == 'active' %}badge-active{% else %}badge-completed{% endif %}">
-                        {{ season.status | title }}
-                    </span>
-                    <span class="toggle-icon" id="icon-{{ season.id }}">▼</span>
-                </div>
-            </div>
-            <div class="season-details" id="details-{{ season.id }}">
-                {% if season.id in season_standings %}
-                <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="text-align: center;">Rank</th>
-                            <th>Player</th>
-                            <th style="text-align: center;">Wins</th>
-                            <th style="text-align: center;">Losses</th>
-                            <th style="text-align: center;">Win %</th>
-                            <th style="text-align: center;">Pt Diff/Game</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for friend, stats in season_standings[season.id] %}
-                        <tr>
-                            <td class="rank">
-                                {% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}
-                            </td>
-                            <td style="color: #333; font-weight: 600;">{{ friend }}</td>
-                            <td class="stat">{{ stats.total_wins }}</td>
-                            <td class="stat">{{ stats.total_losses }}</td>
-                            <td class="stat win-pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
-                            <td class="stat">{{ "%.3f"|format(stats.point_diff_per_game) }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                </div>
-                <a href="{{ root }}/seasons/{{ season.id }}/" class="view-full-link">View Full Season Details →</a>
-                {% endif %}
-            </div>
-        </div>
-        {% endfor %}
-
-        {% if not seasons %}
-        <div class="season-card">
-            <div style="padding: 30px; text-align: center; color: #666;">
-                No archived seasons yet.
-            </div>
-        </div>
-        {% endif %}
+{% extends "base.html" %}
+{% block title %}Seasons · Jumbros{% endblock %}
+{% block style %}
+.season-head { cursor: pointer; user-select: none; }
+.season-head .win { color: var(--text-2); font-size: 13px; }
+.season-head .win b { color: var(--text); }
+.chev { color: var(--text-3); transition: transform .15s; margin-left: 12px; }
+.open .chev { transform: rotate(180deg); }
+.season-body { display: none; }
+.open .season-body { display: block; }
+.link-row { padding: 12px 18px; border-top: 1px solid var(--border); font-size: 13px; font-weight: 600; color: var(--accent); }
+{% endblock %}
+{% block content %}
+<div class="page-head"><div><h1>Seasons</h1><div class="sub">Every year of the challenge</div></div></div>
+{% for season in seasons %}
+<div class="card {% if loop.first %}open{% endif %}" id="s-{{ season.id }}">
+  <div class="card-head season-head" onclick="document.getElementById('s-{{ season.id }}').classList.toggle('open')">
+    <h2>{{ season.display_name }}</h2>
+    <div style="display:flex;align-items:center">
+      <span class="win">{% if season.winner %}🏆 <b>{{ season.winner }}</b> · {{ season.winner_record }}{% else %}In progress{% endif %}</span>
+      <span class="chev">▾</span>
     </div>
-
-    <script>
-        function toggleSeason(seasonId) {
-            const details = document.getElementById('details-' + seasonId);
-            const icon = document.getElementById('icon-' + seasonId);
-            details.classList.toggle('open');
-            icon.classList.toggle('open');
-        }
-
-        // Auto-expand the first season
-        {% if seasons %}
-        toggleSeason('{{ seasons[0].id }}');
-        {% endif %}
-    </script>
-</body>
-</html>
+  </div>
+  <div class="season-body">
+    {% if season.id in season_standings %}
+    <div class="table-wrap"><table>
+      <thead><tr><th style="text-align:center">#</th><th>Player</th><th class="num">W</th><th class="num">L</th><th class="num">Win %</th><th class="num">+/- per game</th></tr></thead>
+      <tbody>
+      {% for friend, stats in season_standings[season.id] %}
+      <tr class="{% if friend == 'Undrafted' %}muted{% endif %}">
+        <td class="rank">{% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}</td>
+        <td class="name"><span class="dot" style="--c:{{ friend_colors.get(friend, '#9ca3af') }}"></span>{{ friend }}</td>
+        <td class="num">{{ stats.total_wins }}</td><td class="num">{{ stats.total_losses }}</td>
+        <td class="num pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>
+        <td class="num {% if stats.point_diff_per_game >= 0 %}pos{% else %}neg{% endif %}">{{ "%+.1f"|format(stats.point_diff_per_game) }}</td>
+      </tr>
+      {% endfor %}
+      </tbody></table></div>
+    <a class="link-row" style="display:block" href="{{ root }}/seasons/{{ season.id }}/">Full season details →</a>
+    {% endif %}
+  </div>
+</div>
+{% else %}
+<div class="card"><div class="card-body" style="text-align:center;color:var(--text-2)">No archived seasons yet.</div></div>
+{% endfor %}
+{% endblock %}
