@@ -1,44 +1,66 @@
-# NBA Friends Draft Challenge Tracker
+# Jumbros Basketball Challenge
 
-Track wins and stats for your NBA draft challenge where 7 friends each drafted 4 teams.
+Standings tracker for a friends' NBA draft pool: each person drafts 4 teams and
+the most regular-season wins takes the title. Live at
+https://nba-standings-tracker.onrender.com.
 
-## Current Standings (as of last run)
-1. **Adam** - 188 wins (Nuggets, Celtics, Heat, Kings)
-2. **Duke** - 170 wins (Knicks, Clippers, Raptors, Bulls)
-3. **JJ** - 167 wins (Thunder, Spurs, Pistons, Pelicans)
-4. **Nate** - 165 wins (Magic, Hawks, Grizzlies, Suns)
-5. **Nick** - 161 wins (Rockets, Timberwolves, 76ers, Trail Blazers)
-6. **Chris** - 156 wins (Warriors, Pacers, Mavericks, Hornets)
+## How it works
 
-*Undrafted: Nets, Jazz*
+```
+launchd (6:00 & 14:00 daily) ─▶ auto_update.sh ─▶ update_data.py ─▶ nba_data_cache.json
+                                                        │                     │
+                                                   ESPN public API       git commit + push
+                                                                              │
+                                                                     Render redeploys ─▶ web_app.py (Flask, read-only)
+```
 
-## Setup
+- **`season_config.json`** — the single source of truth for the current season:
+  dates, ESPN season id, and who drafted which teams.
+- **`nba_tracker.py`** — ESPN fetching + standings/elimination math. Reads `season_config.json`.
+- **`update_data.py`** — refreshes `nba_data_cache.json` (standings, game-by-game
+  history for the chart, today's/yesterday's games, season schedule).
+- **`web_app.py`** — Flask app. Serves the cache and archived seasons; never calls ESPN.
+- **`seasons/<id>/data.json`** — archived seasons (feeds `/seasons` and `/all-time`).
+- **`new_season.py`** — rolls over to a new season (see below).
 
-1. Install dependencies:
+## Local development
+
 ```bash
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+python3 update_data.py      # optional: pull fresh data
+python3 web_app.py          # http://localhost:5001
 ```
 
-## Usage
+Routes: `/`, `/seasons`, `/seasons/<id>`, `/all-time`, `/api/standings`, `/api/teams`,
+`POST /api/recalculate` (sandbox "what-if" mode on the home page — client-side only, nothing is saved).
 
-Run the tracker to get current standings:
+## Starting a new season
+
+1. After the draft, run (dates = first and last regular-season game days):
+   ```bash
+   python3 new_season.py 2026-27 --start 2026-10-20 --end 2027-04-11
+   ```
+   This archives the finished season to `seasons/`, adds the new season to
+   `season_config.json`, and resets the cache.
+2. Edit `team_assignments` for the new season in `season_config.json`.
+3. Commit and push `season_config.json`, `seasons/`, `nba_data_cache.json`.
+
+The launchd job skips itself outside the season window, so nothing else needs touching.
+
+## Automated updates (launchd)
+
+`com.nbastandings.update.plist` runs `auto_update.sh` at 6:00 and 14:00. To (re)install:
+
 ```bash
-python3 nba_tracker.py
+cp com.nbastandings.update.plist ~/Library/LaunchAgents/
+launchctl bootout gui/$(id -u)/com.nbastandings.update 2>/dev/null
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.nbastandings.update.plist
 ```
 
-The script will:
-- Fetch live NBA standings and stats from the NBA Stats API
-- Calculate total wins for each person
-- Display overall rankings
-- Show individual team performance breakdowns
+Logs: `update.log` / `update_error.log` in this directory (gitignored).
 
-## Features
+## Deployment
 
-- **Live Data**: Pulls real-time stats from stats.nba.com
-- **Complete Stats**: Shows wins, losses, win percentage, and points per game
-- **Team Breakdown**: See which specific teams are performing well/poorly
-- **No API Key Required**: Uses publicly available NBA Stats API
-
-## Data Source
-
-Data is fetched from the official NBA Stats API (stats.nba.com) for the 2024-25 season.
+Render, from `render.yaml`: `gunicorn web_app:app`, Python 3.12. Every push to
+`main` redeploys, which is how data updates reach the site.

@@ -1,97 +1,79 @@
 #!/usr/bin/env python3
 """
-Update NBA data locally and save to cache file for deployment.
-Uses ESPN API exclusively — no stats.nba.com dependency.
+Refresh nba_data_cache.json from ESPN for the current season.
+
+Run by auto_update.sh (launchd) twice daily; safe to run by hand any time.
 """
 
 import json
 import os
+import sys
 from datetime import datetime
+
 from nba_tracker import (
-    fetch_team_stats,
-    calculate_friend_totals,
+    CURRENT_SEASON_ID,
+    SEASON_END,
+    SEASON_START,
     calculate_friend_historical_standings,
+    calculate_friend_totals,
+    fetch_team_stats,
     fetch_todays_games_espn,
     fetch_yesterdays_games_espn,
-    update_historical_from_espn,
     load_season_schedule,
+    update_historical_from_espn,
 )
 
-CACHE_FILE = 'nba_data_cache.json'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CACHE_FILE = os.path.join(BASE_DIR, 'nba_data_cache.json')
 
-# Load existing cache — we'll incrementally update historical data
-old_cache = {}
-if os.path.exists(CACHE_FILE):
-    try:
-        with open(CACHE_FILE, 'r') as f:
-            old_cache = json.load(f)
-        print(f"📂 Loaded existing cache (last updated: {old_cache.get('last_updated', 'unknown')})")
-    except Exception:
-        pass
 
-print("Fetching team stats from ESPN...")
-team_stats = fetch_team_stats()
+def main() -> int:
+    today = datetime.now().strftime('%Y-%m-%d')
+    if today < SEASON_START:
+        print(f"Season {CURRENT_SEASON_ID} starts {SEASON_START}; nothing to update yet.")
+        return 0
 
-if team_stats:
-    print(f"✅ Got stats for {len(team_stats)} teams")
-    
-    # --- Season schedule: load from cache or fetch once from ESPN ---
-    cached_schedule = old_cache.get('full_season_schedule')
-    season_schedule = load_season_schedule(cached_schedule)
-    
-    print("Calculating friend totals...")
+    old = {}
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE) as f:
+            old = json.load(f)
+    if old.get('season') not in (None, CURRENT_SEASON_ID):
+        print(f"Cache is for season {old.get('season')} but config says {CURRENT_SEASON_ID}. "
+              f"Run new_season.py first.")
+        return 1
+
+    team_stats = fetch_team_stats()
+    if not team_stats:
+        print("❌ Failed to fetch team stats from ESPN")
+        return 1
+
+    schedule = load_season_schedule(old.get('full_season_schedule'))
     friend_totals = calculate_friend_totals(team_stats)
-    
-    # --- Historical data: incremental update from cached data ---
-    print("Updating historical data incrementally from ESPN...")
-    team_records = old_cache.get('team_records', {})
-    dates = old_cache.get('dates', [])
-    
-    if team_records and dates:
-        print(f"  Cached history has {len(dates)} dates through {dates[-1]}")
-        team_records, dates = update_historical_from_espn(team_records, dates)
-        friend_history = calculate_friend_historical_standings(team_records, dates)
-    else:
-        print("  ⚠️  No cached historical data — keeping old friend_history if available")
-        friend_history = old_cache.get('friend_history')
-    
-    # --- Today's and yesterday's games from ESPN ---
-    print("Fetching today's games from ESPN...")
-    todays_games = fetch_todays_games_espn()
-    
-    print("Fetching yesterday's games from ESPN...")
-    yesterdays_games = fetch_yesterdays_games_espn()
-    
-    cache_data = {
-        'last_updated': datetime.now().isoformat(),
+
+    print("Updating game-by-game history...")
+    team_records, dates = update_historical_from_espn(old.get('team_records'), old.get('dates'))
+    friend_history = calculate_friend_historical_standings(team_records, dates)
+
+    cache = {
+        'season': CURRENT_SEASON_ID,
+        'last_updated': datetime.now().isoformat(timespec='seconds'),
         'team_stats': team_stats,
         'friend_totals': friend_totals,
         'friend_history': friend_history,
-        'todays_games': todays_games,
-        'yesterdays_games': yesterdays_games,
+        'todays_games': fetch_todays_games_espn() if today <= SEASON_END else [],
+        'yesterdays_games': fetch_yesterdays_games_espn(),
         'team_records': team_records,
         'dates': dates,
-        'full_season_schedule': season_schedule,
+        'full_season_schedule': schedule,
     }
-    
     with open(CACHE_FILE, 'w') as f:
-        json.dump(cache_data, f, indent=2)
-    
-    print(f"\n✅ Successfully fetched data for {len(team_stats)} teams")
-    if season_schedule:
-        print(f"✅ Season schedule: {len(season_schedule)} games cached")
-    if friend_history:
-        print(f"✅ Historical data: {len(dates)} dates (through {dates[-1] if dates else '?'})")
-    if todays_games:
-        print(f"✅ Today's games: {len(todays_games)} games")
-    if yesterdays_games:
-        print(f"✅ Yesterday's games: {len(yesterdays_games)} completed")
-    print(f"✅ Saved to {CACHE_FILE}")
-    print(f"✅ Last updated: {cache_data['last_updated']}")
-    print("\nNow run:")
-    print("  git add nba_data_cache.json")
-    print("  git commit -m 'Update NBA data'")
-    print("  git push")
-else:
-    print("❌ Failed to fetch team stats from ESPN")
-    exit(1)
+        json.dump(cache, f, indent=2)
+
+    print(f"✅ {len(team_stats)} teams, {len(dates)} history dates"
+          f"{f' (through {dates[-1]})' if dates else ''}, "
+          f"{len(schedule or [])} scheduled games → {os.path.basename(CACHE_FILE)}")
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

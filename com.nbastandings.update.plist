@@ -8,7 +8,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/bin/bash</string>
-        <string>/Users/nick/bin/nba_update.sh</string>
+        <string>/Users/nick/Documents/nba-standings/auto_update.sh</string>
     </array>
     
     <key>EnvironmentVariables</key>
@@ -37,12 +37,12 @@
     <false/>
     
     <key>StandardOutPath</key>
-    <string>/Users/nick/nba-standings/update.log</string>
+    <string>/Users/nick/Documents/nba-standings/update.log</string>
     
     <key>StandardErrorPath</key>
-    <string>/Users/nick/nba-standings/update_error.log</string>
+    <string>/Users/nick/Documents/nba-standings/update_error.log</string>
     
     <key>WorkingDirectory</key>
-    <string>/Users/nick/nba-standings</string>
+    <string>/Users/nick/Documents/nba-standings</string>
 </dict>
 </plist>

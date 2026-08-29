@@ -528,11 +528,15 @@
     <div class="container">
         <header>
             <h1>🏀 Jumbros Basketball Challenge 🏀</h1>
-            <div class="subtitle">2025-26 Season Standings</div>
+            <div class="subtitle">{{ season_display }} Season Standings</div>
             <div class="last-updated">
+                {% if last_updated %}
                 Last Updated: {{ last_updated[:10] }} at {{ last_updated[11:16] }}
                 <br>
-                <small>Auto-updates daily at 6:00 AM EDT</small>
+                <small>Auto-updates twice daily</small>
+                {% else %}
+                Season starts {{ season_start }} — standings will appear after the first games.
+                {% endif %}
             </div>
             <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
                 <a href="/" style="color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 20px; border: 1px solid rgba(255,255,255,0.8); border-radius: 25px; font-size: 0.95em; background: rgba(255,255,255,0.25); font-weight: 600;">Current Season</a>

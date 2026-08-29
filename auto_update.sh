@@ -1,35 +1,45 @@
 #!/bin/bash
+# Twice-daily data refresh, run by launchd (com.nbastandings.update).
+# Pulls fresh data from ESPN, commits the cache, and pushes so Render redeploys.
 
-cd "$HOME/nba-standings" || exit 1
+set -u
+cd "$(dirname "$0")" || exit 1
 
-# Check if season has ended
-SEASON_END_DATE="2026-04-13"
-CURRENT_DATE=$(date +%Y-%m-%d)
-
-if [[ "$CURRENT_DATE" > "$SEASON_END_DATE" ]]; then
-    echo "Season has ended. Exiting."
+# Season window comes from season_config.json; skip outside of it.
+STATUS=$(python3 - <<'PY'
+import json, datetime
+cfg = json.load(open('season_config.json'))
+s = cfg['seasons'][cfg['current_season']]
+today = datetime.date.today().isoformat()
+if today < s['start_date']:
+    print(f"before-season {s['start_date']}")
+elif today > s['end_date']:
+    print(f"after-season {s['end_date']}")
+else:
+    print("active")
+PY
+)
+if [[ "$STATUS" != "active" ]]; then
+    echo "$(date '+%Y-%m-%d %H:%M') Skipping update: $STATUS"
     exit 0
 fi
 
-# Run the Python update script
-/usr/bin/python3 update_data.py
+python3 update_data.py || { echo "update_data.py failed"; exit 1; }
 
-# Commit and push to GitHub
 git add nba_data_cache.json
-git commit -m "Automated data update - $(date +%Y-%m-%d\ %H:%M)"
+if git diff --cached --quiet; then
+    echo "No data changes."
+    exit 0
+fi
+git commit -q -m "Automated data update - $(date '+%Y-%m-%d %H:%M')"
 
-# Retry push up to 3 times in case of transient network errors
-MAX_RETRIES=3
-RETRY_DELAY=30
-for i in $(seq 1 $MAX_RETRIES); do
-    if git push; then
-        echo "Successfully updated and pushed NBA data"
+for i in 1 2 3; do
+    if git push -q; then
+        echo "$(date '+%Y-%m-%d %H:%M') Updated and pushed."
         exit 0
-    else
-        echo "Push attempt $i failed. Retrying in $RETRY_DELAY seconds..."
-        sleep $RETRY_DELAY
     fi
+    echo "Push attempt $i failed; retrying in 30s..."
+    sleep 30
 done
-
-echo "ERROR: Failed to push after $MAX_RETRIES attempts"
+echo "ERROR: push failed after 3 attempts"
 exit 1
