@@ -69,3 +69,7 @@ The workflow skips data fetching outside the season window, so nothing else need
 
 GitHub disables scheduled workflows after 60 days without repo activity. If that happens
 over the off-season, any push (e.g. the `new_season.py` commit) re-enables it.
+
+The runners are pinned to `ubuntu-24.04` (not `ubuntu-latest`) so a GitHub image
+change can't break updates mid-season. **Off-season chore:** bump both `runs-on:`
+lines to the current Ubuntu LTS (26.04 as of 2026) and confirm one deploy succeeds.
