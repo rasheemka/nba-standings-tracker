@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}{{ season_display }} Research · Jumbros{% endblock %}
+{% macro sign(v) %}{% if v is not none %}{% if v > 0 %}pos{% elif v < 0 %}neg{% endif %}{% endif %}{% endmacro %}
+{% block style %}
+.tier td { background: var(--surface-2); color: var(--text-3); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 6px 14px; }
+table.sorted .tier { display: none; }
+.bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--accent); opacity: .55; vertical-align: middle; margin-right: 8px; }
+{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{{ season_display }} Research</h1><div class="sub">Vegas win totals and last season, for draft prep</div></div>
+  {% if source %}<div class="meta">O/U lines: {{ source }}</div>{% endif %}
+</div>
+
+<div class="card">
+  <div class="card-head"><h2>All 30 teams</h2><span class="hint">Tap a column to sort</span></div>
+  <div class="table-wrap"><table class="sortable" id="research">
+    <thead><tr>
+      <th data-sort>Team</th>
+      <th class="num" data-sort>O/U</th>
+      {% if prev %}
+      <th class="num" data-sort>{{ prev.display_name }}</th>
+      <th class="num" data-sort title="This season's O/U minus last season's wins">Δ wins</th>
+      <th class="num" data-sort title="Average point differential last season">+/- per game</th>
+      <th data-sort>{{ prev.display_name }} owner</th>
+      {% endif %}
+      {% if drafted %}<th data-sort>Drafted by</th>{% endif %}
+    </tr></thead>
+    <tbody>
+    {% set ns = namespace(tier=none) %}
+    {% for r in rows %}
+      {% set tier = 'Contenders · 50+' if (r.line or 0) >= 50 else 'Good · 43–49' if (r.line or 0) >= 43 else 'Middle · 35–42' if (r.line or 0) >= 35 else 'Rebuilding · under 35' %}
+      {% if tier != ns.tier %}{% set ns.tier = tier %}<tr class="tier"><td colspan="7">{{ tier }}</td></tr>{% endif %}
+      <tr>
+        <td class="name">{{ r.team }}</td>
+        <td class="num pct" data-v="{{ r.line if r.line is not none else '' }}">{% if r.line is not none %}<span class="bar" style="width:{{ (r.line - 15) * 1.2 }}px"></span>{{ r.line }}{% else %}–{% endif %}</td>
+        {% if prev %}
+        <td class="num" data-v="{{ r.prev_w if r.prev_w is not none else '' }}">{% if r.prev_w is not none %}{{ r.prev_w }}–{{ r.prev_l }}{% else %}–{% endif %}</td>
+        <td class="num {{ sign(r.change) }}" data-v="{{ r.change if r.change is not none else '' }}">{% if r.change is not none %}{{ '%+.1f'|format(r.change) }}{% else %}–{% endif %}</td>
+        <td class="num {{ sign(r.prev_diff) }}" data-v="{{ r.prev_diff if r.prev_diff is not none else '' }}">{% if r.prev_diff is not none %}{{ '%+.1f'|format(r.prev_diff) }}{% else %}–{% endif %}</td>
+        <td>{% if r.prev_owner %}<span class="dot" style="--c:{{ friend_colors.get(r.prev_owner, '#9ca3af') }}"></span>{{ r.prev_owner }}{% endif %}</td>
+        {% endif %}
+        {% if drafted %}<td data-v="{{ r.pick or '' }}">{% if r.owner %}<span class="dot" style="--c:{{ friend_colors.get(r.owner) }}"></span>{{ r.owner }} <span style="color:var(--text-3)">#{{ r.pick }}</span>{% endif %}</td>{% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+// Tier dividers only make sense in the default O/U order.
+document.querySelectorAll('#research th[data-sort]').forEach(th =>
+  th.addEventListener('click', () => document.getElementById('research').classList.add('sorted')));
+</script>
+{% endblock %}

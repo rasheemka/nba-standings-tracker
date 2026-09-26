@@ -8,7 +8,8 @@ What it does:
   1. Archives the current cache to seasons/<old-season>/data.json (skipped if
      that file already exists), recording the winner.
   2. Adds the new season to season_config.json with the previous season's team
-     assignments copied in as a placeholder — EDIT THESE after the draft.
+     assignments copied in as a placeholder — record the draft with draft.py,
+     which overwrites them.
   3. Resets nba_data_cache.json to an empty shell for the new season.
 
 Then commit season_config.json, seasons/, and nba_data_cache.json.
@@ -51,6 +52,8 @@ def archive_current(config, old_id):
         'end_date': old['end_date'],
         'status': 'completed',
         'team_assignments': old['team_assignments'],
+        'draft': old.get('draft'),
+        'win_totals': old.get('win_totals'),
         'winner': winner,
         'winner_record': winner_record,
         **{k: cache.get(k) for k in ('team_stats', 'friend_totals', 'friend_history',
@@ -105,8 +108,8 @@ def main():
                    'yesterdays_games': [], 'team_records': {}, 'dates': [],
                    'full_season_schedule': None}, f, indent=2)
     print(f"✅ Reset nba_data_cache.json (backup at nba_data_cache.json.bak)")
-    print(f"\n➡️  Now edit team_assignments for {args.season_id} in season_config.json, "
-          f"then run update_data.py once the season starts.")
+    print(f"\n➡️  Record the draft with draft.py, and add this season's win_totals "
+          f"to season_config.json for the Research and Draft pages.")
 
 
 if __name__ == '__main__':

@@ -10,6 +10,8 @@ Pages:
   /seasons/                 archived seasons list
   /seasons/<id>/            one archived season
   /all-time/                cumulative records
+  /draft/                   current season's draft board + pick value
+  /research/                pre-draft research: O/U lines, last season
 """
 
 import json
@@ -18,7 +20,9 @@ import shutil
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from nba_tracker import ALL_TEAMS, SEASON_DISPLAY, SEASON_START, TEAM_ASSIGNMENTS, load_season_config
+from draft import snake_owner
+from nba_tracker import (ALL_TEAMS, CURRENT_SEASON_ID, GAMES_PER_TEAM, SEASON, SEASON_DISPLAY, SEASON_START,
+                         TEAM_ASSIGNMENTS, load_season_config)
 
 # One fixed color per person, stable across seasons (assigned by first appearance in config order).
 PALETTE = ['#2563eb', '#dc2626', '#16a34a', '#d97706', '#7c3aed', '#0891b2', '#db2777', '#65a30d', '#0d9488', '#9333ea']
@@ -30,6 +34,8 @@ DIST_DIR = os.path.join(BASE_DIR, 'dist')
 
 env = Environment(loader=FileSystemLoader(os.path.join(BASE_DIR, 'templates')),
                   autoescape=select_autoescape(['html']))
+# "Portland Trail Blazers" -> "Trail Blazers", "LA Clippers" -> "Clippers"
+env.filters['short'] = lambda team: 'Trail Blazers' if team.endswith('Trail Blazers') else team.split()[-1]
 
 
 # ---------------------------------------------------------------------------
@@ -110,6 +116,65 @@ def build_team_breakdown(sorted_friends, team_stats):
     return breakdown
 
 
+def pace(t):
+    """Wins projected over a full season at the current win rate, or None before any games."""
+    gp = (t or {}).get('games_played', 0)
+    return t['wins'] / gp * GAMES_PER_TEAM if gp else None
+
+
+def build_draft(draft, lines, team_stats):
+    """Board grid + per-pick and per-person value for a snake draft, or None if no order is set."""
+    if not draft or not draft.get('order'):
+        return None
+    order, picks, rounds = draft['order'], draft['picks'], draft.get('rounds', 4)
+    n = len(order)
+    # Vegas rank among the teams actually drafted (1 = highest line) — compare to pick number.
+    ranked = sorted((t for t in picks if t in lines), key=lambda t: -lines[t])
+    vegas_rank = {t: i + 1 for i, t in enumerate(ranked)}
+
+    all_picks = []
+    for i, team in enumerate(picks):
+        t = team_stats.get(team) or {}
+        p = pace(t)
+        line = lines.get(team)
+        all_picks.append({
+            'no': i + 1, 'round': i // n + 1, 'owner': snake_owner(order, i), 'team': team, 'line': line,
+            'value': (i + 1) - vegas_rank[team] if team in vegas_rank else None,
+            'wins': t.get('wins'), 'losses': t.get('losses'), 'pace': p,
+            'vs_line': p - line if p is not None and line is not None else None,
+        })
+
+    grid = []
+    for r in range(rounds):
+        row = []
+        for c in range(n):
+            idx = r * n + (c if r % 2 == 0 else n - 1 - c)
+            row.append(all_picks[idx] if idx < len(all_picks) else
+                       {'no': idx + 1, 'owner': order[c], 'team': None, 'on_clock': idx == len(all_picks)})
+        grid.append(row)
+
+    people = []
+    for name in order:
+        mine = [p for p in all_picks if p['owner'] == name]
+        paces = [p['pace'] for p in mine if p['pace'] is not None]
+        people.append({
+            'name': name,
+            'line_total': sum(p['line'] for p in mine if p['line'] is not None),
+            'pace_total': sum(paces) if paces else None,
+        })
+    people.sort(key=lambda x: -(x['pace_total'] if x['pace_total'] is not None else x['line_total']))
+
+    return {'order': order, 'rounds': rounds, 'grid': grid, 'picks': all_picks, 'people': people,
+            'complete': len(picks) >= n * rounds,
+            'on_clock': snake_owner(order, len(picks)) if len(picks) < n * rounds else None,
+            'in_season': any(p['pace'] is not None for p in all_picks)}
+
+
+def previous_season():
+    """Most recent archived season other than the current one."""
+    return next((s for s in get_all_seasons() if s['id'] != CURRENT_SEASON_ID), None)
+
+
 # ---------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------
@@ -149,6 +214,43 @@ def page_index():
           })
 
 
+def page_draft():
+    data = load_json(CACHE_FILE) or {}
+    write('draft', 'draft.html', page='draft', season_display=SEASON_DISPLAY, season_start=SEASON_START,
+          win_totals=SEASON.get('win_totals'),
+          draft=build_draft(SEASON.get('draft'), (SEASON.get('win_totals') or {}).get('lines', {}),
+                            data.get('team_stats') or {}))
+
+
+def page_research():
+    wt = SEASON.get('win_totals') or {}
+    lines = wt.get('lines', {})
+    prev = previous_season()
+    prev_data = load_season_data(prev['id']) if prev else {}
+    prev_stats = prev_data.get('team_stats') or {}
+    prev_owner = {t: f for f, ts in (prev_data.get('team_assignments') or {}).items() for t in ts}
+    draft = SEASON.get('draft') or {}
+    pick_no = {t: i + 1 for i, t in enumerate(draft.get('picks', []))}
+    owner = {t: f for f, ts in TEAM_ASSIGNMENTS.items() for t in ts} if draft.get('picks') else {}
+
+    rows = []
+    for team in ALL_TEAMS:
+        t = prev_stats.get(team) or {}
+        gp = t.get('games_played', 0)
+        rows.append({
+            'team': team, 'line': lines.get(team),
+            'prev_w': t.get('wins'), 'prev_l': t.get('losses'),
+            'prev_diff': (t.get('total_pts_scored', 0) - t.get('total_pts_allowed', 0)) / gp if gp else None,
+            'change': lines[team] - t['wins'] if team in lines and 'wins' in t else None,
+            'prev_owner': prev_owner.get(team),
+            'owner': owner.get(team) if owner.get(team) != 'Undrafted' else None,
+            'pick': pick_no.get(team),
+        })
+    rows.sort(key=lambda r: -(r['line'] or 0))
+    write('research', 'research.html', page='research', season_display=SEASON_DISPLAY,
+          source=wt.get('source'), prev=prev, rows=rows, drafted=bool(owner))
+
+
 def page_seasons():
     seasons = get_all_seasons()
     standings = {}
@@ -163,7 +265,9 @@ def page_seasons():
         sorted_friends = rank_friends(data.get('friend_totals') or {})
         write(f"seasons/{s['id']}", 'season_detail.html', page='seasons',
               season=data, season_id=s['id'], sorted_friends=sorted_friends,
-              team_breakdown=build_team_breakdown(sorted_friends, data.get('team_stats') or {}))
+              team_breakdown=build_team_breakdown(sorted_friends, data.get('team_stats') or {}),
+              draft=build_draft(data.get('draft'), (data.get('win_totals') or {}).get('lines', {}),
+                                data.get('team_stats') or {}))
 
 
 def page_all_time():
@@ -207,6 +311,8 @@ def main():
     page_index()
     page_seasons()
     page_all_time()
+    page_draft()
+    page_research()
     print("✅ Done")
 
 

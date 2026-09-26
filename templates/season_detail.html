@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% import "_draft.html" as d with context %}
 {% block title %}{{ season.season_display }} · Jumbros{% endblock %}
 {% block style %}
+{{ d.style() }}
 .champ { display: flex; align-items: center; gap: 14px; padding: 16px 18px; margin-bottom: 20px; border-radius: var(--radius); background: var(--accent-soft); color: var(--accent); border: 1px solid transparent; }
 .champ .big { font-size: 28px; }
 .champ b { font-size: 17px; }
@@ -50,4 +52,9 @@
   </div>
 {% endfor %}
 </div>
+{% if draft and draft.picks %}
+<h2 style="font-size:15px;font-weight:700;margin:28px 0 12px">Draft</h2>
+{{ d.board(draft) }}
+{{ d.picks(draft) }}
+{% endif %}
 {% endblock %}

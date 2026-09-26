@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% import "_draft.html" as d with context %}
+{% block title %}{{ season_display }} Draft · Jumbros{% endblock %}
+{% block style %}
+{{ d.style() }}
+.empty-state { padding: 48px 20px; text-align: center; color: var(--text-2); }
+{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div><h1>{{ season_display }} Draft</h1><div class="sub">Snake draft · four teams each</div></div>
+  {% if win_totals %}<div class="meta">O/U lines: {{ win_totals.source }}</div>{% endif %}
+</div>
+{% if not draft %}
+<div class="card"><div class="empty-state">The draft order hasn't been set yet. Check back on draft night.<br><br>
+  <a class="btn sm" href="{{ root }}/research/">Do your homework →</a></div></div>
+{% else %}
+{{ d.board(draft) }}
+{% if draft.picks %}
+<div class="grid-2">
+  {{ d.people(draft) }}
+  <div class="card"><div class="card-head"><h2>How to read this</h2></div><div class="card-body" style="font-size:13.5px;color:var(--text-2)">
+    <p style="margin-top:0"><b style="color:var(--text)">Draft value</b> compares each pick to where Vegas ranks that team among everyone drafted. Taking the 3rd-best line with pick #8 = <span class="pos">+5</span> (a steal). Taking the 20th-best line at #10 = <span class="neg">−10</span> (a reach).</p>
+    <p style="margin-bottom:0"><b style="color:var(--text)">vs O/U</b> (during the season) shows each team's full-season pace minus its preseason line: who's beating expectations and who's a bust.</p>
+  </div></div>
+</div>
+{{ d.picks(draft) }}
+{% endif %}
+{% endif %}
+{% endblock %}

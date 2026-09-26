@@ -33,7 +33,7 @@ python3 build.py                       # -> dist/
 python3 -m http.server -d dist 8000    # http://localhost:8000
 ```
 
-Pages: `/`, `/seasons/`, `/seasons/<id>/`, `/all-time/`.
+Pages: `/`, `/draft/`, `/research/`, `/seasons/`, `/seasons/<id>/`, `/all-time/`.
 
 ## Starting a new season
 
@@ -43,8 +43,19 @@ Pages: `/`, `/seasons/`, `/seasons/<id>/`, `/all-time/`.
    ```
    This archives the finished season to `seasons/`, adds the new season to
    `season_config.json`, and resets the cache.
-2. Edit `team_assignments` for the new season in `season_config.json`.
-3. Commit and push `season_config.json`, `seasons/`, `nba_data_cache.json`.
+2. Add the season's Vegas win totals to `season_config.json` under
+   `win_totals.lines` (team name → O/U), with a `source` note. These feed the
+   Research page and the draft's value columns.
+3. Record the snake draft as it happens:
+   ```bash
+   python3 draft.py order --random            # or: draft.py order JJ Andy Nate ...
+   python3 draft.py pick thunder              # any unique part of a name; also okc, sixers, cavs...
+   python3 draft.py undo                      # oops
+   python3 draft.py                           # board + who's on the clock
+   ```
+   Each pick rewrites `team_assignments` (leftovers → "Undrafted"). Push
+   `season_config.json` whenever you want the `/draft/` board updated.
+4. Commit and push `season_config.json`, `seasons/`, `nba_data_cache.json`.
 
 The workflow skips data fetching outside the season window, so nothing else needs touching.
 

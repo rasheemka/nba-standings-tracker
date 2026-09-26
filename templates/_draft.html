@@ -1,0 +1,99 @@
+{# Draft board + pick value tables. Needs `draft` (from build_draft) and `friend_colors`. #}
+{% macro fmt(v, spec) %}{% if v is not none %}{{ spec|format(v) }}{% else %}–{% endif %}{% endmacro %}
+{% macro sign(v) %}{% if v is not none %}{% if v > 0 %}pos{% elif v < 0 %}neg{% endif %}{% endif %}{% endmacro %}
+
+{% macro board(draft) %}
+<div class="card">
+  <div class="card-head"><h2>Board</h2><span class="hint">Snake · {{ draft.rounds }} rounds{% if draft.on_clock %} · on the clock: <b>{{ draft.on_clock }}</b>{% endif %}</span></div>
+  <div class="table-wrap"><table class="board">
+    <thead><tr><th></th>{% for name in draft.order %}<th><span class="dot" style="--c:{{ friend_colors.get(name) }}"></span>{{ name }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for row in draft.grid %}
+      <tr><td class="rd">R{{ loop.index }}<span>{{ '→' if loop.index0 % 2 == 0 else '←' }}</span></td>
+      {% for p in row %}
+        {% if p.team %}
+        <td class="pick" style="--c:{{ friend_colors.get(p.owner) }}">
+          <div class="no">#{{ p.no }}{% if p.line is not none %} · {{ p.line }}{% endif %}</div>
+          <div class="tm" title="{{ p.team }}">{{ p.team|short }}</div>
+          {% if p.pace is not none %}<div class="no">{{ p.wins }}–{{ p.losses }}</div>{% endif %}
+        </td>
+        {% else %}
+        <td class="pick empty{% if p.on_clock %} clock{% endif %}"><div class="no">#{{ p.no }}</div><div class="tm">{{ 'On the clock' if p.on_clock else '' }}</div></td>
+        {% endif %}
+      {% endfor %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endmacro %}
+
+{% macro people(draft) %}
+<div class="card">
+  <div class="card-head"><h2>{% if draft.in_season %}Projected wins{% else %}Vegas says{% endif %}</h2>
+    <span class="hint">{% if draft.in_season %}Current pace over 82 games vs. preseason O/U total{% else %}Sum of preseason O/U lines{% endif %}</span></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th style="text-align:center">#</th><th>Player</th><th class="num">O/U total</th>{% if draft.in_season %}<th class="num">Pace</th><th class="num">vs O/U</th>{% endif %}</tr></thead>
+    <tbody>
+    {% for p in draft.people %}
+      <tr><td class="rank">{{ loop.index }}</td>
+        <td class="name"><span class="dot" style="--c:{{ friend_colors.get(p.name) }}"></span>{{ p.name }}</td>
+        <td class="num">{{ fmt(p.line_total, '%.1f') }}</td>
+        {% if draft.in_season %}
+        <td class="num pct">{{ fmt(p.pace_total, '%.1f') }}</td>
+        {% set d = p.pace_total - p.line_total if p.pace_total is not none else none %}
+        <td class="num {{ sign(d) }}">{{ fmt(d, '%+.1f') }}</td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endmacro %}
+
+{% macro picks(draft) %}
+<div class="card">
+  <div class="card-head"><h2>Every pick</h2><span class="hint">Tap a column to sort</span></div>
+  <div class="table-wrap"><table class="sortable">
+    <thead><tr>
+      <th class="num" data-sort>Pick</th><th data-sort>Player</th><th data-sort>Team</th><th class="num" data-sort>O/U</th>
+      <th class="num" data-sort title="Pick number minus where Vegas ranks the team among drafted teams. Positive = got a team later than the lines say it should have gone.">Draft value</th>
+      {% if draft.in_season %}<th class="num" data-sort>W–L</th><th class="num" data-sort>Pace</th><th class="num" data-sort>vs O/U</th>{% endif %}
+    </tr></thead>
+    <tbody>
+    {% for p in draft.picks %}
+      <tr>
+        <td class="num" data-v="{{ p.no }}">R{{ p.round }} · #{{ p.no }}</td>
+        <td class="name"><span class="dot" style="--c:{{ friend_colors.get(p.owner) }}"></span>{{ p.owner }}</td>
+        <td>{{ p.team }}</td>
+        <td class="num">{{ fmt(p.line, '%.1f') }}</td>
+        <td class="num {{ sign(p.value) }}" data-v="{{ p.value if p.value is not none else '' }}">{{ fmt(p.value, '%+d') }}</td>
+        {% if draft.in_season %}
+        <td class="num" data-v="{{ p.wins if p.wins is not none else '' }}">{% if p.wins is not none %}{{ p.wins }}–{{ p.losses }}{% else %}–{% endif %}</td>
+        <td class="num" data-v="{{ p.pace if p.pace is not none else '' }}">{{ fmt(p.pace, '%.1f') }}</td>
+        <td class="num {{ sign(p.vs_line) }}" data-v="{{ p.vs_line if p.vs_line is not none else '' }}">{{ fmt(p.vs_line, '%+.1f') }}</td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table></div>
+</div>
+{% endmacro %}
+
+{% macro style() %}
+table.board { table-layout: fixed; min-width: 640px; }
+table.board th { text-align: center; }
+table.board th:first-child, table.board td.rd { width: 46px; }
+table.board td { padding: 4px; border-bottom: 0; white-space: normal; }
+table.board tbody tr:hover td { background: none; }
+td.rd { color: var(--text-3); font-weight: 700; font-size: 12px; text-align: center; }
+td.rd span { display: block; font-weight: 400; }
+td.pick > * { padding: 0 8px; }
+td.pick { background: color-mix(in srgb, var(--c) 14%, var(--surface)); border-left: 3px solid var(--c); border-radius: 6px; height: 58px; vertical-align: middle; }
+td.pick .no { font-size: 11px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+td.pick .tm { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+td.pick.empty { background: var(--surface-2); border-left-color: var(--border); }
+td.pick.empty .tm { color: var(--accent); font-size: 12px; }
+td.pick.clock { outline: 2px dashed var(--accent); outline-offset: -2px; }
+table.board { border-collapse: separate; border-spacing: 4px; }
+{% endmacro %}
