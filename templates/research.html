@@ -4,11 +4,12 @@
 {% block style %}
 .tier td { background: var(--surface-2); color: var(--text-3); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: 6px 14px; }
 table.sorted .tier { display: none; }
+.juice { font-size: 11px; font-weight: 500; color: var(--text-3); }
 .bar { display: inline-block; height: 6px; border-radius: 3px; background: var(--accent); opacity: .55; vertical-align: middle; margin-right: 8px; }
 {% endblock %}
 {% block content %}
 <div class="page-head">
-  <div><h1>{{ season_display }} Research</h1><div class="sub">Vegas win totals and last season, for draft prep</div></div>
+  <div><h1>{{ season_display }} Research</h1><div class="sub">Vegas win totals and last season, for draft prep · juice shown when it isn't −110 both ways</div></div>
   {% if source %}<div class="meta">O/U lines: {{ source }}</div>{% endif %}
 </div>
 
@@ -33,7 +34,7 @@ table.sorted .tier { display: none; }
       {% if tier != ns.tier %}{% set ns.tier = tier %}<tr class="tier"><td colspan="7">{{ tier }}</td></tr>{% endif %}
       <tr>
         <td class="name">{{ r.team }}</td>
-        <td class="num pct" data-v="{{ r.line if r.line is not none else '' }}">{% if r.line is not none %}<span class="bar" style="width:{{ (r.line - 15) * 1.2 }}px"></span>{{ r.line }}{% else %}–{% endif %}</td>
+        <td class="num pct" data-v="{{ r.line if r.line is not none else '' }}">{% if r.line is not none %}<span class="bar" style="width:{{ (r.line - 15) * 1.2 }}px"></span>{{ r.line }}{% if r.juice %}<div class="juice">o{{ '%+d'|format(r.juice[0]) }} / u{{ '%+d'|format(r.juice[1]) }}</div>{% endif %}{% else %}–{% endif %}</td>
         {% if prev %}
         <td class="num" data-v="{{ r.prev_w if r.prev_w is not none else '' }}">{% if r.prev_w is not none %}{{ r.prev_w }}–{{ r.prev_l }}{% else %}–{% endif %}</td>
         <td class="num {{ sign(r.change) }}" data-v="{{ r.change if r.change is not none else '' }}">{% if r.change is not none %}{{ '%+.1f'|format(r.change) }}{% else %}–{% endif %}</td>

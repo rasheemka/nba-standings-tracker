@@ -238,7 +238,7 @@ def page_research():
         t = prev_stats.get(team) or {}
         gp = t.get('games_played', 0)
         rows.append({
-            'team': team, 'line': lines.get(team),
+            'team': team, 'line': lines.get(team), 'juice': wt.get('juice', {}).get(team),
             'prev_w': t.get('wins'), 'prev_l': t.get('losses'),
             'prev_diff': (t.get('total_pts_scored', 0) - t.get('total_pts_allowed', 0)) / gp if gp else None,
             'change': lines[team] - t['wins'] if team in lines and 'wins' in t else None,

@@ -113,38 +113,144 @@
         ]
       },
       "win_totals": {
-        "source": "BetMGM via SportsBettingDime, Aug 23 2026 \u2014 replace with FanDuel",
+        "source": "DraftKings, Sep 25 2026",
         "lines": {
           "Atlanta Hawks": 43.5,
           "Boston Celtics": 51.5,
           "Brooklyn Nets": 24.5,
-          "Charlotte Hornets": 37.5,
-          "Chicago Bulls": 27.5,
+          "Charlotte Hornets": 39.5,
+          "Chicago Bulls": 28.5,
           "Cleveland Cavaliers": 47.5,
-          "Dallas Mavericks": 34.5,
-          "Denver Nuggets": 49.5,
+          "Dallas Mavericks": 33.5,
+          "Denver Nuggets": 48.5,
           "Detroit Pistons": 49.5,
-          "Golden State Warriors": 40.5,
+          "Golden State Warriors": 39.5,
           "Houston Rockets": 47.5,
-          "Indiana Pacers": 44.5,
+          "Indiana Pacers": 43.5,
           "LA Clippers": 30.5,
-          "Los Angeles Lakers": 46.5,
+          "Los Angeles Lakers": 45.5,
           "Memphis Grizzlies": 28.5,
-          "Miami Heat": 46.5,
-          "Milwaukee Bucks": 26.5,
-          "Minnesota Timberwolves": 48.5,
+          "Miami Heat": 45.5,
+          "Milwaukee Bucks": 25.5,
+          "Minnesota Timberwolves": 47.5,
           "New Orleans Pelicans": 27.5,
           "New York Knicks": 52.5,
-          "Oklahoma City Thunder": 60.5,
+          "Oklahoma City Thunder": 61.5,
           "Orlando Magic": 43.5,
           "Philadelphia 76ers": 50.5,
-          "Phoenix Suns": 38.5,
-          "Portland Trail Blazers": 43.5,
-          "Sacramento Kings": 21.5,
-          "San Antonio Spurs": 59.5,
+          "Phoenix Suns": 40.5,
+          "Portland Trail Blazers": 41.5,
+          "Sacramento Kings": 20.5,
+          "San Antonio Spurs": 60.5,
           "Toronto Raptors": 45.5,
-          "Utah Jazz": 35.5,
-          "Washington Wizards": 35.5
+          "Utah Jazz": 36.5,
+          "Washington Wizards": 34.5
+        },
+        "juice": {
+          "Atlanta Hawks": [
+            -105,
+            -115
+          ],
+          "Boston Celtics": [
+            100,
+            -120
+          ],
+          "Brooklyn Nets": [
+            115,
+            -135
+          ],
+          "Charlotte Hornets": [
+            100,
+            -120
+          ],
+          "Chicago Bulls": [
+            -115,
+            -105
+          ],
+          "Cleveland Cavaliers": [
+            -120,
+            100
+          ],
+          "Dallas Mavericks": [
+            105,
+            -125
+          ],
+          "Detroit Pistons": [
+            -105,
+            -115
+          ],
+          "Golden State Warriors": [
+            -115,
+            -105
+          ],
+          "Houston Rockets": [
+            100,
+            -120
+          ],
+          "Indiana Pacers": [
+            -115,
+            -105
+          ],
+          "LA Clippers": [
+            105,
+            -125
+          ],
+          "Los Angeles Lakers": [
+            -105,
+            -115
+          ],
+          "Memphis Grizzlies": [
+            -120,
+            100
+          ],
+          "Miami Heat": [
+            -120,
+            100
+          ],
+          "Minnesota Timberwolves": [
+            -120,
+            100
+          ],
+          "New Orleans Pelicans": [
+            -120,
+            100
+          ],
+          "New York Knicks": [
+            100,
+            -120
+          ],
+          "Oklahoma City Thunder": [
+            -135,
+            115
+          ],
+          "Philadelphia 76ers": [
+            -120,
+            100
+          ],
+          "Portland Trail Blazers": [
+            -115,
+            -105
+          ],
+          "Sacramento Kings": [
+            -105,
+            -115
+          ],
+          "San Antonio Spurs": [
+            -120,
+            100
+          ],
+          "Toronto Raptors": [
+            -125,
+            105
+          ],
+          "Utah Jazz": [
+            -120,
+            100
+          ],
+          "Washington Wizards": [
+            -105,
+            -115
+          ]
         }
       }
     }
