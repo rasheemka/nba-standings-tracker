@@ -175,6 +175,10 @@
             105,
             -125
           ],
+          "Denver Nuggets": [
+            -110,
+            -110
+          ],
           "Detroit Pistons": [
             -105,
             -115
@@ -207,6 +211,10 @@
             -120,
             100
           ],
+          "Milwaukee Bucks": [
+            -110,
+            -110
+          ],
           "Minnesota Timberwolves": [
             -120,
             100
@@ -223,9 +231,17 @@
             -135,
             115
           ],
+          "Orlando Magic": [
+            -110,
+            -110
+          ],
           "Philadelphia 76ers": [
             -120,
             100
+          ],
+          "Phoenix Suns": [
+            -110,
+            -110
           ],
           "Portland Trail Blazers": [
             -115,
