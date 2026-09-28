@@ -65,51 +65,44 @@
       "status": "active",
       "data_file": "seasons/2026-27/data.json",
       "team_assignments": {
-        "JJ": [
-          "Oklahoma City Thunder",
-          "San Antonio Spurs",
-          "Detroit Pistons",
-          "New Orleans Pelicans"
-        ],
-        "Andy": [
-          "Cleveland Cavaliers",
-          "Los Angeles Lakers",
-          "Milwaukee Bucks",
-          "Washington Wizards"
-        ],
-        "Nate": [
-          "Orlando Magic",
-          "Atlanta Hawks",
-          "Memphis Grizzlies",
-          "Phoenix Suns"
-        ],
-        "Chris": [
-          "Golden State Warriors",
-          "Indiana Pacers",
-          "Dallas Mavericks",
-          "Charlotte Hornets"
-        ],
-        "Adam": [
-          "Denver Nuggets",
-          "Boston Celtics",
-          "Miami Heat",
-          "Sacramento Kings"
-        ],
-        "Duke": [
-          "New York Knicks",
-          "LA Clippers",
-          "Toronto Raptors",
-          "Chicago Bulls"
-        ],
-        "Nick": [
-          "Houston Rockets",
-          "Minnesota Timberwolves",
-          "Philadelphia 76ers",
-          "Portland Trail Blazers"
-        ],
+        "Nick": [],
+        "Andy": [],
+        "Chris": [],
+        "Duke": [],
+        "Adam": [],
+        "Nate": [],
+        "JJ": [],
         "Undrafted": [
+          "Atlanta Hawks",
+          "Boston Celtics",
           "Brooklyn Nets",
-          "Utah Jazz"
+          "Charlotte Hornets",
+          "Chicago Bulls",
+          "Cleveland Cavaliers",
+          "Dallas Mavericks",
+          "Denver Nuggets",
+          "Detroit Pistons",
+          "Golden State Warriors",
+          "Houston Rockets",
+          "Indiana Pacers",
+          "LA Clippers",
+          "Los Angeles Lakers",
+          "Memphis Grizzlies",
+          "Miami Heat",
+          "Milwaukee Bucks",
+          "Minnesota Timberwolves",
+          "New Orleans Pelicans",
+          "New York Knicks",
+          "Oklahoma City Thunder",
+          "Orlando Magic",
+          "Philadelphia 76ers",
+          "Phoenix Suns",
+          "Portland Trail Blazers",
+          "Sacramento Kings",
+          "San Antonio Spurs",
+          "Toronto Raptors",
+          "Utah Jazz",
+          "Washington Wizards"
         ]
       },
       "win_totals": {
@@ -268,6 +261,19 @@
             -115
           ]
         }
+      },
+      "draft": {
+        "rounds": 4,
+        "order": [
+          "Nick",
+          "Andy",
+          "Chris",
+          "Duke",
+          "Adam",
+          "Nate",
+          "JJ"
+        ],
+        "picks": []
       }
     }
   }
