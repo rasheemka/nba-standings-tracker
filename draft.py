@@ -75,8 +75,12 @@ def add_media(season_id, pick_no, path):
         shutil.copy(path, dest)
     else:
         dest = os.path.join(media_dir, f'{pick_no}.jpg')
+        dims = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', path],
+                              check=True, capture_output=True, text=True).stdout.split()
+        longest = max(int(dims[-3]), int(dims[-1]))
         for out, size, q in ((dest, 1400, 82), (os.path.join(thumbs, f'{pick_no}.jpg'), 320, 75)):
-            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(q), '-Z', str(size),
+            resize = ['-Z', str(size)] if longest > size else []  # never upscale
+            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(q), *resize,
                             path, '--out', out], check=True, capture_output=True)
     print(f"📸 Pick #{pick_no} media → {os.path.relpath(dest, BASE_DIR)} ({os.path.getsize(dest) // 1024} KB)")
 

@@ -68,8 +68,12 @@
         "Nick": [
           "Oklahoma City Thunder"
         ],
-        "Andy": [],
-        "Chris": [],
+        "Andy": [
+          "San Antonio Spurs"
+        ],
+        "Chris": [
+          "New York Knicks"
+        ],
         "Duke": [],
         "Adam": [],
         "Nate": [],
@@ -94,13 +98,11 @@
           "Milwaukee Bucks",
           "Minnesota Timberwolves",
           "New Orleans Pelicans",
-          "New York Knicks",
           "Orlando Magic",
           "Philadelphia 76ers",
           "Phoenix Suns",
           "Portland Trail Blazers",
           "Sacramento Kings",
-          "San Antonio Spurs",
           "Toronto Raptors",
           "Utah Jazz",
           "Washington Wizards"
@@ -275,7 +277,9 @@
           "JJ"
         ],
         "picks": [
-          "Oklahoma City Thunder"
+          "Oklahoma City Thunder",
+          "San Antonio Spurs",
+          "New York Knicks"
         ]
       }
     }
