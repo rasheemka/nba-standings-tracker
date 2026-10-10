@@ -53,7 +53,8 @@ Pages: `/`, `/draft/`, `/research/`, `/seasons/`, `/seasons/<id>/`, `/all-time/`
    python3 draft.py undo                      # oops
    python3 draft.py                           # board + who's on the clock
    ```
-   Each pick rewrites `team_assignments` (leftovers → "Undrafted"). Push
+   Each pick rewrites `team_assignments` (leftovers → "Undrafted") and gets a
+   shareable card at `/draft/pick/<n>/` (linked from the board). Push
    `season_config.json` whenever you want the `/draft/` board updated.
 4. Commit and push `season_config.json`, `seasons/`, `nba_data_cache.json`.
 

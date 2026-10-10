@@ -2,7 +2,7 @@
 {% macro fmt(v, spec) %}{% if v is not none %}{{ spec|format(v) }}{% else %}–{% endif %}{% endmacro %}
 {% macro sign(v) %}{% if v is not none %}{% if v > 0 %}pos{% elif v < 0 %}neg{% endif %}{% endif %}{% endmacro %}
 
-{% macro board(draft) %}
+{% macro board(draft, cards=False) %}
 <div class="card">
   <div class="card-head"><h2>Board</h2><span class="hint">Snake · {{ draft.rounds }} rounds{% if draft.on_clock %} · on the clock: <b>{{ draft.on_clock }}</b>{% endif %}</span></div>
   <div class="table-wrap"><table class="board">
@@ -14,7 +14,7 @@
         {% if p.team %}
         <td class="pick" style="--c:{{ friend_colors.get(p.owner) }}">
           <div class="no">#{{ p.no }}{% if p.line is not none %} · {{ p.line }}{% endif %}</div>
-          <div class="tm" title="{{ p.team }}">{{ p.team|short }}</div>
+          <div class="tm" title="{{ p.team }}">{% if cards %}<a href="{{ root }}/draft/pick/{{ p.no }}/">{{ p.team|short }}</a>{% else %}{{ p.team|short }}{% endif %}</div>
           {% if p.pace is not none %}<div class="no">{{ p.wins }}–{{ p.losses }}</div>{% endif %}
         </td>
         {% else %}

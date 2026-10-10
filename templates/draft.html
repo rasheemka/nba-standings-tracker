@@ -14,7 +14,7 @@
 <div class="card"><div class="empty-state">The draft order hasn't been set yet. Check back on draft night.<br><br>
   <a class="btn sm" href="{{ root }}/research/">Do your homework →</a></div></div>
 {% else %}
-{{ d.board(draft) }}
+{{ d.board(draft, cards=True) }}
 {% if draft.picks %}
 <div class="grid-2">
   {{ d.people(draft) }}

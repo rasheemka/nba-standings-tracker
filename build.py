@@ -216,10 +216,37 @@ def page_index():
 
 def page_draft():
     data = load_json(CACHE_FILE) or {}
+    draft = build_draft(SEASON.get('draft'), (SEASON.get('win_totals') or {}).get('lines', {}),
+                        data.get('team_stats') or {})
     write('draft', 'draft.html', page='draft', season_display=SEASON_DISPLAY, season_start=SEASON_START,
-          win_totals=SEASON.get('win_totals'),
-          draft=build_draft(SEASON.get('draft'), (SEASON.get('win_totals') or {}).get('lines', {}),
-                            data.get('team_stats') or {}))
+          win_totals=SEASON.get('win_totals'), draft=draft)
+    if draft:
+        page_pick_cards(draft)
+
+
+def page_pick_cards(draft):
+    """One shareable card per pick at /draft/pick/<n>/ — screenshot it into the group chat."""
+    wt = SEASON.get('win_totals') or {}
+    lines, juice = wt.get('lines', {}), wt.get('juice', {})
+    prev = previous_season()
+    prev_data = load_season_data(prev['id']) if prev else {}
+    prev_stats = prev_data.get('team_stats') or {}
+    picks = draft['picks']
+    for p in picks:
+        team, line = p['team'], p['line']
+        # Rank among all 30 lines (1 = highest); stable as the draft goes on.
+        rank = 1 + sum(v > line for v in lines.values()) if line is not None else None
+        diff = p['no'] - rank if rank else None
+        t = prev_stats.get(team) or {}
+        nxt = picks[p['no']] if p['no'] < len(picks) else None
+        write(f"draft/pick/{p['no']}", 'pick_card.html', page='draft', season_display=SEASON_DISPLAY,
+              p=p, juice=juice.get(team), rank=rank, diff=diff,
+              verdict='STEAL' if diff is not None and diff >= 3 else 'REACH' if diff is not None and diff <= -3 else None,
+              prev=prev, prev_rec=f"{t['wins']}–{t['losses']}" if t else None,
+              roster=[q['team'] for q in picks[:p['no']] if q['owner'] == p['owner']],
+              on_clock=None if nxt or p['no'] >= len(draft['order']) * draft['rounds']
+                       else snake_owner(draft['order'], p['no']),
+              total=len(picks))
 
 
 def page_research():
