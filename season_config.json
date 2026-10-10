@@ -65,7 +65,9 @@
       "status": "active",
       "data_file": "seasons/2026-27/data.json",
       "team_assignments": {
-        "Nick": [],
+        "Nick": [
+          "Oklahoma City Thunder"
+        ],
         "Andy": [],
         "Chris": [],
         "Duke": [],
@@ -93,7 +95,6 @@
           "Minnesota Timberwolves",
           "New Orleans Pelicans",
           "New York Knicks",
-          "Oklahoma City Thunder",
           "Orlando Magic",
           "Philadelphia 76ers",
           "Phoenix Suns",
@@ -273,7 +274,9 @@
           "Nate",
           "JJ"
         ],
-        "picks": []
+        "picks": [
+          "Oklahoma City Thunder"
+        ]
       }
     }
   }
