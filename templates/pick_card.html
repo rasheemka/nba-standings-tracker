@@ -21,6 +21,8 @@
 .pc-stats small { display: block; font-size: 11px; opacity: .7; margin-top: 1px; }
 .pc-roster { padding: 10px 22px 14px; background: rgba(0,0,0,.4); font-size: 12px; opacity: .9; }
 .pc-roster b { font-weight: 700; }
+.pick-media { width: 100%; max-width: 640px; margin-top: 22px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); background: #000; }
+.pick-media img, .pick-media video { display: block; width: 100%; height: auto; }
 .pick-nav { display: flex; gap: 8px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
 .pick-hint { color: var(--text-3); font-size: 12px; margin-top: 10px; text-align: center; }
 {% endblock %}
@@ -40,6 +42,12 @@
     </div>
     <div class="pc-roster"><b>{{ p.owner }}'s roster:</b> {{ roster|map('short')|join(' · ') }}</div>
   </div>
+  {% if p.media %}
+  <div class="pick-media">
+    {% if is_video %}<video src="{{ root }}/{{ p.media }}" controls playsinline loop preload="metadata"></video>
+    {% else %}<a href="{{ root }}/{{ p.media }}"><img src="{{ root }}/{{ p.media }}" alt="{{ p.owner }}'s pick announcement for the {{ p.team|short }}" loading="lazy"></a>{% endif %}
+  </div>
+  {% endif %}
   <div class="pick-nav">
     {% if p.no > 1 %}<a class="btn sm" href="../{{ p.no - 1 }}/">← #{{ p.no - 1 }}</a>{% endif %}
     <a class="btn sm" href="{{ root }}/draft/">Board</a>

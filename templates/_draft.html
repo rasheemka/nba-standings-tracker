@@ -14,7 +14,7 @@
         {% if p.team %}
         <td class="pick" style="--c:{{ friend_colors.get(p.owner) }}">
           <div class="no">#{{ p.no }}{% if p.line is not none %} · {{ p.line }}{% endif %}</div>
-          <div class="tm" title="{{ p.team }}">{% if cards %}<a href="{{ root }}/draft/pick/{{ p.no }}/">{{ p.team|short }}</a>{% else %}{{ p.team|short }}{% endif %}</div>
+          <div class="tm" title="{{ p.team }}">{% if cards %}<a href="{{ root }}/draft/pick/{{ p.no }}/">{{ p.team|short }}{% if p.media %} 📸{% endif %}</a>{% else %}{{ p.team|short }}{% endif %}</div>
           {% if p.pace is not none %}<div class="no">{{ p.wins }}–{{ p.losses }}</div>{% endif %}
         </td>
         {% else %}

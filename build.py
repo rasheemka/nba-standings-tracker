@@ -214,10 +214,31 @@ def page_index():
           })
 
 
+MEDIA_EXTS = ('.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4')
+
+
+def copy_pick_media(season_id):
+    """Copy seasons/<id>/media/<pick>.<ext> into dist; return {pick_no: site-relative path}."""
+    src = os.path.join(SEASONS_DIR, season_id, 'media')
+    if not os.path.isdir(src):
+        return {}
+    shutil.copytree(src, os.path.join(DIST_DIR, 'media', season_id))
+    media = {}
+    for name in os.listdir(src):
+        stem, ext = os.path.splitext(name)
+        if stem.isdigit() and ext.lower() in MEDIA_EXTS:
+            media[int(stem)] = f"media/{season_id}/{name}"
+    return media
+
+
 def page_draft():
     data = load_json(CACHE_FILE) or {}
     draft = build_draft(SEASON.get('draft'), (SEASON.get('win_totals') or {}).get('lines', {}),
                         data.get('team_stats') or {})
+    if draft:
+        media = copy_pick_media(CURRENT_SEASON_ID)
+        for p in draft['picks']:
+            p['media'] = media.get(p['no'])
     write('draft', 'draft.html', page='draft', season_display=SEASON_DISPLAY, season_start=SEASON_START,
           win_totals=SEASON.get('win_totals'), draft=draft)
     if draft:
@@ -240,7 +261,7 @@ def page_pick_cards(draft):
         t = prev_stats.get(team) or {}
         nxt = picks[p['no']] if p['no'] < len(picks) else None
         write(f"draft/pick/{p['no']}", 'pick_card.html', page='draft', season_display=SEASON_DISPLAY,
-              p=p, juice=juice.get(team), rank=rank, diff=diff,
+              p=p, juice=juice.get(team), is_video=(p.get('media') or '').endswith('.mp4'), rank=rank, diff=diff,
               verdict='STEAL' if diff is not None and diff >= 3 else 'REACH' if diff is not None and diff <= -3 else None,
               prev=prev, prev_rec=f"{t['wins']}–{t['losses']}" if t else None,
               roster=[q['team'] for q in picks[:p['no']] if q['owner'] == p['owner']],
