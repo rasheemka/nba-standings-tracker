@@ -74,13 +74,14 @@
         "Chris": [
           "New York Knicks"
         ],
-        "Duke": [],
+        "Duke": [
+          "Boston Celtics"
+        ],
         "Adam": [],
         "Nate": [],
         "JJ": [],
         "Undrafted": [
           "Atlanta Hawks",
-          "Boston Celtics",
           "Brooklyn Nets",
           "Charlotte Hornets",
           "Chicago Bulls",
@@ -279,7 +280,8 @@
         "picks": [
           "Oklahoma City Thunder",
           "San Antonio Spurs",
-          "New York Knicks"
+          "New York Knicks",
+          "Boston Celtics"
         ]
       }
     }
