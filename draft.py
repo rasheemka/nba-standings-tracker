@@ -6,6 +6,7 @@ Record the current season's snake draft in season_config.json.
     python3 draft.py order --random                           # shuffle last season's players
     python3 draft.py pick thunder                             # next pick (any unique part of a team name)
     python3 draft.py undo                                     # remove the last pick
+    python3 draft.py media 1 ~/Downloads/okc.png              # attach an image/video to pick #1
     python3 draft.py                                          # show the board + who's on the clock
 
 Every change rewrites the season's `team_assignments` from the picks (undrafted
@@ -14,11 +15,15 @@ push season_config.json to publish the board.
 """
 
 import argparse
+import glob
 import json
+import os
 import random
+import shutil
+import subprocess
 import sys
 
-from nba_tracker import ALL_TEAMS, SEASON_CONFIG_FILE
+from nba_tracker import ALL_TEAMS, BASE_DIR, SEASON_CONFIG_FILE
 
 ROUNDS = 4
 ALIASES = {'sixers': 'Philadelphia 76ers', 'okc': 'Oklahoma City Thunder', 'cavs': 'Cleveland Cavaliers',
@@ -53,6 +58,29 @@ def match_team(query, taken):
     return hits[0]
 
 
+def add_media(season_id, pick_no, path):
+    """Save pick media to seasons/<id>/media/<n>.<ext>, plus a board thumbnail in media/thumbs/.
+
+    Images are re-encoded to JPEG (≤1400px full, 320px thumb) with macOS `sips`; elsewhere
+    they're copied as-is with no thumbnail. Videos are copied as-is.
+    """
+    media_dir = os.path.join(BASE_DIR, 'seasons', season_id, 'media')
+    thumbs = os.path.join(media_dir, 'thumbs')
+    os.makedirs(thumbs, exist_ok=True)
+    for old in glob.glob(os.path.join(media_dir, f'{pick_no}.*')) + glob.glob(os.path.join(thumbs, f'{pick_no}.*')):
+        os.remove(old)
+    ext = os.path.splitext(path)[1].lower()
+    if ext in ('.mp4', '.gif') or not shutil.which('sips'):
+        dest = os.path.join(media_dir, f'{pick_no}{ext}')
+        shutil.copy(path, dest)
+    else:
+        dest = os.path.join(media_dir, f'{pick_no}.jpg')
+        for out, size, q in ((dest, 1400, 82), (os.path.join(thumbs, f'{pick_no}.jpg'), 320, 75)):
+            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(q), '-Z', str(size),
+                            path, '--out', out], check=True, capture_output=True)
+    print(f"📸 Pick #{pick_no} media → {os.path.relpath(dest, BASE_DIR)} ({os.path.getsize(dest) // 1024} KB)")
+
+
 def show(draft):
     order, picks = draft['order'], draft['picks']
     total = len(order) * draft.get('rounds', ROUNDS)
@@ -74,6 +102,9 @@ def main():
     pk = sub.add_parser('pick', help='record the next pick')
     pk.add_argument('team', nargs='+')
     sub.add_parser('undo', help='remove the last pick')
+    md = sub.add_parser('media', help='attach an image/video to a pick')
+    md.add_argument('pick', type=int)
+    md.add_argument('file')
     args = p.parse_args()
 
     with open(SEASON_CONFIG_FILE) as f:
@@ -81,6 +112,8 @@ def main():
     season = cfg['seasons'][cfg['current_season']]
     draft = season.get('draft')
 
+    if args.cmd == 'media':
+        return add_media(cfg['current_season'], args.pick, os.path.expanduser(args.file))
     if args.cmd == 'order':
         names = args.names or [n for n in season['team_assignments'] if n != 'Undrafted']
         if args.random:

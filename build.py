@@ -227,7 +227,9 @@ def copy_pick_media(season_id):
     for name in os.listdir(src):
         stem, ext = os.path.splitext(name)
         if stem.isdigit() and ext.lower() in MEDIA_EXTS:
-            media[int(stem)] = f"media/{season_id}/{name}"
+            thumb = os.path.join(src, 'thumbs', f'{stem}.jpg')
+            media[int(stem)] = {'src': f"media/{season_id}/{name}", 'video': ext.lower() == '.mp4',
+                                'thumb': f"media/{season_id}/thumbs/{stem}.jpg" if os.path.exists(thumb) else None}
     return media
 
 
@@ -261,7 +263,7 @@ def page_pick_cards(draft):
         t = prev_stats.get(team) or {}
         nxt = picks[p['no']] if p['no'] < len(picks) else None
         write(f"draft/pick/{p['no']}", 'pick_card.html', page='draft', season_display=SEASON_DISPLAY,
-              p=p, juice=juice.get(team), is_video=(p.get('media') or '').endswith('.mp4'), rank=rank, diff=diff,
+              p=p, juice=juice.get(team), rank=rank, diff=diff,
               verdict='STEAL' if diff is not None and diff >= 3 else 'REACH' if diff is not None and diff <= -3 else None,
               prev=prev, prev_rec=f"{t['wins']}–{t['losses']}" if t else None,
               roster=[q['team'] for q in picks[:p['no']] if q['owner'] == p['owner']],

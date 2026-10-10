@@ -12,9 +12,12 @@
       <tr><td class="rd">R{{ loop.index }}<span>{{ '→' if loop.index0 % 2 == 0 else '←' }}</span></td>
       {% for p in row %}
         {% if p.team %}
-        <td class="pick" style="--c:{{ friend_colors.get(p.owner) }}">
+        <td class="pick{% if cards and p.media %} has-media{% endif %}" style="--c:{{ friend_colors.get(p.owner) }}">
+          {% if cards and p.media %}<a class="thumb" href="{{ root }}/draft/pick/{{ p.no }}/">
+            {% if p.media.thumb %}<img src="{{ root }}/{{ p.media.thumb }}" alt="" loading="lazy">{% else %}<span>{{ '🎬' if p.media.video else '📸' }}</span>{% endif %}
+          </a>{% endif %}
           <div class="no">#{{ p.no }}{% if p.line is not none %} · {{ p.line }}{% endif %}</div>
-          <div class="tm" title="{{ p.team }}">{% if cards %}<a href="{{ root }}/draft/pick/{{ p.no }}/">{{ p.team|short }}{% if p.media %} 📸{% endif %}</a>{% else %}{{ p.team|short }}{% endif %}</div>
+          <div class="tm" title="{{ p.team }}">{% if cards %}<a href="{{ root }}/draft/pick/{{ p.no }}/">{{ p.team|short }}</a>{% else %}{{ p.team|short }}{% endif %}</div>
           {% if p.pace is not none %}<div class="no">{{ p.wins }}–{{ p.losses }}</div>{% endif %}
         </td>
         {% else %}
@@ -92,6 +95,12 @@ td.pick > * { padding: 0 8px; }
 td.pick { background: color-mix(in srgb, var(--c) 14%, var(--surface)); border-left: 3px solid var(--c); border-radius: 6px; height: 58px; vertical-align: middle; }
 td.pick .no { font-size: 11px; color: var(--text-2); font-variant-numeric: tabular-nums; }
 td.pick .tm { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+td.pick.has-media { vertical-align: top; padding-bottom: 8px; }
+td.pick .thumb { display: block; padding: 0; margin: 0 0 6px; height: 84px; border-radius: 4px 4px 0 0; overflow: hidden; background: rgba(0,0,0,.25); }
+td.pick .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .2s; }
+td.pick .thumb:hover img { transform: scale(1.06); }
+td.pick .thumb span { display: flex; height: 100%; align-items: center; justify-content: center; font-size: 26px; }
+td.pick .tm a:hover { text-decoration: underline; }
 td.pick.empty { background: var(--surface-2); border-left-color: var(--border); }
 td.pick.empty .tm { color: var(--accent); font-size: 12px; }
 td.pick.clock { outline: 2px dashed var(--accent); outline-offset: -2px; }

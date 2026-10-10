@@ -44,8 +44,8 @@
   </div>
   {% if p.media %}
   <div class="pick-media">
-    {% if is_video %}<video src="{{ root }}/{{ p.media }}" controls playsinline loop preload="metadata"></video>
-    {% else %}<a href="{{ root }}/{{ p.media }}"><img src="{{ root }}/{{ p.media }}" alt="{{ p.owner }}'s pick announcement for the {{ p.team|short }}" loading="lazy"></a>{% endif %}
+    {% if p.media.video %}<video src="{{ root }}/{{ p.media.src }}" controls playsinline loop preload="metadata"></video>
+    {% else %}<a href="{{ root }}/{{ p.media.src }}"><img src="{{ root }}/{{ p.media.src }}" alt="{{ p.owner }}'s pick announcement for the {{ p.team|short }}" loading="lazy"></a>{% endif %}
   </div>
   {% endif %}
   <div class="pick-nav">
