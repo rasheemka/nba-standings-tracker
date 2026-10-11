@@ -73,6 +73,9 @@ def add_media(season_id, pick_no, path):
     if ext in ('.mp4', '.gif') or not shutil.which('sips'):
         dest = os.path.join(media_dir, f'{pick_no}{ext}')
         shutil.copy(path, dest)
+        if ext == '.gif' and shutil.which('sips'):  # still thumbnail from the first frame
+            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', '75', '-Z', '320',
+                            path, '--out', os.path.join(thumbs, f'{pick_no}.jpg')], check=True, capture_output=True)
     else:
         dest = os.path.join(media_dir, f'{pick_no}.jpg')
         dims = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', path],

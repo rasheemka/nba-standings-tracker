@@ -80,7 +80,9 @@
         "Adam": [
           "Detroit Pistons"
         ],
-        "Nate": [],
+        "Nate": [
+          "Philadelphia 76ers"
+        ],
         "JJ": [],
         "Undrafted": [
           "Atlanta Hawks",
@@ -101,7 +103,6 @@
           "Minnesota Timberwolves",
           "New Orleans Pelicans",
           "Orlando Magic",
-          "Philadelphia 76ers",
           "Phoenix Suns",
           "Portland Trail Blazers",
           "Sacramento Kings",
@@ -283,7 +284,8 @@
           "San Antonio Spurs",
           "New York Knicks",
           "Boston Celtics",
-          "Detroit Pistons"
+          "Detroit Pistons",
+          "Philadelphia 76ers"
         ]
       }
     }

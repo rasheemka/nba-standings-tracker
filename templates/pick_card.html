@@ -44,7 +44,7 @@
   </div>
   {% if p.media %}
   <div class="pick-media">
-    {% if p.media.video %}<video src="{{ root }}/{{ p.media.src }}" controls playsinline loop preload="metadata"></video>
+    {% if p.media.video %}<video src="{{ root }}/{{ p.media.src }}" autoplay muted loop playsinline controls></video>
     {% else %}<a href="{{ root }}/{{ p.media.src }}"><img src="{{ root }}/{{ p.media.src }}" alt="{{ p.owner }}'s pick announcement for the {{ p.team|short }}" loading="lazy"></a>{% endif %}
   </div>
   {% endif %}
