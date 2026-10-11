@@ -21,8 +21,9 @@
 .pc-stats small { display: block; font-size: 11px; opacity: .7; margin-top: 1px; }
 .pc-roster { padding: 10px 22px 14px; background: rgba(0,0,0,.4); font-size: 12px; opacity: .9; }
 .pc-roster b { font-weight: 700; }
-.pick-media { width: 100%; max-width: 640px; margin-top: 22px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); background: #000; }
-.pick-media img, .pick-media video { display: block; width: 100%; height: auto; }
+.pick-media { max-width: min(640px, 100%); margin-top: 22px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.25); background: #000; }
+/* Natural size up to 640px; small GIFs are enlarged to ~320px so they're watchable. */
+.pick-media img, .pick-media video { display: block; max-width: 100%; min-width: 320px; height: auto; }
 .pick-nav { display: flex; gap: 8px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
 .pick-hint { color: var(--text-3); font-size: 12px; margin-top: 10px; text-align: center; }
 {% endblock %}

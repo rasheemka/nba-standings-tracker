@@ -58,6 +58,15 @@ def match_team(query, taken):
     return hits[0]
 
 
+def to_jpeg(src, out, max_side, quality):
+    """Re-encode `src` as JPEG with macOS sips, shrinking (never enlarging) to `max_side`."""
+    dims = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', src],
+                          check=True, capture_output=True, text=True).stdout.split()
+    resize = ['-Z', str(max_side)] if max(int(dims[-3]), int(dims[-1])) > max_side else []
+    subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(quality), *resize, src, '--out', out],
+                   check=True, capture_output=True)
+
+
 def add_media(season_id, pick_no, path):
     """Save pick media to seasons/<id>/media/<n>.<ext>, plus a board thumbnail in media/thumbs/.
 
@@ -70,21 +79,16 @@ def add_media(season_id, pick_no, path):
     for old in glob.glob(os.path.join(media_dir, f'{pick_no}.*')) + glob.glob(os.path.join(thumbs, f'{pick_no}.*')):
         os.remove(old)
     ext = os.path.splitext(path)[1].lower()
+    thumb = os.path.join(thumbs, f'{pick_no}.jpg')
     if ext in ('.mp4', '.gif') or not shutil.which('sips'):
         dest = os.path.join(media_dir, f'{pick_no}{ext}')
         shutil.copy(path, dest)
         if ext == '.gif' and shutil.which('sips'):  # still thumbnail from the first frame
-            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', '75', '-Z', '320',
-                            path, '--out', os.path.join(thumbs, f'{pick_no}.jpg')], check=True, capture_output=True)
+            to_jpeg(path, thumb, 320, 75)
     else:
         dest = os.path.join(media_dir, f'{pick_no}.jpg')
-        dims = subprocess.run(['sips', '-g', 'pixelWidth', '-g', 'pixelHeight', path],
-                              check=True, capture_output=True, text=True).stdout.split()
-        longest = max(int(dims[-3]), int(dims[-1]))
-        for out, size, q in ((dest, 1400, 82), (os.path.join(thumbs, f'{pick_no}.jpg'), 320, 75)):
-            resize = ['-Z', str(size)] if longest > size else []  # never upscale
-            subprocess.run(['sips', '-s', 'format', 'jpeg', '-s', 'formatOptions', str(q), *resize,
-                            path, '--out', out], check=True, capture_output=True)
+        to_jpeg(path, dest, 1400, 82)
+        to_jpeg(path, thumb, 320, 75)
     print(f"📸 Pick #{pick_no} media → {os.path.relpath(dest, BASE_DIR)} ({os.path.getsize(dest) // 1024} KB)")
 
 
