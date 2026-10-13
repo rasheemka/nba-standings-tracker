@@ -83,7 +83,10 @@
         "Nate": [
           "Philadelphia 76ers"
         ],
-        "JJ": [],
+        "JJ": [
+          "Minnesota Timberwolves",
+          "Toronto Raptors"
+        ],
         "Undrafted": [
           "Atlanta Hawks",
           "Brooklyn Nets",
@@ -100,13 +103,11 @@
           "Memphis Grizzlies",
           "Miami Heat",
           "Milwaukee Bucks",
-          "Minnesota Timberwolves",
           "New Orleans Pelicans",
           "Orlando Magic",
           "Phoenix Suns",
           "Portland Trail Blazers",
           "Sacramento Kings",
-          "Toronto Raptors",
           "Utah Jazz",
           "Washington Wizards"
         ]
@@ -285,7 +286,9 @@
           "New York Knicks",
           "Boston Celtics",
           "Detroit Pistons",
-          "Philadelphia 76ers"
+          "Philadelphia 76ers",
+          "Minnesota Timberwolves",
+          "Toronto Raptors"
         ]
       }
     }
