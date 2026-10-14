@@ -78,7 +78,8 @@
           "Boston Celtics"
         ],
         "Adam": [
-          "Detroit Pistons"
+          "Detroit Pistons",
+          "Denver Nuggets"
         ],
         "Nate": [
           "Philadelphia 76ers",
@@ -95,7 +96,6 @@
           "Chicago Bulls",
           "Cleveland Cavaliers",
           "Dallas Mavericks",
-          "Denver Nuggets",
           "Golden State Warriors",
           "Indiana Pacers",
           "LA Clippers",
@@ -289,7 +289,8 @@
           "Philadelphia 76ers",
           "Minnesota Timberwolves",
           "Toronto Raptors",
-          "Houston Rockets"
+          "Houston Rockets",
+          "Denver Nuggets"
         ]
       }
     }
