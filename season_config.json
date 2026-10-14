@@ -81,7 +81,8 @@
           "Detroit Pistons"
         ],
         "Nate": [
-          "Philadelphia 76ers"
+          "Philadelphia 76ers",
+          "Houston Rockets"
         ],
         "JJ": [
           "Minnesota Timberwolves",
@@ -96,7 +97,6 @@
           "Dallas Mavericks",
           "Denver Nuggets",
           "Golden State Warriors",
-          "Houston Rockets",
           "Indiana Pacers",
           "LA Clippers",
           "Los Angeles Lakers",
@@ -288,7 +288,8 @@
           "Detroit Pistons",
           "Philadelphia 76ers",
           "Minnesota Timberwolves",
-          "Toronto Raptors"
+          "Toronto Raptors",
+          "Houston Rockets"
         ]
       }
     }
