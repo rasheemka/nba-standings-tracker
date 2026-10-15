@@ -75,7 +75,8 @@
           "New York Knicks"
         ],
         "Duke": [
-          "Boston Celtics"
+          "Boston Celtics",
+          "Cleveland Cavaliers"
         ],
         "Adam": [
           "Detroit Pistons",
@@ -94,7 +95,6 @@
           "Brooklyn Nets",
           "Charlotte Hornets",
           "Chicago Bulls",
-          "Cleveland Cavaliers",
           "Dallas Mavericks",
           "Golden State Warriors",
           "Indiana Pacers",
@@ -290,7 +290,8 @@
           "Minnesota Timberwolves",
           "Toronto Raptors",
           "Houston Rockets",
-          "Denver Nuggets"
+          "Denver Nuggets",
+          "Cleveland Cavaliers"
         ]
       }
     }
