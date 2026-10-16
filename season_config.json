@@ -82,7 +82,8 @@
         ],
         "Duke": [
           "Boston Celtics",
-          "Cleveland Cavaliers"
+          "Cleveland Cavaliers",
+          "Portland Trail Blazers"
         ],
         "Adam": [
           "Detroit Pistons",
@@ -106,7 +107,6 @@
           "Milwaukee Bucks",
           "New Orleans Pelicans",
           "Phoenix Suns",
-          "Portland Trail Blazers",
           "Sacramento Kings",
           "Utah Jazz",
           "Washington Wizards"
@@ -297,7 +297,8 @@
           "Indiana Pacers",
           "Atlanta Hawks",
           "Charlotte Hornets",
-          "Orlando Magic"
+          "Orlando Magic",
+          "Portland Trail Blazers"
         ]
       }
     }
