@@ -66,7 +66,9 @@
       "data_file": "seasons/2026-27/data.json",
       "team_assignments": {
         "Nick": [
-          "Oklahoma City Thunder"
+          "Oklahoma City Thunder",
+          "Indiana Pacers",
+          "Atlanta Hawks"
         ],
         "Andy": [
           "San Antonio Spurs",
@@ -93,13 +95,11 @@
           "Toronto Raptors"
         ],
         "Undrafted": [
-          "Atlanta Hawks",
           "Brooklyn Nets",
           "Charlotte Hornets",
           "Chicago Bulls",
           "Dallas Mavericks",
           "Golden State Warriors",
-          "Indiana Pacers",
           "LA Clippers",
           "Memphis Grizzlies",
           "Milwaukee Bucks",
@@ -293,7 +293,9 @@
           "Denver Nuggets",
           "Cleveland Cavaliers",
           "Miami Heat",
-          "Los Angeles Lakers"
+          "Los Angeles Lakers",
+          "Indiana Pacers",
+          "Atlanta Hawks"
         ]
       }
     }
