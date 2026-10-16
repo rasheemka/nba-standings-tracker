@@ -72,7 +72,8 @@
           "San Antonio Spurs"
         ],
         "Chris": [
-          "New York Knicks"
+          "New York Knicks",
+          "Miami Heat"
         ],
         "Duke": [
           "Boston Celtics",
@@ -101,7 +102,6 @@
           "LA Clippers",
           "Los Angeles Lakers",
           "Memphis Grizzlies",
-          "Miami Heat",
           "Milwaukee Bucks",
           "New Orleans Pelicans",
           "Orlando Magic",
@@ -291,7 +291,8 @@
           "Toronto Raptors",
           "Houston Rockets",
           "Denver Nuggets",
-          "Cleveland Cavaliers"
+          "Cleveland Cavaliers",
+          "Miami Heat"
         ]
       }
     }
