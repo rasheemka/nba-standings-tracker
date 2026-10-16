@@ -69,7 +69,8 @@
           "Oklahoma City Thunder"
         ],
         "Andy": [
-          "San Antonio Spurs"
+          "San Antonio Spurs",
+          "Los Angeles Lakers"
         ],
         "Chris": [
           "New York Knicks",
@@ -100,7 +101,6 @@
           "Golden State Warriors",
           "Indiana Pacers",
           "LA Clippers",
-          "Los Angeles Lakers",
           "Memphis Grizzlies",
           "Milwaukee Bucks",
           "New Orleans Pelicans",
@@ -292,7 +292,8 @@
           "Houston Rockets",
           "Denver Nuggets",
           "Cleveland Cavaliers",
-          "Miami Heat"
+          "Miami Heat",
+          "Los Angeles Lakers"
         ]
       }
     }
