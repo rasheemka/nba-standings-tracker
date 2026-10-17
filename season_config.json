@@ -87,7 +87,8 @@
         ],
         "Adam": [
           "Detroit Pistons",
-          "Denver Nuggets"
+          "Denver Nuggets",
+          "Washington Wizards"
         ],
         "Nate": [
           "Philadelphia 76ers",
@@ -108,8 +109,7 @@
           "New Orleans Pelicans",
           "Phoenix Suns",
           "Sacramento Kings",
-          "Utah Jazz",
-          "Washington Wizards"
+          "Utah Jazz"
         ]
       },
       "win_totals": {
@@ -298,7 +298,8 @@
           "Atlanta Hawks",
           "Charlotte Hornets",
           "Orlando Magic",
-          "Portland Trail Blazers"
+          "Portland Trail Blazers",
+          "Washington Wizards"
         ]
       }
     }
