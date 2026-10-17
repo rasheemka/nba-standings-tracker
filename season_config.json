@@ -97,18 +97,18 @@
         ],
         "JJ": [
           "Minnesota Timberwolves",
-          "Toronto Raptors"
+          "Toronto Raptors",
+          "Phoenix Suns",
+          "Chicago Bulls"
         ],
         "Undrafted": [
           "Brooklyn Nets",
-          "Chicago Bulls",
           "Dallas Mavericks",
           "Golden State Warriors",
           "LA Clippers",
           "Memphis Grizzlies",
           "Milwaukee Bucks",
           "New Orleans Pelicans",
-          "Phoenix Suns",
           "Sacramento Kings"
         ]
       },
@@ -300,7 +300,9 @@
           "Orlando Magic",
           "Portland Trail Blazers",
           "Washington Wizards",
-          "Utah Jazz"
+          "Utah Jazz",
+          "Phoenix Suns",
+          "Chicago Bulls"
         ]
       }
     }
