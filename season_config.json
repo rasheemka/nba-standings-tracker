@@ -92,7 +92,8 @@
         ],
         "Nate": [
           "Philadelphia 76ers",
-          "Houston Rockets"
+          "Houston Rockets",
+          "Utah Jazz"
         ],
         "JJ": [
           "Minnesota Timberwolves",
@@ -108,8 +109,7 @@
           "Milwaukee Bucks",
           "New Orleans Pelicans",
           "Phoenix Suns",
-          "Sacramento Kings",
-          "Utah Jazz"
+          "Sacramento Kings"
         ]
       },
       "win_totals": {
@@ -299,7 +299,8 @@
           "Charlotte Hornets",
           "Orlando Magic",
           "Portland Trail Blazers",
-          "Washington Wizards"
+          "Washington Wizards",
+          "Utah Jazz"
         ]
       }
     }
