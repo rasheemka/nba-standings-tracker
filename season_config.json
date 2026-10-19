@@ -78,7 +78,8 @@
         "Chris": [
           "New York Knicks",
           "Miami Heat",
-          "Orlando Magic"
+          "Orlando Magic",
+          "New Orleans Pelicans"
         ],
         "Duke": [
           "Boston Celtics",
@@ -108,7 +109,6 @@
           "Brooklyn Nets",
           "LA Clippers",
           "Milwaukee Bucks",
-          "New Orleans Pelicans",
           "Sacramento Kings"
         ]
       },
@@ -305,7 +305,8 @@
           "Chicago Bulls",
           "Golden State Warriors",
           "Dallas Mavericks",
-          "Memphis Grizzlies"
+          "Memphis Grizzlies",
+          "New Orleans Pelicans"
         ]
       }
     }
