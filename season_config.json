@@ -68,7 +68,8 @@
         "Nick": [
           "Oklahoma City Thunder",
           "Indiana Pacers",
-          "Atlanta Hawks"
+          "Atlanta Hawks",
+          "Milwaukee Bucks"
         ],
         "Andy": [
           "San Antonio Spurs",
@@ -108,7 +109,6 @@
         ],
         "Undrafted": [
           "Brooklyn Nets",
-          "Milwaukee Bucks",
           "Sacramento Kings"
         ]
       },
@@ -307,7 +307,8 @@
           "Dallas Mavericks",
           "Memphis Grizzlies",
           "New Orleans Pelicans",
-          "LA Clippers"
+          "LA Clippers",
+          "Milwaukee Bucks"
         ]
       }
     }
