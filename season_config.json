@@ -83,12 +83,14 @@
         "Duke": [
           "Boston Celtics",
           "Cleveland Cavaliers",
-          "Portland Trail Blazers"
+          "Portland Trail Blazers",
+          "Memphis Grizzlies"
         ],
         "Adam": [
           "Detroit Pistons",
           "Denver Nuggets",
-          "Washington Wizards"
+          "Washington Wizards",
+          "Dallas Mavericks"
         ],
         "Nate": [
           "Philadelphia 76ers",
@@ -104,9 +106,7 @@
         ],
         "Undrafted": [
           "Brooklyn Nets",
-          "Dallas Mavericks",
           "LA Clippers",
-          "Memphis Grizzlies",
           "Milwaukee Bucks",
           "New Orleans Pelicans",
           "Sacramento Kings"
@@ -303,7 +303,9 @@
           "Utah Jazz",
           "Phoenix Suns",
           "Chicago Bulls",
-          "Golden State Warriors"
+          "Golden State Warriors",
+          "Dallas Mavericks",
+          "Memphis Grizzlies"
         ]
       }
     }
