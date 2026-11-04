@@ -61,6 +61,7 @@ body.sandbox .sandbox-only { display: inline-flex; }
     <thead><tr>
       <th style="text-align:center">#</th><th>Player</th>
       <th class="num">W</th><th class="num">L</th><th class="num">Win %</th>
+      <th class="num" title="Games behind the leader: (leader's W − W + L − leader's L) / 2">GB</th>
       <th class="num">Left</th>
       <th class="num" title="Remaining games where two of this player's teams play each other (locks in 1W + 1L)">H2H</th>
       <th class="num" title="Point differential per game across all four teams">+/- per game</th>
@@ -183,6 +184,8 @@ const fmtDiff = v => (v >= 0 ? '+' : '') + v.toFixed(1);
 const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 function renderTable(rows) {
+  const lead = (rows.find(([f]) => f !== 'Undrafted') || rows[0])[1];
+  const gb = s => { const g = (lead.total_wins - s.total_wins + s.total_losses - lead.total_losses) / 2; return g === 0 ? '–' : g < 0 ? '+' + (-g) : String(g); };
   const undraftedRank = rows.findIndex(([f]) => f === 'Undrafted') + 1;
   document.querySelector('#standings tbody').innerHTML = rows.map(([f, s], i) => {
     const rank = i + 1, below = f !== 'Undrafted' && undraftedRank && rank > undraftedRank;
@@ -194,6 +197,7 @@ function renderTable(rows) {
       <td class="name"><span class="dot" style="--c:${COLORS[f] || '#9ca3af'}"></span>${esc(f)}${tag}</td>
       <td class="num">${s.total_wins}</td><td class="num">${s.total_losses}</td>
       <td class="num pct">${fmtPct(s.win_pct)}</td>
+      <td class="num">${gb(s)}</td>
       <td class="num">${s.games_remaining}</td>
       <td class="num" style="color:var(--text-3)">${s.h2h_remaining || 0}</td>
       <td class="num ${d >= 0 ? 'pos' : 'neg'}">${fmtDiff(d)}</td></tr>`;
