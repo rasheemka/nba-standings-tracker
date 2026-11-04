@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "last_updated": "2026-11-03T13:10:31",
+  "last_updated": "2026-11-04T05:07:14",
   "team_stats": {
     "Chicago Bulls": {
       "games_played": 7,
@@ -289,7 +289,7 @@
         "Milwaukee Bucks"
       ],
       "is_eliminated": false,
-      "h2h_remaining": 16
+      "h2h_remaining": 15
     },
     "Andy": {
       "total_wins": 15,
@@ -875,159 +875,149 @@
       }
     ]
   },
-  "todays_games": [],
-  "yesterdays_games": [
+  "todays_games": [
     {
-      "visitor": "Oklahoma City Thunder",
-      "home": "Cleveland Cavaliers",
-      "visitor_score": 117,
-      "home_score": 112,
-      "time": "Final",
-      "visitor_friend": "Nick",
-      "home_friend": "Duke",
-      "is_final": true
-    },
-    {
-      "visitor": "Detroit Pistons",
-      "home": "Charlotte Hornets",
-      "visitor_score": 124,
-      "home_score": 91,
-      "time": "Final",
-      "visitor_friend": "Adam",
-      "home_friend": "Andy",
-      "is_final": true
+      "visitor": "Philadelphia 76ers",
+      "home": "Detroit Pistons",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 7:00 PM EST",
+      "visitor_friend": "Nate",
+      "home_friend": "Adam",
+      "is_final": false
     },
     {
       "visitor": "Atlanta Hawks",
-      "home": "Indiana Pacers",
-      "visitor_score": 108,
-      "home_score": 104,
-      "time": "Final",
+      "home": "Washington Wizards",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 7:00 PM EST",
       "visitor_friend": "Nick",
-      "home_friend": "Nick",
-      "is_final": true
-    },
-    {
-      "visitor": "Brooklyn Nets",
-      "home": "New York Knicks",
-      "visitor_score": 90,
-      "home_score": 103,
-      "time": "Final",
-      "visitor_friend": "Undrafted",
-      "home_friend": "Chris",
-      "is_final": true
-    },
-    {
-      "visitor": "Washington Wizards",
-      "home": "Orlando Magic",
-      "visitor_score": 103,
-      "home_score": 94,
-      "time": "Final",
-      "visitor_friend": "Adam",
-      "home_friend": "Chris",
-      "is_final": true
-    },
-    {
-      "visitor": "Chicago Bulls",
-      "home": "Philadelphia 76ers",
-      "visitor_score": 107,
-      "home_score": 126,
-      "time": "Final",
-      "visitor_friend": "JJ",
-      "home_friend": "Nate",
-      "is_final": true
-    },
-    {
-      "visitor": "Sacramento Kings",
-      "home": "Dallas Mavericks",
-      "visitor_score": 115,
-      "home_score": 100,
-      "time": "Final",
-      "visitor_friend": "Undrafted",
       "home_friend": "Adam",
-      "is_final": true
-    },
-    {
-      "visitor": "New Orleans Pelicans",
-      "home": "Memphis Grizzlies",
-      "visitor_score": 135,
-      "home_score": 134,
-      "time": "Final/OT",
-      "visitor_friend": "Chris",
-      "home_friend": "Duke",
-      "is_final": true
+      "is_final": false
     },
     {
       "visitor": "Milwaukee Bucks",
-      "home": "Minnesota Timberwolves",
-      "visitor_score": 100,
-      "home_score": 112,
-      "time": "Final",
+      "home": "Boston Celtics",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 7:30 PM EST",
       "visitor_friend": "Nick",
-      "home_friend": "JJ",
-      "is_final": true
+      "home_friend": "Duke",
+      "is_final": false
     },
     {
-      "visitor": "Boston Celtics",
-      "home": "Houston Rockets",
-      "visitor_score": 93,
-      "home_score": 109,
-      "time": "Final",
-      "visitor_friend": "Duke",
-      "home_friend": "Nate",
-      "is_final": true
+      "visitor": "Charlotte Hornets",
+      "home": "Brooklyn Nets",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 7:30 PM EST",
+      "visitor_friend": "Andy",
+      "home_friend": "Undrafted",
+      "is_final": false
+    },
+    {
+      "visitor": "Chicago Bulls",
+      "home": "New York Knicks",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 7:30 PM EST",
+      "visitor_friend": "JJ",
+      "home_friend": "Chris",
+      "is_final": false
+    },
+    {
+      "visitor": "Indiana Pacers",
+      "home": "Memphis Grizzlies",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 8:00 PM EST",
+      "visitor_friend": "Nick",
+      "home_friend": "Duke",
+      "is_final": false
     },
     {
       "visitor": "Utah Jazz",
-      "home": "San Antonio Spurs",
-      "visitor_score": 97,
-      "home_score": 119,
-      "time": "Final",
+      "home": "New Orleans Pelicans",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 8:00 PM EST",
       "visitor_friend": "Nate",
-      "home_friend": "Andy",
-      "is_final": true
+      "home_friend": "Chris",
+      "is_final": false
     },
     {
-      "visitor": "Portland Trail Blazers",
-      "home": "Denver Nuggets",
-      "visitor_score": 118,
-      "home_score": 110,
-      "time": "Final",
+      "visitor": "Cleveland Cavaliers",
+      "home": "Oklahoma City Thunder",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 8:00 PM EST",
       "visitor_friend": "Duke",
-      "home_friend": "Adam",
-      "is_final": true
+      "home_friend": "Nick",
+      "is_final": false
     },
     {
-      "visitor": "Phoenix Suns",
-      "home": "Golden State Warriors",
-      "visitor_score": 113,
-      "home_score": 116,
-      "time": "Final",
+      "visitor": "Minnesota Timberwolves",
+      "home": "Houston Rockets",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 8:30 PM EST",
       "visitor_friend": "JJ",
       "home_friend": "Nate",
-      "is_final": true
+      "is_final": false
     },
     {
       "visitor": "Toronto Raptors",
-      "home": "LA Clippers",
-      "visitor_score": 125,
-      "home_score": 118,
-      "time": "Final",
+      "home": "Denver Nuggets",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 9:00 PM EST",
       "visitor_friend": "JJ",
+      "home_friend": "Adam",
+      "is_final": false
+    },
+    {
+      "visitor": "Portland Trail Blazers",
+      "home": "Phoenix Suns",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 9:00 PM EST",
+      "visitor_friend": "Duke",
+      "home_friend": "JJ",
+      "is_final": false
+    },
+    {
+      "visitor": "Dallas Mavericks",
+      "home": "San Antonio Spurs",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 9:30 PM EST",
+      "visitor_friend": "Adam",
       "home_friend": "Andy",
-      "is_final": true
+      "is_final": false
+    },
+    {
+      "visitor": "Los Angeles Lakers",
+      "home": "Sacramento Kings",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 10:00 PM EST",
+      "visitor_friend": "Andy",
+      "home_friend": "Undrafted",
+      "is_final": false
     },
     {
       "visitor": "Miami Heat",
-      "home": "Los Angeles Lakers",
-      "visitor_score": 117,
-      "home_score": 138,
-      "time": "Final",
+      "home": "LA Clippers",
+      "visitor_score": null,
+      "home_score": null,
+      "time": "11/4 - 10:30 PM EST",
       "visitor_friend": "Chris",
       "home_friend": "Andy",
-      "is_final": true
+      "is_final": false
     }
   ],
+  "yesterdays_games": [],
   "team_records": {
     "Detroit Pistons": {
       "wins": 6,
