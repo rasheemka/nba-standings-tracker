@@ -10,6 +10,7 @@ import os
 import time
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional
+from zoneinfo import ZoneInfo
 
 import requests
 
@@ -246,16 +247,62 @@ def calculate_friend_historical_standings(team_records, dates,
 _full_season_schedule: Optional[list] = None
 
 
-def load_season_schedule(cached_schedule=None):
-    """Return the season schedule, using the cached copy if given, else fetching from ESPN once."""
+SCHEDULE_REFRESH_DAYS = 7
+EASTERN = ZoneInfo('America/New_York')
+
+
+def eastern_today() -> str:
+    """Today's date in US/Eastern, the timezone NBA game dates are scheduled in."""
+    return datetime.now(EASTERN).strftime('%Y-%m-%d')
+
+
+def _eastern_game_date(iso_timestamp: str) -> str:
+    """ESPN gives tip-off in UTC, so an evening game falls on the next UTC day.
+    Return the US/Eastern calendar date the game is actually played on."""
+    try:
+        utc = datetime.fromisoformat(iso_timestamp.replace('Z', '+00:00'))
+        return utc.astimezone(EASTERN).strftime('%Y-%m-%d')
+    except (ValueError, AttributeError):
+        return (iso_timestamp or '')[:10]
+
+
+def schedule_needs_refresh(schedule, fetched_on: Optional[str]) -> bool:
+    """True if the cached schedule is missing, incomplete, or over a week old.
+
+    The NBA fills in some games late (the NBA Cup-dependent December games) and
+    reschedules postponed ones, so a schedule fetched once goes stale."""
+    if not schedule or not fetched_on:
+        return True
+    per_team: Dict[str, int] = {}
+    for game in schedule:
+        for side in ('home', 'away'):
+            per_team[game[side]] = per_team.get(game[side], 0) + 1
+    assigned = {t for teams in TEAM_ASSIGNMENTS.values() for t in teams}
+    if any(per_team.get(team, 0) < GAMES_PER_TEAM for team in assigned):
+        return True
+    try:
+        age = datetime.strptime(eastern_today(), '%Y-%m-%d') - datetime.strptime(fetched_on, '%Y-%m-%d')
+    except ValueError:
+        return True
+    return age.days >= SCHEDULE_REFRESH_DAYS
+
+
+def load_season_schedule(cached_schedule=None, refresh: bool = False):
+    """Return the season schedule: the cached copy, or a fresh fetch from ESPN when
+    there is no cache or `refresh` is set. A failed refresh keeps the cached copy."""
     global _full_season_schedule
     if _full_season_schedule is not None:
         return _full_season_schedule
-    if cached_schedule:
+    if cached_schedule and not refresh:
         _full_season_schedule = cached_schedule
         return _full_season_schedule
-    print("Fetching full season schedule from ESPN (one-time)...")
-    return _fetch_season_schedule_from_espn()
+    print("Fetching full season schedule from ESPN...")
+    fetched = _fetch_season_schedule_from_espn()
+    if not fetched and cached_schedule:
+        print("  ⚠️  Schedule fetch failed; keeping the cached schedule")
+        _full_season_schedule = cached_schedule
+        return _full_season_schedule
+    return fetched
 
 
 def _fetch_season_schedule_from_espn() -> list:
@@ -279,7 +326,7 @@ def _fetch_season_schedule_from_espn() -> list:
                 if game_id in seen:
                     continue
                 seen.add(game_id)
-                game_date = event.get('date', '')[:10]
+                game_date = _eastern_game_date(event.get('date', ''))
                 if len(game_date) != 10:
                     continue
                 competitors = event.get('competitions', [{}])[0].get('competitors', [])
@@ -305,7 +352,7 @@ def get_remaining_head_to_head(assignments: Optional[Dict[str, List[str]]] = Non
     if not _full_season_schedule:
         return {}
     owner = team_to_friend_map(assignments)
-    today = datetime.now().strftime('%Y-%m-%d')
+    today = eastern_today()
     counts: Dict[str, int] = {}
     for game in _full_season_schedule:
         if game['date'] < today:

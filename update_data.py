@@ -19,7 +19,9 @@ from nba_tracker import (
     fetch_team_stats,
     fetch_todays_games_espn,
     fetch_yesterdays_games_espn,
+    eastern_today,
     load_season_schedule,
+    schedule_needs_refresh,
     update_historical_from_espn,
 )
 
@@ -50,7 +52,11 @@ def main() -> int:
         print("❌ Failed to fetch team stats from ESPN")
         return 1
 
-    schedule = load_season_schedule(old.get('full_season_schedule'))
+    cached_schedule = old.get('full_season_schedule')
+    refresh = schedule_needs_refresh(cached_schedule, old.get('schedule_fetched'))
+    schedule = load_season_schedule(cached_schedule, refresh=refresh)
+    # Only stamp a new fetch date when the refresh actually replaced the schedule.
+    schedule_fetched = eastern_today() if refresh and schedule is not cached_schedule else old.get('schedule_fetched')
     friend_totals = calculate_friend_totals(team_stats)
 
     print("Updating game-by-game history...")
@@ -68,6 +74,7 @@ def main() -> int:
         'team_records': team_records,
         'dates': dates,
         'full_season_schedule': schedule,
+        'schedule_fetched': schedule_fetched,
     }
     with open(CACHE_FILE, 'w') as f:
         json.dump(cache, f, indent=2)

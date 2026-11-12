@@ -42,7 +42,11 @@ def archive_current(config, old_id):
     totals = {k: v for k, v in cache.get('friend_totals', {}).items() if k != 'Undrafted'}
     winner, winner_record = '', ''
     if totals:
-        winner, ws = max(totals.items(), key=lambda kv: kv[1]['win_pct'])
+        # No tiebreakers: everyone level on the best record shares the title.
+        best = max(v['win_pct'] for v in totals.values())
+        champs = [(k, v) for k, v in totals.items() if abs(v['win_pct'] - best) <= 1e-9]
+        winner = ' & '.join(k for k, _ in champs)
+        ws = champs[0][1]
         winner_record = f"{ws['total_wins']}-{ws['total_losses']}"
 
     archive = {

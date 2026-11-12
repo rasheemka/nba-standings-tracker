@@ -30,7 +30,7 @@
   <tbody>
   {% for friend, stats in sorted_friends %}
   <tr class="{% if friend == 'Undrafted' %}muted{% endif %}">
-    <td class="rank">{% if loop.index == 1 %}🏆{% else %}{{ loop.index }}{% endif %}</td>
+    <td class="rank">{% if stats.rank == 1 %}🏆{% else %}{{ stats.rank }}{% endif %}</td>
     <td class="name"><span class="dot" style="--c:{{ friend_colors.get(friend, '#9ca3af') }}"></span>{{ friend }}</td>
     <td class="num">{{ stats.total_wins }}</td><td class="num">{{ stats.total_losses }}</td>
     <td class="num pct">{{ "%.1f"|format(stats.win_pct * 100) }}%</td>

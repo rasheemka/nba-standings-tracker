@@ -92,7 +92,15 @@ def rank_friends(friend_totals, exclude_undrafted=False):
     items = friend_totals.items()
     if exclude_undrafted:
         items = [(f, s) for f, s in items if f != 'Undrafted']
-    return sorted(items, key=lambda x: x[1]['win_pct'], reverse=True)
+    ranked = sorted(items, key=lambda x: x[1]['win_pct'], reverse=True)
+    # There are no tiebreakers: equal records share a rank (1, 1, 3, ...) and a
+    # tie for first is a shared title.
+    out, rank, prev = [], 0, None
+    for i, (friend, stats) in enumerate(ranked, 1):
+        if prev is None or abs(stats['win_pct'] - prev) > 1e-9:
+            rank, prev = i, stats['win_pct']
+        out.append((friend, {**stats, 'rank': rank}))
+    return out
 
 
 def build_team_breakdown(sorted_friends, team_stats):
@@ -211,6 +219,7 @@ def page_index():
               'team_records': data.get('team_records') or {},
               'dates': data.get('dates') or [],
               'schedule': data.get('full_season_schedule') or [],
+              'as_of': (data.get('last_updated') or '')[:10],
           })
 
 
@@ -327,7 +336,8 @@ def page_all_time():
         if not data or not data.get('friend_totals'):
             continue
         standings = []
-        for rank, (friend, stats) in enumerate(rank_friends(data['friend_totals'], exclude_undrafted=True), 1):
+        for friend, stats in rank_friends(data['friend_totals'], exclude_undrafted=True):
+            rank = stats['rank']
             wins, losses = stats.get('total_wins', 0), stats.get('total_losses', 0)
             total = wins + losses
             rec = all_time_records.setdefault(friend, {
