@@ -1,6 +1,6 @@
 {
   "season": "2026-27",
-  "last_updated": "2026-11-11T13:08:33",
+  "last_updated": "2026-11-11T20:31:59",
   "team_stats": {
     "Milwaukee Bucks": {
       "games_played": 11,
@@ -1105,7 +1105,7 @@
       "home": "Indiana Pacers",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 7:00 PM EST",
+      "time": "7:11 - 3rd",
       "visitor_friend": "Adam",
       "home_friend": "Nick",
       "is_final": false
@@ -1115,7 +1115,7 @@
       "home": "New York Knicks",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 7:00 PM EST",
+      "time": "9:54 - 3rd",
       "visitor_friend": "Duke",
       "home_friend": "Chris",
       "is_final": false
@@ -1125,7 +1125,7 @@
       "home": "Toronto Raptors",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 7:00 PM EST",
+      "time": "Halftime",
       "visitor_friend": "Duke",
       "home_friend": "JJ",
       "is_final": false
@@ -1135,7 +1135,7 @@
       "home": "Chicago Bulls",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 8:00 PM EST",
+      "time": "2:15 - 1st",
       "visitor_friend": "Andy",
       "home_friend": "JJ",
       "is_final": false
@@ -1145,7 +1145,7 @@
       "home": "Memphis Grizzlies",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 8:00 PM EST",
+      "time": "End of 1st",
       "visitor_friend": "Adam",
       "home_friend": "Duke",
       "is_final": false
@@ -1155,7 +1155,7 @@
       "home": "Milwaukee Bucks",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 8:00 PM EST",
+      "time": "54.9 - 1st",
       "visitor_friend": "Andy",
       "home_friend": "Nick",
       "is_final": false
@@ -1165,7 +1165,7 @@
       "home": "New Orleans Pelicans",
       "visitor_score": null,
       "home_score": null,
-      "time": "11/11 - 8:00 PM EST",
+      "time": "2:44 - 1st",
       "visitor_friend": "Undrafted",
       "home_friend": "Chris",
       "is_final": false
@@ -3400,6 +3400,11 @@
       "away": "Philadelphia 76ers"
     },
     {
+      "date": "2026-10-20",
+      "home": "San Antonio Spurs",
+      "away": "Oklahoma City Thunder"
+    },
+    {
       "date": "2026-10-21",
       "home": "Orlando Magic",
       "away": "Atlanta Hawks"
@@ -3416,6 +3421,31 @@
     },
     {
       "date": "2026-10-21",
+      "home": "Houston Rockets",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2026-10-21",
+      "home": "Los Angeles Lakers",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-10-21",
+      "home": "New Orleans Pelicans",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2026-10-21",
+      "home": "LA Clippers",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2026-10-21",
+      "home": "Memphis Grizzlies",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2026-10-21",
       "home": "Miami Heat",
       "away": "Minnesota Timberwolves"
     },
@@ -3426,8 +3456,8 @@
     },
     {
       "date": "2026-10-21",
-      "home": "San Antonio Spurs",
-      "away": "Oklahoma City Thunder"
+      "home": "Portland Trail Blazers",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2026-10-22",
@@ -3436,33 +3466,8 @@
     },
     {
       "date": "2026-10-22",
-      "home": "Houston Rockets",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2026-10-22",
-      "home": "Los Angeles Lakers",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-10-22",
-      "home": "New Orleans Pelicans",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-10-22",
-      "home": "LA Clippers",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2026-10-22",
-      "home": "Memphis Grizzlies",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2026-10-22",
-      "home": "Portland Trail Blazers",
-      "away": "Phoenix Suns"
+      "home": "Oklahoma City Thunder",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2026-10-23",
@@ -3486,8 +3491,23 @@
     },
     {
       "date": "2026-10-23",
-      "home": "Oklahoma City Thunder",
-      "away": "Denver Nuggets"
+      "home": "Miami Heat",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-10-23",
+      "home": "Golden State Warriors",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2026-10-23",
+      "home": "San Antonio Spurs",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2026-10-23",
+      "home": "Los Angeles Lakers",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-10-23",
@@ -3496,8 +3516,23 @@
     },
     {
       "date": "2026-10-23",
+      "home": "Utah Jazz",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2026-10-23",
+      "home": "Sacramento Kings",
+      "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2026-10-23",
       "home": "Washington Wizards",
       "away": "Toronto Raptors"
+    },
+    {
+      "date": "2026-10-24",
+      "home": "Atlanta Hawks",
+      "away": "Houston Rockets"
     },
     {
       "date": "2026-10-24",
@@ -3511,43 +3546,28 @@
     },
     {
       "date": "2026-10-24",
-      "home": "Miami Heat",
-      "away": "Detroit Pistons"
+      "home": "Chicago Bulls",
+      "away": "Washington Wizards"
     },
     {
       "date": "2026-10-24",
-      "home": "Golden State Warriors",
-      "away": "Memphis Grizzlies"
+      "home": "Dallas Mavericks",
+      "away": "San Antonio Spurs"
     },
     {
       "date": "2026-10-24",
-      "home": "San Antonio Spurs",
-      "away": "Houston Rockets"
+      "home": "Denver Nuggets",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2026-10-24",
-      "home": "Los Angeles Lakers",
-      "away": "LA Clippers"
+      "home": "Phoenix Suns",
+      "away": "Golden State Warriors"
     },
     {
       "date": "2026-10-24",
       "home": "Philadelphia 76ers",
       "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Utah Jazz",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2026-10-24",
-      "home": "Sacramento Kings",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2026-10-25",
-      "home": "Atlanta Hawks",
-      "away": "Houston Rockets"
     },
     {
       "date": "2026-10-25",
@@ -3556,28 +3576,8 @@
     },
     {
       "date": "2026-10-25",
-      "home": "Chicago Bulls",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2026-10-25",
-      "home": "Dallas Mavericks",
-      "away": "San Antonio Spurs"
-    },
-    {
-      "date": "2026-10-25",
-      "home": "Denver Nuggets",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2026-10-25",
       "home": "Philadelphia 76ers",
       "away": "Detroit Pistons"
-    },
-    {
-      "date": "2026-10-25",
-      "home": "Phoenix Suns",
-      "away": "Golden State Warriors"
     },
     {
       "date": "2026-10-25",
@@ -3591,6 +3591,11 @@
     },
     {
       "date": "2026-10-25",
+      "home": "Sacramento Kings",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2026-10-25",
       "home": "Minnesota Timberwolves",
       "away": "Toronto Raptors"
     },
@@ -3598,6 +3603,11 @@
       "date": "2026-10-25",
       "home": "New York Knicks",
       "away": "Orlando Magic"
+    },
+    {
+      "date": "2026-10-26",
+      "home": "Houston Rockets",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2026-10-26",
@@ -3621,13 +3631,23 @@
     },
     {
       "date": "2026-10-26",
-      "home": "Sacramento Kings",
+      "home": "Denver Nuggets",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-10-26",
+      "home": "Milwaukee Bucks",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2026-10-26",
+      "home": "Utah Jazz",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-10-27",
-      "home": "Houston Rockets",
-      "away": "Atlanta Hawks"
+      "date": "2026-10-26",
+      "home": "Oklahoma City Thunder",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2026-10-27",
@@ -3636,23 +3656,18 @@
     },
     {
       "date": "2026-10-27",
-      "home": "Denver Nuggets",
-      "away": "Golden State Warriors"
+      "home": "New York Knicks",
+      "away": "Detroit Pistons"
     },
     {
       "date": "2026-10-27",
-      "home": "Milwaukee Bucks",
-      "away": "Indiana Pacers"
+      "home": "Los Angeles Lakers",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2026-10-27",
-      "home": "Utah Jazz",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2026-10-27",
-      "home": "Oklahoma City Thunder",
-      "away": "Phoenix Suns"
+      "home": "San Antonio Spurs",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2026-10-28",
@@ -3666,13 +3681,33 @@
     },
     {
       "date": "2026-10-28",
+      "home": "Chicago Bulls",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2026-10-28",
       "home": "Cleveland Cavaliers",
       "away": "Washington Wizards"
     },
     {
       "date": "2026-10-28",
-      "home": "New York Knicks",
-      "away": "Detroit Pistons"
+      "home": "Dallas Mavericks",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2026-10-28",
+      "home": "New Orleans Pelicans",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-10-28",
+      "home": "Minnesota Timberwolves",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-10-28",
+      "home": "Milwaukee Bucks",
+      "away": "Houston Rockets"
     },
     {
       "date": "2026-10-28",
@@ -3681,8 +3716,8 @@
     },
     {
       "date": "2026-10-28",
-      "home": "Los Angeles Lakers",
-      "away": "Portland Trail Blazers"
+      "home": "LA Clippers",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2026-10-28",
@@ -3691,8 +3726,8 @@
     },
     {
       "date": "2026-10-28",
-      "home": "San Antonio Spurs",
-      "away": "Sacramento Kings"
+      "home": "Utah Jazz",
+      "away": "San Antonio Spurs"
     },
     {
       "date": "2026-10-29",
@@ -3701,38 +3736,13 @@
     },
     {
       "date": "2026-10-29",
-      "home": "Chicago Bulls",
-      "away": "New York Knicks"
-    },
-    {
-      "date": "2026-10-29",
-      "home": "Dallas Mavericks",
-      "away": "Oklahoma City Thunder"
+      "home": "Portland Trail Blazers",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2026-10-29",
       "home": "New Orleans Pelicans",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-10-29",
-      "home": "Minnesota Timberwolves",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-10-29",
-      "home": "Milwaukee Bucks",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2026-10-29",
-      "home": "LA Clippers",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2026-10-29",
-      "home": "Utah Jazz",
-      "away": "San Antonio Spurs"
+      "away": "Sacramento Kings"
     },
     {
       "date": "2026-10-30",
@@ -3751,13 +3761,28 @@
     },
     {
       "date": "2026-10-30",
-      "home": "Portland Trail Blazers",
-      "away": "Memphis Grizzlies"
+      "home": "Dallas Mavericks",
+      "away": "Houston Rockets"
     },
     {
       "date": "2026-10-30",
-      "home": "New Orleans Pelicans",
-      "away": "Sacramento Kings"
+      "home": "Phoenix Suns",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-10-30",
+      "home": "Golden State Warriors",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2026-10-30",
+      "home": "Miami Heat",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2026-10-30",
+      "home": "Minnesota Timberwolves",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-10-30",
@@ -3781,28 +3806,23 @@
     },
     {
       "date": "2026-10-31",
-      "home": "Dallas Mavericks",
-      "away": "Houston Rockets"
+      "home": "Milwaukee Bucks",
+      "away": "Cleveland Cavaliers"
     },
     {
       "date": "2026-10-31",
-      "home": "Phoenix Suns",
-      "away": "Denver Nuggets"
+      "home": "Houston Rockets",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2026-10-31",
-      "home": "Golden State Warriors",
-      "away": "Los Angeles Lakers"
+      "home": "Memphis Grizzlies",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2026-10-31",
-      "home": "Miami Heat",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-10-31",
-      "home": "Minnesota Timberwolves",
-      "away": "LA Clippers"
+      "home": "San Antonio Spurs",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2026-10-31",
@@ -3821,242 +3841,257 @@
     },
     {
       "date": "2026-11-01",
-      "home": "Milwaukee Bucks",
-      "away": "Cleveland Cavaliers"
+      "home": "Golden State Warriors",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-11-01",
+      "home": "Los Angeles Lakers",
+      "away": "Toronto Raptors"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Indiana Pacers",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2026-11-02",
       "home": "Houston Rockets",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "New York Knicks",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Charlotte Hornets",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Philadelphia 76ers",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "Cleveland Cavaliers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-11-01",
-      "home": "Memphis Grizzlies",
+      "date": "2026-11-02",
+      "home": "Dallas Mavericks",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2026-11-01",
-      "home": "San Antonio Spurs",
-      "away": "Minnesota Timberwolves"
+      "date": "2026-11-02",
+      "home": "Denver Nuggets",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2026-11-02",
       "home": "Golden State Warriors",
-      "away": "LA Clippers"
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2026-11-02",
+      "home": "LA Clippers",
+      "away": "Toronto Raptors"
     },
     {
       "date": "2026-11-02",
       "home": "Los Angeles Lakers",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Indiana Pacers",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Houston Rockets",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "New York Knicks",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Charlotte Hornets",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Philadelphia 76ers",
-      "away": "Chicago Bulls"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Cleveland Cavaliers",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Dallas Mavericks",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Denver Nuggets",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Golden State Warriors",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "LA Clippers",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2026-11-03",
-      "home": "Los Angeles Lakers",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-02",
       "home": "Memphis Grizzlies",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-02",
       "home": "Minnesota Timberwolves",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-02",
       "home": "Orlando Magic",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-02",
       "home": "San Antonio Spurs",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Washington Wizards",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Boston Celtics",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Brooklyn Nets",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "New York Knicks",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Oklahoma City Thunder",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "San Antonio Spurs",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Denver Nuggets",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Detroit Pistons",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Houston Rockets",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Memphis Grizzlies",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "LA Clippers",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "Sacramento Kings",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-11-05",
+      "date": "2026-11-04",
       "home": "New Orleans Pelicans",
       "away": "Utah Jazz"
     },
     {
+      "date": "2026-11-04",
+      "home": "Phoenix Suns",
+      "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2026-11-05",
+      "home": "Golden State Warriors",
+      "away": "Miami Heat"
+    },
+    {
       "date": "2026-11-05",
       "home": "Phoenix Suns",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Atlanta Hawks",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Charlotte Hornets",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Cleveland Cavaliers",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Dallas Mavericks",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2026-11-06",
+      "home": "Los Angeles Lakers",
       "away": "Portland Trail Blazers"
     },
     {
       "date": "2026-11-06",
-      "home": "Golden State Warriors",
-      "away": "Miami Heat"
+      "home": "Memphis Grizzlies",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2026-11-06",
-      "home": "Phoenix Suns",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Atlanta Hawks",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Charlotte Hornets",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Cleveland Cavaliers",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Dallas Mavericks",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Indiana Pacers",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Los Angeles Lakers",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2026-11-07",
-      "home": "Memphis Grizzlies",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2026-11-07",
       "home": "Milwaukee Bucks",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-06",
       "home": "New Orleans Pelicans",
       "away": "Minnesota Timberwolves"
     },
     {
+      "date": "2026-11-06",
+      "home": "Sacramento Kings",
+      "away": "San Antonio Spurs"
+    },
+    {
       "date": "2026-11-07",
-      "home": "Sacramento Kings",
+      "home": "Atlanta Hawks",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Cleveland Cavaliers",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Indiana Pacers",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Golden State Warriors",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Phoenix Suns",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Oklahoma City Thunder",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2026-11-07",
+      "home": "Portland Trail Blazers",
       "away": "San Antonio Spurs"
     },
     {
       "date": "2026-11-08",
-      "home": "Atlanta Hawks",
+      "home": "Milwaukee Bucks",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2026-11-08",
+      "home": "Dallas Mavericks",
       "away": "Brooklyn Nets"
     },
     {
@@ -4066,243 +4101,238 @@
     },
     {
       "date": "2026-11-08",
-      "home": "Cleveland Cavaliers",
-      "away": "New York Knicks"
-    },
-    {
-      "date": "2026-11-08",
       "home": "Detroit Pistons",
       "away": "Los Angeles Lakers"
     },
     {
       "date": "2026-11-08",
-      "home": "Golden State Warriors",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2026-11-08",
-      "home": "Phoenix Suns",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2026-11-08",
-      "home": "Oklahoma City Thunder",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2026-11-08",
-      "home": "Portland Trail Blazers",
-      "away": "San Antonio Spurs"
-    },
-    {
-      "date": "2026-11-09",
-      "home": "Milwaukee Bucks",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2026-11-09",
-      "home": "Dallas Mavericks",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2026-11-09",
       "home": "LA Clippers",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-08",
       "home": "Sacramento Kings",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-11-09",
+      "date": "2026-11-08",
       "home": "Minnesota Timberwolves",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Atlanta Hawks",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Charlotte Hornets",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Dallas Mavericks",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Houston Rockets",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Detroit Pistons",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Golden State Warriors",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Toronto Raptors",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-11-10",
+      "date": "2026-11-09",
       "home": "Phoenix Suns",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "Philadelphia 76ers",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "Phoenix Suns",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "Utah Jazz",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "New York Knicks",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "Portland Trail Blazers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-11-11",
+      "date": "2026-11-10",
       "home": "Sacramento Kings",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Toronto Raptors",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "New Orleans Pelicans",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Chicago Bulls",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "New York Knicks",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Memphis Grizzlies",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Houston Rockets",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Indiana Pacers",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Milwaukee Bucks",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Portland Trail Blazers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-11-12",
+      "date": "2026-11-11",
       "home": "Utah Jazz",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-12",
       "home": "Phoenix Suns",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-12",
       "home": "Minnesota Timberwolves",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-12",
       "home": "Washington Wizards",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2026-11-13",
+      "date": "2026-11-12",
       "home": "Philadelphia 76ers",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Chicago Bulls",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Miami Heat",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "San Antonio Spurs",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Houston Rockets",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Indiana Pacers",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "LA Clippers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "New Orleans Pelicans",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Orlando Magic",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-13",
       "home": "Sacramento Kings",
       "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Memphis Grizzlies",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Minnesota Timberwolves",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Cleveland Cavaliers",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "New Orleans Pelicans",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-11-14",
+      "home": "Miami Heat",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-11-15",
+      "home": "Milwaukee Bucks",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2026-11-15",
@@ -4311,33 +4341,13 @@
     },
     {
       "date": "2026-11-15",
-      "home": "Memphis Grizzlies",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2026-11-15",
       "home": "LA Clippers",
       "away": "Charlotte Hornets"
     },
     {
       "date": "2026-11-15",
-      "home": "Minnesota Timberwolves",
-      "away": "Chicago Bulls"
-    },
-    {
-      "date": "2026-11-15",
-      "home": "Cleveland Cavaliers",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2026-11-15",
-      "home": "New Orleans Pelicans",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-11-15",
-      "home": "Miami Heat",
-      "away": "Detroit Pistons"
+      "home": "Washington Wizards",
+      "away": "Houston Rockets"
     },
     {
       "date": "2026-11-15",
@@ -4356,203 +4366,218 @@
     },
     {
       "date": "2026-11-15",
+      "home": "Sacramento Kings",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2026-11-15",
       "home": "Utah Jazz",
       "away": "San Antonio Spurs"
     },
     {
       "date": "2026-11-16",
-      "home": "Milwaukee Bucks",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2026-11-16",
-      "home": "Washington Wizards",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2026-11-16",
-      "home": "Sacramento Kings",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2026-11-17",
       "home": "Boston Celtics",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Brooklyn Nets",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Cleveland Cavaliers",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Denver Nuggets",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "New Orleans Pelicans",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Miami Heat",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Washington Wizards",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-11-17",
+      "date": "2026-11-16",
       "home": "Minnesota Timberwolves",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-17",
       "home": "Los Angeles Lakers",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-17",
       "home": "San Antonio Spurs",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-17",
       "home": "LA Clippers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-17",
       "home": "Minnesota Timberwolves",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-11-18",
+      "date": "2026-11-17",
       "home": "Toronto Raptors",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Oklahoma City Thunder",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Denver Nuggets",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Brooklyn Nets",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Cleveland Cavaliers",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Dallas Mavericks",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "New Orleans Pelicans",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Indiana Pacers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Los Angeles Lakers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Miami Heat",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Orlando Magic",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Sacramento Kings",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2026-11-19",
+      "date": "2026-11-18",
       "home": "Toronto Raptors",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-19",
       "home": "Memphis Grizzlies",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-19",
       "home": "San Antonio Spurs",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-19",
       "home": "Milwaukee Bucks",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-11-20",
+      "date": "2026-11-19",
       "home": "Minnesota Timberwolves",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Atlanta Hawks",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Brooklyn Nets",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Chicago Bulls",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Cleveland Cavaliers",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Denver Nuggets",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Detroit Pistons",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-20",
       "home": "Los Angeles Lakers",
       "away": "Sacramento Kings"
+    },
+    {
+      "date": "2026-11-20",
+      "home": "Oklahoma City Thunder",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2026-11-20",
+      "home": "Utah Jazz",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Sacramento Kings",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Dallas Mavericks",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2026-11-21",
+      "home": "Minnesota Timberwolves",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2026-11-21",
@@ -4561,13 +4586,13 @@
     },
     {
       "date": "2026-11-21",
-      "home": "Oklahoma City Thunder",
+      "home": "San Antonio Spurs",
       "away": "New Orleans Pelicans"
     },
     {
       "date": "2026-11-21",
-      "home": "Utah Jazz",
-      "away": "Phoenix Suns"
+      "home": "New York Knicks",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2026-11-22",
@@ -4576,18 +4601,23 @@
     },
     {
       "date": "2026-11-22",
-      "home": "Sacramento Kings",
+      "home": "Golden State Warriors",
       "away": "Boston Celtics"
     },
     {
       "date": "2026-11-22",
-      "home": "Dallas Mavericks",
-      "away": "LA Clippers"
+      "home": "Chicago Bulls",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2026-11-22",
-      "home": "Minnesota Timberwolves",
-      "away": "Memphis Grizzlies"
+      "home": "Utah Jazz",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2026-11-22",
+      "home": "New York Knicks",
+      "away": "Indiana Pacers"
     },
     {
       "date": "2026-11-22",
@@ -4596,103 +4626,103 @@
     },
     {
       "date": "2026-11-22",
-      "home": "San Antonio Spurs",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2026-11-22",
-      "home": "New York Knicks",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2026-11-23",
-      "home": "Golden State Warriors",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2026-11-23",
-      "home": "Chicago Bulls",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-11-23",
-      "home": "Utah Jazz",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2026-11-23",
-      "home": "New York Knicks",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-11-23",
       "home": "Washington Wizards",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Minnesota Timberwolves",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Charlotte Hornets",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Chicago Bulls",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Houston Rockets",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Indiana Pacers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Los Angeles Lakers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Toronto Raptors",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "New Orleans Pelicans",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Philadelphia 76ers",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-23",
       "home": "Sacramento Kings",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-11-25",
+      "date": "2026-11-24",
       "home": "Washington Wizards",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-11-25",
+      "date": "2026-11-24",
       "home": "Denver Nuggets",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-11-25",
+      "date": "2026-11-24",
       "home": "Orlando Magic",
       "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "Milwaukee Bucks",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "Charlotte Hornets",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "New York Knicks",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "Golden State Warriors",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "Houston Rockets",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2026-11-25",
+      "home": "Memphis Grizzlies",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-11-25",
@@ -4700,54 +4730,69 @@
       "away": "Miami Heat"
     },
     {
-      "date": "2026-11-26",
-      "home": "Milwaukee Bucks",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2026-11-26",
-      "home": "Charlotte Hornets",
-      "away": "Chicago Bulls"
-    },
-    {
-      "date": "2026-11-26",
-      "home": "New York Knicks",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2026-11-26",
-      "home": "Golden State Warriors",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2026-11-26",
-      "home": "Houston Rockets",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2026-11-26",
-      "home": "Memphis Grizzlies",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2026-11-26",
+      "date": "2026-11-25",
       "home": "Oklahoma City Thunder",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-11-26",
+      "date": "2026-11-25",
       "home": "Portland Trail Blazers",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-11-28",
+      "date": "2026-11-27",
       "home": "Boston Celtics",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-11-28",
+      "date": "2026-11-27",
       "home": "Toronto Raptors",
       "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Phoenix Suns",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Utah Jazz",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Detroit Pistons",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Portland Trail Blazers",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Indiana Pacers",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "LA Clippers",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "San Antonio Spurs",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "Minnesota Timberwolves",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2026-11-27",
+      "home": "New York Knicks",
+      "away": "Miami Heat"
     },
     {
       "date": "2026-11-28",
@@ -4756,48 +4801,18 @@
     },
     {
       "date": "2026-11-28",
-      "home": "Phoenix Suns",
-      "away": "Dallas Mavericks"
+      "home": "Chicago Bulls",
+      "away": "Indiana Pacers"
     },
     {
       "date": "2026-11-28",
-      "home": "Utah Jazz",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "Detroit Pistons",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "Portland Trail Blazers",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "Indiana Pacers",
+      "home": "Houston Rockets",
       "away": "Philadelphia 76ers"
     },
     {
       "date": "2026-11-28",
-      "home": "LA Clippers",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "San Antonio Spurs",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "Minnesota Timberwolves",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2026-11-28",
-      "home": "New York Knicks",
-      "away": "Miami Heat"
+      "home": "Milwaukee Bucks",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2026-11-28",
@@ -4816,11 +4831,6 @@
     },
     {
       "date": "2026-11-29",
-      "home": "Chicago Bulls",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-11-29",
       "home": "Cleveland Cavaliers",
       "away": "Miami Heat"
     },
@@ -4836,8 +4846,8 @@
     },
     {
       "date": "2026-11-29",
-      "home": "Houston Rockets",
-      "away": "Philadelphia 76ers"
+      "home": "Golden State Warriors",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-11-29",
@@ -4846,8 +4856,8 @@
     },
     {
       "date": "2026-11-29",
-      "home": "Milwaukee Bucks",
-      "away": "Oklahoma City Thunder"
+      "home": "Sacramento Kings",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2026-11-29",
@@ -4861,158 +4871,168 @@
     },
     {
       "date": "2026-11-30",
-      "home": "Golden State Warriors",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2026-11-30",
-      "home": "Sacramento Kings",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2026-12-01",
       "home": "Dallas Mavericks",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Brooklyn Nets",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Charlotte Hornets",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Detroit Pistons",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Houston Rockets",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Milwaukee Bucks",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-12-01",
+      "date": "2026-11-30",
       "home": "Sacramento Kings",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Miami Heat",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Chicago Bulls",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Cleveland Cavaliers",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Golden State Warriors",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Houston Rockets",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Phoenix Suns",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Philadelphia 76ers",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-12-02",
+      "date": "2026-12-01",
       "home": "Portland Trail Blazers",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Boston Celtics",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Oklahoma City Thunder",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Dallas Mavericks",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Philadelphia 76ers",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Detroit Pistons",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "LA Clippers",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "New Orleans Pelicans",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Milwaukee Bucks",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-03",
+      "date": "2026-12-02",
       "home": "Phoenix Suns",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2026-12-04",
+      "date": "2026-12-03",
       "home": "Atlanta Hawks",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-12-04",
+      "date": "2026-12-03",
       "home": "Chicago Bulls",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-12-04",
+      "date": "2026-12-03",
       "home": "Miami Heat",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-12-04",
+      "date": "2026-12-03",
       "home": "Portland Trail Blazers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-12-04",
+      "date": "2026-12-03",
       "home": "San Antonio Spurs",
       "away": "Toronto Raptors"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Portland Trail Blazers",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Washington Wizards",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Cleveland Cavaliers",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Utah Jazz",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2026-12-12",
@@ -5020,9 +5040,19 @@
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-12-13",
-      "home": "Portland Trail Blazers",
-      "away": "Atlanta Hawks"
+      "date": "2026-12-12",
+      "home": "Miami Heat",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Phoenix Suns",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2026-12-12",
+      "home": "Philadelphia 76ers",
+      "away": "Orlando Magic"
     },
     {
       "date": "2026-12-13",
@@ -5031,23 +5061,8 @@
     },
     {
       "date": "2026-12-13",
-      "home": "Washington Wizards",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2026-12-13",
       "home": "Chicago Bulls",
       "away": "Houston Rockets"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Cleveland Cavaliers",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Utah Jazz",
-      "away": "Denver Nuggets"
     },
     {
       "date": "2026-12-13",
@@ -5056,193 +5071,228 @@
     },
     {
       "date": "2026-12-13",
-      "home": "Miami Heat",
-      "away": "New York Knicks"
+      "home": "San Antonio Spurs",
+      "away": "LA Clippers"
     },
     {
       "date": "2026-12-13",
-      "home": "Phoenix Suns",
-      "away": "Minnesota Timberwolves"
+      "home": "Sacramento Kings",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2026-12-13",
       "home": "Oklahoma City Thunder",
       "away": "Toronto Raptors"
-    },
-    {
-      "date": "2026-12-13",
-      "home": "Philadelphia 76ers",
-      "away": "Orlando Magic"
     },
     {
       "date": "2026-12-14",
-      "home": "San Antonio Spurs",
-      "away": "LA Clippers"
+      "home": "Phoenix Suns",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2026-12-14",
-      "home": "Sacramento Kings",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2026-12-15",
-      "home": "Phoenix Suns",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2026-12-15",
       "home": "Boston Celtics",
       "away": "Washington Wizards"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Detroit Pistons",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Charlotte Hornets",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Chicago Bulls",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Dallas Mavericks",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Memphis Grizzlies",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Houston Rockets",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Los Angeles Lakers",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Utah Jazz",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-12-15",
+      "date": "2026-12-14",
       "home": "Orlando Magic",
       "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2026-12-15",
+      "home": "Cleveland Cavaliers",
+      "away": "San Antonio Spurs"
+    },
+    {
+      "date": "2026-12-15",
+      "home": "Portland Trail Blazers",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2026-12-16",
-      "home": "Cleveland Cavaliers",
-      "away": "San Antonio Spurs"
+      "home": "Boston Celtics",
+      "away": "Washington Wizards"
     },
     {
       "date": "2026-12-16",
-      "home": "Portland Trail Blazers",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-12-17",
-      "home": "Boston Celtics",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2026-12-17",
       "home": "Brooklyn Nets",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Charlotte Hornets",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Chicago Bulls",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Orlando Magic",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Detroit Pistons",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Indiana Pacers",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Houston Rockets",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Minnesota Timberwolves",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Memphis Grizzlies",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "New Orleans Pelicans",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Oklahoma City Thunder",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2026-12-17",
+      "date": "2026-12-16",
       "home": "Toronto Raptors",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-12-18",
+      "date": "2026-12-17",
       "home": "Denver Nuggets",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2026-12-18",
+      "date": "2026-12-17",
       "home": "Philadelphia 76ers",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-12-18",
+      "date": "2026-12-17",
       "home": "Indiana Pacers",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-12-19",
+      "date": "2026-12-18",
       "home": "Boston Celtics",
       "away": "Utah Jazz"
     },
     {
-      "date": "2026-12-19",
+      "date": "2026-12-18",
       "home": "Brooklyn Nets",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-12-19",
+      "date": "2026-12-18",
       "home": "Charlotte Hornets",
       "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "San Antonio Spurs",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Detroit Pistons",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Toronto Raptors",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Memphis Grizzlies",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Miami Heat",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Minnesota Timberwolves",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Milwaukee Bucks",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "New Orleans Pelicans",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2026-12-18",
+      "home": "Washington Wizards",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2026-12-19",
+      "home": "Atlanta Hawks",
+      "away": "Orlando Magic"
     },
     {
       "date": "2026-12-19",
@@ -5251,53 +5301,23 @@
     },
     {
       "date": "2026-12-19",
-      "home": "San Antonio Spurs",
+      "home": "Dallas Mavericks",
       "away": "Chicago Bulls"
     },
     {
       "date": "2026-12-19",
-      "home": "Detroit Pistons",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Toronto Raptors",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Memphis Grizzlies",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Miami Heat",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Minnesota Timberwolves",
+      "home": "Denver Nuggets",
       "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Milwaukee Bucks",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "New Orleans Pelicans",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2026-12-19",
-      "home": "Washington Wizards",
-      "away": "New York Knicks"
     },
     {
       "date": "2026-12-20",
       "home": "Atlanta Hawks",
-      "away": "Orlando Magic"
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2026-12-20",
+      "home": "Boston Celtics",
+      "away": "Detroit Pistons"
     },
     {
       "date": "2026-12-20",
@@ -5306,18 +5326,13 @@
     },
     {
       "date": "2026-12-20",
-      "home": "Dallas Mavericks",
-      "away": "Chicago Bulls"
-    },
-    {
-      "date": "2026-12-20",
       "home": "Cleveland Cavaliers",
       "away": "Utah Jazz"
     },
     {
       "date": "2026-12-20",
-      "home": "Denver Nuggets",
-      "away": "Los Angeles Lakers"
+      "home": "Milwaukee Bucks",
+      "away": "Golden State Warriors"
     },
     {
       "date": "2026-12-20",
@@ -5326,6 +5341,11 @@
     },
     {
       "date": "2026-12-20",
+      "home": "LA Clippers",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2026-12-20",
       "home": "Memphis Grizzlies",
       "away": "Phoenix Suns"
     },
@@ -5335,167 +5355,147 @@
       "away": "Sacramento Kings"
     },
     {
-      "date": "2026-12-21",
-      "home": "Atlanta Hawks",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2026-12-21",
-      "home": "Boston Celtics",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2026-12-21",
-      "home": "Milwaukee Bucks",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2026-12-21",
-      "home": "LA Clippers",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-12-21",
+      "date": "2026-12-20",
       "home": "New Orleans Pelicans",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Brooklyn Nets",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Charlotte Hornets",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Miami Heat",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Cleveland Cavaliers",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "LA Clippers",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Los Angeles Lakers",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "New Orleans Pelicans",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "San Antonio Spurs",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Minnesota Timberwolves",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2026-12-22",
+      "date": "2026-12-21",
       "home": "Orlando Magic",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2026-12-23",
+      "date": "2026-12-22",
       "home": "Golden State Warriors",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-12-23",
+      "date": "2026-12-22",
       "home": "Oklahoma City Thunder",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2026-12-23",
+      "date": "2026-12-22",
       "home": "Washington Wizards",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Atlanta Hawks",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Boston Celtics",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Brooklyn Nets",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Orlando Magic",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Miami Heat",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Washington Wizards",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Sacramento Kings",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Los Angeles Lakers",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "LA Clippers",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Philadelphia 76ers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Phoenix Suns",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Memphis Grizzlies",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "Milwaukee Bucks",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "New Orleans Pelicans",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2026-12-24",
+      "date": "2026-12-23",
       "home": "New York Knicks",
       "away": "Utah Jazz"
     },
@@ -5506,8 +5506,18 @@
     },
     {
       "date": "2026-12-25",
+      "home": "Golden State Warriors",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-12-25",
       "home": "Los Angeles Lakers",
       "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2026-12-25",
+      "home": "Minnesota Timberwolves",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2026-12-25",
@@ -5526,8 +5536,13 @@
     },
     {
       "date": "2026-12-26",
-      "home": "Golden State Warriors",
-      "away": "Denver Nuggets"
+      "home": "Chicago Bulls",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Dallas Mavericks",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2026-12-26",
@@ -5536,13 +5551,23 @@
     },
     {
       "date": "2026-12-26",
-      "home": "Minnesota Timberwolves",
-      "away": "Oklahoma City Thunder"
+      "home": "LA Clippers",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2026-12-26",
+      "home": "Orlando Magic",
+      "away": "Toronto Raptors"
     },
     {
       "date": "2026-12-26",
       "home": "Washington Wizards",
       "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2026-12-27",
+      "home": "San Antonio Spurs",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2026-12-27",
@@ -5556,18 +5581,23 @@
     },
     {
       "date": "2026-12-27",
-      "home": "Chicago Bulls",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2026-12-27",
       "home": "Cleveland Cavaliers",
       "away": "Washington Wizards"
     },
     {
       "date": "2026-12-27",
-      "home": "Dallas Mavericks",
-      "away": "Phoenix Suns"
+      "home": "Denver Nuggets",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2026-12-27",
+      "home": "Detroit Pistons",
+      "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2026-12-27",
+      "home": "Golden State Warriors",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2026-12-27",
@@ -5577,6 +5607,11 @@
     {
       "date": "2026-12-27",
       "home": "LA Clippers",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2026-12-27",
+      "home": "Los Angeles Lakers",
       "away": "Memphis Grizzlies"
     },
     {
@@ -5586,183 +5621,173 @@
     },
     {
       "date": "2026-12-27",
-      "home": "Orlando Magic",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2026-12-27",
       "home": "Sacramento Kings",
       "away": "Utah Jazz"
     },
     {
       "date": "2026-12-28",
-      "home": "San Antonio Spurs",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2026-12-28",
-      "home": "Denver Nuggets",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2026-12-28",
-      "home": "Detroit Pistons",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2026-12-28",
-      "home": "Golden State Warriors",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2026-12-28",
-      "home": "LA Clippers",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2026-12-28",
-      "home": "Los Angeles Lakers",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2026-12-29",
       "home": "Boston Celtics",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2026-12-29",
+      "date": "2026-12-28",
       "home": "Denver Nuggets",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2026-12-29",
+      "date": "2026-12-28",
       "home": "Phoenix Suns",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2026-12-29",
+      "date": "2026-12-28",
       "home": "Toronto Raptors",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Atlanta Hawks",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Portland Trail Blazers",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Charlotte Hornets",
       "away": "Orlando Magic"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Dallas Mavericks",
       "away": "Miami Heat"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Los Angeles Lakers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Indiana Pacers",
       "away": "LA Clippers"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Memphis Grizzlies",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Oklahoma City Thunder",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2026-12-30",
+      "date": "2026-12-29",
       "home": "Sacramento Kings",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-12-31",
-      "home": "Atlanta Hawks",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Chicago Bulls",
       "away": "Boston Celtics"
     },
     {
-      "date": "2026-12-31",
-      "home": "Sacramento Kings",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2026-12-31",
-      "home": "Charlotte Hornets",
-      "away": "San Antonio Spurs"
-    },
-    {
-      "date": "2026-12-31",
-      "home": "Cleveland Cavaliers",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2026-12-31",
-      "home": "Minnesota Timberwolves",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Detroit Pistons",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Golden State Warriors",
       "away": "Houston Rockets"
     },
     {
-      "date": "2026-12-31",
-      "home": "Indiana Pacers",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Utah Jazz",
       "away": "New York Knicks"
     },
     {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Phoenix Suns",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2026-12-31",
+      "date": "2026-12-30",
       "home": "Toronto Raptors",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-01-01",
+      "date": "2026-12-31",
+      "home": "Atlanta Hawks",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2026-12-31",
+      "home": "Sacramento Kings",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2026-12-31",
+      "home": "Charlotte Hornets",
+      "away": "San Antonio Spurs"
+    },
+    {
+      "date": "2026-12-31",
+      "home": "Cleveland Cavaliers",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2026-12-31",
+      "home": "Minnesota Timberwolves",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2026-12-31",
+      "home": "Indiana Pacers",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2026-12-31",
       "home": "New Orleans Pelicans",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-01",
+      "date": "2026-12-31",
       "home": "Oklahoma City Thunder",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-01-01",
+      "date": "2026-12-31",
       "home": "Phoenix Suns",
       "away": "New York Knicks"
+    },
+    {
+      "date": "2027-01-01",
+      "home": "Utah Jazz",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-01-01",
+      "home": "Houston Rockets",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-01-01",
+      "home": "Detroit Pistons",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-01-01",
+      "home": "Toronto Raptors",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-01-01",
+      "home": "Milwaukee Bucks",
+      "away": "Philadelphia 76ers"
     },
     {
       "date": "2027-01-01",
@@ -5771,8 +5796,18 @@
     },
     {
       "date": "2027-01-02",
-      "home": "Utah Jazz",
+      "home": "Atlanta Hawks",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Portland Trail Blazers",
       "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-01-02",
+      "home": "Golden State Warriors",
+      "away": "Brooklyn Nets"
     },
     {
       "date": "2027-01-02",
@@ -5781,8 +5816,8 @@
     },
     {
       "date": "2027-01-02",
-      "home": "Houston Rockets",
-      "away": "Dallas Mavericks"
+      "home": "Chicago Bulls",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2027-01-02",
@@ -5791,33 +5826,23 @@
     },
     {
       "date": "2027-01-02",
-      "home": "Detroit Pistons",
-      "away": "Orlando Magic"
+      "home": "Indiana Pacers",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2027-01-02",
-      "home": "Toronto Raptors",
-      "away": "LA Clippers"
+      "home": "New Orleans Pelicans",
+      "away": "Miami Heat"
     },
     {
       "date": "2027-01-02",
-      "home": "Milwaukee Bucks",
-      "away": "Philadelphia 76ers"
+      "home": "Oklahoma City Thunder",
+      "away": "Utah Jazz"
     },
     {
-      "date": "2027-01-03",
-      "home": "Atlanta Hawks",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-01-03",
-      "home": "Portland Trail Blazers",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2027-01-03",
-      "home": "Golden State Warriors",
-      "away": "Brooklyn Nets"
+      "date": "2027-01-02",
+      "home": "Phoenix Suns",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2027-01-03",
@@ -5826,8 +5851,8 @@
     },
     {
       "date": "2027-01-03",
-      "home": "Chicago Bulls",
-      "away": "Los Angeles Lakers"
+      "home": "Houston Rockets",
+      "away": "Cleveland Cavaliers"
     },
     {
       "date": "2027-01-03",
@@ -5836,8 +5861,13 @@
     },
     {
       "date": "2027-01-03",
-      "home": "Indiana Pacers",
-      "away": "Minnesota Timberwolves"
+      "home": "Washington Wizards",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-01-03",
+      "home": "Toronto Raptors",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2027-01-03",
@@ -5846,203 +5876,218 @@
     },
     {
       "date": "2027-01-03",
-      "home": "New Orleans Pelicans",
-      "away": "Miami Heat"
-    },
-    {
-      "date": "2027-01-03",
-      "home": "Oklahoma City Thunder",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-01-03",
-      "home": "Phoenix Suns",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-01-04",
-      "home": "Houston Rockets",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-01-04",
-      "home": "Washington Wizards",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-01-04",
-      "home": "Toronto Raptors",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-01-04",
       "home": "Minnesota Timberwolves",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-01-04",
+      "date": "2027-01-03",
       "home": "Oklahoma City Thunder",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "Philadelphia 76ers",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "Phoenix Suns",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "Utah Jazz",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "Indiana Pacers",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "New Orleans Pelicans",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-01-05",
+      "date": "2027-01-04",
       "home": "Portland Trail Blazers",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Charlotte Hornets",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Chicago Bulls",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Cleveland Cavaliers",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Denver Nuggets",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Sacramento Kings",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Houston Rockets",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Orlando Magic",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Washington Wizards",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-06",
+      "date": "2027-01-05",
       "home": "Miami Heat",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-01-07",
+      "date": "2027-01-06",
       "home": "Brooklyn Nets",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-01-07",
+      "date": "2027-01-06",
       "home": "Golden State Warriors",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-01-07",
+      "date": "2027-01-06",
       "home": "San Antonio Spurs",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-01-07",
+      "date": "2027-01-06",
       "home": "New Orleans Pelicans",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-01-07",
+      "date": "2027-01-06",
       "home": "Philadelphia 76ers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Atlanta Hawks",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Los Angeles Lakers",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Brooklyn Nets",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Charlotte Hornets",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Sacramento Kings",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Orlando Magic",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Dallas Mavericks",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Golden State Warriors",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Houston Rockets",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Milwaukee Bucks",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Toronto Raptors",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-01-08",
+      "date": "2027-01-07",
       "home": "Washington Wizards",
       "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Dallas Mavericks",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Los Angeles Lakers",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "San Antonio Spurs",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Philadelphia 76ers",
+      "away": "Miami Heat"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Washington Wizards",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "New Orleans Pelicans",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Sacramento Kings",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2027-01-08",
+      "home": "Toronto Raptors",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "LA Clippers",
+      "away": "Boston Celtics"
     },
     {
       "date": "2027-01-09",
@@ -6051,48 +6096,23 @@
     },
     {
       "date": "2027-01-09",
+      "home": "Portland Trail Blazers",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-01-09",
+      "home": "Golden State Warriors",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2027-01-09",
       "home": "Cleveland Cavaliers",
       "away": "Denver Nuggets"
     },
     {
       "date": "2027-01-09",
-      "home": "Dallas Mavericks",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "Los Angeles Lakers",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "San Antonio Spurs",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "Philadelphia 76ers",
-      "away": "Miami Heat"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "Washington Wizards",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "New Orleans Pelicans",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "Sacramento Kings",
-      "away": "New York Knicks"
-    },
-    {
-      "date": "2027-01-09",
-      "home": "Toronto Raptors",
-      "away": "Utah Jazz"
+      "home": "Indiana Pacers",
+      "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-01-10",
@@ -6101,17 +6121,12 @@
     },
     {
       "date": "2027-01-10",
-      "home": "LA Clippers",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2027-01-10",
-      "home": "Portland Trail Blazers",
+      "home": "Sacramento Kings",
       "away": "Charlotte Hornets"
     },
     {
       "date": "2027-01-10",
-      "home": "Golden State Warriors",
+      "home": "Phoenix Suns",
       "away": "Chicago Bulls"
     },
     {
@@ -6123,11 +6138,6 @@
       "date": "2027-01-10",
       "home": "Detroit Pistons",
       "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-01-10",
-      "home": "Indiana Pacers",
-      "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-01-10",
@@ -6146,113 +6156,148 @@
     },
     {
       "date": "2027-01-11",
-      "home": "Sacramento Kings",
-      "away": "Charlotte Hornets"
+      "home": "Washington Wizards",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-01-11",
-      "home": "Phoenix Suns",
-      "away": "Chicago Bulls"
-    },
-    {
-      "date": "2027-01-12",
-      "home": "Washington Wizards",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2027-01-12",
       "home": "Boston Celtics",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-01-12",
+      "date": "2027-01-11",
       "home": "Indiana Pacers",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-01-12",
+      "date": "2027-01-11",
       "home": "Minnesota Timberwolves",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-12",
+      "date": "2027-01-11",
       "home": "New York Knicks",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-01-12",
+      "date": "2027-01-11",
       "home": "LA Clippers",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Miami Heat",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Utah Jazz",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Memphis Grizzlies",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Milwaukee Bucks",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Toronto Raptors",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Golden State Warriors",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Portland Trail Blazers",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-01-13",
+      "date": "2027-01-12",
       "home": "Philadelphia 76ers",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Atlanta Hawks",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Boston Celtics",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Golden State Warriors",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Oklahoma City Thunder",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Indiana Pacers",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-01-14",
+      "date": "2027-01-13",
       "home": "Portland Trail Blazers",
       "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2027-01-13",
+      "home": "Toronto Raptors",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Philadelphia 76ers",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Utah Jazz",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Chicago Bulls",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Detroit Pistons",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Denver Nuggets",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Sacramento Kings",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "Los Angeles Lakers",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-01-14",
+      "home": "New York Knicks",
+      "away": "Miami Heat"
     },
     {
       "date": "2027-01-14",
@@ -6260,104 +6305,74 @@
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-01-14",
-      "home": "Toronto Raptors",
-      "away": "Phoenix Suns"
-    },
-    {
       "date": "2027-01-15",
-      "home": "Philadelphia 76ers",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Utah Jazz",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Chicago Bulls",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Detroit Pistons",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Denver Nuggets",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Sacramento Kings",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "Los Angeles Lakers",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2027-01-15",
-      "home": "New York Knicks",
-      "away": "Miami Heat"
-    },
-    {
-      "date": "2027-01-16",
       "home": "Atlanta Hawks",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-01-16",
+      "date": "2027-01-15",
       "home": "Milwaukee Bucks",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-16",
+      "date": "2027-01-15",
       "home": "Houston Rockets",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-01-16",
+      "date": "2027-01-15",
       "home": "Indiana Pacers",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-01-16",
+      "date": "2027-01-15",
       "home": "LA Clippers",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-01-16",
+      "date": "2027-01-15",
       "home": "Toronto Raptors",
       "away": "Miami Heat"
+    },
+    {
+      "date": "2027-01-15",
+      "home": "Oklahoma City Thunder",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-01-15",
+      "home": "Portland Trail Blazers",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Boston Celtics",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Denver Nuggets",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Memphis Grizzlies",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "New York Knicks",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-01-16",
+      "home": "Houston Rockets",
+      "away": "Detroit Pistons"
     },
     {
       "date": "2027-01-16",
       "home": "Philadelphia 76ers",
       "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-01-16",
-      "home": "Oklahoma City Thunder",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-01-16",
-      "home": "Portland Trail Blazers",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "Boston Celtics",
-      "away": "Brooklyn Nets"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "Denver Nuggets",
-      "away": "Charlotte Hornets"
     },
     {
       "date": "2027-01-17",
@@ -6366,18 +6381,8 @@
     },
     {
       "date": "2027-01-17",
-      "home": "Memphis Grizzlies",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "New York Knicks",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-01-17",
-      "home": "Houston Rockets",
-      "away": "Detroit Pistons"
+      "home": "Denver Nuggets",
+      "away": "Orlando Magic"
     },
     {
       "date": "2027-01-17",
@@ -6388,6 +6393,11 @@
       "date": "2027-01-17",
       "home": "Washington Wizards",
       "away": "Indiana Pacers"
+    },
+    {
+      "date": "2027-01-17",
+      "home": "Los Angeles Lakers",
+      "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-01-17",
@@ -6421,13 +6431,18 @@
     },
     {
       "date": "2027-01-18",
-      "home": "Denver Nuggets",
-      "away": "Orlando Magic"
+      "home": "Dallas Mavericks",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-01-18",
-      "home": "Los Angeles Lakers",
-      "away": "Milwaukee Bucks"
+      "home": "Memphis Grizzlies",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2027-01-18",
+      "home": "LA Clippers",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2027-01-18",
@@ -6437,137 +6452,177 @@
     {
       "date": "2027-01-19",
       "home": "Dallas Mavericks",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-01-19",
-      "home": "Memphis Grizzlies",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-01-19",
-      "home": "LA Clippers",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2027-01-20",
-      "home": "Dallas Mavericks",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Toronto Raptors",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Denver Nuggets",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Orlando Magic",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Philadelphia 76ers",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Sacramento Kings",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-20",
+      "date": "2027-01-19",
       "home": "Miami Heat",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Atlanta Hawks",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Boston Celtics",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Brooklyn Nets",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Minnesota Timberwolves",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Utah Jazz",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Phoenix Suns",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "San Antonio Spurs",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "Sacramento Kings",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "New Orleans Pelicans",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-01-21",
+      "date": "2027-01-20",
       "home": "New York Knicks",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-01-22",
+      "date": "2027-01-21",
       "home": "Boston Celtics",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-01-22",
+      "date": "2027-01-21",
       "home": "Brooklyn Nets",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-22",
+      "date": "2027-01-21",
       "home": "Denver Nuggets",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-01-22",
+      "date": "2027-01-21",
       "home": "Golden State Warriors",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-23",
+      "date": "2027-01-22",
       "home": "Atlanta Hawks",
       "away": "New York Knicks"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Charlotte Hornets",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "New Orleans Pelicans",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Detroit Pistons",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Golden State Warriors",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "LA Clippers",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Los Angeles Lakers",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Oklahoma City Thunder",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "San Antonio Spurs",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Orlando Magic",
+      "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2027-01-22",
+      "home": "Phoenix Suns",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-01-23",
+      "home": "Miami Heat",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-01-23",
+      "home": "Boston Celtics",
+      "away": "Charlotte Hornets"
     },
     {
       "date": "2027-01-23",
       "home": "Brooklyn Nets",
       "away": "Toronto Raptors"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Charlotte Hornets",
-      "away": "Houston Rockets"
     },
     {
       "date": "2027-01-23",
@@ -6576,66 +6631,11 @@
     },
     {
       "date": "2027-01-23",
-      "home": "New Orleans Pelicans",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Detroit Pistons",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Golden State Warriors",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "LA Clippers",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Los Angeles Lakers",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Oklahoma City Thunder",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "San Antonio Spurs",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Orlando Magic",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2027-01-23",
-      "home": "Phoenix Suns",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-01-24",
-      "home": "Miami Heat",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2027-01-24",
-      "home": "Boston Celtics",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-01-24",
       "home": "Dallas Mavericks",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-24",
+      "date": "2027-01-23",
       "home": "Denver Nuggets",
       "away": "Milwaukee Bucks"
     },
@@ -6646,8 +6646,18 @@
     },
     {
       "date": "2027-01-24",
+      "home": "Golden State Warriors",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-01-24",
       "home": "Orlando Magic",
       "away": "Houston Rockets"
+    },
+    {
+      "date": "2027-01-24",
+      "home": "New York Knicks",
+      "away": "LA Clippers"
     },
     {
       "date": "2027-01-24",
@@ -6666,198 +6676,203 @@
     },
     {
       "date": "2027-01-25",
-      "home": "Golden State Warriors",
-      "away": "Oklahoma City Thunder"
+      "home": "Boston Celtics",
+      "away": "Toronto Raptors"
     },
     {
       "date": "2027-01-25",
-      "home": "New York Knicks",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-01-26",
-      "home": "Boston Celtics",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2027-01-26",
       "home": "Brooklyn Nets",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "Charlotte Hornets",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "Chicago Bulls",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "New Orleans Pelicans",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "Denver Nuggets",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "Philadelphia 76ers",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-26",
+      "date": "2027-01-25",
       "home": "Memphis Grizzlies",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "Detroit Pistons",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "Indiana Pacers",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "San Antonio Spurs",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "Los Angeles Lakers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "Utah Jazz",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "New York Knicks",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-01-27",
+      "date": "2027-01-26",
       "home": "Portland Trail Blazers",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Boston Celtics",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Brooklyn Nets",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "San Antonio Spurs",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Cleveland Cavaliers",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Toronto Raptors",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Minnesota Timberwolves",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Portland Trail Blazers",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Houston Rockets",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-01-28",
+      "date": "2027-01-27",
       "home": "Philadelphia 76ers",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "New York Knicks",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Orlando Magic",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Utah Jazz",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Indiana Pacers",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Oklahoma City Thunder",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Milwaukee Bucks",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "New Orleans Pelicans",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-01-29",
+      "date": "2027-01-28",
       "home": "Washington Wizards",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-01-30",
+      "date": "2027-01-29",
       "home": "Boston Celtics",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-01-30",
+      "date": "2027-01-29",
       "home": "Brooklyn Nets",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-01-30",
+      "date": "2027-01-29",
       "home": "Minnesota Timberwolves",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-01-30",
+      "date": "2027-01-29",
       "home": "Toronto Raptors",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-01-30",
+      "date": "2027-01-29",
       "home": "Dallas Mavericks",
       "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-01-29",
+      "home": "Houston Rockets",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-01-30",
+      "home": "Milwaukee Bucks",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-01-30",
+      "home": "Cleveland Cavaliers",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-01-30",
@@ -6871,18 +6886,23 @@
     },
     {
       "date": "2027-01-30",
-      "home": "Houston Rockets",
-      "away": "Orlando Magic"
+      "home": "Indiana Pacers",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2027-01-30",
+      "home": "New York Knicks",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2027-01-30",
+      "home": "Utah Jazz",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2027-01-30",
       "home": "Miami Heat",
       "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2027-01-31",
-      "home": "Milwaukee Bucks",
-      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-01-31",
@@ -6896,13 +6916,23 @@
     },
     {
       "date": "2027-01-31",
+      "home": "Charlotte Hornets",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2027-01-31",
       "home": "Oklahoma City Thunder",
       "away": "Chicago Bulls"
     },
     {
       "date": "2027-01-31",
-      "home": "Cleveland Cavaliers",
-      "away": "New Orleans Pelicans"
+      "home": "Dallas Mavericks",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2027-01-31",
+      "home": "Denver Nuggets",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2027-01-31",
@@ -6911,236 +6941,221 @@
     },
     {
       "date": "2027-01-31",
-      "home": "Indiana Pacers",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2027-01-31",
-      "home": "New York Knicks",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-01-31",
-      "home": "Utah Jazz",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-01-31",
       "home": "Minnesota Timberwolves",
       "away": "Phoenix Suns"
     },
     {
       "date": "2027-02-01",
-      "home": "Charlotte Hornets",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-02-01",
-      "home": "Dallas Mavericks",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-02-01",
-      "home": "Denver Nuggets",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2027-02-02",
       "home": "Atlanta Hawks",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Brooklyn Nets",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Utah Jazz",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Golden State Warriors",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Indiana Pacers",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Milwaukee Bucks",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-02-02",
+      "date": "2027-02-01",
       "home": "Philadelphia 76ers",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Boston Celtics",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Miami Heat",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Detroit Pistons",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Dallas Mavericks",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Denver Nuggets",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "LA Clippers",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Portland Trail Blazers",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-02-03",
+      "date": "2027-02-02",
       "home": "Orlando Magic",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "Indiana Pacers",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "Phoenix Suns",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "Detroit Pistons",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "LA Clippers",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "Houston Rockets",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-02-04",
+      "date": "2027-02-03",
       "home": "Memphis Grizzlies",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Charlotte Hornets",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Brooklyn Nets",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Chicago Bulls",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Portland Trail Blazers",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Denver Nuggets",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Miami Heat",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Sacramento Kings",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "Washington Wizards",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "New York Knicks",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-02-05",
+      "date": "2027-02-04",
       "home": "San Antonio Spurs",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Atlanta Hawks",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-02-06",
-      "home": "Brooklyn Nets",
-      "away": "Washington Wizards"
-    },
-    {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Charlotte Hornets",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-02-06",
-      "home": "Dallas Mavericks",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Denver Nuggets",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Philadelphia 76ers",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Phoenix Suns",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-02-06",
+      "date": "2027-02-05",
       "home": "Oklahoma City Thunder",
       "away": "Indiana Pacers"
     },
     {
       "date": "2027-02-06",
+      "home": "Brooklyn Nets",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2027-02-06",
+      "home": "Chicago Bulls",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2027-02-06",
+      "home": "Cleveland Cavaliers",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-02-06",
+      "home": "Dallas Mavericks",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-02-06",
+      "home": "San Antonio Spurs",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2027-02-06",
       "home": "Memphis Grizzlies",
       "away": "Portland Trail Blazers"
     },
@@ -7150,24 +7165,29 @@
       "away": "Miami Heat"
     },
     {
+      "date": "2027-02-06",
+      "home": "Toronto Raptors",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2027-02-06",
+      "home": "Sacramento Kings",
+      "away": "Phoenix Suns"
+    },
+    {
       "date": "2027-02-07",
       "home": "Atlanta Hawks",
       "away": "Denver Nuggets"
     },
     {
       "date": "2027-02-07",
+      "home": "Philadelphia 76ers",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-02-07",
       "home": "Toronto Raptors",
       "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-02-07",
-      "home": "Chicago Bulls",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2027-02-07",
-      "home": "Cleveland Cavaliers",
-      "away": "Orlando Magic"
     },
     {
       "date": "2027-02-07",
@@ -7181,13 +7201,8 @@
     },
     {
       "date": "2027-02-07",
-      "home": "San Antonio Spurs",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-02-07",
-      "home": "Toronto Raptors",
-      "away": "Milwaukee Bucks"
+      "home": "Sacramento Kings",
+      "away": "Houston Rockets"
     },
     {
       "date": "2027-02-07",
@@ -7196,193 +7211,203 @@
     },
     {
       "date": "2027-02-07",
-      "home": "Sacramento Kings",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2027-02-08",
-      "home": "Philadelphia 76ers",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2027-02-08",
-      "home": "Sacramento Kings",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-02-08",
       "home": "Oklahoma City Thunder",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Atlanta Hawks",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Philadelphia 76ers",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Washington Wizards",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Indiana Pacers",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Phoenix Suns",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Memphis Grizzlies",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-02-09",
+      "date": "2027-02-08",
       "home": "Milwaukee Bucks",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Boston Celtics",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Brooklyn Nets",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "New York Knicks",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Chicago Bulls",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Cleveland Cavaliers",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Dallas Mavericks",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "LA Clippers",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Utah Jazz",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Milwaukee Bucks",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-02-10",
+      "date": "2027-02-09",
       "home": "Oklahoma City Thunder",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Atlanta Hawks",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Boston Celtics",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Indiana Pacers",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Phoenix Suns",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Los Angeles Lakers",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Memphis Grizzlies",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-02-11",
+      "date": "2027-02-10",
       "home": "Washington Wizards",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Charlotte Hornets",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Denver Nuggets",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Dallas Mavericks",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Houston Rockets",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Indiana Pacers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Philadelphia 76ers",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-12",
+      "date": "2027-02-11",
       "home": "Oklahoma City Thunder",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-13",
+      "date": "2027-02-12",
       "home": "Atlanta Hawks",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-02-13",
+      "date": "2027-02-12",
       "home": "Boston Celtics",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-02-13",
+      "date": "2027-02-12",
       "home": "Washington Wizards",
       "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2027-02-12",
+      "home": "Toronto Raptors",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2027-02-12",
+      "home": "Los Angeles Lakers",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2027-02-12",
+      "home": "New Orleans Pelicans",
+      "away": "Houston Rockets"
+    },
+    {
+      "date": "2027-02-12",
+      "home": "Memphis Grizzlies",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-02-12",
+      "home": "Orlando Magic",
+      "away": "Miami Heat"
     },
     {
       "date": "2027-02-13",
@@ -7391,23 +7416,13 @@
     },
     {
       "date": "2027-02-13",
-      "home": "Toronto Raptors",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-02-13",
-      "home": "Los Angeles Lakers",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2027-02-13",
       "home": "Portland Trail Blazers",
       "away": "Detroit Pistons"
     },
     {
       "date": "2027-02-13",
-      "home": "New Orleans Pelicans",
-      "away": "Houston Rockets"
+      "home": "New York Knicks",
+      "away": "Golden State Warriors"
     },
     {
       "date": "2027-02-13",
@@ -7416,18 +7431,18 @@
     },
     {
       "date": "2027-02-13",
-      "home": "Memphis Grizzlies",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-02-13",
-      "home": "Orlando Magic",
-      "away": "Miami Heat"
+      "home": "Washington Wizards",
+      "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-02-13",
       "home": "Oklahoma City Thunder",
       "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-02-13",
+      "home": "Orlando Magic",
+      "away": "San Antonio Spurs"
     },
     {
       "date": "2027-02-14",
@@ -7461,23 +7476,8 @@
     },
     {
       "date": "2027-02-14",
-      "home": "New York Knicks",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2027-02-14",
       "home": "New Orleans Pelicans",
       "away": "LA Clippers"
-    },
-    {
-      "date": "2027-02-14",
-      "home": "Washington Wizards",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2027-02-14",
-      "home": "Orlando Magic",
-      "away": "San Antonio Spurs"
     },
     {
       "date": "2027-02-15",
@@ -7491,236 +7491,256 @@
     },
     {
       "date": "2027-02-15",
-      "home": "Miami Heat",
-      "away": "San Antonio Spurs"
-    },
-    {
-      "date": "2027-02-16",
       "home": "Utah Jazz",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-02-16",
+      "date": "2027-02-15",
       "home": "Golden State Warriors",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-02-16",
+      "date": "2027-02-15",
       "home": "Memphis Grizzlies",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-16",
+      "date": "2027-02-15",
+      "home": "Miami Heat",
+      "away": "San Antonio Spurs"
+    },
+    {
+      "date": "2027-02-15",
       "home": "Oklahoma City Thunder",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-02-16",
+      "date": "2027-02-15",
       "home": "Washington Wizards",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-02-17",
+      "date": "2027-02-16",
       "home": "Atlanta Hawks",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-02-17",
+      "date": "2027-02-16",
       "home": "Los Angeles Lakers",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-02-17",
+      "date": "2027-02-16",
       "home": "Cleveland Cavaliers",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-02-17",
+      "date": "2027-02-16",
       "home": "LA Clippers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-02-17",
+      "date": "2027-02-16",
       "home": "Portland Trail Blazers",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Brooklyn Nets",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Oklahoma City Thunder",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Charlotte Hornets",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "LA Clippers",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Cleveland Cavaliers",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Orlando Magic",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Denver Nuggets",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Detroit Pistons",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Golden State Warriors",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Sacramento Kings",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Memphis Grizzlies",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Washington Wizards",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-02-18",
+      "date": "2027-02-17",
       "home": "Philadelphia 76ers",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-02-19",
+      "date": "2027-02-18",
       "home": "Memphis Grizzlies",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-02-19",
+      "date": "2027-02-18",
       "home": "Los Angeles Lakers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-02-19",
+      "date": "2027-02-18",
       "home": "Portland Trail Blazers",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-02-19",
+      "date": "2027-02-18",
       "home": "Minnesota Timberwolves",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Chicago Bulls",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Brooklyn Nets",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Orlando Magic",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Cleveland Cavaliers",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Golden State Warriors",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Detroit Pistons",
       "away": "Miami Heat"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "LA Clippers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "Milwaukee Bucks",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "New Orleans Pelicans",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-02-26",
+      "date": "2027-02-25",
       "home": "New York Knicks",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Toronto Raptors",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Boston Celtics",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Houston Rockets",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Portland Trail Blazers",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Denver Nuggets",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-02-27",
-      "home": "Detroit Pistons",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "Minnesota Timberwolves",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-02-27",
+      "date": "2027-02-26",
       "home": "San Antonio Spurs",
       "away": "Memphis Grizzlies"
     },
     {
       "date": "2027-02-27",
+      "home": "Chicago Bulls",
+      "away": "Brooklyn Nets"
+    },
+    {
+      "date": "2027-02-27",
+      "home": "Detroit Pistons",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-02-27",
+      "home": "Memphis Grizzlies",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2027-02-27",
+      "home": "Phoenix Suns",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2027-02-27",
+      "home": "New York Knicks",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-02-27",
       "home": "Utah Jazz",
       "away": "Washington Wizards"
     },
@@ -7731,8 +7751,13 @@
     },
     {
       "date": "2027-02-28",
-      "home": "Chicago Bulls",
-      "away": "Brooklyn Nets"
+      "home": "Minnesota Timberwolves",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-02-28",
+      "home": "Charlotte Hornets",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2027-02-28",
@@ -7746,198 +7771,203 @@
     },
     {
       "date": "2027-02-28",
+      "home": "Houston Rockets",
+      "away": "Miami Heat"
+    },
+    {
+      "date": "2027-02-28",
       "home": "Indiana Pacers",
       "away": "Toronto Raptors"
     },
     {
       "date": "2027-02-28",
-      "home": "Memphis Grizzlies",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-02-28",
-      "home": "Phoenix Suns",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2027-02-28",
-      "home": "New York Knicks",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2027-03-01",
-      "home": "Minnesota Timberwolves",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2027-03-01",
-      "home": "Charlotte Hornets",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-03-01",
-      "home": "Houston Rockets",
-      "away": "Miami Heat"
-    },
-    {
-      "date": "2027-03-01",
       "home": "LA Clippers",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-03-01",
+      "date": "2027-02-28",
       "home": "New York Knicks",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "Denver Nuggets",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "Detroit Pistons",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "Cleveland Cavaliers",
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "Houston Rockets",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "New Orleans Pelicans",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-03-02",
+      "date": "2027-03-01",
       "home": "Phoenix Suns",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Indiana Pacers",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Dallas Mavericks",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Milwaukee Bucks",
       "away": "Detroit Pistons"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Portland Trail Blazers",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Orlando Magic",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "New York Knicks",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Miami Heat",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Oklahoma City Thunder",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-03-03",
+      "date": "2027-03-02",
       "home": "Sacramento Kings",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Atlanta Hawks",
       "away": "Chicago Bulls"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Phoenix Suns",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Philadelphia 76ers",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Denver Nuggets",
       "away": "San Antonio Spurs"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Houston Rockets",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Miami Heat",
       "away": "Toronto Raptors"
     },
     {
-      "date": "2027-03-04",
+      "date": "2027-03-03",
       "home": "Milwaukee Bucks",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Atlanta Hawks",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "LA Clippers",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Cleveland Cavaliers",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Dallas Mavericks",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Golden State Warriors",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Orlando Magic",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Philadelphia 76ers",
       "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-03-05",
+      "date": "2027-03-04",
       "home": "Sacramento Kings",
       "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "Detroit Pistons",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "Houston Rockets",
+      "away": "San Antonio Spurs"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "New Orleans Pelicans",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "Phoenix Suns",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "Orlando Magic",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-03-05",
+      "home": "Toronto Raptors",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2027-03-06",
@@ -7946,18 +7976,8 @@
     },
     {
       "date": "2027-03-06",
-      "home": "Detroit Pistons",
-      "away": "Boston Celtics"
-    },
-    {
-      "date": "2027-03-06",
       "home": "Chicago Bulls",
       "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-03-06",
-      "home": "Houston Rockets",
-      "away": "San Antonio Spurs"
     },
     {
       "date": "2027-03-06",
@@ -7966,233 +7986,243 @@
     },
     {
       "date": "2027-03-06",
-      "home": "New Orleans Pelicans",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2027-03-06",
-      "home": "Phoenix Suns",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-03-06",
-      "home": "Orlando Magic",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-03-06",
-      "home": "Toronto Raptors",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2027-03-07",
-      "home": "Boston Celtics",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2027-03-07",
-      "home": "Chicago Bulls",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2027-03-07",
-      "home": "Denver Nuggets",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-03-07",
       "home": "Sacramento Kings",
       "away": "LA Clippers"
     },
     {
-      "date": "2027-03-07",
+      "date": "2027-03-06",
       "home": "Los Angeles Lakers",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-03-07",
+      "date": "2027-03-06",
       "home": "Memphis Grizzlies",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-03-07",
+      "date": "2027-03-06",
       "home": "Washington Wizards",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-03-08",
+      "date": "2027-03-07",
+      "home": "Boston Celtics",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-03-07",
       "home": "Los Angeles Lakers",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-03-08",
+      "date": "2027-03-07",
+      "home": "Chicago Bulls",
+      "away": "Portland Trail Blazers"
+    },
+    {
+      "date": "2027-03-07",
+      "home": "Denver Nuggets",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-03-07",
       "home": "Golden State Warriors",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-03-08",
+      "date": "2027-03-07",
       "home": "San Antonio Spurs",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Memphis Grizzlies",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Indiana Pacers",
       "away": "Charlotte Hornets"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Oklahoma City Thunder",
       "away": "Dallas Mavericks"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Sacramento Kings",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "LA Clippers",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Miami Heat",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Minnesota Timberwolves",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-03-09",
+      "date": "2027-03-08",
       "home": "Philadelphia 76ers",
       "away": "Utah Jazz"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Chicago Bulls",
       "away": "Boston Celtics"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Brooklyn Nets",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Detroit Pistons",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Dallas Mavericks",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Golden State Warriors",
       "away": "Portland Trail Blazers"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "Orlando Magic",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-03-10",
+      "date": "2027-03-09",
       "home": "San Antonio Spurs",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Minnesota Timberwolves",
       "away": "Atlanta Hawks"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Charlotte Hornets",
       "away": "New Orleans Pelicans"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Portland Trail Blazers",
       "away": "Denver Nuggets"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Sacramento Kings",
       "away": "Golden State Warriors"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Utah Jazz",
       "away": "Houston Rockets"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "LA Clippers",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Miami Heat",
       "away": "Orlando Magic"
     },
     {
-      "date": "2027-03-11",
+      "date": "2027-03-10",
       "home": "Toronto Raptors",
       "away": "Oklahoma City Thunder"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Atlanta Hawks",
       "away": "Brooklyn Nets"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Boston Celtics",
       "away": "Memphis Grizzlies"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Charlotte Hornets",
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Chicago Bulls",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "LA Clippers",
       "away": "Cleveland Cavaliers"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Dallas Mavericks",
       "away": "Washington Wizards"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Detroit Pistons",
       "away": "Milwaukee Bucks"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "Los Angeles Lakers",
       "away": "New York Knicks"
     },
     {
-      "date": "2027-03-12",
+      "date": "2027-03-11",
       "home": "San Antonio Spurs",
       "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "Boston Celtics",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "Los Angeles Lakers",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "Denver Nuggets",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "Milwaukee Bucks",
+      "away": "Miami Heat"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "New Orleans Pelicans",
+      "away": "Toronto Raptors"
+    },
+    {
+      "date": "2027-03-12",
+      "home": "Utah Jazz",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2027-03-13",
@@ -8201,11 +8231,6 @@
     },
     {
       "date": "2027-03-13",
-      "home": "Boston Celtics",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-03-13",
       "home": "Detroit Pistons",
       "away": "Brooklyn Nets"
     },
@@ -8216,13 +8241,13 @@
     },
     {
       "date": "2027-03-13",
-      "home": "Los Angeles Lakers",
-      "away": "Cleveland Cavaliers"
+      "home": "Chicago Bulls",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2027-03-13",
-      "home": "Denver Nuggets",
-      "away": "Golden State Warriors"
+      "home": "Dallas Mavericks",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-03-13",
@@ -8231,18 +8256,13 @@
     },
     {
       "date": "2027-03-13",
-      "home": "Milwaukee Bucks",
-      "away": "Miami Heat"
+      "home": "Portland Trail Blazers",
+      "away": "LA Clippers"
     },
     {
       "date": "2027-03-13",
-      "home": "New Orleans Pelicans",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2027-03-13",
-      "home": "Utah Jazz",
-      "away": "Sacramento Kings"
+      "home": "Minnesota Timberwolves",
+      "away": "Philadelphia 76ers"
     },
     {
       "date": "2027-03-14",
@@ -8251,18 +8271,8 @@
     },
     {
       "date": "2027-03-14",
-      "home": "Chicago Bulls",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-03-14",
       "home": "Sacramento Kings",
       "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-03-14",
-      "home": "Dallas Mavericks",
-      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-03-14",
@@ -8276,13 +8286,13 @@
     },
     {
       "date": "2027-03-14",
-      "home": "Portland Trail Blazers",
-      "away": "LA Clippers"
+      "home": "Los Angeles Lakers",
+      "away": "Golden State Warriors"
     },
     {
       "date": "2027-03-14",
       "home": "Minnesota Timberwolves",
-      "away": "Philadelphia 76ers"
+      "away": "Washington Wizards"
     },
     {
       "date": "2027-03-14",
@@ -8291,18 +8301,23 @@
     },
     {
       "date": "2027-03-15",
+      "home": "Dallas Mavericks",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-03-15",
       "home": "Brooklyn Nets",
       "away": "Indiana Pacers"
     },
     {
       "date": "2027-03-15",
-      "home": "Los Angeles Lakers",
-      "away": "Golden State Warriors"
+      "home": "Chicago Bulls",
+      "away": "Orlando Magic"
     },
     {
       "date": "2027-03-15",
-      "home": "Minnesota Timberwolves",
-      "away": "Washington Wizards"
+      "home": "Memphis Grizzlies",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2027-03-15",
@@ -8311,23 +8326,48 @@
     },
     {
       "date": "2027-03-16",
-      "home": "Dallas Mavericks",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2027-03-16",
       "home": "Boston Celtics",
       "away": "Sacramento Kings"
     },
     {
       "date": "2027-03-16",
-      "home": "Chicago Bulls",
+      "home": "Oklahoma City Thunder",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "Golden State Warriors",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "LA Clippers",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "Indiana Pacers",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "Houston Rockets",
+      "away": "San Antonio Spurs"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "Portland Trail Blazers",
+      "away": "Los Angeles Lakers"
+    },
+    {
+      "date": "2027-03-16",
+      "home": "Milwaukee Bucks",
       "away": "Orlando Magic"
     },
     {
       "date": "2027-03-16",
-      "home": "Memphis Grizzlies",
-      "away": "Phoenix Suns"
+      "home": "New Orleans Pelicans",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2027-03-16",
@@ -8336,8 +8376,13 @@
     },
     {
       "date": "2027-03-17",
-      "home": "Oklahoma City Thunder",
-      "away": "Charlotte Hornets"
+      "home": "Utah Jazz",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-03-17",
+      "home": "Houston Rockets",
+      "away": "Brooklyn Nets"
     },
     {
       "date": "2027-03-17",
@@ -8346,43 +8391,23 @@
     },
     {
       "date": "2027-03-17",
-      "home": "Golden State Warriors",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-03-17",
       "home": "Oklahoma City Thunder",
       "away": "Dallas Mavericks"
     },
     {
       "date": "2027-03-17",
-      "home": "LA Clippers",
-      "away": "Denver Nuggets"
+      "home": "Golden State Warriors",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2027-03-17",
-      "home": "Indiana Pacers",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2027-03-17",
-      "home": "Houston Rockets",
-      "away": "San Antonio Spurs"
+      "home": "Los Angeles Lakers",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2027-03-17",
       "home": "Portland Trail Blazers",
-      "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-03-17",
-      "home": "Milwaukee Bucks",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2027-03-17",
-      "home": "New Orleans Pelicans",
-      "away": "Minnesota Timberwolves"
+      "away": "Miami Heat"
     },
     {
       "date": "2027-03-17",
@@ -8391,23 +8416,28 @@
     },
     {
       "date": "2027-03-18",
-      "home": "Utah Jazz",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2027-03-18",
       "home": "Boston Celtics",
       "away": "Orlando Magic"
     },
     {
       "date": "2027-03-18",
-      "home": "Houston Rockets",
+      "home": "San Antonio Spurs",
       "away": "Brooklyn Nets"
     },
     {
       "date": "2027-03-18",
-      "home": "Golden State Warriors",
-      "away": "Memphis Grizzlies"
+      "home": "New Orleans Pelicans",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-03-18",
+      "home": "Denver Nuggets",
+      "away": "Cleveland Cavaliers"
+    },
+    {
+      "date": "2027-03-18",
+      "home": "Milwaukee Bucks",
+      "away": "Detroit Pistons"
     },
     {
       "date": "2027-03-18",
@@ -8416,13 +8446,13 @@
     },
     {
       "date": "2027-03-18",
-      "home": "Los Angeles Lakers",
-      "away": "Phoenix Suns"
+      "home": "LA Clippers",
+      "away": "Memphis Grizzlies"
     },
     {
       "date": "2027-03-18",
-      "home": "Portland Trail Blazers",
-      "away": "Miami Heat"
+      "home": "Utah Jazz",
+      "away": "Minnesota Timberwolves"
     },
     {
       "date": "2027-03-18",
@@ -8431,33 +8461,28 @@
     },
     {
       "date": "2027-03-19",
+      "home": "Los Angeles Lakers",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-03-19",
       "home": "San Antonio Spurs",
-      "away": "Brooklyn Nets"
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-03-19",
+      "home": "Golden State Warriors",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2027-03-19",
       "home": "New Orleans Pelicans",
-      "away": "Charlotte Hornets"
+      "away": "Houston Rockets"
     },
     {
       "date": "2027-03-19",
-      "home": "Denver Nuggets",
-      "away": "Cleveland Cavaliers"
-    },
-    {
-      "date": "2027-03-19",
-      "home": "Milwaukee Bucks",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2027-03-19",
-      "home": "LA Clippers",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-03-19",
-      "home": "Utah Jazz",
-      "away": "Minnesota Timberwolves"
+      "home": "Phoenix Suns",
+      "away": "Miami Heat"
     },
     {
       "date": "2027-03-19",
@@ -8466,8 +8491,13 @@
     },
     {
       "date": "2027-03-20",
-      "home": "Los Angeles Lakers",
+      "home": "LA Clippers",
       "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-03-20",
+      "home": "Detroit Pistons",
+      "away": "Charlotte Hornets"
     },
     {
       "date": "2027-03-20",
@@ -8476,38 +8506,23 @@
     },
     {
       "date": "2027-03-20",
-      "home": "San Antonio Spurs",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-03-20",
       "home": "Orlando Magic",
       "away": "Denver Nuggets"
     },
     {
       "date": "2027-03-20",
-      "home": "Golden State Warriors",
-      "away": "Portland Trail Blazers"
+      "home": "Milwaukee Bucks",
+      "away": "Indiana Pacers"
     },
     {
       "date": "2027-03-20",
-      "home": "New Orleans Pelicans",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-03-20",
-      "home": "Phoenix Suns",
-      "away": "Miami Heat"
+      "home": "Memphis Grizzlies",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-03-20",
       "home": "New York Knicks",
       "away": "Washington Wizards"
-    },
-    {
-      "date": "2027-03-21",
-      "home": "LA Clippers",
-      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-03-21",
@@ -8521,23 +8536,13 @@
     },
     {
       "date": "2027-03-21",
-      "home": "Detroit Pistons",
-      "away": "Charlotte Hornets"
+      "home": "Los Angeles Lakers",
+      "away": "Dallas Mavericks"
     },
     {
       "date": "2027-03-21",
       "home": "Miami Heat",
       "away": "Denver Nuggets"
-    },
-    {
-      "date": "2027-03-21",
-      "home": "Milwaukee Bucks",
-      "away": "Indiana Pacers"
-    },
-    {
-      "date": "2027-03-21",
-      "home": "Memphis Grizzlies",
-      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-03-21",
@@ -8556,13 +8561,33 @@
     },
     {
       "date": "2027-03-22",
+      "home": "Golden State Warriors",
+      "away": "Atlanta Hawks"
+    },
+    {
+      "date": "2027-03-22",
+      "home": "Memphis Grizzlies",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-03-22",
+      "home": "Chicago Bulls",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2027-03-22",
       "home": "Cleveland Cavaliers",
       "away": "Houston Rockets"
     },
     {
       "date": "2027-03-22",
-      "home": "Los Angeles Lakers",
+      "home": "LA Clippers",
       "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-03-22",
+      "home": "Minnesota Timberwolves",
+      "away": "Detroit Pistons"
     },
     {
       "date": "2027-03-22",
@@ -8570,9 +8595,9 @@
       "away": "Indiana Pacers"
     },
     {
-      "date": "2027-03-23",
-      "home": "Golden State Warriors",
-      "away": "Atlanta Hawks"
+      "date": "2027-03-22",
+      "home": "Milwaukee Bucks",
+      "away": "Washington Wizards"
     },
     {
       "date": "2027-03-23",
@@ -8581,33 +8606,33 @@
     },
     {
       "date": "2027-03-23",
-      "home": "Memphis Grizzlies",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-03-23",
-      "home": "Chicago Bulls",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-03-23",
-      "home": "LA Clippers",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-03-23",
-      "home": "Minnesota Timberwolves",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2027-03-23",
-      "home": "Milwaukee Bucks",
-      "away": "Washington Wizards"
+      "home": "Miami Heat",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2027-03-23",
       "home": "New York Knicks",
       "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2027-03-23",
+      "home": "Phoenix Suns",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-03-23",
+      "home": "Utah Jazz",
+      "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-03-23",
+      "home": "Portland Trail Blazers",
+      "away": "Toronto Raptors"
+    },
+    {
+      "date": "2027-03-24",
+      "home": "Sacramento Kings",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-03-24",
@@ -8621,8 +8646,23 @@
     },
     {
       "date": "2027-03-24",
+      "home": "Chicago Bulls",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-03-24",
+      "home": "Minnesota Timberwolves",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-03-24",
       "home": "Washington Wizards",
       "away": "Denver Nuggets"
+    },
+    {
+      "date": "2027-03-24",
+      "home": "Golden State Warriors",
+      "away": "Philadelphia 76ers"
     },
     {
       "date": "2027-03-24",
@@ -8636,28 +8676,13 @@
     },
     {
       "date": "2027-03-24",
-      "home": "Miami Heat",
-      "away": "Los Angeles Lakers"
+      "home": "LA Clippers",
+      "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-03-24",
       "home": "Phoenix Suns",
       "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-03-24",
-      "home": "Utah Jazz",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2027-03-24",
-      "home": "Portland Trail Blazers",
-      "away": "Toronto Raptors"
-    },
-    {
-      "date": "2027-03-25",
-      "home": "Sacramento Kings",
-      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-03-25",
@@ -8666,18 +8691,13 @@
     },
     {
       "date": "2027-03-25",
-      "home": "Chicago Bulls",
-      "away": "Orlando Magic"
+      "home": "Memphis Grizzlies",
+      "away": "Chicago Bulls"
     },
     {
       "date": "2027-03-25",
       "home": "Cleveland Cavaliers",
       "away": "Los Angeles Lakers"
-    },
-    {
-      "date": "2027-03-25",
-      "home": "Minnesota Timberwolves",
-      "away": "Dallas Mavericks"
     },
     {
       "date": "2027-03-25",
@@ -8687,7 +8707,7 @@
     {
       "date": "2027-03-25",
       "home": "Golden State Warriors",
-      "away": "Philadelphia 76ers"
+      "away": "Toronto Raptors"
     },
     {
       "date": "2027-03-25",
@@ -8696,18 +8716,8 @@
     },
     {
       "date": "2027-03-25",
-      "home": "LA Clippers",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2027-03-25",
       "home": "Miami Heat",
       "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-03-25",
-      "home": "Phoenix Suns",
-      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-03-26",
@@ -8716,13 +8726,28 @@
     },
     {
       "date": "2027-03-26",
-      "home": "Memphis Grizzlies",
-      "away": "Chicago Bulls"
+      "home": "Dallas Mavericks",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-03-26",
-      "home": "Golden State Warriors",
-      "away": "Toronto Raptors"
+      "home": "Oklahoma City Thunder",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-03-26",
+      "home": "Phoenix Suns",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2027-03-26",
+      "home": "Minnesota Timberwolves",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-03-26",
+      "home": "Portland Trail Blazers",
+      "away": "Philadelphia 76ers"
     },
     {
       "date": "2027-03-27",
@@ -8731,8 +8756,13 @@
     },
     {
       "date": "2027-03-27",
-      "home": "Dallas Mavericks",
-      "away": "New Orleans Pelicans"
+      "home": "Miami Heat",
+      "away": "Boston Celtics"
+    },
+    {
+      "date": "2027-03-27",
+      "home": "Chicago Bulls",
+      "away": "LA Clippers"
     },
     {
       "date": "2027-03-27",
@@ -8746,28 +8776,13 @@
     },
     {
       "date": "2027-03-27",
-      "home": "Oklahoma City Thunder",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-03-27",
-      "home": "Phoenix Suns",
+      "home": "Portland Trail Blazers",
       "away": "Milwaukee Bucks"
     },
     {
       "date": "2027-03-27",
-      "home": "Minnesota Timberwolves",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2027-03-27",
-      "home": "Portland Trail Blazers",
-      "away": "Philadelphia 76ers"
-    },
-    {
-      "date": "2027-03-28",
-      "home": "Miami Heat",
-      "away": "Boston Celtics"
+      "home": "Sacramento Kings",
+      "away": "Toronto Raptors"
     },
     {
       "date": "2027-03-28",
@@ -8786,23 +8801,18 @@
     },
     {
       "date": "2027-03-28",
-      "home": "Chicago Bulls",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-03-28",
       "home": "Washington Wizards",
       "away": "Dallas Mavericks"
     },
     {
       "date": "2027-03-28",
-      "home": "Houston Rockets",
-      "away": "Los Angeles Lakers"
+      "home": "Denver Nuggets",
+      "away": "Philadelphia 76ers"
     },
     {
       "date": "2027-03-28",
-      "home": "Portland Trail Blazers",
-      "away": "Milwaukee Bucks"
+      "home": "Houston Rockets",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2027-03-28",
@@ -8816,7 +8826,7 @@
     },
     {
       "date": "2027-03-28",
-      "home": "Sacramento Kings",
+      "home": "Phoenix Suns",
       "away": "Toronto Raptors"
     },
     {
@@ -8831,13 +8841,23 @@
     },
     {
       "date": "2027-03-29",
+      "home": "Chicago Bulls",
+      "away": "Indiana Pacers"
+    },
+    {
+      "date": "2027-03-29",
       "home": "Cleveland Cavaliers",
       "away": "Miami Heat"
     },
     {
       "date": "2027-03-29",
-      "home": "Denver Nuggets",
-      "away": "Philadelphia 76ers"
+      "home": "Milwaukee Bucks",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-03-29",
+      "home": "Sacramento Kings",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2027-03-29",
@@ -8846,8 +8866,13 @@
     },
     {
       "date": "2027-03-29",
-      "home": "Phoenix Suns",
-      "away": "Toronto Raptors"
+      "home": "San Antonio Spurs",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2027-03-30",
+      "home": "Indiana Pacers",
+      "away": "Boston Celtics"
     },
     {
       "date": "2027-03-30",
@@ -8856,33 +8881,28 @@
     },
     {
       "date": "2027-03-30",
-      "home": "Chicago Bulls",
-      "away": "Indiana Pacers"
+      "home": "Portland Trail Blazers",
+      "away": "Houston Rockets"
     },
     {
       "date": "2027-03-30",
-      "home": "Milwaukee Bucks",
-      "away": "Dallas Mavericks"
+      "home": "Memphis Grizzlies",
+      "away": "Los Angeles Lakers"
     },
     {
       "date": "2027-03-30",
-      "home": "Sacramento Kings",
-      "away": "Denver Nuggets"
+      "home": "Orlando Magic",
+      "away": "New York Knicks"
     },
     {
       "date": "2027-03-30",
-      "home": "San Antonio Spurs",
-      "away": "Phoenix Suns"
+      "home": "Utah Jazz",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-03-31",
       "home": "Atlanta Hawks",
       "away": "LA Clippers"
-    },
-    {
-      "date": "2027-03-31",
-      "home": "Indiana Pacers",
-      "away": "Boston Celtics"
     },
     {
       "date": "2027-03-31",
@@ -8893,6 +8913,11 @@
       "date": "2027-03-31",
       "home": "Washington Wizards",
       "away": "Chicago Bulls"
+    },
+    {
+      "date": "2027-03-31",
+      "home": "Dallas Mavericks",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2027-03-31",
@@ -8911,18 +8936,18 @@
     },
     {
       "date": "2027-03-31",
-      "home": "Memphis Grizzlies",
-      "away": "Los Angeles Lakers"
+      "home": "Milwaukee Bucks",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-03-31",
-      "home": "Orlando Magic",
-      "away": "New York Knicks"
+      "home": "Minnesota Timberwolves",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2027-03-31",
-      "home": "Utah Jazz",
-      "away": "Oklahoma City Thunder"
+      "home": "San Antonio Spurs",
+      "away": "Phoenix Suns"
     },
     {
       "date": "2027-04-01",
@@ -8936,33 +8961,18 @@
     },
     {
       "date": "2027-04-01",
-      "home": "Dallas Mavericks",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2027-04-01",
-      "home": "Portland Trail Blazers",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-04-01",
       "home": "Indiana Pacers",
       "away": "Orlando Magic"
     },
     {
       "date": "2027-04-01",
-      "home": "Milwaukee Bucks",
-      "away": "New Orleans Pelicans"
+      "home": "Oklahoma City Thunder",
+      "away": "Los Angeles Lakers"
     },
     {
-      "date": "2027-04-01",
-      "home": "Minnesota Timberwolves",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-04-01",
-      "home": "San Antonio Spurs",
-      "away": "Phoenix Suns"
+      "date": "2027-04-02",
+      "home": "Toronto Raptors",
+      "away": "Atlanta Hawks"
     },
     {
       "date": "2027-04-02",
@@ -8976,13 +8986,38 @@
     },
     {
       "date": "2027-04-02",
+      "home": "Milwaukee Bucks",
+      "away": "Charlotte Hornets"
+    },
+    {
+      "date": "2027-04-02",
+      "home": "Chicago Bulls",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-04-02",
+      "home": "Dallas Mavericks",
+      "away": "Sacramento Kings"
+    },
+    {
+      "date": "2027-04-02",
+      "home": "Phoenix Suns",
+      "away": "Denver Nuggets"
+    },
+    {
+      "date": "2027-04-02",
       "home": "Minnesota Timberwolves",
       "away": "Golden State Warriors"
     },
     {
       "date": "2027-04-02",
-      "home": "Oklahoma City Thunder",
-      "away": "Los Angeles Lakers"
+      "home": "Houston Rockets",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-04-02",
+      "home": "LA Clippers",
+      "away": "San Antonio Spurs"
     },
     {
       "date": "2027-04-02",
@@ -8990,39 +9025,9 @@
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-04-03",
-      "home": "Toronto Raptors",
-      "away": "Atlanta Hawks"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Milwaukee Bucks",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Chicago Bulls",
-      "away": "Detroit Pistons"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Dallas Mavericks",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Phoenix Suns",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Houston Rockets",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "LA Clippers",
-      "away": "San Antonio Spurs"
+      "date": "2027-04-02",
+      "home": "Portland Trail Blazers",
+      "away": "Utah Jazz"
     },
     {
       "date": "2027-04-03",
@@ -9033,11 +9038,6 @@
       "date": "2027-04-03",
       "home": "Orlando Magic",
       "away": "Washington Wizards"
-    },
-    {
-      "date": "2027-04-03",
-      "home": "Portland Trail Blazers",
-      "away": "Utah Jazz"
     },
     {
       "date": "2027-04-04",
@@ -9093,6 +9093,11 @@
       "date": "2027-04-04",
       "home": "LA Clippers",
       "away": "Phoenix Suns"
+    },
+    {
+      "date": "2027-04-04",
+      "home": "Los Angeles Lakers",
+      "away": "San Antonio Spurs"
     },
     {
       "date": "2027-04-04",
@@ -9106,13 +9111,18 @@
     },
     {
       "date": "2027-04-05",
-      "home": "Los Angeles Lakers",
-      "away": "San Antonio Spurs"
+      "home": "Orlando Magic",
+      "away": "Miami Heat"
     },
     {
       "date": "2027-04-05",
-      "home": "Orlando Magic",
-      "away": "Miami Heat"
+      "home": "New Orleans Pelicans",
+      "away": "Washington Wizards"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Atlanta Hawks",
+      "away": "New York Knicks"
     },
     {
       "date": "2027-04-06",
@@ -9121,8 +9131,38 @@
     },
     {
       "date": "2027-04-06",
-      "home": "New Orleans Pelicans",
-      "away": "Washington Wizards"
+      "home": "Milwaukee Bucks",
+      "away": "Chicago Bulls"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Los Angeles Lakers",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Denver Nuggets",
+      "away": "New Orleans Pelicans"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Memphis Grizzlies",
+      "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Golden State Warriors",
+      "away": "Phoenix Suns"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "LA Clippers",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-04-06",
+      "home": "Utah Jazz",
+      "away": "Oklahoma City Thunder"
     },
     {
       "date": "2027-04-06",
@@ -9130,9 +9170,9 @@
       "away": "Philadelphia 76ers"
     },
     {
-      "date": "2027-04-07",
-      "home": "Atlanta Hawks",
-      "away": "New York Knicks"
+      "date": "2027-04-06",
+      "home": "San Antonio Spurs",
+      "away": "Sacramento Kings"
     },
     {
       "date": "2027-04-07",
@@ -9146,8 +9186,8 @@
     },
     {
       "date": "2027-04-07",
-      "home": "Milwaukee Bucks",
-      "away": "Chicago Bulls"
+      "home": "Chicago Bulls",
+      "away": "Charlotte Hornets"
     },
     {
       "date": "2027-04-07",
@@ -9156,18 +9196,8 @@
     },
     {
       "date": "2027-04-07",
-      "home": "Los Angeles Lakers",
+      "home": "Portland Trail Blazers",
       "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-04-07",
-      "home": "Denver Nuggets",
-      "away": "New Orleans Pelicans"
-    },
-    {
-      "date": "2027-04-07",
-      "home": "Memphis Grizzlies",
-      "away": "Detroit Pistons"
     },
     {
       "date": "2027-04-07",
@@ -9176,53 +9206,43 @@
     },
     {
       "date": "2027-04-07",
-      "home": "Golden State Warriors",
-      "away": "Phoenix Suns"
-    },
-    {
-      "date": "2027-04-07",
-      "home": "LA Clippers",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-04-07",
-      "home": "Utah Jazz",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-04-07",
-      "home": "San Antonio Spurs",
-      "away": "Sacramento Kings"
-    },
-    {
-      "date": "2027-04-08",
-      "home": "Chicago Bulls",
-      "away": "Charlotte Hornets"
-    },
-    {
-      "date": "2027-04-08",
-      "home": "Portland Trail Blazers",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-04-08",
       "home": "Houston Rockets",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-04-08",
+      "date": "2027-04-07",
       "home": "Los Angeles Lakers",
       "away": "Minnesota Timberwolves"
     },
     {
-      "date": "2027-04-08",
+      "date": "2027-04-07",
       "home": "Memphis Grizzlies",
       "away": "Washington Wizards"
     },
     {
       "date": "2027-04-08",
+      "home": "Denver Nuggets",
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-04-08",
+      "home": "Oklahoma City Thunder",
+      "away": "Golden State Warriors"
+    },
+    {
+      "date": "2027-04-08",
       "home": "Miami Heat",
       "away": "Philadelphia 76ers"
+    },
+    {
+      "date": "2027-04-08",
+      "home": "Milwaukee Bucks",
+      "away": "New York Knicks"
+    },
+    {
+      "date": "2027-04-08",
+      "home": "Utah Jazz",
+      "away": "New Orleans Pelicans"
     },
     {
       "date": "2027-04-09",
@@ -9236,13 +9256,23 @@
     },
     {
       "date": "2027-04-09",
+      "home": "Chicago Bulls",
+      "away": "Milwaukee Bucks"
+    },
+    {
+      "date": "2027-04-09",
       "home": "Indiana Pacers",
       "away": "Cleveland Cavaliers"
     },
     {
       "date": "2027-04-09",
-      "home": "Denver Nuggets",
-      "away": "LA Clippers"
+      "home": "Sacramento Kings",
+      "away": "Dallas Mavericks"
+    },
+    {
+      "date": "2027-04-09",
+      "home": "San Antonio Spurs",
+      "away": "Denver Nuggets"
     },
     {
       "date": "2027-04-09",
@@ -9256,63 +9286,33 @@
     },
     {
       "date": "2027-04-09",
-      "home": "Milwaukee Bucks",
-      "away": "New York Knicks"
+      "home": "Houston Rockets",
+      "away": "Portland Trail Blazers"
     },
     {
       "date": "2027-04-09",
       "home": "Utah Jazz",
-      "away": "New Orleans Pelicans"
+      "away": "LA Clippers"
+    },
+    {
+      "date": "2027-04-09",
+      "home": "Los Angeles Lakers",
+      "away": "Minnesota Timberwolves"
+    },
+    {
+      "date": "2027-04-09",
+      "home": "Phoenix Suns",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-04-09",
+      "home": "Miami Heat",
+      "away": "Washington Wizards"
     },
     {
       "date": "2027-04-09",
       "home": "Orlando Magic",
       "away": "Toronto Raptors"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Chicago Bulls",
-      "away": "Milwaukee Bucks"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Sacramento Kings",
-      "away": "Dallas Mavericks"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "San Antonio Spurs",
-      "away": "Denver Nuggets"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Oklahoma City Thunder",
-      "away": "Golden State Warriors"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Houston Rockets",
-      "away": "Portland Trail Blazers"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Utah Jazz",
-      "away": "LA Clippers"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Los Angeles Lakers",
-      "away": "Minnesota Timberwolves"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Phoenix Suns",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-04-10",
-      "home": "Miami Heat",
-      "away": "Washington Wizards"
     },
     {
       "date": "2027-04-11",
@@ -9341,8 +9341,28 @@
     },
     {
       "date": "2027-04-11",
+      "home": "Dallas Mavericks",
+      "away": "Memphis Grizzlies"
+    },
+    {
+      "date": "2027-04-11",
+      "home": "Denver Nuggets",
+      "away": "Oklahoma City Thunder"
+    },
+    {
+      "date": "2027-04-11",
       "home": "Washington Wizards",
       "away": "Detroit Pistons"
+    },
+    {
+      "date": "2027-04-11",
+      "home": "Golden State Warriors",
+      "away": "Utah Jazz"
+    },
+    {
+      "date": "2027-04-11",
+      "home": "Minnesota Timberwolves",
+      "away": "Houston Rockets"
     },
     {
       "date": "2027-04-11",
@@ -9351,43 +9371,24 @@
     },
     {
       "date": "2027-04-11",
-      "home": "Miami Heat",
-      "away": "Orlando Magic"
-    },
-    {
-      "date": "2027-04-12",
-      "home": "Dallas Mavericks",
-      "away": "Memphis Grizzlies"
-    },
-    {
-      "date": "2027-04-12",
-      "home": "Denver Nuggets",
-      "away": "Oklahoma City Thunder"
-    },
-    {
-      "date": "2027-04-12",
-      "home": "Golden State Warriors",
-      "away": "Utah Jazz"
-    },
-    {
-      "date": "2027-04-12",
-      "home": "Minnesota Timberwolves",
-      "away": "Houston Rockets"
-    },
-    {
-      "date": "2027-04-12",
       "home": "LA Clippers",
       "away": "Sacramento Kings"
     },
     {
-      "date": "2027-04-12",
+      "date": "2027-04-11",
       "home": "Los Angeles Lakers",
       "away": "Phoenix Suns"
     },
     {
-      "date": "2027-04-12",
+      "date": "2027-04-11",
+      "home": "Miami Heat",
+      "away": "Orlando Magic"
+    },
+    {
+      "date": "2027-04-11",
       "home": "San Antonio Spurs",
       "away": "Portland Trail Blazers"
     }
-  ]
+  ],
+  "schedule_fetched": "2026-11-11"
 }
